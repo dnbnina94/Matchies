@@ -93,7 +93,7 @@
 			<div style="display: table; width: 100%; border-radius: 5px; background: rgba(170,170,170, 0.8); padding-left: 20px; padding-right: 20px;">
 
 				<div style="height: 100%; text-align: center; display: table-cell; vertical-align: 	middle">
-					<form class="form-signin">
+					<form class="form-signin" action="/searching" method="post">
 						<table width="100%" style="color: white; font-weight: bold; margin-top: 15px">
 							<tbody>
 								<tr>

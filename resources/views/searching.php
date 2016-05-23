@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="author" content="Nina Grujic">
+	<meta name="author" content="Milena Filipovic, Nina Grujic">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<link rel="shortcut icon" type="image/x-icon" href="images/puzle.ico" />
     <title> Welcome to Matchies </title>
@@ -12,6 +12,12 @@
     <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+	
+	<link href="bootstrap-3.3.6-dist/slider2/bootstrap-slider.css" rel="stylesheet">
+	<link href="bootstrap-3.3.6-dist/slider2/bootstrap-slider.min.css" rel="stylesheet">
+	<script src="bootstrap-3.3.6-dist/slider2/bootstrap-slider.js"></script>
+	<script src="bootstrap-3.3.6-dist/slider2/bootstrap-slider.min.js"></script>
+	<script src="bootstrap-3.3.6-dist/js/sliderproba.js"></script>
 	
 	<link href="bootstrap-3.3.6-dist/css/homepage.css" rel="stylesheet">
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -105,119 +111,99 @@
 		
 		<div class="col-md-3"></div>
 		<div class="col-md-6" align="center" style="padding-left: 10px; padding-right: 10px">
+
 			<div style="display: table; width: 100%; border-radius: 5px; background: rgba(170,170,170, 0.8); padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom:20px">
 
 				<div class="row">
 					<div class="col-md-12">
-						<div class="jumbotronProfile" style="color: white; font-size: 16px; padding-bottom: 0px">
-							<span style="font-weight: bold"> Messages: </span>
-							<div style="padding-top: 10px"></div>
-							<table width="100%" height="70px" style="border-bottom: 1px solid #B9BAB8; border-top: 1px solid #B9BAB8">
-								<tr>
-									<td valign="middle" width="5%" style="padding-right: 10px; padding-left: 10px">
-										<img src="images/envclosed.png" width="40px" />
-									</td>
-									<td valign="top" style="padding: 10px">
-										<a href="/chat" style="color: white; font-weight: bold; font-size: 16px">UserNina</a>
-										<i class="fa fa-reply" style="font-size: 14px;"></i> <br/>
-										<div style="padding-top: 5px"><span style="color: #F1F1F1; font-size: 12px;">21.03.2016. 13:43</span></div> <br/>
-										<table width="100%" style="padding-top: 0px">
-											<tr>
-												<td width="100%">
-													<div class="progress" style="margin-bottom: 0px; margin-top: 0px; background: #AED581; height: 8px">
-  														<div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="background: #298A08; width: 50%" id="progressComplete">
-  														</div>
-													</div>
-												</td>
-												<td style="padding-left: 10px">
-													<i class="fa fa-lock" style="font-size: 20px"></i>
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
-							<table width="100%" height="70px" style="border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td valign="middle" width="5%" style="padding-right: 10px; padding-left: 10px">
-										<img src="images/envclosed.png" width="40px" />
-									</td>
-									<td valign="top" style="padding: 10px">
-										<a href="/chat" style="color: white; font-weight: bold; font-size: 16px">MyNameIsBot</a>
-										<i class="fa fa-reply" style="font-size: 14px;"></i> <br/>
-										<div style="padding-top: 5px"><span style="color: #F1F1F1; font-size: 12px;">10.02.2016. 09:33</span></div> <br/>
-										<table width="100%" style="padding-top: 0px">
-											<tr>
-												<td width="100%">
-													<div class="progress" style="margin-bottom: 0px; margin-top: 0px; background: #AED581; height: 8px">
-  														<div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="background: #298A08; width: 20%" id="progressComplete">
-  														</div>
-													</div>
-												</td>
-												<td style="padding-left: 10px">
-													<i class="fa fa-lock" style="font-size: 20px"></i>
-												</td>
-											</tr>
-										</table>
-								</tr>
-							</table>
-							<table width="100%" height="70px" style="border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td valign="middle" width="5%" style="padding-right: 10px; padding-left: 10px">
-										<img src="images/envopen.png" width="40px" />
-									</td>
-									<td valign="top" style="padding: 10px">
-										<a href="/chat" style="color: white; font-weight: bold; font-size: 16px">PrettyLady</a> 
-										<i class="fa fa-reply" style="font-size: 14px;"></i> <br/>
-										<div style="padding-top: 5px"><span style="color: #F1F1F1; font-size: 12px;">11.01.2016. 19:09</span></div> <br/>
-										<table width="100%" style="padding-top: 0px">
-											<tr>
-												<td width="100%">
-													<div class="progress" style="margin-bottom: 0px; margin-top: 0px; background: #AED581; height: 8px">
-  														<div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="background: #298A08; width: 70%" id="progressComplete">
-  														</div>
-													</div>
-												</td>
-												<td style="padding-left: 10px">
-													<i class="fa fa-lock" style="font-size: 20px"></i>
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
-							<table width="100%" height="70px" style="border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td valign="middle" width="5%" style="padding-right: 10px; padding-left: 10px">
-										<img src="images/envopen.png" width="40px" />
-									</td>
-									<td valign="top" style="padding: 10px">
-										<a href="/chat" style="color: white; font-weight: bold; font-size: 16px">Mary_Jane</a>
-										<i class="fa fa-share" style="font-size: 14px;"></i> <br/>
-										<div style="padding-top: 5px"><span style="color: #F1F1F1; font-size: 12px;">11.01.2016. 17:19</span></div> <br/>
-										<table width="100%" style="padding-top: 0px">
-											<tr>
-												<td width="100%">
-													<div class="progress" style="margin-bottom: 0px; margin-top: 0px; background: #AED581; height: 8px">
-  														<div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="background: #298A08; width: 100%" id="progressComplete">
-  														</div>
-													</div>
-												</td>
-												<td style="padding-left: 10px">
-													<i class="fa fa-unlock-alt" style="font-size: 20px"></i>
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-							</table>
-							<div style="padding-top: 20px; padding-bottom: 25px; color: white; text-align: center">
-								You have no more messages.
-							</div>
+						<div class="jumbotronProfile">
+							<div class="row" style="font-weight: bold; color: white; font-size: 16px">
+								<div class="col-md-6" align="left" id="levoIme"><a href="profile1.html" class="linkToProfile">Thomas Appleby, 23, <i class="fa fa-mars"></i></a></div>
+								<div class="col-md-6" align="right" id="desnoUsername"><a href="profile1.html" class="linkToProfile">@ThomasA</a></div>
+							</div>										
 						</div>
+
+						<div class="jumbotronProfile" style="margin-top: 20px; color: white; font-size: 16px; font-weight: bold" align="center" id="UserBio">
+							I'm an exchange student from UK and I came to Belgrade this year. I have a girlfriend, and I'm here to make friends.			
+						</div>
+
+						<div class="jumbotronProfile" style="margin-top: 20px; color: white" align="center">
+							<div class="row UserInfoRows">
+								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Relationship status: </div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserRelStatusCol">In a relationship</div>
+							</div>			
+							<div class="row UserInfoRows">
+								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Education: </div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserEduStatusCol">High School</div>
+							</div>
+							<div class="row UserInfoRows">
+								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Likes: </div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserLikesCol">Parties, electronic music, music festivals.</div>
+							</div>
+							<div class="row UserInfoRows">
+								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Dislikes: </div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserDislikesCol">I don't like shy people.</div>
+							</div>
+							<div class="row UserInfoRows">
+								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Hobbies: </div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserHobbiesCol">Sleeping and eating.</div>
+							</div>
+
+							<hr style="margin-top: 10px; margin-bottom: 10px;"/>
+
+							<div width="100%" id="ostatak">
+
+							<div class="row UserInfoRows">
+								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Field of work: </div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserWorkCol">Student</div>
+							</div>
+							<div class="row UserInfoRows">
+								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Perfect first date: </div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFirstDateCol">/</div>
+							</div>
+							<div class="row UserInfoRows">
+								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Favorite quote: </div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFavQuoteCol">"Don't worry, be happy"</div>
+							</div>
+							<div class="row UserInfoRows">
+								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Favorite song: </div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFavSongCol">Chris Brown - Beautiful People</div>
+							</div>
+							<div class="row UserInfoRows">
+								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Longest relationship: </div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserLongestRelCol">2 months</div>
+							</div>
+							<div class="row UserInfoRows">
+								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Best quality: </div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserBestQualCol">I'm kind and I'm very adventurous.</div>
+							</div>
+							<div class="row UserInfoRows">
+								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Worst quality: </div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserWorstQualCol">I'm lazy.</div>
+							</div>
+
+							<hr style="margin-top: 10px; margin-bottom: 10px;"/>
+
+							</div>
+
+							<span style="cursor: pointer; color: #AE0000; font-weight: bold" id="readMore">Read more</span>
+						</div>
+
+						<div class="jumbotronProfile" style="margin-top: 20px">
+							<table width="100%">
+								<tr>
+									<td><span class="glyphicon glyphicon-remove LikeRemove" onclick="promeniRemove()"></span></td>
+									<td width="100%" align="center" style="color: #AE0000"><span id="areYou">Are you interested in this user?</span></td>
+									<td><span class="glyphicon glyphicon-ok LikeOk" onclick="promeniOk()"></span></td>
+								</tr>
+							</table>
+						</div>
+
 					</div>
 				</div>
+					
 			</div>
+
 		</div>
 		<div class="col-md-3"></div>
 

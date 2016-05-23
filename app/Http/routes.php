@@ -55,3 +55,11 @@ Route::get('/messages', function() {
 Route::get('/notifications', function() {
 	return view('notifications');
 });
+
+Route::post('/searching', function() {
+	return view('searching');
+});
+
+Route::get('/chat', function() {
+	return view('chat');
+});
