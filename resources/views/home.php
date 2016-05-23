@@ -67,7 +67,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="/home">
         <img alt="Matchies" src="images/matchiespngwhite.png" width="100px">
       </a>
     </div>

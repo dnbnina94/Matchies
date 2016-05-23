@@ -20,10 +20,30 @@ Route::post('/home', function () {
 	return view('home');
 });
 
+Route::get('/home', function () {
+	return view('home');
+});
+
 Route::post('/password_sent', function() {
 	return view('password_sent');
 });
 
 Route::get('/forgot_password', function() {
 	return view('forgot_password');
+});
+
+Route::get('/signup_step_1', function() {
+	return view('signup_step_1');
+});
+
+Route::post('/signup_step_2', function() {
+	return view('signup_step_2');
+});
+
+Route::post('/signup_step_3', function() {
+	return view('signup_step_3');
+});
+
+Route::post('/signup_step_4', function() {
+	return view('signup_step_4');
 });
