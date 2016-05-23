@@ -12,5 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+
+Route::post('/home', function () {
+	return view('home');
+});
+
+Route::post('/password_sent', function() {
+	return view('password_sent');
+});
+
+Route::get('/forgot_password', function() {
+	return view('forgot_password');
 });
