@@ -47,3 +47,11 @@ Route::post('/signup_step_3', function() {
 Route::post('/signup_step_4', function() {
 	return view('signup_step_4');
 });
+
+Route::get('/messages', function() {
+	return view('messages');
+});
+
+Route::get('/notifications', function() {
+	return view('notifications');
+});
