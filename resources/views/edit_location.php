@@ -6,39 +6,40 @@
 	<meta name="author" content="Nina Grujic">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<link rel="shortcut icon" type="image/x-icon" href="images/puzle.ico" />
-    <title> Welcome to Matchies </title>
+    <title> Welcome to Matchies - Searching! </title>
     <link rel="shortcut icon" type="image/x-icon" href="images/heart.png" />
     <!-- Bootstrap -->
     <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
 	
+	
 	<link href="bootstrap-3.3.6-dist/css/homepage.css" rel="stylesheet">
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-	<script src="bootstrap-3.3.6-dist/js/promenaProfila.js"></script>
+	<script src="bootstrap-3.3.6-dist/js/reportovanjeKorisnika.js"></script>
 	<script src="bootstrap-3.3.6-dist/js/openSettings.js"></script>
+	<script src="bootstrap-3.3.6-dist/js/validacijaEditProfile.js"></script>
+	<script src="bootstrap-3.3.6-dist/js/menjanjeLozinke.js"></script>
 
 	<script>
 		$(document).ready(function(){
-    		$("#sewingBut").click(function(){
+			$("#sewingBut").click(function(){
         		$("#footerMenuNavBar").slideToggle("slow");
     		});
 		});
 	</script>
 
 	<script>
-		$(document).ready(function(){
-    		$("#readMore").click(function(){
-        		$("#ostatak").slideToggle();
-        		if ($("#readMore").html() == "Read more")
-        			$("#readMore").html("Show less");
-        		else
-        			$("#readMore").html("Read more");
-    		});
+		$(window).on('resize', function () {
+			var pikseli = $("#slicice").width();
+			$("#slicice").css("height", pikseli);
+			var pikseli2 = $("#slicice1").width();
+			$("#sliciceTablet").css("height", pikseli2);
 		});
 	</script>
+
 	</head>
-<body onload="ucitaj();">
+<body onload="ucitajDrzaveIGradove()">
 
 <div id="settingsBoxContainer">
 	<div id="settingsBoxRowContainer">
@@ -66,13 +67,6 @@
 	</div>
 </div>
 
-<table id="dijalog">
-	<tr>
-		<td align="center" valign="middle" id="alertMessage">
-		</td>
-	</tr>
-</table>
-
 <nav class="navbar navbar-default navbar-custom" role="navigation" style="background: #AE0000; border: none">
   <div class="container">
    
@@ -99,82 +93,103 @@
   </div>
 </nav>					
 			
-<div class="container">
-	
+<div class="container" id="containerDiv">
 	<div class="row" id="content" style="padding-top: 3%;">
-		
-		<div class="col-md-3"></div>
-		<div class="col-md-6" align="center" style="padding-left: 10px; padding-right: 10px">
-			<div style="display: table; width: 100%; border-radius: 5px; background: rgba(170,170,170, 0.8); padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom:20px">
+			
+					
+					<div class="col-md-10 col-md-offset-1" align="center">
+					   
+						<div class="jumbotron" style="background: rgba(170,170,170, 0.6)">
+							<div class="row">
+								<div class="col-md-4 levaKolonaEditProfile">
+									<div class="jumbotronProfile">
+										<table id="editProfileMenu">
+											<tr>
+												<td class="editProfileCol">
+													<a href="/edit_profile" class="editProfileLink">Basic information</a>
+												</td>
+											</tr>
+											<tr>
+												<td class="editProfileCol">
+													<a href="/edit_location" class="editProfileLink" style="color: #AE0000">Location</a>
+												</td>
+											</tr>
+											<tr>
+												<td class="editProfileCol">
+													<a href="#" class="editProfileLink">Pictures</a>
+												</td>
+											</tr>
+											<tr>
+												<td class="editProfileCol">
+													<a href="#" class="editProfileLink">Details</a>
+												</td>
+											</tr>
+											<tr>
+												<td class="editProfileCol" style="border: none">
+													<a href="#" class="editProfileLink">Delete your account</a>
+												</td>
+											</tr>
+										</table>
+									</div>
+									<div class="jumbotronProfile" style="margin-top: 20px; text-align: center; color: white; font-size: 16px">
+										You can use this section to edit your profile. The only thing you cannot edit is your username.<br/><br/>
+										Make sure to enter the correct information.
+									</div>
+								</div>
 
-				<div class="row">
-					<div class="col-md-12">
-						<div class="jumbotronProfile" style="color: white; font-size: 16px; padding-bottom: 0px">
-							<span style="font-weight: bold"> Notifications: </span>
-							<div style="padding-top: 10px"></div>
-							<table width="100%" height="70px" style="border-bottom: 1px solid #B9BAB8; border-top: 1px solid #B9BAB8">
-								<tr>
-									<td valign="middle" width="5%" style="padding-right: 10px; padding-left: 10px">
-										<i class="fa fa-heart" aria-hidden="true" style="font-size: 40px; color: #AD423C"></i>
-									</td>
-									<td valign="top" style="padding: 10px">
-										<span style="color: white"> You have been matched with user <a href="#" style="color: #AE0000">UserBlaBla</a>. You can now start your conversation.</span> <br/>
-										<div style="padding-top:10px"></div>
-										<span style="color: #DCEBF9; font-size: 12px;">21.03.2016. 12:09</span>
-									</td>
-								</tr>
-							</table>
-							<table width="100%" height="70px" style="border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td valign="middle" width="5%" style="padding-right: 10px; padding-left: 10px">
-										<i class="fa fa-camera-retro" aria-hidden="true" style="font-size: 40px; color: #AD423C"></i>
-									</td>
-									<td valign="top" style="padding: 10px">
-										<span style="color: white"> You have unlocked photos of <a href="#" style="color: #AE0000">UserNina</a>. Click <a href="#" style="color: #AE0000">here</a> to see them.</span> <br/>
-										<div style="padding-top:10px"></div>
-										<span style="color: #DCEBF9; font-size: 12px;">21.03.2016. 11:09</span>
-									</td>
-								</tr>
-							</table>
-							<table width="100%" height="70px" style="border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td valign="middle" width="5%" style="padding-right: 10px; padding-left: 10px">
-										<i class="fa fa-exclamation-triangle" aria-hidden="true" style="font-size: 40px; color: #AD423C"></i>
-									</td>
-									<td valign="top" style="padding: 10px">
-										<span style="color: white">You have been reported for negative attitude. Please, pay attention to your behavior. Otherwise, you'll get banned from our website.</span> <br/>
-										<div style="padding-top:10px"></div>
-										<span style="color: #DCEBF9; font-size: 12px;">20.03.2016. 08:43</span>
-									</td>
-								</tr>
-							</table>
-							<table width="100%" height="70px" style="border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td valign="middle" width="5%" style="padding-right: 10px; padding-left: 10px">
-										<i class="fa fa-heart" aria-hidden="true" style="font-size: 40px; color: #AD423C"></i>
-									</td>
-									<td valign="top" style="padding: 10px">
-										<span style="color: white"> You have been matched with user <a href="#" style="color: #AE0000">TheyCallMeBot</a>. You can now start your conversation.</span> <br/>
-										<div style="padding-top:10px"></div>
-										<span style="color: #DCEBF9; font-size: 12px;">20.03.2016. 00:19</span>
-									</td>
-								</tr>
-							</table>
-							<div style="padding-top: 20px; padding-bottom: 25px; color: white; text-align: center">
-								You have no more notifications.
+								<div class="col-md-8 desnaKolonaEditProfile">
+									<div class="jumbotronProfile" style="padding-left: 20px; padding-right: 20px; font-size: 16px">
+										<div class="row">
+											<div class="col-md-12" align="left">
+												<form name="editLocation" action="/edit_location" method="post">
+												<span>Country:</span><br/>
+												<select name="country" class="form-control" id="country" style="font-size:16px; padding-left: 8px;">
+													<option  value="selectCountry" disabled selected>Your country</option>
+												</select>
+												<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaDrzava" align="left">
+										
+                                            		<span class="text-left" id="countrylabel"></span>
+										
+                                        		</div>    
+											</div>
+										</div>
+										<div class="row" style="padding-top: 10px">
+											<div class="col-md-12" align="left">
+												<span>City:</span><br/>
+												<select name="city" class="form-control" id="city" style="font-size: 16px; padding-left: 8px;">
+													<option value="selectCity" disabled selected>Your city</option>
+												</select>
+                                        		<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaGrad" align="left">
+										
+                                            		<span class="text-left" id="citylabel"></span>
+										
+                                        		</div>
+												</form>
+											</div>
+										</div>
+
+										<div class="row" style="padding-top: 20px; padding-bottom: 7px">
+											<div class="col-md-9"></div>
+											<div class="col-md-3">
+												<button class="btn" id="subButt" name="submitButton" onclick="return validacija2();" style="font-weight: bold">Save</button>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
+					
+						
 					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3"></div>
 
-	</div>
+	</div> 
+	
 
-</div>
+	
+</div><!-- /.container --> 
 
-<div style="height: 80px;" id="divche"></div>
+<div style="height: 30px;" id="divche"></div>
 <div class="container" id="footerMenuNavBar">
 	<div class="row">
 		<div style="height: 10px"></div>
@@ -211,5 +226,6 @@
 			</div>
 	  </div>
     </footer>
+
   </body>
 </html>

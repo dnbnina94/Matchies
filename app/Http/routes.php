@@ -63,3 +63,19 @@ Route::post('/searching', function() {
 Route::get('/chat', function() {
 	return view('chat');
 });
+
+Route::get('/edit_profile', function () {
+	return view('edit_profile');
+});
+
+Route::post('/edit_profile', function () {
+	return view('edit_profile');
+});
+
+Route::get('/edit_location', function () {
+	return view('edit_location');
+});
+
+Route::post('/edit_location', function () {
+	return view('edit_location');
+});
