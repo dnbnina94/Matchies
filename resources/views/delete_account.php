@@ -18,8 +18,7 @@
 	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 	<script src="bootstrap-3.3.6-dist/js/reportovanjeKorisnika.js"></script>
 	<script src="bootstrap-3.3.6-dist/js/openSettings.js"></script>
-	<script src="bootstrap-3.3.6-dist/js/validacijaEditProfile.js"></script>
-	<script src="bootstrap-3.3.6-dist/js/menjanjeLozinke.js"></script>
+	<script src="bootstrap-3.3.6-dist/js/confirmPassword.js"></script>
 
 	<script>
 		$(document).ready(function(){
@@ -111,7 +110,7 @@
 											</tr>
 											<tr>
 												<td class="editProfileCol">
-													<a href="/edit_location" class="editProfileLink" style="color: #AE0000">Location</a>
+													<a href="/edit_location" class="editProfileLink">Location</a>
 												</td>
 											</tr>
 											<tr>
@@ -126,7 +125,7 @@
 											</tr>
 											<tr>
 												<td class="editProfileCol" style="border: none">
-													<a href="/delete_account" class="editProfileLink">Delete your account</a>
+													<a href="/delete_account" class="editProfileLink"  style="color: #AE0000">Delete your account</a>
 												</td>
 											</tr>
 										</table>
@@ -140,39 +139,32 @@
 								<div class="col-md-8 desnaKolonaEditProfile">
 									<div class="jumbotronProfile" style="padding-left: 20px; padding-right: 20px; font-size: 16px">
 										<div class="row">
-											<div class="col-md-12" align="left">
-												<form name="editLocation" action="/edit_location" method="post">
-												<span>Country:</span><br/>
-												<select name="country" class="form-control" id="country" style="font-size:16px; padding-left: 8px;">
-													<option  value="selectCountry" disabled selected>Your country</option>
-												</select>
-												<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaDrzava" align="left">
-										
-                                            		<span class="text-left" id="countrylabel"></span>
-										
-                                        		</div>    
-											</div>
-										</div>
-										<div class="row" style="padding-top: 10px">
-											<div class="col-md-12" align="left">
-												<span>City:</span><br/>
-												<select name="city" class="form-control" id="city" style="font-size: 16px; padding-left: 8px;">
-													<option value="selectCity" disabled selected>Your city</option>
-												</select>
-                                        		<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaGrad" align="left">
-										
-                                            		<span class="text-left" id="citylabel"></span>
-										
-                                        		</div>
-												</form>
+											<form name="deleteAccount" action="/" method="post">
+											<div class="col-md-12" align="center" style="color: white">
+												<span style="font-weight: bold">Deleting your account</span><br/>
+												<div style="height: 10px"></div>
+												<span>We will be sad to see you go, however you can delete your account at any time. Upon confirmation,
+													all your information will be permanently deleted from the system.</span>
+												<div class="row">
+													<div class="col-md-2"></div>
+													<div class="col-md-8" style="padding-top: 20px">
+														<div class="form-group" id="greskaCurrPass" align="left">
+				           									<input type="password" class="form-control has-error" name="currentPass" id="currentPass" placeholder="Enter your password" autofocus style="font-size: 16px">
+                           									<span id="currentPassicon" class="" aria-hidden="true"></span>
+                           									<span id="inputError2Status" class="sr-only">(error)</span>
+                           									<label class= "form-control-label" for="currentPass" id="currentPasslabel"  style="color:#AE0000; font-weight:normal;"></label>
+                        								</div>
+													</div>
+													<div class="col-md-2"></div>
+												</div>
 											</div>
 										</div>
 
-										<div class="row" style="padding-top: 20px; padding-bottom: 7px">
+										<div class="row" style="padding-bottom: 7px">
 											<div class="col-md-9"></div>
 											<div class="col-md-3">
-												<button class="btn" id="subButt" name="submitButton" onclick="return validacija2();" style="font-weight: bold">Save</button>
-												</form>
+												<button class="btn" id="subButt" name="submitButton" style="font-weight: bold" onclick="return confirmPass()">Confirm</button>
+											</form>
 											</div>
 										</div>
 									</div>

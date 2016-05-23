@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::post('/', function () {
+    return view('index');
+});
+
 
 Route::post('/home', function () {
 	return view('home');
@@ -78,4 +82,20 @@ Route::get('/edit_location', function () {
 
 Route::post('/edit_location', function () {
 	return view('edit_location');
+});
+
+Route::get('/delete_account', function() {
+	return view('delete_account');
+});
+
+Route::post('/delete_account', function() {
+	return view('delete_account');
+});
+
+Route::get('/edit_details', function() {
+	return view('edit_details');
+});
+
+Route::post('/edit_details', function() {
+	return view('edit_details');
 });

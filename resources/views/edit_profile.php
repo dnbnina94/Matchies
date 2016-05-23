@@ -172,12 +172,12 @@
 											</tr>
 											<tr>
 												<td class="editProfileCol">
-													<a href="#" class="editProfileLink">Details</a>
+													<a href="/edit_details" class="editProfileLink">Details</a>
 												</td>
 											</tr>
 											<tr>
 												<td class="editProfileCol" style="border: none">
-													<a href="#" class="editProfileLink">Delete your account</a>
+													<a href="/delete_account" class="editProfileLink">Delete your account</a>
 												</td>
 											</tr>
 										</table>
