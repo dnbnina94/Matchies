@@ -118,8 +118,8 @@
 					<div class="col-md-12">
 						<div class="jumbotronProfile">
 							<div class="row" style="font-weight: bold; color: white; font-size: 16px">
-								<div class="col-md-6" align="left" id="levoIme"><a href="profile1.html" class="linkToProfile">Thomas Appleby, 23, <i class="fa fa-mars"></i></a></div>
-								<div class="col-md-6" align="right" id="desnoUsername"><a href="profile1.html" class="linkToProfile">@ThomasA</a></div>
+								<div class="col-md-6" align="left" id="levoIme"><a href="/profile_1" class="linkToProfile">Thomas Appleby, 23, <i class="fa fa-mars"></i></a></div>
+								<div class="col-md-6" align="right" id="desnoUsername"><a href="/profile_1" class="linkToProfile">@ThomasA</a></div>
 							</div>										
 						</div>
 

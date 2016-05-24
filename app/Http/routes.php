@@ -99,3 +99,27 @@ Route::get('/edit_details', function() {
 Route::post('/edit_details', function() {
 	return view('edit_details');
 });
+
+Route::get('/profile_1', function () {
+	return view('profile_1');
+});
+
+Route::post('/profile_1', function () {
+	return view('profile_1');
+});
+
+Route::get('/profile_2', function () {
+	return view('profile_2');
+});
+
+Route::post('/profile_2', function () {
+	return view('profile_2');
+});
+
+Route::get('/profile_3', function () {
+	return view('profile_3');
+});
+
+Route::post('/profile_3', function () {
+	return view('profile_3');
+});
