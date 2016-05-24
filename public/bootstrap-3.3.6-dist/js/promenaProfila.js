@@ -7,8 +7,8 @@ function promeniOk() {
 
 	document.getElementById('dijalog').style.display = "none";
 
-	document.getElementById('levoIme').innerHTML = "<a href='profile1.html' class='linkToProfile'>Stefan Tubic, 24, <i class='fa fa-mars'></i></a>";
-	document.getElementById('desnoUsername').innerHTML = "<a href='profile1.html' class='linkToProfile'>@Tubke91</a>";
+	document.getElementById('levoIme').innerHTML = "<a href='/profile_1' class='linkToProfile'>Stefan Tubic, 24, <i class='fa fa-mars'></i></a>";
+	document.getElementById('desnoUsername').innerHTML = "<a href='/profile_1' class='linkToProfile'>@Tubke91</a>";
 
 	document.getElementById('UserBio').innerHTML = "Cao ja sam Stefan, asistent sam na Elektrotehnickom fakultetu u Beogradu ;). Imam devojku ali sam raspolozen za druzenje.";
 	document.getElementById('UserEduStatusCol').innerHTML = "Masters degree";
