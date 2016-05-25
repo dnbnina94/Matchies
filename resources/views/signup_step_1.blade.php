@@ -1,3 +1,5 @@
+@extends('layouts.layout_basic')
+
 @section('title')
 Sign Up- Step 1!
 @stop
