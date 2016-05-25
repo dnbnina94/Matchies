@@ -16,7 +16,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
 
-
+	<link href="bootstrap-3.3.6-dist/css/proba.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
 
@@ -33,13 +33,11 @@
   </script>
      @show
 
-@yield('javascriptFunctions')
 
 	</head>
 
 
- <body @yield('onloadfunction')>
-
+<body @yield('onloadfunction')>
 
 @yield('specialMessage')
 
@@ -110,8 +108,8 @@
 @yield('content')
 
 
+<!-- /footer -->
 @section('footer')
-<!--footer-->
 <div class="container" id="footerMenuNavBar">
 	<div class="row">
 		<div style="height: 10px"></div>
@@ -147,11 +145,8 @@
 				<img src="images/btnred.png" width="21px" id="sewingBut">
 			</div>
 	  </div>
-
-    </footer>
-@show
-
-
+</footer>
+@stop
 
   </body>
 </html>
