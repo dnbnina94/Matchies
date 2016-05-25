@@ -145,7 +145,7 @@
 				<img src="images/btnred.png" width="21px" id="sewingBut">
 			</div>
 	  </div>
-    </footer>
+</footer>
 @stop
 
   </body>
