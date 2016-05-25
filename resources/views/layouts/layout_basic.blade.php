@@ -109,7 +109,44 @@
 
 
 <!-- /footer -->
-@yield('footer')
+@section('footer')
+<div class="container" id="footerMenuNavBar">
+	<div class="row">
+		<div style="height: 10px"></div>
+		<div class="text-center"><a href="#">About</a></div>
+		<div style="height: 10px"></div>
+		<div class="text-center"><a href="#">Support</a></div>
+		<div style="height: 10px"></div>
+		<div class="text-center"><a href="#">Privacy</a></div>
+		<div style="height: 10px"></div>
+		<div class="text-center"><a href="#">Terms</a></div>
+		<div style="height: 10px"></div>
+		<div class="text-center"><a href="#">Contact</a></div>
+		<div style="height: 10px"></div>
+	</div>
+</div>
+<footer class="footer navbar-fixed-bottom">
+      <div class="container">
+	  		<div class="text-left" id="footerLinkovi">
+      		   <a href="#" class="footerLink"> About </a>
+				 &nbsp;&nbsp;&nbsp;&nbsp;
+				 <a href="#" class="footerLink"> Support </a>
+				 &nbsp;&nbsp;&nbsp;&nbsp;
+				 <a href="#" class="footerLink"> Privacy </a>
+				 &nbsp;&nbsp;&nbsp;&nbsp;
+				 <a href="#" class="footerLink"> Terms </a>
+				 &nbsp;&nbsp;&nbsp;&nbsp;
+				 <a href="#" class="footerLink"> Contact </a>
+				 &nbsp;&nbsp;&nbsp;&nbsp;
+					@2016_Matchies,Inc
+			</div>
+
+			<div class="text-center" id="footermobile">
+				<img src="images/btnred.png" width="21px" id="sewingBut">
+			</div>
+	  </div>
+    </footer>
+@stop
 
   </body>
 </html>
