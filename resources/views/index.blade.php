@@ -4,6 +4,10 @@
 Login
 @stop
 
+@section('csslinks')
+<link href="bootstrap-3.3.6-dist/css/proba.css" rel="stylesheet">
+@stop
+
 @section('sewingBut')
 @parent
 @stop
