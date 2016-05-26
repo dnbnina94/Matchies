@@ -31,11 +31,17 @@ Searching
 
 	<script>
 		function lol() {
+			var pikseli = $("#slicice").width();
+			$("#slicice").css("height", pikseli);
+			var pikseli2 = $("#slicice1").width();
+			$("#sliciceTablet").css("height", pikseli2);
+
+			/*
 			var pikseli = document.getElementById('slicice').clientWidth;
 			document.getElementById('slicice').style.height = pikseli;
 
 			var pikseli2 = document.getElementById('slicice1').clientWidth;
-			document.getElementById('sliciceTablet').style.height = pikseli2;
+			document.getElementById('sliciceTablet').style.height = pikseli2;*/
 
 			document.getElementById('progressComplete').style.width = "70%";
 			document.getElementById('progressBarTekst').innerHTML = "70% Complete";
