@@ -6,6 +6,10 @@
 	padding-right: -2%;
 }
 
+.desno {
+  text-align: right;
+}
+
 #changePassKolona {
   padding-top: 10px;
 }
@@ -639,6 +643,10 @@ display:table-row;
 
     #saveDugme {
       padding-top: 20px;
+    }
+
+    .desno {
+      text-align: left;
     }
 }
 

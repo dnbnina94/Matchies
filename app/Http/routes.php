@@ -123,3 +123,11 @@ Route::get('/profile_3', function () {
 Route::post('/profile_3', function () {
 	return view('profile_3');
 });
+
+Route::get('/index_moderator', function() {
+	return view('index_moderator');
+});
+
+Route::get('/users_moderator', function() {
+	return view('users_moderator');
+});
