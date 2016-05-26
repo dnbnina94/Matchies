@@ -34,7 +34,7 @@ Notifications
 	</script>
 @stop
 
-@section('onloadfunction')onload="ucitaj();" @stop
+
 
 @section('settingsBoxContainer')
 @parent
