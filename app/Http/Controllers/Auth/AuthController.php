@@ -7,6 +7,8 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Contracts\Auth\Guard;
+
 
 class AuthController extends Controller
 {
@@ -30,6 +32,7 @@ class AuthController extends Controller
      */
     protected $redirectTo = '/';
 
+
     /**
      * Create a new authentication controller instance.
      *
@@ -37,7 +40,8 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+
+        $this->middleware('guest', ['except' => ['logout', 'getLogout']]);
     }
 
     /**
@@ -69,4 +73,7 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+
+
 }

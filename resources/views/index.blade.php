@@ -31,12 +31,13 @@ Login
 
 						<div class="jumbotron">
 
-								<form class="form-signin" action="/home" method="post">
+								<form class="form-signin"  method="POST" action="{{ url('/auth/login') }}">
+									<input type="hidden" name="_token" value="{{ csrf_token() }}">
 									<span style="color: white; font-size: 22px; font-weight: bold;"> Welcome! </span>
 									<div class="span fill"></div>
-									<input type="text" id="usr" class="form-control" placeholder="Enter your username" required autofocus>
+									<input type="text" id="usr" name="name" class="form-control" placeholder="Enter your username" required autofocus>
 									<div class="span fill2"></div>
-									<input type="password" id="inputPassword" class="form-control" placeholder="Enter your password" required>
+									<input type="password" id="inputPassword" name="password" class="form-control" placeholder="Enter your password"  required>
 									<div class="span fill2"></div>
 									<button class="btn" id="subButt" type="submit">Login</button>
 									<div style="height: 8px;"></div>

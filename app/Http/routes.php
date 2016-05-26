@@ -11,25 +11,128 @@
 |
 */
 
+Route::group(['middleware'=>'web'], function(){
+
 Route::get('/', function () {
     return view('index');
 });
 
-Route::post('/', function () {
-    return view('index');
-});
+Route::post('auth/login', 'AuthController@postLogin');
+
+Route::get('auth/logout', 'Auth\AuthController@logout');
+
+Route::group(['middleware'=>'customMiddleware'], function(){
+    Route::get('/home', [
+          'as' => 'home',
+          'uses' => function(){
+            return view('home');
+          }
+
+      ]);
 
 
-Route::post('/home', function () {
-	return view('home');
-});
+      /*
+      **********************************************
+      */
 
-Route::get('/home', function () {
-	return view('home');
+      Route::get('/messages', function() {
+        return view('messages');
+      });
+
+      Route::get('/notifications', function() {
+        return view('notifications');
+      });
+
+      Route::get('/searching', function() {
+        return view('error_page');
+      });
+
+      Route::post('/searching', function() {
+        return view('searching');
+      });
+
+      Route::get('/chat', function() {
+        return view('chat');
+      });
+
+      Route::get('/edit_profile', function () {
+        return view('edit_profile');
+      });
+
+      Route::post('/edit_profile', function () {
+        return view('edit_profile');
+      });
+
+      Route::get('/edit_location', function () {
+        return view('edit_location');
+      });
+
+      Route::post('/edit_location', function () {
+        return view('edit_location');
+      });
+
+      Route::get('/delete_account', function() {
+        return view('delete_account');
+      });
+
+      Route::post('/delete_account', function() {
+        return view('delete_account');
+      });
+
+      Route::get('/edit_details', function() {
+        return view('edit_details');
+      });
+
+      Route::post('/edit_details', function() {
+        return view('edit_details');
+      });
+
+      Route::get('/profile_1', function () {
+        return view('profile_1');
+      });
+
+      Route::post('/profile_1', function () {
+        return view('profile_1');
+      });
+
+      Route::get('/profile_2', function () {
+        return view('profile_2');
+      });
+
+      Route::post('/profile_2', function () {
+        return view('profile_2');
+      });
+
+      Route::get('/profile_3', function () {
+        return view('profile_3');
+      });
+
+      Route::post('/profile_3', function () {
+        return view('profile_3');
+      });
+
+
+
+
+
+
+
+
+
+
+    });
+
+
+
+
+
+
+
 });
 
 Route::post('/password_sent', function() {
-	return view('password_sent');
+  return view('password_sent');
+
 });
 
 Route::get('/forgot_password', function() {
@@ -50,76 +153,4 @@ Route::post('/signup_step_3', function() {
 
 Route::post('/signup_step_4', function() {
 	return view('signup_step_4');
-});
-
-Route::get('/messages', function() {
-	return view('messages');
-});
-
-Route::get('/notifications', function() {
-	return view('notifications');
-});
-
-Route::post('/searching', function() {
-	return view('searching');
-});
-
-Route::get('/chat', function() {
-	return view('chat');
-});
-
-Route::get('/edit_profile', function () {
-	return view('edit_profile');
-});
-
-Route::post('/edit_profile', function () {
-	return view('edit_profile');
-});
-
-Route::get('/edit_location', function () {
-	return view('edit_location');
-});
-
-Route::post('/edit_location', function () {
-	return view('edit_location');
-});
-
-Route::get('/delete_account', function() {
-	return view('delete_account');
-});
-
-Route::post('/delete_account', function() {
-	return view('delete_account');
-});
-
-Route::get('/edit_details', function() {
-	return view('edit_details');
-});
-
-Route::post('/edit_details', function() {
-	return view('edit_details');
-});
-
-Route::get('/profile_1', function () {
-	return view('profile_1');
-});
-
-Route::post('/profile_1', function () {
-	return view('profile_1');
-});
-
-Route::get('/profile_2', function () {
-	return view('profile_2');
-});
-
-Route::post('/profile_2', function () {
-	return view('profile_2');
-});
-
-Route::get('/profile_3', function () {
-	return view('profile_3');
-});
-
-Route::post('/profile_3', function () {
-	return view('profile_3');
 });
