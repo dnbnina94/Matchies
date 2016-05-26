@@ -50,7 +50,7 @@
 				<div class="settingsBox col-md-2" style="margin-left: 25px; margin-right: 25px">
 					<table width="100%" style="color: white; margin-bottom: 10px">
 						<tr>
-							<td style="font-weight: bold; font-size: 16px;">
+							<td style="font-weight: bold; font-size: 16px;" align="left">
 								Settings:
 							</td>
 							<td align="right" style="font-size: 16px; color: white">

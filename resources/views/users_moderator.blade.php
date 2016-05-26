@@ -9,6 +9,7 @@ Home Moderator
 @stop
 
 @section('javascriptlinks')
+  <script src="bootstrap-3.3.6-dist/js/openSettings.js"></script>
 @stop
 
 @section('sewingBut')
@@ -39,7 +40,7 @@ Home Moderator
 							<div style="padding-top: 10px"></div>
 							<div class="row">
 								<div class="col-md-6">
-									Username: <a href="#" style="font-weight: bold; color: #AE0000">user1</a>
+									Username: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user1</a>
 								</div>
 								<div class="col-md-6 desno">
 									Number of strikes: <span style="color: #AE0000; font-weight: bold">3</span>
@@ -55,7 +56,7 @@ Home Moderator
 
 							<div class="row">
 								<div class="col-md-6">
-									Username: <a href="#" style="font-weight: bold; color: #AE0000">user2</a>
+									Username: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user2</a>
 								</div>
 								<div class="col-md-6 desno">
 									Number of strikes: <span style="color: #AE0000; font-weight: bold">2</span>
@@ -71,7 +72,7 @@ Home Moderator
 
 							<div class="row">
 								<div class="col-md-6">
-									Username: <a href="#" style="font-weight: bold; color: #AE0000">user3</a>
+									Username: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user3</a>
 								</div>
 								<div class="col-md-6 desno">
 									Number of strikes: <span style="color: #AE0000; font-weight: bold">1</span>
@@ -87,7 +88,7 @@ Home Moderator
 
 							<div class="row">
 								<div class="col-md-6">
-									Username: <a href="#" style="font-weight: bold; color: #AE0000">user4</a>
+									Username: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user4</a>
 								</div>
 								<div class="col-md-6 desno">
 									Number of strikes: <span style="color: #AE0000; font-weight: bold">1</span>
@@ -103,7 +104,7 @@ Home Moderator
 
 							<div class="row">
 								<div class="col-md-6">
-									Username: <a href="#" style="font-weight: bold; color: #AE0000">user5</a>
+									Username: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user5</a>
 								</div>
 								<div class="col-md-6 desno">
 									Number of strikes: <span style="color: #AE0000; font-weight: bold">1</span>
@@ -119,7 +120,7 @@ Home Moderator
 
 							<div class="row">
 								<div class="col-md-6">
-									Username: <a href="#" style="font-weight: bold; color: #AE0000">user6</a>
+									Username: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user6</a>
 								</div>
 								<div class="col-md-6 desno">
 									Number of strikes: <span style="color: #AE0000; font-weight: bold">1</span>
@@ -135,7 +136,7 @@ Home Moderator
 
 							<div class="row">
 								<div class="col-md-6">
-									Username: <a href="#" style="font-weight: bold; color: #AE0000">user7</a>
+									Username: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user7</a>
 								</div>
 								<div class="col-md-6 desno">
 									Number of strikes: <span style="color: #AE0000; font-weight: bold">1</span>
@@ -149,7 +150,7 @@ Home Moderator
 								</tr>
 							</table>
 
-							<div style="padding-top: 15px; padding-bottom: 25px; color: white; text-align: center">
+							<div style="padding-top: 10px; padding-bottom: 25px; color: white; text-align: center">
 								You have no more reports.
 							</div>
 						</div>

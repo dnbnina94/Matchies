@@ -311,6 +311,16 @@ hr {
   cursor: pointer;
 }
 
+.trashIcon {
+  color: #AE0000;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.trashIcon:hover {
+  color: white;
+}
+
 #areYou {
   display: block;
 }

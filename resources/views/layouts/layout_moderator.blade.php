@@ -51,7 +51,7 @@
 				<div class="settingsBox col-md-2" style="margin-left: 25px; margin-right: 25px">
 					<table width="100%" style="color: white; margin-bottom: 10px">
 						<tr>
-							<td style="font-weight: bold; font-size: 16px;">
+							<td style="font-weight: bold; font-size: 16px;" align="left">
 								Settings:
 							</td>
 							<td align="right" style="font-size: 16px; color: white">
@@ -59,7 +59,6 @@
 							</td>
 						</tr>
 					</table>
-					<div style="padding-bottom: 10px; padding-top: 10px; border-bottom: 1px solid #B9BAB8"><a href="#" style="color: #AE0000">View your profile</a></div>
 					<div style="padding-bottom: 10px; padding-top: 10px; border-bottom: 1px solid #B9BAB8"><a href="/edit_profile" style="color: #AE0000">Edit your profile</a></div>
 					<div style="padding-bottom: 5px; padding-top: 10px;"><a href="index.html" style="color: #AE0000">Log out</a></div>
 				</div>
@@ -75,7 +74,7 @@
 
 
 
-@section('navbarmod')
+@section('navbar')
 <nav class="navbar navbar-default navbar-custom" role="navigation" style="background: #AE0000; border: none">
   <div class="container">
 

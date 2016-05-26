@@ -131,3 +131,11 @@ Route::get('/index_moderator', function() {
 Route::get('/users_moderator', function() {
 	return view('users_moderator');
 });
+
+Route::get('/profile_4', function() {
+	return view('profile_4');
+});
+
+Route::post('/profile_4', function() {
+	return view('profile_4');
+});

@@ -9,6 +9,7 @@ Home Moderator
 @stop
 
 @section('javascriptlinks')
+  <script src="bootstrap-3.3.6-dist/js/openSettings.js"></script>
 @stop
 
 @section('sewingBut')
@@ -19,7 +20,7 @@ Home Moderator
 @parent
 @stop
 
-@section('navbarmod')
+@section('navbar')
 @parent
 @stop
 
@@ -39,8 +40,8 @@ Home Moderator
 							<div style="padding-top: 10px"></div>
 							<div class="row">
 								<div class="col-md-3">
-									Reported user: <a href="#" style="font-weight: bold; color: #AE0000">user1</a><br/>
-									Issued by: <a href="#" style="font-weight: bold; color: #AE0000">user2</a>
+									Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user1</a><br/>
+									Issued by: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user2</a>
 								</div>
 								<div class="col-md-5">
 									Reason: <span style="color: #AE0000;">Reported user shares inappropriate content.</span>
@@ -52,7 +53,7 @@ Home Moderator
 												<button class=" btn" id="subButt"><b>Warn</b></button>
 											</td>
 											<td style="padding-left: 5px">
-												<span class="glyphicon glyphicon-trash LikeRemove"></span>
+												<span class="glyphicon glyphicon-trash trashIcon"></span>
 											</td>
 										</tr>
 									</table>
@@ -68,8 +69,8 @@ Home Moderator
 
 							<div class="row">
 								<div class="col-md-3">
-									Reported user: <a href="#" style="font-weight: bold; color: #AE0000">user3</a><br/>
-									Issued by: <a href="#" style="font-weight: bold; color: #AE0000">user1</a>
+									Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user3</a><br/>
+									Issued by: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user1</a>
 								</div>
 								<div class="col-md-5">
 									Reason: <span style="color: #AE0000;">This user is bothering me, this user sends me mean messages.</span>
@@ -81,7 +82,7 @@ Home Moderator
 												<button class=" btn" id="subButt"><b>Warn</b></button>
 											</td>
 											<td style="padding-left: 5px">
-												<span class="glyphicon glyphicon-trash LikeRemove"></span>
+												<span class="glyphicon glyphicon-trash trashIcon"></span>
 											</td>
 										</tr>
 									</table>
@@ -97,8 +98,8 @@ Home Moderator
 
 							<div class="row">
 								<div class="col-md-3">
-									Reported user: <a href="#" style="font-weight: bold; color: #AE0000">user3</a><br/>
-									Issued by: <a href="#" style="font-weight: bold; color: #AE0000">user2</a>
+									Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user3</a><br/>
+									Issued by: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user2</a>
 								</div>
 								<div class="col-md-5">
 									Reason: <span style="color: #AE0000;">Reported user is spammer.</span>
@@ -110,7 +111,7 @@ Home Moderator
 												<button class=" btn" id="subButt"><b>Warn</b></button>
 											</td>
 											<td style="padding-left: 5px">
-												<span class="glyphicon glyphicon-trash LikeRemove"></span>
+												<span class="glyphicon glyphicon-trash trashIcon"></span>
 											</td>
 										</tr>
 									</table>
@@ -126,8 +127,8 @@ Home Moderator
 
 							<div class="row">
 								<div class="col-md-3">
-									Reported user: <a href="#" style="font-weight: bold; color: #AE0000">user4</a><br/>
-									Issued by: <a href="#" style="font-weight: bold; color: #AE0000">user3</a>
+									Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user4</a><br/>
+									Issued by: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user3</a>
 								</div>
 								<div class="col-md-5">
 									Reason: <span style="color: #AE0000;">Reported user is spammer.</span>
@@ -139,7 +140,7 @@ Home Moderator
 												<button class=" btn" id="subButt"><b>Warn</b></button>
 											</td>
 											<td style="padding-left: 5px">
-												<span class="glyphicon glyphicon-trash LikeRemove"></span>
+												<span class="glyphicon glyphicon-trash trashIcon"></span>
 											</td>
 										</tr>
 									</table>
@@ -155,8 +156,8 @@ Home Moderator
 
 							<div class="row">
 								<div class="col-md-3">
-									Reported user: <a href="#" style="font-weight: bold; color: #AE0000">user4</a><br/>
-									Issued by: <a href="#" style="font-weight: bold; color: #AE0000">user2</a>
+									Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user4</a><br/>
+									Issued by: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user2</a>
 								</div>
 								<div class="col-md-5">
 									Reason: <span style="color: #AE0000;">Reported user shares inappropriate content.</span>
@@ -168,7 +169,7 @@ Home Moderator
 												<button class=" btn" id="subButt"><b>Warn</b></button>
 											</td>
 											<td style="padding-left: 5px">
-												<span class="glyphicon glyphicon-trash LikeRemove"></span>
+												<span class="glyphicon glyphicon-trash trashIcon"></span>
 											</td>
 										</tr>
 									</table>
@@ -184,8 +185,8 @@ Home Moderator
 
 							<div class="row">
 								<div class="col-md-3">
-									Reported user: <a href="#" style="font-weight: bold; color: #AE0000">user4</a><br/>
-									Issued by: <a href="#" style="font-weight: bold; color: #AE0000">user1</a>
+									Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user4</a><br/>
+									Issued by: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user1</a>
 								</div>
 								<div class="col-md-5">
 									Reason: <span style="color: #AE0000;">Reported user shares inappropriate content.</span>
@@ -197,7 +198,7 @@ Home Moderator
 												<button class=" btn" id="subButt"><b>Warn</b></button>
 											</td>
 											<td style="padding-left: 5px">
-												<span class="glyphicon glyphicon-trash LikeRemove"></span>
+												<span class="glyphicon glyphicon-trash trashIcon"></span>
 											</td>
 										</tr>
 									</table>
@@ -211,7 +212,7 @@ Home Moderator
 								</tr>
 							</table>
 
-							<div style="padding-top: 15px; padding-bottom: 25px; color: white; text-align: center">
+							<div style="padding-top: 10px; padding-bottom: 25px; color: white; text-align: center">
 								You have no more reports.
 							</div>
 						</div>
