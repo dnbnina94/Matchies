@@ -31,7 +31,9 @@ Sign Up- Step 3!
     <div class="container">
   	<div class="navbar-header">
         <a class="navbar-brand" href="/">
+
           <img alt="Matchies" src="/images/matchiespng.png" width="100px">
+
         </a>
       </div>
 
@@ -46,7 +48,6 @@ Sign Up- Step 3!
   					<div class="col-md-6 col-md-offset-3" align="center" style="padding-left:10px; padding-right: 10px;">
 
   						<div class="jumbotron">
-
   							<form class="form" action="{{ url('/signup/step4') }}" name="signup3" onsubmit="return validacija3();" method="post">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
   									<span style="font-weight: bold; font-size: 20px; color: #555555;"> Now you need to choose your profile picture...  </span>
@@ -118,6 +119,7 @@ Sign Up- Step 3!
                     <input type="hidden" name="date" value="{{ $date }}">
                     <input type="hidden" name="country" value="{{ $country }}">
                     <input type="hidden" name="city" value="{{ $city }}">
+
   							</form>
 
   						</div>

@@ -82,6 +82,7 @@ onload="bla()"
   										<button class="btn" id="subButt" name="submitButton" onclick="validacija2()"><div align="center" valign="middle">Next step</div></button>
 
   									</div>
+                    
                       <input type="hidden" name="name" value="{{ $name }}">
                       <input type="hidden" name="surname" value="{{ $surname }}">
                       <input type="hidden" name="email" value="{{ $email }}">

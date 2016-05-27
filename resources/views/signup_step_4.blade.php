@@ -11,6 +11,7 @@ Sign Up- Step 4!
 
 @section('javascriptlinks')
 	<script src="/bootstrap-3.3.6-dist/js/validacijaDodatno.js"></script>
+
 @stop
 
 @section('sewingBut')
@@ -30,6 +31,7 @@ Sign Up- Step 4!
   <div class="container">
 	<div class="navbar-header">
       <a class="navbar-brand" href="/">
+
         <img alt="Matchies" src="/images/matchiespng.png" width="100px">
       </a>
     </div>
@@ -148,6 +150,7 @@ Sign Up- Step 4!
 									<div class="row" >
 										<div class="col-md-12" align="left">
 										Interested in: &nbsp; &nbsp; &nbsp;
+
 										<input id="men" type="checkbox" name="interested[0]" value="men"/>
 										 <label for="men"><span><span></span></span>Men</label>
 										 &nbsp; &nbsp; &nbsp;
@@ -165,6 +168,7 @@ Sign Up- Step 4!
 									 <br/>
 
 									</div>
+
                   <input type="hidden" name="name" value="{{ $name }}">
                   <input type="hidden" name="surname" value="{{ $surname }}">
                   <input type="hidden" name="email" value="{{ $email }}">
@@ -176,6 +180,7 @@ Sign Up- Step 4!
                   <input type="hidden" name="file" value="{{ $file }}">
                   <input type="hidden" name="username" value="{{ $username }}">
                   <input type="hidden" name="password" value="{{ $password }}">
+
 
 							</form>
 

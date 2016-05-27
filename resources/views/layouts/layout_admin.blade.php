@@ -6,17 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="author" content="Nina Grujic, Milena Filipovic, Branislava Ivkovic">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<link rel="shortcut icon" type="image/x-icon" href="/images/puzle.ico" />
+	<link rel="shortcut icon" type="image/x-icon" href="images/puzle.ico" />
 
     <title> Matchies - @yield('title') </title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="/images/heart.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/heart.png" />
     <!-- Bootstrap -->
-    <link href="/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+    <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
 
   @yield('csslinks')
   @yield('javascriptlinks')
@@ -50,9 +51,7 @@
 				<div class="settingsBox col-md-2" style="margin-left: 25px; margin-right: 25px">
 					<table width="100%" style="color: white; margin-bottom: 10px">
 						<tr>
-
 							<td style="font-weight: bold; font-size: 16px;" align="left">
-
 								Settings:
 							</td>
 							<td align="right" style="font-size: 16px; color: white">
@@ -60,9 +59,8 @@
 							</td>
 						</tr>
 					</table>
-					<div style="padding-bottom: 10px; padding-top: 10px; border-bottom: 1px solid #B9BAB8"><a href="#" style="color: #AE0000">View your profile</a></div>
-					<div style="padding-bottom: 10px; padding-top: 10px; border-bottom: 1px solid #B9BAB8"><a href="/edit_profile" style="color: #AE0000">Edit your profile</a></div>
-					<div style="padding-bottom: 5px; padding-top: 10px;"><a href="/auth/logout" style="color: #AE0000">Log out</a></div>
+					<div style="padding-bottom: 10px; padding-top: 10px; border-bottom: 1px solid #B9BAB8"><a href="/new_moderator" style="color: #AE0000">Register a new moderator</a></div>
+					<div style="padding-bottom: 5px; padding-top: 10px;"><a href="/" style="color: #AE0000">Log out</a></div>
 				</div>
 				<div class="col-md-5"></div>
 			</div>
@@ -87,22 +85,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/home">
-
-        <img alt="Matchies" src="/images/matchiespngwhite.png" width="100px">
-
+      <a class="navbar-brand" href="/index_admin">
+        <img alt="Matchies" src="images/matchiespngwhite.png" width="100px">
       </a>
     </div>
 
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-            @if (!Auth::guest())
-            <li align="center"><a href="" style="color:white; font-weight:bold;">{{ Auth::user()->username }}</a></li>
-            @endif
+      		<li align="center"><a href="/index_admin"><span style="color: white; font-size: 18px">Reports</span></a></li>
+      		<li align="center"><a href="/users_admin"><span style="color: white; font-size: 18px">Users</span></a></li>
+      		<li align="center"><a href="/moderators_admin"><span style="color: white; font-size: 18px">Moderators</span></a></li>
             <li align="center"><a><span class="glyphicon glyphicon-cog " id="settings" style=" color:white; height: 22px; font-size: 16px; cursor: pointer" onclick="showSettings()"></span></a></li>
-            <li align="center"><a href="/messages"><span class="glyphicon glyphicon-comment " id="messages" style=" color:white; height: 22px; font-size: 16px"></span></a></li>
-            <li align="center"><a href="/notifications"><span class="glyphicon glyphicon-bell " id="alerts" style=" color:white; height: 22px; font-size: 16px"></span></a></li>
       </ul>
     </div>
   </div>
