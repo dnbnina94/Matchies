@@ -106,8 +106,6 @@
   font-size: 16px;
 }
 
-<<<<<<< HEAD
-=======
 #deleteBoxContainer {
   position: fixed;
   display: none;
@@ -164,7 +162,6 @@
   font-size: 16px;
 }
 
->>>>>>> 63ab248e13fda21438c75350b5a7e749064fb4d4
 /**********a font ***********/
 
 #specialLink{
@@ -370,8 +367,6 @@ hr {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
-=======
 .trashIcon {
   color: #AE0000;
   font-size: 28px;
@@ -382,7 +377,6 @@ hr {
   color: white;
 }
 
->>>>>>> 63ab248e13fda21438c75350b5a7e749064fb4d4
 #areYou {
   display: block;
 }
@@ -716,13 +710,10 @@ display:table-row;
     #saveDugme {
       padding-top: 20px;
     }
-<<<<<<< HEAD
-=======
 
     .desno {
       text-align: left;
     }
->>>>>>> 63ab248e13fda21438c75350b5a7e749064fb4d4
 }
 
 input[type=checkbox]:not(old),
