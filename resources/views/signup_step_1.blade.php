@@ -48,12 +48,13 @@ onload="bla()"
 
   						<div class="jumbotron">
 
-  							<form class="form" action="/signup_step_2" name="signup1" onsubmit="return validacija()" method="post">
+  							<form class="form" action="{{ url('/signup/step1') }}" name="signup1" onsubmit="return validacija()" method="post">
+                  	<input type="hidden" name="_token" value="{{ csrf_token() }}">
   									<span style="font-weight: bold; font-size: 20px; color: #555555;"> You are just a few clicks away from meeting awesome people... </span>
   									<br/>
   									<br/>
   									<div class="row" style="padding-top: 0px">
-  									<div class="col-md-6" id="imeKolona">
+  									<div class="col-md-6" id="imeKolona" >
   										<div class="form-group" id="greske1" align="left">
   										<input type="text" class="form-control" name="fname" id="fname" placeholder="Enter your first name" aria-describedby="inputError2Status" autofocus style="font-size: 16px;">
   										  <span id="fnameicon" class="" aria-hidden="true"></span>
