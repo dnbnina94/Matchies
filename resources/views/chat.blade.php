@@ -5,12 +5,12 @@ Chat!
 @stop
 
 @section('csslinks')
-  <link href="bootstrap-3.3.6-dist/css/homepage.css" rel="stylesheet">
+  <link href="/bootstrap-3.3.6-dist/css/homepage.css" rel="stylesheet">
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 @stop
 
 @section('javascriptlinks')
-	<script src="bootstrap-3.3.6-dist/js/openSettings.js"></script>
+	<script src="/bootstrap-3.3.6-dist/js/openSettings.js"></script>
 @stop
 
 @section('javascriptFunctions')

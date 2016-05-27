@@ -5,16 +5,16 @@ ERROR
 @stop
 
 @section('csslinks')
-	<link href="bootstrap-3.3.6-dist/css/homepage.css" rel="stylesheet">
-	<link href="bootstrap-3.3.6-dist/slider2/bootstrap-slider.css" rel="stylesheet">
-	<link href="bootstrap-3.3.6-dist/slider2/bootstrap-slider.min.css" rel="stylesheet">
+	<link href="/bootstrap-3.3.6-dist/css/homepage.css" rel="stylesheet">
+	<link href="/bootstrap-3.3.6-dist/slider2/bootstrap-slider.css" rel="stylesheet">
+	<link href="/bootstrap-3.3.6-dist/slider2/bootstrap-slider.min.css" rel="stylesheet">
 @stop
 
 @section('javascriptlinks')
-<script src="bootstrap-3.3.6-dist/slider2/bootstrap-slider.js"></script>
-	<script src="bootstrap-3.3.6-dist/slider2/bootstrap-slider.min.js"></script>
-	<script src="bootstrap-3.3.6-dist/js/sliderproba.js"></script>
-	<script src="bootstrap-3.3.6-dist/js/openSettings.js"></script>
+	<script src="/bootstrap-3.3.6-dist/slider2/bootstrap-slider.js"></script>
+	<script src="/bootstrap-3.3.6-dist/slider2/bootstrap-slider.min.js"></script>
+	<script src="/bootstrap-3.3.6-dist/js/sliderproba.js"></script>
+	<script src="/bootstrap-3.3.6-dist/js/openSettings.js"></script>
 @stop
 
 @section('sewingBut')
