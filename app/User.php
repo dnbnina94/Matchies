@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password',
+        'username', 'email', 'password',];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -22,4 +22,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+
+    public function registered_user(){
+        return $this->hasOne('App\Registered_user');
+    }
 }

@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Http\Requests;
 use App\User as User;
+use App\Registered_user as Registered_user;
+use App\Photo as Photo;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage as Storage;
+use Illuminate\Support\Facades\Hash as Hash;
 
 
 class SignUpController extends Controller
@@ -31,17 +35,15 @@ class SignUpController extends Controller
             $user = User::where('email', '=',$request->input('email') )->first();
             if ($user === null) {
                // user doesn't exist
-                $dayN = (int) $day;
-                $monthN = (int) $month;
-                $yearN = (int) $year;
 
-                $date = Carbon::createFromDate($year, $month, $day);
                 $info= array(
                   'name'=> $name,
                   'surname'=> $surname,
                   'email'=> $email,
                   'gender' => $gender,
-                  'date'=> $date
+                  'day'=> $day,
+                  'month' => $month,
+                  'year' => $year
                 );
                 return view('signup_step_2', $info);
 
@@ -61,7 +63,9 @@ class SignUpController extends Controller
         $surname = $request->input('surname');
         $email = $request->input('email');
         $gender = $request->input('gender');
-        $date = $request->input('date');
+        $day = $request->input('day');
+        $month = $request->input('month');
+        $year = $request->input('year');
         $country = $request->input('country');
         $city = $request->input('city');
 
@@ -70,7 +74,9 @@ class SignUpController extends Controller
           'surname'=> $surname,
           'email'=> $email,
           'gender' => $gender,
-          'date'=> $date,
+          'day'=> $day,
+          'month' => $month,
+          'year' => $year,
           'country' => $country,
           'city' => $city
         );
@@ -86,34 +92,53 @@ class SignUpController extends Controller
         $surname = $request->input('surname');
         $email = $request->input('email');
         $gender = $request->input('gender');
-        $date = $request->input('date');
+        $day = $request->input('day');
+        $month = $request->input('month');
+        $year = $request->input('year');
         $country = $request->input('country');
         $city = $request->input('city');
 
-        $file = $request->file('file');
+    //    $file = $request->file('file');
         $username = $request->input('username');
         $password = $request->input('password');
         $passrepeat = $request->input('passrepeat');
+
+
+
 
         if($password == $passrepeat){
 
             $user = User::where('username', '=',$request->input('username') )->first();
             if ($user === null) {
 
-              $info= array(
-                'name'=> $name,
-                'surname'=> $surname,
-                'email'=> $email,
-                'gender' => $gender,
-                'date'=> $date,
-                'country' => $country,
-                'city' => $city,
 
-                'file'=> $file,
-                'username' => $username,
-                'password' => $password
-              );
-              return view('signup_step_4', $info);
+                $file = $request->file('file');
+                if($file->isValid()){
+                    $filename= str_random(40);
+                    $filename .= '.jpg';
+                    //Storage::disk('tmp')->put($name, $file);
+                   $file->move('../storage/app/public/tmp', $filename);
+                    $file=$filename;
+
+                    $info= array(
+                      'name'=> $name,
+                      'surname'=> $surname,
+                      'email'=> $email,
+                      'gender' => $gender,
+                      'day'=> $day,
+                      'month' => $month,
+                      'year' => $year,
+                      'country' => $country,
+                      'city' => $city,
+
+                      'file'=> $file,
+                      'username' => $username,
+                      'password' => $password
+                    );
+                    return view('signup_step_4', $info);
+
+                }
+
 
             }
 
@@ -128,7 +153,9 @@ class SignUpController extends Controller
               $surname = $request->input('surname');
               $email = $request->input('email');
               $gender = $request->input('gender');
-              $date = $request->input('date');
+              $day = $request->input('day');
+              $month = $request->input('month');
+              $year = $request->input('year');
               $country = $request->input('country');
               $city = $request->input('city');
 
@@ -159,31 +186,84 @@ class SignUpController extends Controller
 
 
 
-              $info= array(
-                'name'=> $name,
-                'surname'=> $surname,
-                'email'=> $email,
-                'gender' => $gender,
-                'date'=> $date,
-                'country' => $country,
-                'city' => $city,
-
-                'file'=> $file,
-                'username' => $username,
-                'password' => $password,
-
-                'relationStatus'=> $relationStatus,
-                'educationStatus' => $educationStatus,
-                'shortBio' => $shortBio,
-                'Hobbies'=> $Hobbies,
-                'Likes' => $Likes,
-                'Dislikes' => $Dislikes,
-                'interestedMen' => $interestedMen,
-                'interestedWomen' => $interestedWomen
-              );
 
 
-              return view('nesto', $info);
+
+              $user = new User;
+              $user->username = $username;
+              $user->email = $email;
+              $user->password = Hash::make($password);
+              $user->type=3;
+              $user->save();
+              $id=$user->id;
+
+              $reg= new Registered_user;
+              $reg->id = $id;
+              $reg->name= $name;
+              $reg->surname = $surname;
+
+              $dayN = (int) $day;
+              $monthN = (int) $month;
+              $yearN = (int) $year;
+
+              $date = Carbon::createFromDate($year, $month, $day);
+              $reg->birth_date= $date;
+
+            if($gender=='male'){
+                $reg->sex = 'm';
+            }
+            if($gender=='female'){
+                $reg->sex = 'f';
+            }
+
+              $reg->country= $country;
+              $reg->city = $city;
+              $reg->relationship_status= $relationStatus;
+              $reg->education = $educationStatus;
+
+              $reg->bio= $shortBio;
+              $reg->hobbies = $Hobbies;
+              $reg->likes= $Likes;
+              $reg->dislikes = $Dislikes;
+
+              if($interestedMen=='men' and $interestedWomen== 'women'){
+                $reg->interested_in= 'fm';
+              }
+
+              if($interestedMen=='men' and $interestedWomen== ''){
+                $reg->interested_in= 'mm';
+              }
+
+              if($interestedMen=='' and $interestedWomen== 'women'){
+                $reg->interested_in= 'ff';
+              }
+
+
+          //    $reg->number_of_warnings = 0;
+
+              $reg->save();
+
+
+                if(Storage::disk('tmp')->has($file)){
+                    $photo =  new Photo;
+                    $photo->link = $file;
+                    $photo->id_user = $id;
+                    $photo->save();
+                    $phId = $photo->id;
+
+                  $contents = Storage::disk('tmp')->get($file);
+
+                  $filename= (string) $id;
+                  $filename .= '/';
+                  $filename .= (string) $phId;                  
+                  $filename .= '/';
+                  $filename .= $file;
+                  Storage::disk('uploads')->put($filename, $contents);
+                  Storage::disk('tmp')->delete($file);
+                }
+
+
+              return view('index');
 
 
 

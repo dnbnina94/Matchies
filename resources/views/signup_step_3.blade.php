@@ -48,7 +48,7 @@ Sign Up- Step 3!
   					<div class="col-md-6 col-md-offset-3" align="center" style="padding-left:10px; padding-right: 10px;">
 
   						<div class="jumbotron">
-  							<form class="form" action="{{ url('/signup/step4') }}" name="signup3" onsubmit="return validacija3();" method="post">
+  							<form class="form" action="{{ url('/signup/step4') }}" name="signup3" onsubmit="return validacija3();" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
   									<span style="font-weight: bold; font-size: 20px; color: #555555;"> Now you need to choose your profile picture...  </span>
   									<div class= "row" style="padding-left:10px; padding-right:10px; padding-top:22px;">
@@ -61,7 +61,7 @@ Sign Up- Step 3!
   															<div class="btn btn-default image-preview-input" style="border: none; background: rgba(0,0,0,0); padding-bottom: 10px" >
   																<span class="glyphicon glyphicon-folder-open" style="font-size: 16px"></span>
   																<span class="image-preview-input-title" style="font-size: 16px">Browse</span>
-  																<input type="file" accept="image/*" id="file" name="file" onchange="readURL();"/>
+  																<input type="file" accept="image/*" id="file" name="file" onchange="readURL();" />
   															</div>
   														</span>
   													</div>
@@ -116,7 +116,9 @@ Sign Up- Step 3!
                     <input type="hidden" name="surname" value="{{ $surname }}">
                     <input type="hidden" name="email" value="{{ $email }}">
                     <input type="hidden" name="gender" value="{{ $gender }}">
-                    <input type="hidden" name="date" value="{{ $date }}">
+                    <input type="hidden" name="day" value="{{ $day }}">
+                    <input type="hidden" name="month" value="{{ $month }}">
+                    <input type="hidden" name="year" value="{{ $year }}">
                     <input type="hidden" name="country" value="{{ $country }}">
                     <input type="hidden" name="city" value="{{ $city }}">
 

@@ -173,10 +173,11 @@ Sign Up- Step 4!
                   <input type="hidden" name="surname" value="{{ $surname }}">
                   <input type="hidden" name="email" value="{{ $email }}">
                   <input type="hidden" name="gender" value="{{ $gender }}">
-                  <input type="hidden" name="date" value="{{ $date }}">
+                  <input type="hidden" name="day" value="{{ $day }}">
+                  <input type="hidden" name="month" value="{{ $month }}">
+                  <input type="hidden" name="year" value="{{ $year }}">
                   <input type="hidden" name="country" value="{{ $country }}">
                   <input type="hidden" name="city" value="{{ $city }}">
-
                   <input type="hidden" name="file" value="{{ $file }}">
                   <input type="hidden" name="username" value="{{ $username }}">
                   <input type="hidden" name="password" value="{{ $password }}">
