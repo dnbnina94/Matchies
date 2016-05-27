@@ -92,6 +92,8 @@ Route::group(['middleware'=>'customMiddleware'], function(){
         return view('edit_details');
       });
 
+      Route::get('/profile_x', 'SignUpController@proba');
+
       Route::get('/profile_1', function () {
         return view('profile_1');
       });

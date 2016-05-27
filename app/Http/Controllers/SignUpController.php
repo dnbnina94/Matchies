@@ -11,12 +11,23 @@ use App\Photo as Photo;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage as Storage;
 use Illuminate\Support\Facades\Hash as Hash;
+use Auth;
 
 
 class SignUpController extends Controller
 {
     //
+      public function proba()
+      {
+        # code...
+        $user = Auth::user();
+        $reg = Registered_user::find($user->id);
+        $info= array(
+          'reg' => $reg
+        );
 
+          return view('profile_1', $info);
+      }
 
 
     public function postStep2(Request $request)
@@ -255,7 +266,7 @@ class SignUpController extends Controller
 
                   $filename= (string) $id;
                   $filename .= '/';
-                  $filename .= (string) $phId;                  
+                  $filename .= (string) $phId;
                   $filename .= '/';
                   $filename .= $file;
                   Storage::disk('uploads')->put($filename, $contents);
