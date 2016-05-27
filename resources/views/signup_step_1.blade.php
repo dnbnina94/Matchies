@@ -55,7 +55,7 @@ onload="bla()"
   									<br/>
   									<div class="row" style="padding-top: 0px">
   									<div class="col-md-6" id="imeKolona" >
-  										<div class="form-group" id="greske1" align="left">
+  										<div class="form-group" id="greske1" align="left" style="margin-bottom: 0px">
   										<input type="text" class="form-control" name="fname" id="fname" placeholder="Enter your first name" aria-describedby="inputError2Status" autofocus style="font-size: 16px;">
   										  <span id="fnameicon" class="" aria-hidden="true"></span>
   										  <span id="inputError2Status" class="sr-only">(error)</span>
@@ -63,7 +63,7 @@ onload="bla()"
   										</div>
   									</div>
   									<div class="col-md-6" id="prezimeKolona">
-  										<div class="form-group" id="greske2" align="left">
+  										<div class="form-group" id="greske2" align="left" style="margin-bottom: 0px">
 
   										 <input type="text" class="form-control has-error" name="lname" id="lname" placeholder="Enter your last name" style="font-size: 16px;">
   										 <span id="lnameicon" class="" aria-hidden="true"></span>
@@ -74,7 +74,7 @@ onload="bla()"
   									</div>
   									<div class="row">
   									<div class="col-md-6" id="emailKolona">
-                                          <div class="form-group" id="greske3" align="left">
+                                          <div class="form-group" id="greske3" align="left" style="margin-bottom: 0px">
   										 <input type="text" class="form-control has-error" name="email" id="email" placeholder="Enter your email"  style="font-size: 16px;">
                                               <span id="emailicon" class="" aria-hidden="true"></span>
   										  <span id="inputError2Status" class="sr-only">(error)</span>
@@ -82,7 +82,7 @@ onload="bla()"
                                           </div>
                                           </div>
   									<div class="col-md-6" id="emailAgainKolona">
-                                          <div class="form-group" id="greske4" align="left">
+                                          <div class="form-group" id="greske4" align="left" style="margin-bottom: 0px">
   										<input type="text" class="form-control has-error" name="emailAgain" id="emailAgain" placeholder="Re-enter your email" style="font-size: 16px;">
                                               <span id="emailagainicon" class="" aria-hidden="true"></span>
                                               <span id="inputError2Status" class="sr-only">(error)</span>

@@ -73,9 +73,9 @@ Notifications
 									</td>
 									<td valign="top" style="padding: 10px">
 										<a href="/chat" style="color: white; font-weight: bold; font-size: 16px">UserNina</a>
-										<i class="fa fa-reply" style="font-size: 14px;"></i> <br/>
-										<div style="padding-top: 5px"><span style="color: #F1F1F1; font-size: 12px;">21.03.2016. 13:43</span></div> <br/>
-										<table width="100%" style="padding-top: 0px">
+										<i class="fa fa-reply" style="font-size: 14px; color: #333333"></i> <br/>
+										<div style="margin-bottom: 0px;"><span style="color: #F1F1F1; font-size: 12px;">21.03.2016. 13:43</span></div>
+										<table width="100%" style="margin-top: 0px;">
 											<tr>
 												<td width="100%">
 													<div class="progress" style="margin-bottom: 0px; margin-top: 0px; background: #AED581; height: 8px">
@@ -84,7 +84,7 @@ Notifications
 													</div>
 												</td>
 												<td style="padding-left: 10px">
-													<i class="fa fa-lock" style="font-size: 20px"></i>
+													<i class="fa fa-lock" style="font-size: 20px; color: #333333"></i>
 												</td>
 											</tr>
 										</table>
@@ -98,8 +98,8 @@ Notifications
 									</td>
 									<td valign="top" style="padding: 10px">
 										<a href="/chat" style="color: white; font-weight: bold; font-size: 16px">MyNameIsBot</a>
-										<i class="fa fa-reply" style="font-size: 14px;"></i> <br/>
-										<div style="padding-top: 5px"><span style="color: #F1F1F1; font-size: 12px;">10.02.2016. 09:33</span></div> <br/>
+										<i class="fa fa-reply" style="font-size: 14px; color: #333333"></i> <br/>
+										<div style="margin-bottom: 0px"><span style="color: #F1F1F1; font-size: 12px;">10.02.2016. 09:33</span></div>
 										<table width="100%" style="padding-top: 0px">
 											<tr>
 												<td width="100%">
@@ -109,7 +109,7 @@ Notifications
 													</div>
 												</td>
 												<td style="padding-left: 10px">
-													<i class="fa fa-lock" style="font-size: 20px"></i>
+													<i class="fa fa-lock" style="font-size: 20px; color: #333333"></i>
 												</td>
 											</tr>
 										</table>
@@ -122,8 +122,8 @@ Notifications
 									</td>
 									<td valign="top" style="padding: 10px">
 										<a href="/chat" style="color: white; font-weight: bold; font-size: 16px">PrettyLady</a>
-										<i class="fa fa-reply" style="font-size: 14px;"></i> <br/>
-										<div style="padding-top: 5px"><span style="color: #F1F1F1; font-size: 12px;">11.01.2016. 19:09</span></div> <br/>
+										<i class="fa fa-reply" style="font-size: 14px; color: #333333"></i> <br/>
+										<div><span style="color: #F1F1F1; font-size: 12px;">11.01.2016. 19:09</span></div>
 										<table width="100%" style="padding-top: 0px">
 											<tr>
 												<td width="100%">
@@ -133,7 +133,7 @@ Notifications
 													</div>
 												</td>
 												<td style="padding-left: 10px">
-													<i class="fa fa-lock" style="font-size: 20px"></i>
+													<i class="fa fa-lock" style="font-size: 20px; color: #333333"></i>
 												</td>
 											</tr>
 										</table>
@@ -147,8 +147,8 @@ Notifications
 									</td>
 									<td valign="top" style="padding: 10px">
 										<a href="/chat" style="color: white; font-weight: bold; font-size: 16px">Mary_Jane</a>
-										<i class="fa fa-share" style="font-size: 14px;"></i> <br/>
-										<div style="padding-top: 5px"><span style="color: #F1F1F1; font-size: 12px;">11.01.2016. 17:19</span></div> <br/>
+										<i class="fa fa-share" style="font-size: 14px; color: #333333"></i> <br/>
+										<div><span style="color: #F1F1F1; font-size: 12px;">11.01.2016. 17:19</span></div>
 										<table width="100%" style="padding-top: 0px">
 											<tr>
 												<td width="100%">
@@ -158,7 +158,7 @@ Notifications
 													</div>
 												</td>
 												<td style="padding-left: 10px">
-													<i class="fa fa-unlock-alt" style="font-size: 20px"></i>
+													<i class="fa fa-unlock-alt" style="font-size: 20px; color: #333333"></i>
 												</td>
 											</tr>
 										</table>

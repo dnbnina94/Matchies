@@ -52,14 +52,14 @@
 
   					<form name="promenaLozinke" action="/edit_profile" method="post">
   						<span style="color: #474747">Current password:</span><br/>
-  						<div class="form-group" id="greskaCurrPass" align="left">
+  						<div class="form-group" id="greskaCurrPass" align="left" style="margin-bottom: 0px">
   				            <input type="password" class="form-control has-error" name="currentPass" id="currentPass" placeholder="Enter your current password" autofocus style="font-size: 16px">
                               <span id="currentPassicon" class="" aria-hidden="true"></span>
                               <span id="inputError2Status" class="sr-only">(error)</span>
                               <label class= "form-control-label" for="currentPass" id="currentPasslabel"  style="color:#AE0000; font-weight:normal;"></label>
                           </div>
                           <span style="color: #474747">New password:</span><br/>
-                          <div class="form-group" id="greskaPassword" align="left">
+                          <div class="form-group" id="greskaPassword" align="left" style="margin-bottom: 0px">
   							<input type="password" class="form-control has-error" name="password" id="password" placeholder="Choose your new password"  style="font-size: 16px">
                               <span id="passwordicon" class="" aria-hidden="true"></span>
                               <span id="inputError2Status" class="sr-only">(error)</span>
@@ -135,17 +135,17 @@
   											<div class="col-md-6 levaKolonaBasicInfo" align="left">
   												<form name="editProfile" action="/edit_profile" method="post">
   												<span>First name:</span><br/>
-  												<div class="form-group" id="greske1" align="left">
-  													<input type="text" class="form-control" name="fname" id="fname" placeholder="Enter your first name" aria-describedby="inputError2Status" autofocus style="font-size: 16px;">
+  												<div class="form-group" id="greske1" align="left" style="margin-bottom: 0px">
+  													  <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter your first name" aria-describedby="inputError2Status" autofocus style="font-size: 16px;">
   										  			<span id="fnameicon" class="" aria-hidden="true"></span>
   										  			<span id="inputError2Status" class="sr-only">(error)</span>
-  													<label class= "form-control-label" for="fname" id="flabel" align="left"style="color:#AE0000; font-weight:normal;"></label>
+  													  <label class= "form-control-label" for="fname" id="flabel" align="left"style="color:#AE0000; font-weight:normal;"></label>
   												</div>
   											</div>
 
   											<div class="col-md-6 desnaKolonaBasicInfo" align="left">
   												<span>Last name:</span><br/>
-  												<div class="form-group" id="greske2" align="left">
+  												<div class="form-group" id="greske2" align="left" style="margin-bottom: 0px">
   										 		<input type="text" class="form-control has-error" name="lname" id="lname" placeholder="Enter your last name" style="font-size: 16px;">
   										 		<span id="lnameicon" class="" aria-hidden="true"></span>
   										  		<span id="inputError2Status" class="sr-only">(error)</span>
@@ -154,10 +154,10 @@
   											</div>
   										</div>
 
-  										<div class="row" style="padding-bottom: 0px">
+  										<div class="row">
   											<div class="col-md-6 levaKolonaBasicInfo" align="left">
   												<span>Email:</span><br/>
-  												<div class="form-group" id="greske3" align="left">
+  												<div class="form-group" id="greske3" align="left" style="margin-bottom: 0px">
   										 			<input type="text" class="form-control has-error" name="email" id="email" placeholder="Enter your email"  style="font-size: 16px;">
                                               		<span id="emailicon" class="" aria-hidden="true"></span>
   										  			<span id="inputError2Status" class="sr-only">(error)</span>
@@ -167,7 +167,7 @@
 
   											<div class="col-md-6 desnaKolonaBasicInfo" align="left">
   												<span>Repeated email:</span><br/>
-  												<div class="form-group" id="greske4" align="left">
+  												<div class="form-group" id="greske4" align="left" style="margin-bottom: 0px">
   													<input type="text" class="form-control has-error" name="emailAgain" id="emailAgain" placeholder="Re-enter your email" style="font-size: 16px;">
                                               		<span id="emailagainicon" class="" aria-hidden="true"></span>
                                               		<span id="inputError2Status" class="sr-only">(error)</span>
