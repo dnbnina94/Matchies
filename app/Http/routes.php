@@ -139,3 +139,31 @@ Route::get('/profile_4', function() {
 Route::post('/profile_4', function() {
 	return view('profile_4');
 });
+
+Route::get('/index_admin', function() {
+	return view('index_admin');
+});
+
+Route::post('/index_admin', function() {
+	return view('index_admin');
+});
+
+Route::get('/profile_5', function() {
+	return view('profile_5');
+});
+
+Route::post('/profile_5', function() {
+	return view('profile_5');
+});
+
+Route::get('/users_admin', function() {
+	return view('users_admin');
+});
+
+Route::get('/moderators_admin', function() {
+	return view('moderators_admin');
+});
+
+Route::post('/moderators_admin', function() {
+	return view('moderators_admin');
+});

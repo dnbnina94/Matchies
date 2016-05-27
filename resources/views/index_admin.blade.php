@@ -1,4 +1,4 @@
-@extends('layouts.layout_moderator')
+@extends('layouts.layout_admin')
 
 @section('title')
 Home Moderator
@@ -122,8 +122,8 @@ Home Moderator
 							<div style="padding-top: 10px"></div>
 							<div class="row userRow">
 								<div class="col-md-3">
-									Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user1</a><br/>
-									Issued by: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user2</a>
+									Reported user: <a href="/profile_5" style="font-weight: bold; color: #AE0000">user1</a><br/>
+									Issued by: <a href="/profile_5" style="font-weight: bold; color: #AE0000">user2</a>
 								</div>
 								<div class="col-md-5">
 									Reason: <span style="color: #AE0000;">Reported user shares inappropriate content.</span>
@@ -151,8 +151,8 @@ Home Moderator
 
 							<div class="row userRow">
 								<div class="col-md-3">
-									Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user3</a><br/>
-									Issued by: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user1</a>
+									Reported user: <a href="/profile_5" style="font-weight: bold; color: #AE0000">user3</a><br/>
+									Issued by: <a href="/profile_5" style="font-weight: bold; color: #AE0000">user1</a>
 								</div>
 								<div class="col-md-5">
 									Reason: <span style="color: #AE0000;">This user is bothering me, this user sends me mean messages.</span>
@@ -180,8 +180,8 @@ Home Moderator
 
 							<div class="row userRow">
 								<div class="col-md-3">
-									Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user3</a><br/>
-									Issued by: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user2</a>
+									Reported user: <a href="/profile_5" style="font-weight: bold; color: #AE0000">user3</a><br/>
+									Issued by: <a href="/profile_5" style="font-weight: bold; color: #AE0000">user2</a>
 								</div>
 								<div class="col-md-5">
 									Reason: <span style="color: #AE0000;">Reported user is spammer.</span>
@@ -209,8 +209,8 @@ Home Moderator
 
 							<div class="row userRow">
 								<div class="col-md-3">
-									Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user4</a><br/>
-									Issued by: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user3</a>
+									Reported user: <a href="/profile_5" style="font-weight: bold; color: #AE0000">user4</a><br/>
+									Issued by: <a href="/profile_5" style="font-weight: bold; color: #AE0000">user3</a>
 								</div>
 								<div class="col-md-5">
 									Reason: <span style="color: #AE0000;">Reported user is spammer.</span>
@@ -238,8 +238,8 @@ Home Moderator
 
 							<div class="row userRow">
 								<div class="col-md-3">
-									Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user4</a><br/>
-									Issued by: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user2</a>
+									Reported user: <a href="/profile_5" style="font-weight: bold; color: #AE0000">user4</a><br/>
+									Issued by: <a href="/profile_5" style="font-weight: bold; color: #AE0000">user2</a>
 								</div>
 								<div class="col-md-5">
 									Reason: <span style="color: #AE0000;">Reported user shares inappropriate content.</span>
@@ -267,8 +267,8 @@ Home Moderator
 
 							<div class="row userRow">
 								<div class="col-md-3">
-									Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user4</a><br/>
-									Issued by: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user1</a>
+									Reported user: <a href="/profile_5" style="font-weight: bold; color: #AE0000">user4</a><br/>
+									Issued by: <a href="/profile_5" style="font-weight: bold; color: #AE0000">user1</a>
 								</div>
 								<div class="col-md-5">
 									Reason: <span style="color: #AE0000;">Reported user shares inappropriate content.</span>

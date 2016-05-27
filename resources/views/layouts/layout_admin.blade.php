@@ -59,6 +59,7 @@
 							</td>
 						</tr>
 					</table>
+					<div style="padding-bottom: 10px; padding-top: 10px; border-bottom: 1px solid #B9BAB8"><a href="/new_moderator" style="color: #AE0000">Register a new moderator</a></div>
 					<div style="padding-bottom: 5px; padding-top: 10px;"><a href="/" style="color: #AE0000">Log out</a></div>
 				</div>
 				<div class="col-md-5"></div>
@@ -84,7 +85,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/index_moderator">
+      <a class="navbar-brand" href="/index_admin">
         <img alt="Matchies" src="images/matchiespngwhite.png" width="100px">
       </a>
     </div>
@@ -92,8 +93,9 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-      		<li align="center"><a href="/index_moderator"><span style="color: white; font-size: 18px">Reports</span></a></li>
-      		<li align="center"><a href="/users_moderator"><span style="color: white; font-size: 18px">Users</span></a></li>
+      		<li align="center"><a href="/index_admin"><span style="color: white; font-size: 18px">Reports</span></a></li>
+      		<li align="center"><a href="/users_admin"><span style="color: white; font-size: 18px">Users</span></a></li>
+      		<li align="center"><a href="/moderators_admin"><span style="color: white; font-size: 18px">Moderators</span></a></li>
             <li align="center"><a><span class="glyphicon glyphicon-cog " id="settings" style=" color:white; height: 22px; font-size: 16px; cursor: pointer" onclick="showSettings()"></span></a></li>
       </ul>
     </div>

@@ -1,4 +1,4 @@
-@extends('layouts.layout_moderator')
+@extends('layouts.layout_admin')
 
 @section('title')
 Searching
@@ -105,7 +105,7 @@ Searching
 						</tr>
 					</table>
 					Choose a reason for warning this user:
-					<form name="reportUser" method="post" action="/profile_4">
+					<form name="reportUser" method="post" action="/profile_5">
 					<div style="padding-bottom:10px"></div>
 					<div style="padding-bottom: 8px; border-bottom: 1px solid white">
 						<input id="report1" type="radio" name="report" value="report1" checked="checked">
@@ -124,6 +124,39 @@ Searching
 					</div>
 					<button class=" btn" id="subButt1" type="submit" style="background: #ae0000" onclick="return proveriReport()"><b>Warn this user</b></button>
 					</form>
+				</div>
+				<div class="col-md-4">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="deleteBoxContainer">
+	<div id="deleteBoxRowContainer">
+		<div id="deleteBoxCellContainer">
+			<div class="row">
+				<div class="col-md-4">
+				</div>
+				<div class="deleteBox col-md-4" style="margin-left: 25px; margin-right: 25px">
+					<table width="100%">
+						<tr>
+							<td>
+							</td>
+							<td align="right" style="font-size: 16px; color: white">
+								<span class="glyphicon glyphicon-remove" onclick="deleteKorRemove()" style="cursor: pointer"></span>
+							</td>
+						</tr>
+					</table>
+					<div class="row">
+						<div class="col-md-12" align="center">
+							<form name="deleteUser" action="/index_admin" method="post">
+								Are you sure you want to delete this user?<br/>
+								<div style="padding-bottom:10px"></div>
+								<button class=" btn" id="subButt1" type="submit" style="background: #383838"><b>Delete this user</b></button>
+							</form>
+						</div>
+					</div>
 				</div>
 				<div class="col-md-4">
 				</div>
@@ -161,9 +194,12 @@ Searching
 										</div>
 										<div class="row" style="margin-left: 0px; margin-right: 0px; margin-top: 10px;">
 											<div class="col-md-4 nopadding" id="reportButtonDiv">
-												<button class="btn" id="subButt" type="submit" style="background: #ae0000" onclick="reportKor1()"><b>Warn this user</b></button>
+												<button class="btn" id="subButt" style="background: #ae0000" onclick="reportKor1()"><b>Warn this user</b></button>
 											</div>
-											<div class="col-md-8 desno" style="color: white; font-size: 18px; padding-right: 0px; padding-left: 0px; padding-top: 5px">
+											<div class="col-md-4" id="messageButtonDiv">
+												<button class="btn" id="subButt" style="background: #383838" onclick="deleteKorDisplay()"><b>Delete this user</b></button>
+											</div>
+											<div class="col-md-4 desno" style="color: white; font-size: 18px; padding-right: 0px; padding-left: 0px; padding-top: 5px">
 												Number of strikes: <span id="brojWarninga" style="color: #ae0000; font-weight: bold">2</span>
 											</div>
 										</div>
