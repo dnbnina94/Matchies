@@ -14,7 +14,7 @@ class SignUpController extends Controller
 
 
 
-    public function postStep1(Request $request)
+    public function postStep2(Request $request)
     {
       $name = $request->input('fname');
       $surname = $request->input('lname');

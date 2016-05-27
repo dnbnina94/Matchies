@@ -48,7 +48,7 @@ onload="bla()"
 
   						<div class="jumbotron">
 
-  							<form class="form" action="{{ url('/signup/step1') }}" name="signup1" onsubmit="return validacija()" method="post">
+  							<form class="form" action="{{ url('/signup/step2') }}" name="signup1" onsubmit="return validacija()" method="post">
                   	<input type="hidden" name="_token" value="{{ csrf_token() }}">
   									<span style="font-weight: bold; font-size: 20px; color: #555555;"> You are just a few clicks away from meeting awesome people... </span>
   									<br/>

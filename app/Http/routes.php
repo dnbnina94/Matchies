@@ -153,7 +153,7 @@ Route::get('/signup_step_1',[
 
 
 
-Route::post('/signup/step1','SignUpController@postStep1');
+Route::post('/signup/step2','SignUpController@postStep2');
 
 Route::post('/signup_step_3', function() {
 	return view('signup_step_3');
