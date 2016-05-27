@@ -5,12 +5,12 @@ Sign Up- Step 3!
 @stop
 
 @section('csslinks')
-  <link href="bootstrap-3.3.6-dist/css/proba2.css" rel="stylesheet">
-	<link href="bootstrap-3.3.6-dist/css/skloniKol3.css" rel="stylesheet">
+  <link href="/bootstrap-3.3.6-dist/css/proba2.css" rel="stylesheet">
+	<link href="/bootstrap-3.3.6-dist/css/skloniKol3.css" rel="stylesheet">
 @stop
 
 @section('javascriptlinks')
-	<script src="bootstrap-3.3.6-dist/js/validacijaPicUpload.js"></script>
+	<script src="/bootstrap-3.3.6-dist/js/validacijaPicUpload.js"></script>
 @stop
 
 @section('sewingBut')
@@ -31,7 +31,7 @@ Sign Up- Step 3!
     <div class="container">
   	<div class="navbar-header">
         <a class="navbar-brand" href="/">
-          <img alt="Matchies" src="images/matchiespng.png" width="100px">
+          <img alt="Matchies" src="/images/matchiespng.png" width="100px">
         </a>
       </div>
 
@@ -47,7 +47,8 @@ Sign Up- Step 3!
 
   						<div class="jumbotron">
 
-  							<form class="form" action="/signup_step_4" name="signup3" onsubmit="return validacija3();" method="post">
+  							<form class="form" action="{{ url('/signup/step4') }}" name="signup3" onsubmit="return validacija3();" method="post">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
   									<span style="font-weight: bold; font-size: 20px; color: #555555;"> Now you need to choose your profile picture...  </span>
   									<div class= "row" style="padding-left:10px; padding-right:10px; padding-top:22px;">
   										<div class="row" align="center">
@@ -110,7 +111,13 @@ Sign Up- Step 3!
                                           <button class="btn" id="subButt" type="submit" name="submitButton" onclick="validacija3();"><div align="center" valign="middle">Next step</div></button>
 
   									</div>
-
+                    <input type="hidden" name="name" value="{{ $name }}">
+                    <input type="hidden" name="surname" value="{{ $surname }}">
+                    <input type="hidden" name="email" value="{{ $email }}">
+                    <input type="hidden" name="gender" value="{{ $gender }}">
+                    <input type="hidden" name="date" value="{{ $date }}">
+                    <input type="hidden" name="country" value="{{ $country }}">
+                    <input type="hidden" name="city" value="{{ $city }}">
   							</form>
 
   						</div>

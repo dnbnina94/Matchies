@@ -154,6 +154,14 @@ Route::get('/signup_step_1',[
 
 
 Route::post('/signup/step2','SignUpController@postStep2');
+Route::post('/signup/step3','SignUpController@postStep3');
+Route::post('/signup/step4','SignUpController@postStep4');
+Route::post('/signup/final','SignUpController@postFinal');
+/*
+
+Route::post('/signup_step_2', function() {
+	return view('signup_step_2');
+});
 
 Route::post('/signup_step_3', function() {
 	return view('signup_step_3');
@@ -162,5 +170,6 @@ Route::post('/signup_step_3', function() {
 Route::post('/signup_step_4', function() {
 	return view('signup_step_4');
 });
+*/
 
 });

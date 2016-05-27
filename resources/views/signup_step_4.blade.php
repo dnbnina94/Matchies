@@ -5,12 +5,12 @@ Sign Up- Step 4!
 @stop
 
 @section('csslinks')
-  <link href="bootstrap-3.3.6-dist/css/proba2.css" rel="stylesheet">
-	<link href="bootstrap-3.3.6-dist/css/skloniKol4.css" rel="stylesheet">
+  <link href="/bootstrap-3.3.6-dist/css/proba2.css" rel="stylesheet">
+	<link href="/bootstrap-3.3.6-dist/css/skloniKol4.css" rel="stylesheet">
 @stop
 
 @section('javascriptlinks')
-	<script src="bootstrap-3.3.6-dist/js/validacijaDodatno.js"></script>
+	<script src="/bootstrap-3.3.6-dist/js/validacijaDodatno.js"></script>
 @stop
 
 @section('sewingBut')
@@ -30,7 +30,7 @@ Sign Up- Step 4!
   <div class="container">
 	<div class="navbar-header">
       <a class="navbar-brand" href="/">
-        <img alt="Matchies" src="images/matchiespng.png" width="100px">
+        <img alt="Matchies" src="/images/matchiespng.png" width="100px">
       </a>
     </div>
 
@@ -46,7 +46,8 @@ Sign Up- Step 4!
 
 						<div class="jumbotron">
 
-							<form class="form" action="/home" name="signup4" onsubmit="return validacija4();" method="post">
+							<form class="form" action="{{ url('/signup/final') }}" name="signup4" onsubmit="return validacija4();" method="post">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
 									<span style="font-weight: bold; font-size: 20px; color: #555555;"> And a little more about yourself:  </span>
 									<div class="row">
 									<div class="col-md-6" style="padding-top:20px;" id="relKolona">
@@ -147,10 +148,10 @@ Sign Up- Step 4!
 									<div class="row" >
 										<div class="col-md-12" align="left">
 										Interested in: &nbsp; &nbsp; &nbsp;
-										<input id="men" type="checkbox" name="interested" value="men"/>
+										<input id="men" type="checkbox" name="interested[0]" value="men"/>
 										 <label for="men"><span><span></span></span>Men</label>
 										 &nbsp; &nbsp; &nbsp;
-										 <input id="women" type="checkbox" name="interested" value="women"/>
+										 <input id="women" type="checkbox" name="interested[1]" value="women"/>
   										 <label for="women"><span><span></span></span>Women</label>
 										 </div>
 									</div>
@@ -164,8 +165,17 @@ Sign Up- Step 4!
 									 <br/>
 
 									</div>
+                  <input type="hidden" name="name" value="{{ $name }}">
+                  <input type="hidden" name="surname" value="{{ $surname }}">
+                  <input type="hidden" name="email" value="{{ $email }}">
+                  <input type="hidden" name="gender" value="{{ $gender }}">
+                  <input type="hidden" name="date" value="{{ $date }}">
+                  <input type="hidden" name="country" value="{{ $country }}">
+                  <input type="hidden" name="city" value="{{ $city }}">
 
-
+                  <input type="hidden" name="file" value="{{ $file }}">
+                  <input type="hidden" name="username" value="{{ $username }}">
+                  <input type="hidden" name="password" value="{{ $password }}">
 
 							</form>
 

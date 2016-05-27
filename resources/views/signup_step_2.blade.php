@@ -48,7 +48,8 @@ onload="bla()"
 
   						<div class="jumbotron">
 
-  							<form class="form" action="/signup_step_3" name="signup2" onsubmit="return validacija2();" method="post">
+  							<form class="form" action="{{ url('/signup/step3') }}" name="signup2" onsubmit="return validacija2();" method="post">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
   									<span style="font-weight: bold; font-size: 20px; color: #555555;"> Now you need to enter your current location: </span>
   									<br/>
   									<br/>
@@ -81,7 +82,11 @@ onload="bla()"
   										<button class="btn" id="subButt" name="submitButton" onclick="validacija2()"><div align="center" valign="middle">Next step</div></button>
 
   									</div>
-
+                      <input type="hidden" name="name" value="{{ $name }}">
+                      <input type="hidden" name="surname" value="{{ $surname }}">
+                      <input type="hidden" name="email" value="{{ $email }}">
+                      <input type="hidden" name="gender" value="{{ $gender }}">
+                      <input type="hidden" name="date" value="{{ $date }}">
 
 
   							</form>

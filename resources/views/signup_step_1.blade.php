@@ -5,12 +5,12 @@ Sign Up- Step 1!
 @stop
 
 @section('csslinks')
-  <link href="bootstrap-3.3.6-dist/css/proba2.css" rel="stylesheet">
-	<link href="bootstrap-3.3.6-dist/css/skloniKol1.css" rel="stylesheet">
+  <link href="/bootstrap-3.3.6-dist/css/proba2.css" rel="stylesheet">
+	<link href="/bootstrap-3.3.6-dist/css/skloniKol1.css" rel="stylesheet">
 @stop
 
 @section('javascriptlinks')
-	<script src="bootstrap-3.3.6-dist/js/validacijaSignUp.js"></script>
+	<script src="/bootstrap-3.3.6-dist/js/validacijaSignUp.js"></script>
 @stop
 
 @section('sewingBut')
@@ -32,7 +32,7 @@ onload="bla()"
     <div class="container">
   	<div class="navbar-header">
         <a class="navbar-brand" href="/">
-          <img alt="Matchies" src="images/matchiespng.png" width="100px">
+          <img alt="Matchies" src="/images/matchiespng.png" width="100px">
         </a>
       </div>
 
