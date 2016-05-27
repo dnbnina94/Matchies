@@ -6,12 +6,12 @@ Searching
 
 @section('csslinks')
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-<link href="bootstrap-3.3.6-dist/css/homepage.css" rel="stylesheet">
+<link href="/bootstrap-3.3.6-dist/css/homepage.css" rel="stylesheet">
 @stop
 
 @section('javascriptlinks')
-<script src="bootstrap-3.3.6-dist/js/reportovanjeKorisnika.js"></script>
-<script src="bootstrap-3.3.6-dist/js/openSettings.js"></script>
+<script src="/bootstrap-3.3.6-dist/js/reportovanjeKorisnika.js"></script>
+<script src="/bootstrap-3.3.6-dist/js/openSettings.js"></script>
 @stop
 
 
@@ -36,14 +36,14 @@ Searching
 		imgArray[1] = new Image();
 		imgArray[2] = new Image();
 
-		imgArray[0].src = "images/fuckingThomas/kek.jpg";
-		imgArray[1].src = "images/fuckingThomas/funny.jpg";
-		imgArray[2].src = "images/fuckingThomas/meh.jpg";
+		imgArray[0].src = "/images/fuckingThomas/kek.jpg";
+		imgArray[1].src = "/images/fuckingThomas/funny.jpg";
+		imgArray[2].src = "/images/fuckingThomas/meh.jpg";
 
 		var slikaIterator = 0;
 
 		function lol() {
-		
+
 				var pikseli = $("#slicice").width();
 				$("#slicice").css("height", pikseli);
 				var pikseli2 = $("#slicice1").width();

@@ -5,7 +5,7 @@ Login
 @stop
 
 @section('csslinks')
-<link href="bootstrap-3.3.6-dist/css/proba.css" rel="stylesheet">
+<link href="/bootstrap-3.3.6-dist/css/proba.css" rel="stylesheet">
 @stop
 
 @section('sewingBut')
@@ -27,7 +27,7 @@ Login
 					<div class="col-md-4"></div>
 					<div class="col-md-4 nopadding" align="center" valign="middle">
 
-					   <a href="/"> <img src="images/puzlematchies.png" alt="" width="230px" style="padding-bottom: 15px; padding-top:5px;" id="slikaPuzzle"/> </a>
+					   <a href="/"> <img src="/images/puzlematchies.png" alt="" width="230px" style="padding-bottom: 15px; padding-top:5px;" id="slikaPuzzle"/> </a>
 
 						<div class="jumbotron">
 

@@ -6,12 +6,12 @@ Notifications
 
 @section('csslinks')
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-<link href="bootstrap-3.3.6-dist/css/homepage.css" rel="stylesheet">
+<link href="/bootstrap-3.3.6-dist/css/homepage.css" rel="stylesheet">
 @stop
 
 @section('javascriptlinks')
-	<script src="bootstrap-3.3.6-dist/js/promenaProfila.js"></script>
-  <script src="bootstrap-3.3.6-dist/js/openSettings.js"></script>
+	<script src="/bootstrap-3.3.6-dist/js/promenaProfila.js"></script>
+  <script src="/bootstrap-3.3.6-dist/js/openSettings.js"></script>
 @stop
 
 
@@ -69,7 +69,7 @@ Notifications
 							<table width="100%" height="70px" style="border-bottom: 1px solid #B9BAB8; border-top: 1px solid #B9BAB8">
 								<tr>
 									<td valign="middle" width="5%" style="padding-right: 10px; padding-left: 10px">
-										<img src="images/envclosed.png" width="40px" />
+										<img src="/images/envclosed.png" width="40px" />
 									</td>
 									<td valign="top" style="padding: 10px">
 										<a href="/chat" style="color: white; font-weight: bold; font-size: 16px">UserNina</a>
@@ -94,7 +94,7 @@ Notifications
 							<table width="100%" height="70px" style="border-bottom: 1px solid #B9BAB8">
 								<tr>
 									<td valign="middle" width="5%" style="padding-right: 10px; padding-left: 10px">
-										<img src="images/envclosed.png" width="40px" />
+										<img src="/images/envclosed.png" width="40px" />
 									</td>
 									<td valign="top" style="padding: 10px">
 										<a href="/chat" style="color: white; font-weight: bold; font-size: 16px">MyNameIsBot</a>
@@ -118,7 +118,7 @@ Notifications
 							<table width="100%" height="70px" style="border-bottom: 1px solid #B9BAB8">
 								<tr>
 									<td valign="middle" width="5%" style="padding-right: 10px; padding-left: 10px">
-										<img src="images/envopen.png" width="40px" />
+										<img src="/images/envopen.png" width="40px" />
 									</td>
 									<td valign="top" style="padding: 10px">
 										<a href="/chat" style="color: white; font-weight: bold; font-size: 16px">PrettyLady</a>
@@ -143,7 +143,7 @@ Notifications
 							<table width="100%" height="70px" style="border-bottom: 1px solid #B9BAB8">
 								<tr>
 									<td valign="middle" width="5%" style="padding-right: 10px; padding-left: 10px">
-										<img src="images/envopen.png" width="40px" />
+										<img src="/images/envopen.png" width="40px" />
 									</td>
 									<td valign="top" style="padding: 10px">
 										<a href="/chat" style="color: white; font-weight: bold; font-size: 16px">Mary_Jane</a>

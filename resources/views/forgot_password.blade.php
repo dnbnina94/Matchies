@@ -6,7 +6,7 @@ Forgot password
 
 
 @section('csslinks')
-<link href="bootstrap-3.3.6-dist/css/proba.css" rel="stylesheet">
+<link href="/bootstrap-3.3.6-dist/css/proba.css" rel="stylesheet">
 @stop
 
 @section('sewingBut')
@@ -28,7 +28,7 @@ Forgot password
 					<div class="col-md-4"></div>
 					<div class="col-md-4 nopadding" align="center" style="padding-left:30px; padding-right: 30px;">
 
-					   <a href="/"> <img src="images/puzlematchies.png" alt="" width="230px" style="padding-bottom: 15px;" id="slikaPuzzle"/> </a>
+					   <a href="/"> <img src="/images/puzlematchies.png" alt="" width="230px" style="padding-bottom: 15px;" id="slikaPuzzle"/> </a>
 
 						<div class="jumbotron">
 

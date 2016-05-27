@@ -149,7 +149,7 @@
 			</div>
 
 			<div class="text-center" id="footermobile">
-				<img src="images/btnred.png" width="21px" id="sewingBut">
+				<img src="/images/btnred.png" width="21px" id="sewingBut">
 			</div>
 	  </div>
 
