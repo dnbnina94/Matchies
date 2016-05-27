@@ -218,3 +218,7 @@ Route::get('/moderators_admin', function() {
 Route::post('/moderators_admin', function() {
 	return view('moderators_admin');
 });
+
+Route::get('/moderator_signup', function() {
+	return view('moderator_signup');
+});
