@@ -35,7 +35,7 @@ Login
 									<input type="hidden" name="_token" value="{{ csrf_token() }}">
 									<span style="color: white; font-size: 22px; font-weight: bold;"> Welcome! </span>
 									<div class="span fill"></div>
-									<input type="text" id="usr" name="name" class="form-control" placeholder="Enter your username" required autofocus>
+									<input type="text" id="usr" name="username" class="form-control" placeholder="Enter your username" required autofocus>
 									<div class="span fill2"></div>
 									<input type="password" id="inputPassword" name="password" class="form-control" placeholder="Enter your password"  required>
 									<div class="span fill2"></div>

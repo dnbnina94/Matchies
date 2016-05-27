@@ -14,10 +14,10 @@ class AuthController extends Controller
 
     public function postLogin(Request $request){
 
-      $name = $request->input('name');
+      $username = $request->input('username');
       $password = $request->input('password');
 
-      if (Auth::attempt(['name' => $name, 'password' => $password])) {
+      if (Auth::attempt(['username' => $username, 'password' => $password])) {
          // Authentication passed...
              if(Auth::user()->type == 3){
                return redirect()->route('home');
@@ -33,7 +33,7 @@ class AuthController extends Controller
           }
 
           else {
-            return redirect()->route('random');
+            return redirect()->route('index');
           }
     }
 
