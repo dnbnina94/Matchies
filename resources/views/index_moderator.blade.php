@@ -116,7 +116,7 @@ Home Moderator
 			<div style="display: table; width: 100%; border-radius: 5px; background: rgba(170,170,170, 0.8); padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom:20px">
 
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-md-12" align="left">
 						<div class="jumbotronProfile" style="color: white; font-size: 16px; padding-bottom: 0px">
 							<span style="font-weight: bold"> Reports: </span>
 							<div style="padding-top: 10px"></div>
