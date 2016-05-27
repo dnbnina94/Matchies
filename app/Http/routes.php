@@ -266,3 +266,7 @@ Route::get('/notifications', function() {
 Route::get('/signup_step_1', function() {
   return view('signup_step_1');
 });
+
+Route::get('/chat', function() {
+  return view('chat');
+});

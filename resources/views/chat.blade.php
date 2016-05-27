@@ -70,7 +70,8 @@ Chat!
 				<div class="row">
 					<div class="col-md-12">
 						<div class="jumbotronProfile" style="color: white; font-size: 16px;">
-							<a href="#" style="color: white; font-weight: bold">UserBlaBla</a> <br/><br/>
+							<a href="#" style="color: white; font-weight: bold">UserBlaBla</a> <br/>
+							<div style="padding-top: 8px"></div>
 							<span style="font-size: 14px">This progress bar shows how much you'll need to unlock UserBlaBla's photos. Once it reaches 100% you will be able to see UserBlaBla's photos.</span>
 							<table width="100%" style="margin-top: 0px !important;">
 								<tr>
@@ -81,7 +82,7 @@ Chat!
 										</div>
 									</td>
 									<td style="padding-left: 10px">
-										<i class="fa fa-lock" style="font-size: 34px"></i>
+										<i class="fa fa-lock" style="font-size: 34px; color: #333333"></i>
 									</td>
 								</tr>
 							</table>

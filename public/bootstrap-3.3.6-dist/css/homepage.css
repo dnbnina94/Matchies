@@ -226,6 +226,10 @@
   font-size: 12px;
 }
 
+.message {
+  font-size: 16px;
+}
+
 #jumbo1 {
 	background: #AAAAAA;
 	height: 100px;
