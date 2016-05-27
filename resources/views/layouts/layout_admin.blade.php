@@ -59,7 +59,7 @@
 							</td>
 						</tr>
 					</table>
-					<div style="padding-bottom: 10px; padding-top: 10px; border-bottom: 1px solid #B9BAB8"><a href="/new_moderator" style="color: #AE0000">Register a new moderator</a></div>
+					<div style="padding-bottom: 10px; padding-top: 10px; border-bottom: 1px solid #B9BAB8"><a href="/moderator_signup" style="color: #AE0000">Register a new moderator</a></div>
 					<div style="padding-bottom: 5px; padding-top: 10px;"><a href="/" style="color: #AE0000">Log out</a></div>
 				</div>
 				<div class="col-md-5"></div>
