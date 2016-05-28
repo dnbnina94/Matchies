@@ -18,6 +18,7 @@ function myFunction() {
 			reci = "Men";
 		if (bla1==1 && bla2==1)
 			reci="Men and Women";
+		document.getElementById("Gender").value = reci;
 	}
 
 	$('#pokaziPol').html(reci);
@@ -27,6 +28,9 @@ function myFunction() {
 function myFunction2() {
 	var bla3= $('#ageslider').val();
 	var arr = bla3.split(",");
+
+	document.getElementById("AgeMin").value = arr[0];
+	document.getElementById("AgeMax").value = arr[1];
 
 	if (arr[1] == "80"){
 		$('#pokaziGodine').html(arr[0] + "-" + arr[1]+"+");
