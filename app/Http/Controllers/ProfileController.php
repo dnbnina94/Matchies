@@ -24,13 +24,28 @@ class ProfileController extends Controller
         $dt = Carbon::now();
         $years = $dt->diffInDays($reg->birth_date);
         $years = floor($years/365);
-        $info= array(
+        $info = array(
           'user' => $user,
           'reg' => $reg,
           'years' => $years
         );
 
           return view('profile_6', $info);
+      }
+
+      public function obrisiSvojProfil(Request $request) {
+        $password = $request->input('currentPass');
+
+        if (Auth::attempt(['password' => $password])) {
+               $user = Auth::user();
+               $user->delete();
+               return redirect()->route('index');
+            }
+            else {
+              return view('delete_account');
+            }
+
+
       }
 
       public function izmeniProfilOsnovno()

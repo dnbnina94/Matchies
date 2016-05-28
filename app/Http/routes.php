@@ -103,6 +103,7 @@ Route::group(['middleware'=>'customMiddleware'], function(){
       Route::post('/save_profile', 'ProfileController@sacuvajProfilOsnovno');
       Route::post('/save_location', 'ProfileController@sacuvajLokaciju');
       Route::post('/save_details', 'ProfileController@sacuvajDetalje');
+      Route::post('/delete_account', 'ProfileController@obrisiSvojProfil');
 
       Route::get('/profile_1', function () {
         return view('profile_1');

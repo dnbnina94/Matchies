@@ -78,7 +78,8 @@
   								<div class="col-md-8 desnaKolonaEditProfile">
   									<div class="jumbotronProfile" style="padding-left: 20px; padding-right: 20px; font-size: 16px">
   										<div class="row">
-  											<form name="deleteAccount" action="/" method="post">
+  											<form name="deleteAccount" action="/delete_account" method="post">
+                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
   											<div class="col-md-12" align="center" style="color: white">
   												<span style="font-weight: bold">Deleting your account</span><br/>
   												<div style="height: 10px"></div>
