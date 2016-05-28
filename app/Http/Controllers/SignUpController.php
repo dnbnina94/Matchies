@@ -118,7 +118,7 @@ class SignUpController extends Controller
                    $file->move('../storage/app/public/tmp', $filename);
                     $file=$filename;
 
-                    $info= array(
+                    $info = array(
                       'name'=> $name,
                       'surname'=> $surname,
                       'email'=> $email,

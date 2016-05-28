@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="author" content="Nina Grujic, Milena Filipovic, Branislava Ivkovic">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<link rel="shortcut icon" type="image/x-icon" href="images/puzle.ico" />
+	<link rel="shortcut icon" type="image/x-icon" href="/images/puzle.ico" />
 
     <title> Matchies - @yield('title') </title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="images/heart.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="/images/heart.png" />
     <!-- Bootstrap -->
-    <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+    <script src="/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
@@ -85,7 +85,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/index_moderator">
-        <img alt="Matchies" src="images/matchiespngwhite.png" width="100px">
+        <img alt="Matchies" src="/images/matchiespngwhite.png" width="100px">
       </a>
     </div>
 
@@ -141,7 +141,7 @@
 			</div>
 
 			<div class="text-center" id="footermobile">
-				<img src="images/btnred.png" width="21px" id="sewingBut">
+				<img src="/images/btnred.png" width="21px" id="sewingBut">
 			</div>
 	  </div>
 

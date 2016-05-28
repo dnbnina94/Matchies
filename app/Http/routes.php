@@ -54,6 +54,12 @@ Route::group(['middleware'=>'customMiddleware'], function(){
 
       ]);
 
+      Route::get('/moderator', [
+            'as' => 'moderator',
+            'uses' => 'ModController@ucitajReportove'
+
+        ]);
+
 
       /*
       **********************************************
@@ -184,6 +190,8 @@ Route::post('/signup/step2','SignUpController@postStep2');
 Route::post('/signup/step3','SignUpController@postStep3');
 Route::post('/signup/step4','SignUpController@postStep4');
 Route::post('/signup/final','SignUpController@postFinal');
+
+Route::get('/index_moderator', 'ModController@ucitajReportove');
 /*
 
 Route::post('/signup_step_2', function() {
@@ -199,10 +207,6 @@ Route::post('/signup_step_4', function() {
 });
 */
 
-});
-
-Route::get('/index_moderator', function() {
-	return view('index_moderator');
 });
 
 Route::get('/users_moderator', function() {
