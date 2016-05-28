@@ -30,19 +30,13 @@ class ModController extends Controller
 
       public function warnUser(Request $request) {
         $id = $request->input('user_id');
+        $reportId = $request->input('report_id');
         $reg = Registered_user::where('id', '=', $id)->first();
         $reg->number_of_warnings++;
-        $reportId = $request->input('report_id');
         $report = Report::where('id', '=', $reportId)->first();
-        if (is_null($report)) {
-          //return view('random');
-          print_r($request->input('report_id'));
-        }
-        else {
         $report->status = 1;
         $reg->save();
         $report->save();
-
         $reports = Report::where('status', '=', 0)->get();
 
         $info = array(
@@ -50,9 +44,6 @@ class ModController extends Controller
         );
 
         return view('index_moderator', $info);
-      }
-
-        //ucitajReportove();
       }
 }
 
