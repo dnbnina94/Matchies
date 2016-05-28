@@ -151,26 +151,7 @@ class ProfileController extends Controller
         $file = $request->file('file');
 
         if($file->isValid()) {
-            $filename = str_random(40);
-            $filename .= '.jpg';
-            $file->move('../storage/app/public/tmp', $filename);
-            $file = $filename;
-
-            if(Storage::disk('tmp')->has($file)) {
-
-              $oldFilename = (string) $reg->id;
-              $contents = Storage::disk('tmp')->get($file);
-              Storage::disk('uploads')->delete($oldFilename);
-
-              $filename = (string) $reg->id;
-              $filename .= '/';
-              $filename .= $file;
-              Storage::disk('uploads')->put($filename, $contents);
-              Storage::disk('tmp')->delete($file);
-              $reg->photo_link = $file;
-              $reg->save();
-            }
-
+          $file->move('../storage/app/public/uploads/' . $reg->id, $reg->photo_link);
         }
 
         $dt = Carbon::now();
