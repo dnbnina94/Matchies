@@ -143,6 +143,48 @@ class ProfileController extends Controller
         return view('profile_6', $info);
       }
 
+      public function sacuvajSliku(Request $request)
+      {
+
+        $user = Auth::user();
+        $reg = Registered_user::find($user->id);
+        $file = $request->file('file');
+
+        if($file->isValid()) {
+            $filename = str_random(40);
+            $filename .= '.jpg';
+            $file->move('../storage/app/public/tmp', $filename);
+            $file = $filename;
+
+            if(Storage::disk('tmp')->has($file)) {
+
+              $oldFilename = (string) $reg->id;
+              $contents = Storage::disk('tmp')->get($file);
+              Storage::disk('uploads')->delete($oldFilename);
+
+              $filename = (string) $reg->id;
+              $filename .= '/';
+              $filename .= $file;
+              Storage::disk('uploads')->put($filename, $contents);
+              Storage::disk('tmp')->delete($file);
+              $reg->photo_link = $file;
+              $reg->save();
+            }
+
+        }
+
+        $dt = Carbon::now();
+        $years = $dt->diffInDays($reg->birth_date);
+        $years = floor($years/365);
+        $info = array (
+          'user' => $user,
+          'reg' => $reg,
+          'years' => $years
+        );
+
+        return view('profile_6', $info);
+      }
+
       public function izmeniDetalje()
       {
         $user = Auth::user();

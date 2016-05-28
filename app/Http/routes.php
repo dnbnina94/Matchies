@@ -129,6 +129,10 @@ Route::group(['middleware'=>'customMiddleware'], function(){
       Route::post('/save_location', 'ProfileController@sacuvajLokaciju');
       Route::post('/save_details', 'ProfileController@sacuvajDetalje');
       Route::post('/delete_account', 'ProfileController@obrisiSvojProfil');
+      Route::post('/save_picture', 'ProfileController@sacuvajSliku');
+      Route::get('/edit_picture', function() {
+        return view('edit_picture');
+      });
 
       Route::get('/profile_1', function () {
         return view('profile_1');
@@ -317,7 +321,3 @@ Route::get('/signup_step_1', function() {
 Route::get('/chat', function() {
   return view('chat');
 });*/
-
-Route::get('/edit_picture', function() {
-  return view('edit_pictire');
-})

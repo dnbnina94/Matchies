@@ -73,7 +73,7 @@
   											</tr>
   											<tr>
   												<td class="editProfileCol">
-  													<a href="#" class="editProfileLink" style="color: #AE0000">Pictures</a>
+  													<a href="/edit_picture" class="editProfileLink" style="color: #AE0000">Pictures</a>
   												</td>
   											</tr>
   											<tr>
@@ -96,7 +96,7 @@
 
   								<div class="col-md-8 desnaKolonaEditProfile">
   									<div class="jumbotronProfile" style="padding-left: 20px; padding-right: 20px; font-size: 16px">
-  										
+
   										<div class="row">
                         <div class="col-md-12">
                           <table width="100%" id="slicice" style="margin-top: 10px">
@@ -131,6 +131,8 @@
   										<div class="row" style="padding-top: 20px; padding-bottom: 7px">
                         <div class="col-md-6"></div>
   											<div class="col-md-3 levaKolonaEditProfile" style="text-align: center">
+                          <form name="editovanjeSlike" action="{{ url('/save_picture') }}" onsubmit="return promeniSliku();" method="post" enctype="multipart/form-data">
+                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
                           <div class="input-group image-preview" style="background: #AE0000; border-radius: 5px">
                                     <span class="input-group-btn">
                                     <div class="btn btn-default image-preview-input" style="border: none; background: rgba(0,0,0,0); padding-bottom: 10px" >
@@ -142,10 +144,11 @@
                           </div>
                         </div>
   											<div class="col-md-3 desnaKolonaEditProfile">
-                          <form name="editovanjeSlike" method="get" action="/edit_picture">
-  												  <button class="btn" id="subButt" name="submitButton" type="submit" style="font-weight: bold" onclick="return promeniSliku();">Save</button>
+  												  <button class="btn" id="subButt" name="submitButton" type="submit" style="font-weight: bold">Save</button>
+                            </div>
   												</form>
-  											</div>
+
+
   										</div>
   									</div>
   								</div>

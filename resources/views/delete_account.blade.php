@@ -54,7 +54,7 @@
   											</tr>
   											<tr>
   												<td class="editProfileCol">
-  													<a href="#" class="editProfileLink">Pictures</a>
+  													<a href="/edit_picture" class="editProfileLink">Pictures</a>
   												</td>
   											</tr>
   											<tr>
