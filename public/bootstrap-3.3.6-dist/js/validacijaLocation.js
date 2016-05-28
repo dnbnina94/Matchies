@@ -1,10 +1,10 @@
 function validacija2() {
     var proslo = true;
-    
+
     var drzava = document.getElementById("country");
     var strDrzava = drzava.options[drzava.selectedIndex].value;
     var drzavaPrazno = false;
-    
+
     var grad = document.getElementById("city");
     var strGrad = grad.options[grad.selectedIndex].value;
     var gradPrazno = false;
@@ -15,7 +15,7 @@ function validacija2() {
     if (strGrad == "selectCity") {
         gradPrazno = true;
     }
-    
+
     if (drzavaPrazno) {
 		proslo = false;
 		document.getElementById("greskaDrzava").style.display = "inherit";
@@ -27,7 +27,7 @@ function validacija2() {
 		document.getElementById("country").style.border = "";
 		document.getElementById("countrylabel").innerHTML = "";
 	}
-    
+
     if (gradPrazno) {
         proslo = false;
         document.getElementById("greskaGrad").style.display = "inherit";
@@ -39,7 +39,7 @@ function validacija2() {
 		document.getElementById("city").style.border = "";
 		document.getElementById("citylabel").innerHTML = "";
     }
-    
+
     return proslo;
 }
 
@@ -48,49 +48,53 @@ function bla() {
         "country": [
             {
                 "name": "Serbia",
-                "id": "rs",
+                "id": "Serbia",
                 "cities": [
                     {
                         "name": "Beograd",
-                        "id": "beograd"
+                        "id": "Beograd"
                     },
                     {
                         "name": "Novi Sad",
-                        "id": "ns"
+                        "id": "Novi Sad"
                     },
                     {
                         "name": "Subotica",
-                        "id": "subotica"
+                        "id": "Subotica"
                     },
                     {
                         "name": "Kraljevo",
-                        "id": "kraljevo"
+                        "id": "Kraljevo"
+                    },
+                    {
+                        "name": "Uzice",
+                        "id": "Uzice"
                     },
                     {
                         "name": "Kruševac",
-                        "id": "krusevac"
+                        "id": "Kruševac"
                     }
                 ]
             },
             {
                 "name": "Germany",
-                "id": "de",
+                "id": "Germany",
                 "cities": [
                     {
                         "name": "Berlin",
-                        "id": "berlin"
+                        "id": "Berlin"
                     },
                     {
                         "name": "Ulm",
-                        "id": "ulm"
+                        "id": "Ulm"
                     },
                     {
                         "name": "Munich",
-                        "id": "munich"
+                        "id": "Munich"
                     },
                     {
                         "name": "Stuttgart",
-                        "id": "stuttgart"
+                        "id": "Stuttgart"
                     }
                 ]
             }

@@ -100,6 +100,9 @@ Route::group(['middleware'=>'customMiddleware'], function(){
       Route::get('/edit_profile', 'ProfileController@izmeniProfilOsnovno');
       Route::get('/edit_location', 'ProfileController@izmeniLokaciju');
       Route::get('/edit_details', 'ProfileController@izmeniDetalje');
+      Route::post('/save_profile', 'ProfileController@sacuvajProfilOsnovno');
+      Route::post('/save_location', 'ProfileController@sacuvajLokaciju');
+      Route::post('/save_details', 'ProfileController@sacuvajDetalje');
 
       Route::get('/profile_1', function () {
         return view('profile_1');
