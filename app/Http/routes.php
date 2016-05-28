@@ -40,6 +40,10 @@ Route::group(['middleware'=>'customMiddleware'], function(){
       **********************************************
       */
 
+
+
+      Route::post('/search/potential_matches','SearchingController@potential_matches');
+
       Route::get('/messages', function() {
         return view('messages');
       });
@@ -120,14 +124,6 @@ Route::group(['middleware'=>'customMiddleware'], function(){
       Route::post('/profile_3', function () {
         return view('profile_3');
       });
-
-
-
-
-
-
-
-
 
 
     });
@@ -227,6 +223,7 @@ Route::post('/moderators_admin', function() {
 Route::get('/moderator_signup', function() {
 	return view('moderator_signup');
 });
+
 
 Route::get('/profile_6', function() {
   return view('profile_6');

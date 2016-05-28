@@ -1,5 +1,5 @@
 /*! =======================================================
-                      VERSION  6.1.8              
+                      VERSION  6.1.8
 ========================================================= */
 $(document).ready(function() {
   			$('#femaleslider').on('change', myFunction);
@@ -21,16 +21,20 @@ function myFunction() {
 	}
 
 	$('#pokaziPol').html(reci);
+  $("#Gender").val(reci);
 }
 
 function myFunction2() {
 	var bla3= $('#ageslider').val();
 	var arr = bla3.split(",");
 
-	if (arr[1] == "80")
+	if (arr[1] == "80"){
 		$('#pokaziGodine').html(arr[0] + "-" + arr[1]+"+");
-	else
+    $("#Age").val(reci);}
+	else{
 		$('#pokaziGodine').html(arr[0] + "-" + arr[1]);
+    $("#Age").val(reci);
+  }
 }
 
 "use strict";

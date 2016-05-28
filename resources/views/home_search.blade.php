@@ -82,14 +82,14 @@ onload="ucitaj()"
 										<div class="row">
 											<div class="col-md-9 text-left">Men:</div>
 											<div class="col-md-3 text-right" style="padding-left: 23px">
-												<input id="maleslider" type="text"  name= "male" value="" data-slider-min="0" data-slider-max="1" data-slider-step="1" data-slider-tooltip="hide" data-slider-value="0"/>
+												<input id="maleslider" type="text"  name="male" value="" data-slider-min="0" data-slider-max="1" data-slider-step="1" data-slider-tooltip="hide" data-slider-value="0"/>
 											</div>
 										</div>
 										<div style="height: 10px"></div>
 										<div class="row">
 											<div class="col-md-9 text-left">Women:</div>
 											<div class="col-md-3 text-right" style="padding-left: 23px">
-												<input id="femaleslider" type="text" name ="female" value="" data-slider-min="0" data-slider-max="1" data-slider-step="1" data-slider-tooltip="hide" data-slider-value="0"/>
+												<input id="femaleslider" type="text" name="female" value="" data-slider-min="0" data-slider-max="1" data-slider-step="1" data-slider-tooltip="hide" data-slider-value="0"/>
 											</div>
 										</div>
 									</div>
@@ -116,8 +116,6 @@ onload="ucitaj()"
 								<button class=" btn" id="subButt" type="submit"><b>Search</b></button>
 							</div>
 						</div>
-						<input  type="hidden" id ="Gender"name="gender" value="">
-						<input  type="hidden" id= "Age "  name="age" value="">
 					</form>
 				</div>
 
