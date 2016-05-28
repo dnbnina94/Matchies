@@ -98,7 +98,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
             @if (!Auth::guest())
-            <li align="center"><a href="" style="color:white; font-weight:bold;">{{ Auth::user()->username }}</a></li>
+            <li align="center"><a href="/profile_x" style="color:white; font-weight:bold;">{{ Auth::user()->username }}</a></li>
             @endif
             <li align="center"><a><span class="glyphicon glyphicon-cog " id="settings" style=" color:white; height: 22px; font-size: 16px; cursor: pointer" onclick="showSettings()"></span></a></li>
             <li align="center"><a href="/messages"><span class="glyphicon glyphicon-comment " id="messages" style=" color:white; height: 22px; font-size: 16px"></span></a></li>

@@ -51,6 +51,7 @@
   					</table>
 
   					<form name="promenaLozinke" action="/edit_profile" method="post">
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
   						<span style="color: #474747">Current password:</span><br/>
   						<div class="form-group" id="greskaCurrPass" align="left" style="margin-bottom: 0px">
   				            <input type="password" class="form-control has-error" name="currentPass" id="currentPass" placeholder="Enter your current password" autofocus style="font-size: 16px">
@@ -133,7 +134,8 @@
   									<div class="jumbotronProfile" style="padding-left: 20px; padding-right: 20px; font-size: 16px">
   										<div class="row">
   											<div class="col-md-6 levaKolonaBasicInfo" align="left">
-  												<form name="editProfile" action="/edit_profile" method="post">
+  												<form name="editProfile" action="/save_profile" method="post">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
   												<span>First name:</span><br/>
   												<div class="form-group" id="greske1" align="left" style="margin-bottom: 0px">
   													  <input type="text"
@@ -189,7 +191,7 @@
   												<span>Gender:</span><br/>
   												<div>
   													<input id="genderMale"
-                              @if ($reg->sex == "m") {
+                              @if ($reg->sex == 'm') {
                                 checked
                               }
                               @endif
@@ -197,7 +199,7 @@
   													 <label for="genderMale"><span><span></span></span>Male</label>
   													 &nbsp; &nbsp; &nbsp;
   													 <input id="genderFemale"
-                               @if ($reg->sex == "f") {
+                               @if ($reg->sex == 'f') {
                                  checked
                                }
                                @endif

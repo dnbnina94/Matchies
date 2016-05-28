@@ -26,16 +26,24 @@ Route::post('auth/login', 'AuthController@postLogin');
 
 Route::get('auth/logout', 'Auth\AuthController@logout');
 
+
 //////////////////////
+
+
 // Password reset link request routes...
 Route::get('password/email', 'Auth\PasswordController@getEmail');
 Route::post('password/email', 'Auth\PasswordController@postEmail');
 
 // Password reset routes...
-Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
-Route::post('password/reset', 'Auth\PasswordController@postReset');
 
-/////////////////////////
+
+Route::get('/password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('/password/reset', 'Auth\PasswordController@postReset');
+
+Route::get('/forgot_password', function() {
+  return view('/auth/password');
+});
+
 
 Route::group(['middleware'=>'customMiddleware'], function(){
     Route::get('/home', [
@@ -111,6 +119,10 @@ Route::group(['middleware'=>'customMiddleware'], function(){
       Route::get('/edit_profile', 'ProfileController@izmeniProfilOsnovno');
       Route::get('/edit_location', 'ProfileController@izmeniLokaciju');
       Route::get('/edit_details', 'ProfileController@izmeniDetalje');
+      Route::post('/save_profile', 'ProfileController@sacuvajProfilOsnovno');
+      Route::post('/save_location', 'ProfileController@sacuvajLokaciju');
+      Route::post('/save_details', 'ProfileController@sacuvajDetalje');
+      Route::post('/delete_account', 'ProfileController@obrisiSvojProfil');
 
       Route::get('/profile_1', function () {
         return view('profile_1');
@@ -142,17 +154,19 @@ Route::group(['middleware'=>'customMiddleware'], function(){
 
 
 
+
 /*
+
+    Route::get('/admin', function() {
+      return view('index_admin');
+    });
+
 
 Route::post('/password_sent', function() {
   return view('password_sent');
 
 });
 */
-
-Route::get('/forgot_password', function() {
-	return view('forgot_password');
-});
 
 
 

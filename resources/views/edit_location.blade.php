@@ -72,7 +72,7 @@
   										</table>
   									</div>
   									<div class="jumbotronProfile" style="margin-top: 20px; text-align: center; color: white; font-size: 16px">
-  										You can use this section to edit your profile. The only thing you cannot edit is your username.<br/><br/>
+  										You can use this section to edit your profile. The only things you cannot edit are your username and date of birth.<br/><br/>
   										Make sure to enter the correct information.
   									</div>
   								</div>
@@ -81,10 +81,11 @@
   									<div class="jumbotronProfile" style="padding-left: 20px; padding-right: 20px; font-size: 16px">
   										<div class="row">
   											<div class="col-md-12" align="left">
-  												<form name="editLocation" action="/edit_location" method="post">
+  												<form name="editLocation" action="/save_location" method="post">
+                                              	<input type="hidden" name="_token" value="{{ csrf_token() }}">
   												<span>Country:</span><br/>
   												<select name="country" class="form-control" id="country" style="font-size:16px; padding-left: 8px;">
-  													<option  value="selectCountry" disabled selected>Your country</option>
+  													<option value="selectCountry" disabled selected>Your country</option>
   												</select>
   												<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaDrzava" align="left">
 
@@ -104,7 +105,6 @@
                                               		<span class="text-left" id="citylabel"></span>
 
                                           		</div>
-  												</form>
   											</div>
   										</div>
 

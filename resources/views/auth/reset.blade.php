@@ -32,23 +32,28 @@ Forgot password
 
 						<div class="jumbotron">
 
-								<form class="form-signin" action="{{ url('/password/reset') }}" method="post">
+								<form class="form-signin" action="/password/reset" method="post">
+                  {!! csrf_field() !!}
+                  <input type="hidden" name="token" value="{{ $token }}">
 
-
-									<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-									<span style="color: white; font-size: 20px; font-weight: bold;"> Change your password </span>
+                    @if (count($errors) > 0)
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
+									<span style="color: white; font-size: 20px; font-weight: bold;"> Get your password </span>
 									<div style="height: 10px;"></div>
-									<input type="email" id="inputEmail" name ="email"  class="form-control" placeholder="Enter your email" required autofocus>
+									<p align="center" style="color: #F1F1F1; font-size: 18px;">
+											Enter the email you used for registration on this website, and we will send you your password.
+									</p>
+									<input type="email" name = "email" id="inputEmail" class="form-control" placeholder="Enter your email" required autofocus>
+                  <input type="password" name = "password" id="inputEmail" class="form-control" placeholder="Enter your password" required>
+                  <input type="password" name = "password_confirmation" id="inputEmail" class="form-control" placeholder="Enter your password again" required>
 									<div class="span fill2"></div>
-                  <input type="password" id="inputEmail" name ="password"  class="form-control" placeholder="Enter your email" required autofocus>
-									<div class="span fill2"></div>
-                  <input type="password" id="inputEmail" name ="password_confirmation"  class="form-control" placeholder="Enter your email" required autofocus>
-									<div class="span fill2"></div>
+									<button class="btn"  id="subButt" type="submit">Continue</button>
 
-
-
-									<button class="btn"  id="subButt" type="submit">Reset your password</button>
 									<div class="span fill2"></div>
 								</form>
 						</div>
