@@ -17,9 +17,9 @@ use Auth;
 class AdminController extends Controller
 {
 
-  public function ($value='')
-  {
-    # code...
+  public function getIndex(){
+
+    return view('random');
   }
 
 
