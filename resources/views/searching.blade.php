@@ -70,35 +70,43 @@ Searching
 					<div class="col-md-12">
 						<div class="jumbotronProfile">
 							<div class="row" style="font-weight: bold; color: white; font-size: 16px">
-								<div class="col-md-6" align="left" id="levoIme"><a href="/profile_1" class="linkToProfile">Thomas Appleby, 23, <i class="fa fa-mars"></i></a></div>
-								<div class="col-md-6" align="right" id="desnoUsername"><a href="/profile_1" class="linkToProfile">@ThomasA</a></div>
+								<div class="col-md-6" align="left" id="levoIme"><a href="/profile_1" class="linkToProfile">{{ $returnUser->name }} {{ $returnUser->surname }},
+									{{
+										$years
+									}}
+									, @if ($returnUser->sex == 'm')
+										<i class="fa fa-mars"></i></a></div>
+									@else
+										<i class="fa fa-venus"></i></a></div>
+									@endif
+								<div class="col-md-6" align="right" id="desnoUsername"><a href="/profile_1" class="linkToProfile">@ {{$user->username}}</a></div>
 							</div>
 						</div>
 
 						<div class="jumbotronProfile" style="margin-top: 20px; color: white; font-size: 16px; font-weight: bold" align="center" id="UserBio">
-							I'm an exchange student from UK and I came to Belgrade this year. I have a girlfriend, and I'm here to make friends.
+							{{$returnUser->bio}}
 						</div>
 
 						<div class="jumbotronProfile" style="margin-top: 20px; color: white" align="center">
 							<div class="row UserInfoRows">
 								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Relationship status: </div>
-								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserRelStatusCol">In a relationship</div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserRelStatusCol">{{$returnUser->relationship_status}}</div>
 							</div>
 							<div class="row UserInfoRows">
 								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Education: </div>
-								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserEduStatusCol">High School</div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserEduStatusCol">{{$returnUser->education}}</div>
 							</div>
 							<div class="row UserInfoRows">
 								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Likes: </div>
-								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserLikesCol">Parties, electronic music, music festivals.</div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserLikesCol">{{$returnUser->likes}}</div>
 							</div>
 							<div class="row UserInfoRows">
 								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Dislikes: </div>
-								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserDislikesCol">I don't like shy people.</div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserDislikesCol">{{$returnUser->dislikes}}</div>
 							</div>
 							<div class="row UserInfoRows">
 								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Hobbies: </div>
-								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserHobbiesCol">Sleeping and eating.</div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserHobbiesCol">{{$returnUser->hobbies}}.</div>
 							</div>
 
 							<hr style="margin-top: 10px; margin-bottom: 10px;"/>
@@ -107,31 +115,31 @@ Searching
 
 							<div class="row UserInfoRows">
 								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Field of work: </div>
-								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserWorkCol">Student</div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserWorkCol">{{$returnUser->work}}</div>
 							</div>
 							<div class="row UserInfoRows">
 								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Perfect first date: </div>
-								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFirstDateCol">/</div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFirstDateCol">{{$returnUser->first_date}}</div>
 							</div>
 							<div class="row UserInfoRows">
 								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Favorite quote: </div>
-								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFavQuoteCol">"Don't worry, be happy"</div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFavQuoteCol">{{$returnUser->quote}}</div>
 							</div>
 							<div class="row UserInfoRows">
 								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Favorite song: </div>
-								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFavSongCol">Chris Brown - Beautiful People</div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFavSongCol">{{$returnUser->song}}</div>
 							</div>
 							<div class="row UserInfoRows">
 								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Longest relationship: </div>
-								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserLongestRelCol">2 months</div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserLongestRelCol">{{$returnUser->longest_relationship}}</div>
 							</div>
 							<div class="row UserInfoRows">
 								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Best quality: </div>
-								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserBestQualCol">I'm kind and I'm very adventurous.</div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserBestQualCol">{{$returnUser->best_quality}}</div>
 							</div>
 							<div class="row UserInfoRows">
 								<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Worst quality: </div>
-								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserWorstQualCol">I'm lazy.</div>
+								<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserWorstQualCol">{{$returnUser->worst_quality}}</div>
 							</div>
 
 							<hr style="margin-top: 10px; margin-bottom: 10px;"/>

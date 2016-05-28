@@ -32,16 +32,23 @@ Forgot password
 
 						<div class="jumbotron">
 
-								<form class="form-signin" action="{{ url('/password/email') }}" method="post">
+								<form class="form-signin" action="{{ url('/password/reset') }}" method="post">
+
+
 									<input type="hidden" name="_token" value="{{ csrf_token() }}">
-									<span style="color: white; font-size: 20px; font-weight: bold;"> Get your password </span>
+
+									<span style="color: white; font-size: 20px; font-weight: bold;"> Change your password </span>
 									<div style="height: 10px;"></div>
-									<p align="center" style="color: #F1F1F1; font-size: 18px;">
-											Enter the email you used for registration on this website, and we will send you your password.
-									</p>
 									<input type="email" id="inputEmail" name ="email"  class="form-control" placeholder="Enter your email" required autofocus>
 									<div class="span fill2"></div>
-									<button class="btn"  id="subButt" type="submit">Continue</button>
+                  <input type="password" id="inputEmail" name ="password"  class="form-control" placeholder="Enter your email" required autofocus>
+									<div class="span fill2"></div>
+                  <input type="password" id="inputEmail" name ="password_confirmation"  class="form-control" placeholder="Enter your email" required autofocus>
+									<div class="span fill2"></div>
+
+
+
+									<button class="btn"  id="subButt" type="submit">Reset your password</button>
 									<div class="span fill2"></div>
 								</form>
 						</div>

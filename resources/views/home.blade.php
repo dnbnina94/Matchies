@@ -116,8 +116,9 @@ onload="ucitaj()"
 								<button class=" btn" id="subButt" type="submit"><b>Search</b></button>
 							</div>
 						</div>
-						<input  type="hidden" id ="Gender"name="gender" value="">
-						<input  type="hidden" id= "Age "  name="age" value="">
+						<input  type="hidden" id ="Gender"name="gender" value="Men and Women">
+							<input  type="hidden" id= "AgeMin "  name="ageMin" value="18">
+							<input  type="hidden" id= "AgeMax "  name="ageMax" value="80">
 					</form>
 				</div>
 

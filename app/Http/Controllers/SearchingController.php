@@ -18,22 +18,119 @@ class SearchingController extends Controller
     //
       public function potential_matches(Request $request)
       {
-         $gender = $request->input('gender');
-          $age= $request->input('age');
+          $user = Auth::user();
+          $reg = Registered_user::find($user->id);
 
-          if($gender==''){
+          $gender = $request->input('gender');
+          $ageMin= $request->input('ageMin');
+          $ageMax= $request->input('ageMax');
 
-            return view ('gendernull');
-          }
 
-          if($age==''){
+          //////////////////////////////////
+            $regUsers = Registered_user::all();
+            $number = $regUsers->count();
+            $iteration = 0;
 
-            return view ('agenull');
-          }
+/////////////////////
+                      if($gender=='Men and Women'){
+                            $regUsers->interested_in= 'fm';
+                      }
+                      if($gender=='Men'){
+                        $regUsers->interested_in= 'mm';
+                      }
 
-          
+                      if($gender=='Women'){
+                          $regUsers->interested_in= 'ff';
+                        }
 
-          return view ('searching');
+
+
+
+        //    $nextUser= $regUsers ->first();
+        $returnUser= $regUsers ->first();
+      foreach ($regUsers as $nextUser) {
+
+            $returnUser=$nextUser;
+
+            if($nextUser->id != $reg->id){
+
+              if($reg->sex== 'f'){
+
+                if($nextUser->interested_in == 'ff' or $nextUser->interested_in == 'fm' ){
+
+                              if($regUsers->interested_in == 'fm'){
+                                    break;
+                              }
+
+                              if($regUsers->interested_in == 'mm'){
+                                  if($nextUser->sex == 'm'){
+                                    break;
+                                  }
+                              }
+
+                              if($regUsers->interested_in == 'ff'){
+                                if($nextUser->sex == 'f'){
+                                  break;
+                                }
+                              }
+
+
+                      }
+
+              }
+              /////
+              if($reg->sex== 'm'){
+                if($nextUser->interested_in == 'mm' or $nextUser->interested_in == 'fm' ){
+
+                            if($regUsers->interested_in == 'fm'){
+                                  break;
+                            }
+
+                            if($regUsers->interested_in == 'mm'){
+                                if($nextUser->sex == 'm'){
+                                  break;
+                                }
+                            }
+
+                            if($regUsers->interested_in == 'ff'){
+                              if($nextUser->sex == 'f'){
+                                break;
+                              }
+                            }
+
+                      }
+                    }
+
+
+
+                }
+
+
+
+
+            }
+
+
+            $dt = Carbon::now();
+            $years = $dt->diffInDays($returnUser->birth_date);
+            $years = floor($years/365);
+            $user = User::find($returnUser->id);
+
+
+            $info= array(
+              'number' => $number,
+              'iteration' => $iteration,
+              'returnUser' => $returnUser,
+              'years' => $years,
+              'user' => $user
+
+
+            );
+
+
+
+
+          return view ('searching', $info);
       }
 
 }

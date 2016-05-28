@@ -38,6 +38,7 @@ Searching
 		imgArray[0].src = "images/fuckingThomas/kek.jpg";
 		imgArray[1].src = "images/fuckingThomas/funny.jpg";
 		imgArray[2].src = "images/fuckingThomas/meh.jpg";
+		
 
 		var slikaIterator = 0;
 

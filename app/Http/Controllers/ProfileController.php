@@ -24,12 +24,18 @@ class ProfileController extends Controller
         $dt = Carbon::now();
         $years = $dt->diffInDays($reg->birth_date);
         $years = floor($years/365);
-        $photos = App\Photo::where('link', $user->id )->first();
+      //  $photo = Photo::where('id_user', $user->id )->first();
+      //  $number = $photo->count();
+      //  $path = Storage::disk('uploads')->get(''.$user->id.'/'.$photo->id.'/'.$photo->link.'');
+
+    //    $path= str_replace('\\', '/', $path);
+
         $info= array(
           'user' => $user,
           'reg' => $reg,
           'years' => $years,
-          'photo' => $photo
+
+
         );
 
           return view('profile_6', $info);

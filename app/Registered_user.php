@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage as Storage;
 
 class Registered_user extends Model
 {
@@ -13,7 +14,12 @@ class Registered_user extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function registered_user(){
+    public function photos(){
         return $this->hasMany('App\Photo');
     }
+/*
+    public function getProfileImage(){
+      $photo = Photo::where('id_user', $this->id )->first();
+      return Storage::disk('uploads')->get(''.$this->id.'/'.$photo->id.'/'.$photo->link.'');
+    }*/
 }
