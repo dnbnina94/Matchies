@@ -45,13 +45,13 @@ onload="ucitaj()"
 			<div style="display: table; width: 100%; border-radius: 5px; background: rgba(170,170,170, 0.8); padding-left: 20px; padding-right: 20px;">
 
 				<div style="height: 100%; text-align: center; display: table-cell; vertical-align: 	middle">
-					<form class="form-signin" action="{{url('/search/potential_matches')}}" method="post">
+					<form class="form-signin" name="polGodineSearch" action="{{url('/search/potential_matches')}}" method="post">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<table width="100%" style="color: white; font-weight: bold; margin-top: 15px">
 							<tbody>
 								<tr>
 									<td width="50%" align="left">Show ages:</td>
-									<td width="50%" align="right" id="pokaziGodine" name="years"></td>
+									<td width="50%" align="right" id="pokaziGodine"></td>
 								</tr>
 							</tbody>
 						</table>
@@ -68,7 +68,7 @@ onload="ucitaj()"
 									<tbody>
 										<tr>
 											<td width="40%" align="left">Show me:</td>
-											<td width="60%" align="right" id="pokaziPol" name="gender"></td>
+											<td width="60%" align="right" id="pokaziPol"></td>
 										</tr>
 									</tbody>
 								</table>
@@ -116,9 +116,9 @@ onload="ucitaj()"
 								<button class=" btn" id="subButt" type="submit"><b>Search</b></button>
 							</div>
 						</div>
-						<input  type="hidden" id ="Gender"name="gender" value="Men and Women">
-							<input  type="hidden" id= "AgeMin "  name="ageMin" value="18">
-							<input  type="hidden" id= "AgeMax "  name="ageMax" value="80">
+						<input  type="hidden" id ="Gender" name="gender" value="Men and Women">
+							<input  type="hidden" id= "AgeMin"  name="ageMin" value="18">
+							<input  type="hidden" id= "AgeMax"  name="ageMax" value="80">
 					</form>
 				</div>
 
