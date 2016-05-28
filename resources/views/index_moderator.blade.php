@@ -120,6 +120,38 @@ Home Moderator
 						<div class="jumbotronProfile" style="color: white; font-size: 16px; padding-bottom: 0px">
 							<span style="font-weight: bold"> Reports: </span>
 							<div style="padding-top: 10px"></div>
+
+							@foreach ($reports as $report)
+								<div class="row userRow">
+									<div class="col-md-3">
+										Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">{{$report->user->name}}</a><br/>
+										Issued by: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user2</a>
+									</div>
+									<div class="col-md-5">
+										Reason: <span style="color: #AE0000;">Reported user shares inappropriate content.</span>
+									</div>
+									<div class="col-md-4">
+										<table>
+											<tr>
+												<td width="100%">
+													<button class=" btn" id="subButt" onclick="warnKorDisplay(0)"><b>Warn</b></button>
+												</td>
+												<td style="padding-left: 5px">
+													<span class="glyphicon glyphicon-trash trashIcon" onclick="deleteReportDisplay(0)"></span>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+
+								<table class="userCrta" width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
+									<tr>
+										<td>
+										</td>
+									</tr>
+								</table>
+							@endforeach
+
 							<div class="row userRow">
 								<div class="col-md-3">
 									Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user1</a><br/>

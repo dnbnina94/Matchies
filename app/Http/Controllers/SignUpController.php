@@ -49,9 +49,6 @@ class SignUpController extends Controller
         }
 
            return redirect()->route('signupStep1');
-
-
-
     }
 
 
@@ -81,8 +78,6 @@ class SignUpController extends Controller
         return view('signup_step_3', $info);
 
       }
-
-
 
       public function postStep4(Request $request)
       {
@@ -143,8 +138,6 @@ class SignUpController extends Controller
           }
       }
 
-
-
             public function postFinal(Request $request)
             {
               $name = $request->input('name');
@@ -175,17 +168,12 @@ class SignUpController extends Controller
                   $interestedMen=  '';
               }
 
-              if (isset($interestedArray[1])){
+              if (isset($interestedArray[1])) {
                 $interestedWomen=  $interestedArray[1];
               }
-              else{
+              else {
                   $interestedWomen=  '';
               }
-
-
-
-
-
 
               $user = new User;
               $user->username = $username;
@@ -236,6 +224,8 @@ class SignUpController extends Controller
                 $reg->interested_in= 'ff';
               }
 
+              $reg->photo_link = $file;
+
 
           //    $reg->number_of_warnings = 0;
 
@@ -243,28 +233,17 @@ class SignUpController extends Controller
 
 
                 if(Storage::disk('tmp')->has($file)){
-                    $photo =  new Photo;
-                    $photo->link = $file;
-                    $photo->id_user = $id;
-                    $photo->save();
-                    $phId = $photo->id;
 
                   $contents = Storage::disk('tmp')->get($file);
 
                   $filename= (string) $id;
-                  $filename .= '/';
-                  $filename .= (string) $phId;
                   $filename .= '/';
                   $filename .= $file;
                   Storage::disk('uploads')->put($filename, $contents);
                   Storage::disk('tmp')->delete($file);
                 }
 
-
               return view('index');
-
-
-
             }
 
 

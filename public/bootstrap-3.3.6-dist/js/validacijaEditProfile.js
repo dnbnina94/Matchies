@@ -51,7 +51,7 @@ function validacija() {
 
     if (!(email == emailAgain) && !emailAgainPrazan)
 		emailAgainNekorektan = true;
-
+/*
     var mesecPrazan = false;
 	var danPrazan = false;
 	var godinaPrazna = false;
@@ -95,7 +95,7 @@ function validacija() {
             }
         }
     }
-
+*/
     var pol = false;
 
     if (!document.getElementById("genderMale").checked && !document.getElementById("genderFemale").checked)

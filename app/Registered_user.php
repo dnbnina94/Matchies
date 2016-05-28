@@ -13,10 +13,6 @@ class Registered_user extends Model
     public function user(){
         return $this->belongsTo('App\User');
     }
-
-    public function photos(){
-        return $this->hasMany('App\Photo');
-    }
 /*
     public function getProfileImage(){
       $photo = Photo::where('id_user', $this->id )->first();

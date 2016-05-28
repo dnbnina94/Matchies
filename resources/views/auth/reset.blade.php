@@ -43,14 +43,18 @@ Forgot password
                             @endforeach
                         </ul>
                     @endif
-									<span style="color: white; font-size: 20px; font-weight: bold;"> Get your password </span>
+									<span style="color: white; font-size: 20px; font-weight: bold;"> Reset your password </span>
 									<div style="height: 10px;"></div>
 									<p align="center" style="color: #F1F1F1; font-size: 18px;">
-											Enter the email you used for registration on this website, and we will send you your password.
+											Enter your email and set your new password!
 									</p>
 									<input type="email" name = "email" id="inputEmail" class="form-control" placeholder="Enter your email" required autofocus>
-                  <input type="password" name = "password" id="inputEmail" class="form-control" placeholder="Enter your password" required>
-                  <input type="password" name = "password_confirmation" id="inputEmail" class="form-control" placeholder="Enter your password again" required>
+
+									<div class="span fill2"></div>
+									<input type="password" name = "password" id="inputEmail" class="form-control" placeholder="Enter your password" required>
+
+									<div class="span fill2"></div>
+									<input type="password" name = "password_confirmation" id="inputEmail" class="form-control" placeholder="Enter your password again" required>
 									<div class="span fill2"></div>
 									<button class="btn"  id="subButt" type="submit">Continue</button>
 
