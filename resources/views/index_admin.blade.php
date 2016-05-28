@@ -5,13 +5,13 @@ Home Moderator
 @stop
 
 @section('csslinks')
-	<link href="bootstrap-3.3.6-dist/css/homepage.css" rel="stylesheet">
+	<link href="/bootstrap-3.3.6-dist/css/homepage.css" rel="stylesheet">
 @stop
 
 @section('javascriptlinks')
-  <script src="bootstrap-3.3.6-dist/js/openSettings.js"></script>
-  <script src="bootstrap-3.3.6-dist/js/uklanjanje.js"></script>
-  <script src="bootstrap-3.3.6-dist/js/upozoravanjeKorisnika.js"></script>
+  <script src="/bootstrap-3.3.6-dist/js/openSettings.js"></script>
+  <script src="/bootstrap-3.3.6-dist/js/uklanjanje.js"></script>
+  <script src="/bootstrap-3.3.6-dist/js/upozoravanjeKorisnika.js"></script>
 @stop
 
 @section('sewingBut')

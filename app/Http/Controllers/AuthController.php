@@ -26,7 +26,7 @@ class AuthController extends Controller
                return redirect()->route('moderator');
              }
              if(Auth::user()->type == 1){
-               return view ('admin');
+               return view('index_admin');
              }
 
 
