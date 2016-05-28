@@ -24,10 +24,12 @@ class ProfileController extends Controller
         $dt = Carbon::now();
         $years = $dt->diffInDays($reg->birth_date);
         $years = floor($years/365);
+        $photos = App\Photo::where('link', $user->id )->first();
         $info= array(
           'user' => $user,
           'reg' => $reg,
-          'years' => $years
+          'years' => $years,
+          'photo' => $photo
         );
 
           return view('profile_6', $info);
@@ -39,7 +41,8 @@ class ProfileController extends Controller
         $reg = Registered_user::find($user->id);
         $info = array(
           'user' => $user,
-          'reg' => $reg,
+          'reg' => $reg
+
         );
 
           return view('edit_profile', $info);
