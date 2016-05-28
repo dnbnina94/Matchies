@@ -59,7 +59,7 @@
 							</td>
 						</tr>
 					</table>
-					<div style="padding-bottom: 5px; padding-top: 10px;"><a href="/" style="color: #AE0000">Log out</a></div>
+					<div style="padding-bottom: 5px; padding-top: 10px;"><a href="/auth/logout" style="color: #AE0000">Log out</a></div>
 				</div>
 				<div class="col-md-5"></div>
 			</div>
