@@ -42,7 +42,7 @@ Searching
 		var slikaIterator = 0;
 
 		function lol() {
-		
+
 				var pikseli = $("#slicice").width();
 				$("#slicice").css("height", pikseli);
 				var pikseli2 = $("#slicice1").width();
@@ -188,8 +188,18 @@ Searching
 								<div class="col-md-12">
 									<div class="jumbotronProfile">
 										<div class="row" style="font-weight: bold; color: white; font-size: 16px">
-											<div class="col-md-6" align="left" id="levoIme">Thomas Appleby, 23, <i class="fa fa-mars"></i></div>
-											<div class="col-md-6" align="right" id="desnoUsername">@ThomasA</div>
+											<div class="col-md-6" align="left" id="levoIme">{{ $reg->name }} {{ $reg->surname }},
+												{{
+													$years
+												}}
+												,
+												@if ($reg->sex == 'm')
+													<i class="fa fa-mars"></i></div>
+												@else
+													<i class="fa fa-venus"></i></div>
+												@endif
+											<div class="col-md-6" align="right" id="desnoUsername">@
+											{{$user->username}}</div>
 										</div>
 										<div class="row" style="margin-left: 0px; margin-right: 0px; margin-top: 10px;">
 											<div class="col-md-4 nopadding" id="reportButtonDiv">
@@ -241,7 +251,9 @@ Searching
 												<span style="color: #AE0000; font-weight: bold"> Relationship status:</span>
 											</div>
 											<div class="col-md-6 nopadding" align="left">
-												<span id="relStatusField"> In a relationship</span>
+												<span id="relStatusField">
+													{{$reg->relationship_status}}
+												</span>
 											</div>
 										</div>
 										<div class="row" style="margin: 0 !important; color: white">
@@ -249,7 +261,9 @@ Searching
 												<span style="color: #AE0000; font-weight: bold"> Education:</span>
 											</div>
 											<div class="col-md-6 nopadding" align="left">
-												<span id="eduStatusField"> High School </span>
+												<span id="eduStatusField">
+													{{$reg->education}}
+												</span>
 											</div>
 										</div>
 										<div class="row" style="margin: 0 !important; color: white">
@@ -257,7 +271,9 @@ Searching
 												<span style="color: #AE0000; font-weight: bold"> Field of work:</span>
 											</div>
 											<div class="col-md-6 nopadding" align="left">
-												<span id="fieldOfWork"> Student </span>
+												<span id="fieldOfWork">
+													{{$reg->work}}
+												</span>
 											</div>
 										</div>
 									</div>
@@ -268,44 +284,64 @@ Searching
 									<div class="jumbotronProfile">
 										<div class="row">
 											<div class="col-md-12" align="center" style="font-weight: bold; color: white">
-											<span id="detailsSpan"> I'm an exchange student from UK and I came to Belgrade this year. I have a girlfriend, and I'm here to make friends. </span>
+											<span id="detailsSpan">
+												{{$reg->bio}}
+											 </span>
 
 											<div class="row UserInfoRows" style="padding-top: 20px">
 												<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Likes: </div>
-												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserLikesCol">Parties, electronic music, music festivals.</div>
+												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserLikesCol">
+													{{$reg->likes}}
+												</div>
 											</div>
 											<div class="row UserInfoRows">
 												<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Dislikes: </div>
-												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserDislikesCol">I don't like shy people.</div>
+												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserDislikesCol">
+													{{$reg->dislikes}}
+												</div>
 											</div>
 											<div class="row UserInfoRows">
 												<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Hobbies: </div>
-												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserHobbiesCol">Sleeping and eating.</div>
+												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserHobbiesCol">
+													{{$reg->hobbies}}
+												</div>
 											</div>
 											<div class="row UserInfoRows">
 												<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Perfect first date: </div>
-												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFirstDateCol">/</div>
+												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFirstDateCol">
+													{{$reg->first_date}}
+												</div>
 											</div>
 
 											<div class="row UserInfoRows" style="padding-top: 20px">
 												<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Favorite quote: </div>
-												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFavQuoteCol">"Don't worry, be happy"</div>
+												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFavQuoteCol">
+													{{$reg->quote}}
+												</div>
 											</div>
 											<div class="row UserInfoRows">
 												<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Favorite song: </div>
-												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFirstDateCol">Chris Brown - Beautiful People</div>
+												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFirstDateCol">
+													{{$reg->song}}
+												</div>
 											</div>
 											<div class="row UserInfoRows">
 												<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Longest relationship: </div>
-												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserLongestRelCol">2 months</div>
+												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserLongestRelCol">
+													{{$reg->longest_relationship}}
+												</div>
 											</div>
 											<div class="row UserInfoRows" style="padding-top: 20px">
 												<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Best quality: </div>
-												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserBestQualCol">I'm kind and I'm very adventurous.</div>
+												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserBestQualCol">
+													{{$reg->best_quality}}
+												</div>
 											</div>
 											<div class="row UserInfoRows">
 												<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Worst quality: </div>
-												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserWorstQualCol">I'm lazy.</div>
+												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserWorstQualCol">
+													{{$reg->worst_quality}}
+												</div>
 											</div>
 											</div>
 										</div>

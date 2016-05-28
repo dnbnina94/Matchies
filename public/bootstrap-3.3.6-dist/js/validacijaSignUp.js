@@ -1,11 +1,11 @@
 function validacija() {
     var proslo = true;
-    
+
     var ime = document.forms["signup1"]["fname"].value;
     var imePrazno = false;
-	var imeDugacko = false;
-	var imeNekorektno = false;
-    
+	  var imeDugacko = false;
+	  var imeNekorektno = false;
+
     var regex1 = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ðđ]+([ '-]?[[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ðđ]+)*$/;
 
     if (ime == null || ime == "")
@@ -13,7 +13,7 @@ function validacija() {
 
     if (ime.length > 30)
         imeDugacko = true;
-    
+
     if (!(regex1.test(ime)) && !imePrazno)
 		imeNekorektno = true;
 
@@ -25,90 +25,90 @@ function validacija() {
     if (prezime == null || prezime == "")
         prezimePrazno = true;
 
-    if (prezime.length > 30) 
+    if (prezime.length > 30)
         prezimeDugacko = true;
-    
+
     if (!(regex1.test(prezime)) && !prezimePrazno)
 		prezimeNekorektno = true;
 
     var email = document.forms["signup1"]["email"].value;
-    
+
     var emailPrazan = false;
 	var emailNekorektan = false;
 
-	if (email == null || email == "") 
+	if (email == null || email == "")
 		emailPrazan = true;
-    
+
     if (!(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) && !emailPrazan)
 		emailNekorektan = true;
 
     var emailAgain = document.forms["signup1"]["emailAgain"].value;
     var emailAgainPrazan = false;
     var emailAgainNekorektan = false;
-    
+
     if (emailAgain == null || emailAgain == "")
         emailAgainPrazan = true;
 
     if (!(email == emailAgain) && !emailAgainPrazan)
 		emailAgainNekorektan = true;
-    
+
     var mesecPrazan = false;
 	var danPrazan = false;
 	var godinaPrazna = false;
 	var danNekorektan = false;
 	var ispod18 = false;
-    
+
     var dan = document.getElementById("day");
     var strDan = dan.options[dan.selectedIndex].value;
 
     var mesec = document.getElementById("month");
     var strMesec = mesec.options[mesec.selectedIndex].value;
-    
+
     var godina = document.getElementById("year");
     var strYear = godina.options[godina.selectedIndex].value;
 
-    if (strMesec == "Month") 
+    if (strMesec == "Month")
         mesecPrazan = true;
 
-    if (strDan == "Day") 
+    if (strDan == "Day")
         danPrazan = true;
 
-    if (strYear == "Year") 
+    if (strYear == "Year")
         godinaPrazna = true;
 
     if (!mesecPrazan && !danPrazan && !godinaPrazna && strMesec == "2")
         if (strDan == 29)
             if (!(strYear % 400 == 0 || (strYear % 100 != 0 && strYear % 4 == 0)))
                 danNekorektan = true;
-    
+
     if (!mesecPrazan && !danPrazan && !godinaPrazna && !danNekorektan) {
-        
+
         var today = new Date();
 
         if (strYear == (today.getFullYear()-18)) {
             if (strMesec > (today.getMonth()+1)) {
                 ispod18 = true;
             }
-        
+
             if (strMesec == (today.getMonth()+1) && strDan > today.getDate()) {
                 ispod18 = true;
             }
         }
     }
-    
+
     var pol = false;
 
     if (!document.getElementById("genderMale").checked && !document.getElementById("genderFemale").checked)
         pol = true;
-    
+
     if (imeNekorektno || imeDugacko || imePrazno || prezimeNekorektno || prezimeDugacko || prezimePrazno) {
 		proslo = false;
-		
+
 		if (imeNekorektno || imeDugacko || imePrazno) {
-            
+
             document.getElementById("greske1").className = "form-group has-error has-feedback";
             document.getElementById("fnameicon").className = "glyphicon glyphicon-remove form-control-feedback";
-            
+
 			if (imePrazno) {
 				document.getElementById("flabel").innerHTML = "Please enter your first name.";
 			}
@@ -124,12 +124,12 @@ function validacija() {
 			document.getElementById("greske1").className = "form-group";
 			document.getElementById("fnameicon").className ="";
 		}
-        
+
         if (prezimeNekorektno || prezimeDugacko || prezimePrazno) {
-            
+
             document.getElementById("greske2").className = "form-group has-error has-feedback";
             document.getElementById("lnameicon").className = "glyphicon glyphicon-remove form-control-feedback";
-            
+
 			if (prezimePrazno) {
 				document.getElementById("llabel").innerHTML = "Please enter your last name.";
 			}
@@ -153,14 +153,14 @@ function validacija() {
 		document.getElementById("llabel").innerHTML = "";
 		document.getElementById("lnameicon").className = "";
 	}
-    
+
     if (emailPrazan || emailNekorektan || emailAgainPrazan || emailAgainNekorektan) {
         proslo = false;
-        
+
         if (emailPrazan || emailNekorektan) {
             document.getElementById("greske3").className = "form-group has-error has-feedback";
             document.getElementById("emailicon").className = "glyphicon glyphicon-remove form-control-feedback";
-            
+
             if (emailPrazan) {
                 document.getElementById("elabel").innerHTML = "Please enter your email address.";
             }
@@ -173,11 +173,11 @@ function validacija() {
             document.getElementById("elabel").innerHTML = "";
             document.getElementById("emailicon").className = "";
         }
-        
+
         if (emailAgainPrazan || emailAgainNekorektan) {
             document.getElementById("greske4").className = "form-group has-error has-feedback";
             document.getElementById("emailagainicon").className = "glyphicon glyphicon-remove form-control-feedback";
-            
+
             if (emailAgainPrazan) {
                 document.getElementById("ealabel").innerHTML = "Please confirm your email address.";
             }
@@ -199,11 +199,11 @@ function validacija() {
 		document.getElementById("ealabel").innerHTML = "";
 		document.getElementById("emailagainicon").className = "";
     }
-    
+
     if (mesecPrazan || danPrazan || godinaPrazna || danNekorektan || ispod18) {
         proslo = false;
         document.getElementById("greske5").style.display = "inherit";
-        
+
         if (mesecPrazan || danPrazan || godinaPrazna) {
 			document.getElementById("datelabel").innerHTML = "Please enter your date of birth.";
 			if (mesecPrazan)
@@ -248,7 +248,7 @@ function validacija() {
         document.getElementById("month").style.border = "";
         document.getElementById("year").style.border = "";
     }
-    
+
     if (pol) {
         proslo = false;
         document.getElementById("greske6").style.display = "inherit";
@@ -258,14 +258,14 @@ function validacija() {
         document.getElementById("greske6").style.display = "";
         document.getElementById("genderlabel").innerHTML = "";
     }
-    
+
     return proslo;
 
 }
 
 function bla() {
-	
-	
+
+
     var myJson = {
         "month": [
             {
@@ -1806,7 +1806,7 @@ function bla() {
             }
         ]
     }
-    
+
     $.each(myJson.month, function(index, value) {
            $('#month').append('<option value="' + value.id + '">' + value.name + '</option>');
     });

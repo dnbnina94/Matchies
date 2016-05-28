@@ -40,6 +40,10 @@ Route::group(['middleware'=>'customMiddleware'], function(){
       **********************************************
       */
 
+
+
+      Route::post('/search/potential_matches','SearchingController@potential_matches');
+
       Route::get('/messages', function() {
         return view('messages');
       });
@@ -216,3 +220,50 @@ Route::post('/moderators_admin', function() {
 Route::get('/moderator_signup', function() {
 	return view('moderator_signup');
 });
+
+
+Route::get('/profile_6', function() {
+  return view('profile_6');
+});
+
+/* nina proba - obrisati posle ispod sve */
+
+/*Route::get('/home', function() {
+  return view('home');
+});
+
+Route::get('/edit_profile', function() {
+  return view('edit_profile');
+});
+
+Route::get('/edit_location', function() {
+  return view('edit_location');
+});
+
+Route::get('/edit_details', function() {
+  return view('edit_details');
+});
+
+Route::get('/delete_account', function() {
+  return view('delete_account');
+});
+
+Route::get('/profile_1', function() {
+  return view('profile_1');
+});
+
+Route::get('/messages', function() {
+  return view('messages');
+});
+
+Route::get('/notifications', function() {
+  return view('notifications');
+});
+
+Route::get('/signup_step_1', function() {
+  return view('signup_step_1');
+});
+
+Route::get('/chat', function() {
+  return view('chat');
+});*/
