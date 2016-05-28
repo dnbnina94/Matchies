@@ -19,14 +19,18 @@ class SignUpController extends Controller
     //
       public function proba()
       {
-        # code...
         $user = Auth::user();
         $reg = Registered_user::find($user->id);
+        $dt = Carbon::now();
+        $years = $dt->diffInDays($reg->birth_date);
+        $years = floor($years/365);
         $info= array(
-          'reg' => $reg
+          'user' => $user,
+          'reg' => $reg,
+          'years' => $years
         );
 
-          return view('profile_1', $info);
+          return view('profile_6', $info);
       }
 
 

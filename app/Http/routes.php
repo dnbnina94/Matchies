@@ -225,14 +225,14 @@ Route::get('/moderator_signup', function() {
 	return view('moderator_signup');
 });
 
-/* nina proba - obrisati posle ispod sve */
-
-Route::get('/home', function() {
-  return view('home');
-});
-
 Route::get('/profile_6', function() {
   return view('profile_6');
+});
+
+/* nina proba - obrisati posle ispod sve */
+
+/*Route::get('/home', function() {
+  return view('home');
 });
 
 Route::get('/edit_profile', function() {
@@ -269,4 +269,4 @@ Route::get('/signup_step_1', function() {
 
 Route::get('/chat', function() {
   return view('chat');
-});
+});*/
