@@ -44,6 +44,30 @@ class ProfileController extends Controller
 
           return view('edit_profile', $info);
       }
+
+      public function izmeniLokaciju()
+      {
+        $user = Auth::user();
+        $reg = Registered_user::find($user->id);
+        $info = array(
+          'user' => $user,
+          'reg' => $reg,
+        );
+
+          return view('edit_location', $info);
+      }
+
+      public function izmeniDetalje()
+      {
+        $user = Auth::user();
+        $reg = Registered_user::find($user->id);
+        $info = array(
+          'user' => $user,
+          'reg' => $reg,
+        );
+
+          return view('edit_details', $info);
+      }
 }
 
 ?>
