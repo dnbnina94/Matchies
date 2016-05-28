@@ -124,7 +124,7 @@
   										</table>
   									</div>
   									<div class="jumbotronProfile" style="margin-top: 20px; text-align: center; color: white; font-size: 16px">
-  										You can use this section to edit your profile. The only thing you cannot edit is your username.<br/><br/>
+  										You can use this section to edit your profile. The only things you cannot edit are your username and date of birth.<br/><br/>
   										Make sure to enter the correct information.
   									</div>
   								</div>
@@ -136,7 +136,9 @@
   												<form name="editProfile" action="/edit_profile" method="post">
   												<span>First name:</span><br/>
   												<div class="form-group" id="greske1" align="left" style="margin-bottom: 0px">
-  													  <input type="text" class="form-control" name="fname" id="fname" placeholder="Enter your first name" aria-describedby="inputError2Status" autofocus style="font-size: 16px;">
+  													  <input type="text"
+                                value = "{{$reg->name}}"
+                              class="form-control" name="fname" id="fname" placeholder="Enter your first name" aria-describedby="inputError2Status" autofocus style="font-size: 16px;">
   										  			<span id="fnameicon" class="" aria-hidden="true"></span>
   										  			<span id="inputError2Status" class="sr-only">(error)</span>
   													  <label class= "form-control-label" for="fname" id="flabel" align="left"style="color:#AE0000; font-weight:normal;"></label>
@@ -146,7 +148,9 @@
   											<div class="col-md-6 desnaKolonaBasicInfo" align="left">
   												<span>Last name:</span><br/>
   												<div class="form-group" id="greske2" align="left" style="margin-bottom: 0px">
-  										 		<input type="text" class="form-control has-error" name="lname" id="lname" placeholder="Enter your last name" style="font-size: 16px;">
+  										 		<input type="text"
+                          value = "{{$reg->surname}}"
+                          class="form-control has-error" name="lname" id="lname" placeholder="Enter your last name" style="font-size: 16px;">
   										 		<span id="lnameicon" class="" aria-hidden="true"></span>
   										  		<span id="inputError2Status" class="sr-only">(error)</span>
   												<label class= "form-control-label" for="lname" id="llabel"  style="color:#AE0000; font-weight:normal;"></label>
@@ -158,7 +162,9 @@
   											<div class="col-md-6 levaKolonaBasicInfo" align="left">
   												<span>Email:</span><br/>
   												<div class="form-group" id="greske3" align="left" style="margin-bottom: 0px">
-  										 			<input type="text" class="form-control has-error" name="email" id="email" placeholder="Enter your email"  style="font-size: 16px;">
+  										 			<input type="text"
+                              value = "{{$user->email}}"
+                            class="form-control has-error" name="email" id="email" placeholder="Enter your email"  style="font-size: 16px;">
                                               		<span id="emailicon" class="" aria-hidden="true"></span>
   										  			<span id="inputError2Status" class="sr-only">(error)</span>
   													<label class= "form-control-label" for="email" id="elabel"  style="color:#AE0000; font-weight:normal;"></label>
@@ -168,7 +174,9 @@
   											<div class="col-md-6 desnaKolonaBasicInfo" align="left">
   												<span>Repeated email:</span><br/>
   												<div class="form-group" id="greske4" align="left" style="margin-bottom: 0px">
-  													<input type="text" class="form-control has-error" name="emailAgain" id="emailAgain" placeholder="Re-enter your email" style="font-size: 16px;">
+  													<input type="text"
+                              value = "{{$user->email}}"
+                            class="form-control has-error" name="emailAgain" id="emailAgain" placeholder="Re-enter your email" style="font-size: 16px;">
                                               		<span id="emailagainicon" class="" aria-hidden="true"></span>
                                               		<span id="inputError2Status" class="sr-only">(error)</span>
                                               		<label class= "form-control-label" for="emailAgain" id="ealabel"  style="color:#AE0000; font-weight:normal;"></label>
@@ -177,50 +185,23 @@
   										</div>
 
   										<div class="row">
-  											<div class="col-md-12" align="left">
-  												<span>Birthday:</span><br/>
-  												<div class="form-inline smallSelect">
-
-  													<select class="form-control "  name="month" id="month" style="font-size: 16px; padding-left: 8px;">
-  													<option value="Month" disabled selected >Month</option>
-  													</select>
-
-
-
-  													<select class="form-control " name="day" id="day" style="font-size: 16px; padding-left: 8px;">
-  													<option value='Day' disabled selected>Day</option>
-  													</select>
-
-
-
-  													<select class="form-control " name="year" id="year" style="font-size: 16px; padding-left: 8px;">
-  													<option value="Year" disabled selected>Year</option>
-  													<script>
-  																var date = new Date();
-  																var year = date.getFullYear();
-
-  																for (var i = year - 18; i>=year-100; i--) {
-  																	document.write("<option value='"+i+"'>"+i+"</option>");
-  																}
-  													</script>
-  													</select>
-                                              	</div>
-                                          		<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greske5" align="left">
-
-                                              		<span class="text-left" id="datelabel"></span>
-
-                                          		</div>
-  											</div>
-  										</div>
-
-  										<div class="row">
   											<div class="col-md-6" align="left" style="padding-top: 20px">
   												<span>Gender:</span><br/>
   												<div>
-  													<input id="genderMale" type="radio" name="gender" value="male">
+  													<input id="genderMale"
+                              @if ($reg->sex == "m") {
+                                checked
+                              }
+                              @endif
+                            type="radio" name="gender" value="male">
   													 <label for="genderMale"><span><span></span></span>Male</label>
   													 &nbsp; &nbsp; &nbsp;
-  													 <input id="genderFemale" type="radio" name="gender" value="female">
+  													 <input id="genderFemale"
+                               @if ($reg->sex == "f") {
+                                 checked
+                               }
+                               @endif
+                             type="radio" name="gender" value="female">
     													 <label for="genderFemale"><span><span></span></span>Female</label>
   												</div>
   												<div class = "row"  id="greske6" align="left" style="color: #AE0000;  font-weight:normal; padding-left:20px;" >

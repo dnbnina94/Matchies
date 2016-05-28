@@ -64,9 +64,9 @@ Route::group(['middleware'=>'customMiddleware'], function(){
         return view('chat');
       });
 
-      Route::get('/edit_profile', function () {
+      /*Route::get('/edit_profile', function () {
         return view('edit_profile');
-      });
+      });*/
 
       Route::post('/edit_profile', function () {
         return view('edit_profile');
@@ -96,7 +96,10 @@ Route::group(['middleware'=>'customMiddleware'], function(){
         return view('edit_details');
       });
 
-      Route::get('/profile_x', 'SignUpController@proba');
+      Route::get('/profile_x', 'ProfileController@ucitajSvojProfil');
+      Route::get('/edit_profile', 'ProfileController@izmeniProfilOsnovno');
+      Route::get('/edit_location', 'ProfileController@izmeniLokaciju');
+      Route::get('/edit_details', 'ProfileController@izmeniDetalje');
 
       Route::get('/profile_1', function () {
         return view('profile_1');

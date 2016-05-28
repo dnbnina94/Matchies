@@ -79,15 +79,15 @@
   												<span>Your relationship status:</span><br/>
   												<select  class="form-control" name="relationStatus" class="textForm" id="relationship" style="font-size:16px; padding-left: 8px;">
   										 			<option value="Status" disabled selected style="color: #8E8E8E">Your relationship status</option>
-  										 			<option value="single" class="others">Single</option>
-  										 			<option value="inRel" class="others">In a relationship</option>
-  										 			<option value="engaged" class="others">Engaged</option>
-  										 			<option value="married" class="others">Married</option>
-  										 			<option value="compl" class="others">It's complicated</option>
-  										 			<option value="open" class="others">In an open relationship</option>
-  										 			<option value="divorced" class="others">Divorced</option>
-  										 			<option value="widowed" class="others">Widowed</option>
-  										 			<option value="separated" class="others">Separated</option>
+  										 			<option value="Single" class="others">Single</option>
+  										 			<option value="In a relationship" class="others">In a relationship</option>
+  										 			<option value="Engaged" class="others">Engaged</option>
+  										 			<option value="Married" class="others">Married</option>
+  										 			<option value="It's complicated" class="others">It's complicated</option>
+  										 			<option value="In an open relationship" class="others">In an open relationship</option>
+  										 			<option value="Divorced" class="others">Divorced</option>
+  										 			<option value="Widowed" class="others">Widowed</option>
+  										 			<option value="Separated" class="others">Separated</option>
   												</select>
 
                                           		<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaRel" align="left">
@@ -102,14 +102,14 @@
   												<span>You education:</span><br/>
   												<select class="form-control" name="educationStatus" class="textForm" id="education" style="font-size:16px; padding-left: 8px;">
   										 			<option value="edStatus" disabled selected style="color: #8E8E8E">Your education</option>
-  										 			<option value="school" class="others">High School</option>
-  										 			<option value="college" class="others">College</option>
-  										 			<option value="university" class="others">University</option>
-  										 			<option value="assdegree" class="others">Associate degree</option>
-  										 			<option value="graddegree" class="others">Graduate degree</option>
-  										 			<option value="phd" class="others">PHD/Post doctorate</option>
-  										 			<option value="bachdegree" class="others">Bachelors degree</option>
-  										 			<option value="masterdegree" class="others">Masters degree</option>
+  										 			<option value="High School" class="others">High School</option>
+  										 			<option value="College" class="others">College</option>
+  										 			<option value="University" class="others">University</option>
+  										 			<option value="Associate degree" class="others">Associate degree</option>
+  										 			<option value="Graduate degree" class="others">Graduate degree</option>
+  										 			<option value="PHD/Post doctorate" class="others">PHD/Post doctorate</option>
+  										 			<option value="Bachelors degree" class="others">Bachelors degree</option>
+  										 			<option value="Masters degree" class="others">Masters degree</option>
   										 		</select>
 
                                           		<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaEdu" align="left">
@@ -256,32 +256,32 @@
   												<span>Field of work:</span><br/>
   												<select class="form-control" name="fieldOfWork" class="textForm" id="fieldOfWork" style="font-size:16px; padding-left: 8px;">
   										 			<option value="workStatus" selected style="color: #8E8E8E">/</option>
-  										 			<option value="administration" class="others">Administration</option>
-  										 			<option value="architecture" class="others">Architecture</option>
-  										 			<option value="artist" class="others">Artist</option>
-  										 			<option value="computers" class="others">Computers</option>
-  										 			<option value="construction" class="others">Construction</option>
-  										 			<option value="design" class="others">Design</option>
-  										 			<option value="education" class="others">Education</option>
-  										 			<option value="engineering" class="others">Engineering</option>
-  										 			<option value="entrepreneur" class="others">Entrepreneur</option>
-  										 			<option value="fashion" class="others">Fashion</option>
-  										 			<option value="financial" class="others">Financial</option>
-  										 			<option value="government" class="others">Government</option>
-  										 			<option value="hospitality" class="others">Hospitality</option>
-  										 			<option value="administration" class="others">Administration</option>
-  										 			<option value="law" class="others">Law</option>
-  										 			<option value="management" class="others">Management</option>
-  										 			<option value="marketing" class="others">Marketing</option>
-  										 			<option value="medicine" class="others">Medicine</option>
-  										 			<option value="military" class="others">Military</option>
-  										 			<option value="nonprofit" class="others">Nonprofit</option>
-  										 			<option value="performingarts" class="others">Performing Arts</option>
-  										 			<option value="restaurant" class="others">Restaurant</option>
-  										 			<option value="retail" class="others">Retail</option>
-  										 			<option value="retired" class="others">Retired</option>
-  										 			<option value="student" class="others">Student</option>
-  										 			<option value="teacher" class="others">Teacher</option>
+  										 			<option value="Administration" class="others">Administration</option>
+  										 			<option value="Architecture" class="others">Architecture</option>
+  										 			<option value="Artist" class="others">Artist</option>
+  										 			<option value="Computers" class="others">Computers</option>
+  										 			<option value="Construction" class="others">Construction</option>
+  										 			<option value="Design" class="others">Design</option>
+  										 			<option value="Education" class="others">Education</option>
+  										 			<option value="Engineering" class="others">Engineering</option>
+  										 			<option value="Entrepreneur" class="others">Entrepreneur</option>
+  										 			<option value="Fashion" class="others">Fashion</option>
+  										 			<option value="Financial" class="others">Financial</option>
+  										 			<option value="Government" class="others">Government</option>
+  										 			<option value="Hospitality" class="others">Hospitality</option>
+  										 			<option value="Administration" class="others">Administration</option>
+  										 			<option value="Law" class="others">Law</option>
+  										 			<option value="Management" class="others">Management</option>
+  										 			<option value="Marketing" class="others">Marketing</option>
+  										 			<option value="Medicine" class="others">Medicine</option>
+  										 			<option value="Military" class="others">Military</option>
+  										 			<option value="Nonprofit" class="others">Nonprofit</option>
+  										 			<option value="Performing Arts" class="others">Performing Arts</option>
+  										 			<option value="Restaurant" class="others">Restaurant</option>
+  										 			<option value="Retail" class="others">Retail</option>
+  										 			<option value="Retired" class="others">Retired</option>
+  										 			<option value="Student" class="others">Student</option>
+  										 			<option value="Teacher" class="others">Teacher</option>
   										 		</select>
 
                                           		<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaWork" align="left">
