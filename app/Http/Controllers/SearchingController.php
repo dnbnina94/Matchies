@@ -33,17 +33,17 @@ class SearchingController extends Controller
 
 /////////////////////
                       if($gender=='Men and Women'){
-                            $regUsers->interested_in= 'fm';
+                            $reg->interested_in= 'fm';
                       }
                       if($gender=='Men'){
-                        $regUsers->interested_in= 'mm';
+                        $reg->interested_in= 'mm';
                       }
 
                       if($gender=='Women'){
-                          $regUsers->interested_in= 'ff';
+                          $reg->interested_in= 'ff';
                         }
 
-
+                        $reg->save();
 
 
         //    $nextUser= $regUsers ->first();

@@ -38,6 +38,13 @@ Home Moderator
 					</table>
 					Choose a reason for warning this user:
 					<form name="reportUser" method="post" action="/index_admin">
+
+
+						<input type="hidden" name ="user_id" value = "{{$report->id_source_user}}">
+						<input type="hidden" name ="report_id" value = "{{$report->id}}">
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+
 					<div style="padding-bottom:10px"></div>
 					<div style="padding-bottom: 8px; border-bottom: 1px solid white">
 						<input id="report1" type="radio" name="report" value="report1" checked="checked">

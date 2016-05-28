@@ -165,7 +165,7 @@ Route::group(['middleware'=>'customMiddleware'], function(){
 
     });
 
-
+/*****************************KRAJ RUTA OBICNOG KORISNIKA*********************************************/
 
 
 
@@ -244,10 +244,24 @@ Route::post('/signup_step_4', function() {
           });
     });
 
+/***************************************************************************************/
+
+
+/***************************ADMIN I MOD RUTE****************************************************/
+
+  Route::group(['middleware'=>'modMiddleware'], function(){
+
+          Route::post('/warn_user', 'ModController@warnUser');
 
 
 
-    /***********************MODERATORSKE RUTE***************************/
+  });
+
+/**********************************************************************************************/
+
+
+
+/*****************************************MODERATORSKE RUTE************************************/
                   Route::group(['middleware'=>'modMiddleware'], function(){
 
 
@@ -257,16 +271,11 @@ Route::post('/signup_step_4', function() {
                     return view('users_moderator');
                         });
 
-                          /************/
-                          Route::post('/warn_user', 'ModController@warnUser');
-
-
-
                 });
 
 
 
- /*******************************************************************/
+ /******************************************************************************************/
 
 
 
@@ -280,12 +289,10 @@ Route::post('/signup_step_4', function() {
 
 });
 
+  /**************************KRAJ IMPLEMENTIRANIH FUNKCIONALNOSTI*************************/
 
 
 
-
-
-                  /********************************************************/
 Route::get('/profile_4', function() {
 	return view('profile_4');
 });
