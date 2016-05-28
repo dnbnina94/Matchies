@@ -309,3 +309,7 @@ Route::get('/signup_step_1', function() {
 Route::get('/chat', function() {
   return view('chat');
 });*/
+
+Route::get('/edit_picture', function() {
+  return view('edit_pictire');
+})
