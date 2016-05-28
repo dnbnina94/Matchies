@@ -16,23 +16,6 @@ use Auth;
 
 class SignUpController extends Controller
 {
-    //
-      public function proba()
-      {
-        $user = Auth::user();
-        $reg = Registered_user::find($user->id);
-        $dt = Carbon::now();
-        $years = $dt->diffInDays($reg->birth_date);
-        $years = floor($years/365);
-        $info= array(
-          'user' => $user,
-          'reg' => $reg,
-          'years' => $years
-        );
-
-          return view('profile_6', $info);
-      }
-
 
     public function postStep2(Request $request)
     {
