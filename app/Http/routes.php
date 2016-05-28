@@ -130,6 +130,9 @@ Route::group(['middleware'=>'customMiddleware'], function(){
       Route::post('/save_details', 'ProfileController@sacuvajDetalje');
       Route::post('/delete_account', 'ProfileController@obrisiSvojProfil');
       Route::post('/save_picture', 'ProfileController@sacuvajSliku');
+
+      Route::post('/warn_user', 'ModController@warnUser');
+
       Route::get('/edit_picture', function() {
         return view('edit_picture');
       });

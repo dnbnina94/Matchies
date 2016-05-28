@@ -122,19 +122,22 @@ Home Moderator
 							<div style="padding-top: 10px"></div>
 
 							@foreach ($reports as $report)
+							<form method="post" action = '/warn_user'>
 								<div class="row userRow">
 									<div class="col-md-3">
-										Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">{{$report->user->name}}</a><br/>
-										Issued by: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user2</a>
+										Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">{{App\User::where('id', '=', $report->id_source_user)->first()->username}}</a><br/>
 									</div>
+									<input type="hidden" name ="user_id" value = "{{$report->id_source_user}}">
+									<input type="hidden" name ="report_id" value = "{{$report->id}}">
+									<input type="hidden" name="_token" value="{{ csrf_token() }}">
 									<div class="col-md-5">
-										Reason: <span style="color: #AE0000;">Reported user shares inappropriate content.</span>
+										Reason: <span style="color: #AE0000;">{{$report->description}}</span>
 									</div>
 									<div class="col-md-4">
 										<table>
 											<tr>
 												<td width="100%">
-													<button class=" btn" id="subButt" onclick="warnKorDisplay(0)"><b>Warn</b></button>
+													<button class="btn" id="subButt" type = "submit" onclick="warnKorDisplay(0)"><b>Warn</b></button>
 												</td>
 												<td style="padding-left: 5px">
 													<span class="glyphicon glyphicon-trash trashIcon" onclick="deleteReportDisplay(0)"></span>
@@ -143,6 +146,7 @@ Home Moderator
 										</table>
 									</div>
 								</div>
+							</form>
 
 								<table class="userCrta" width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
 									<tr>
@@ -151,180 +155,6 @@ Home Moderator
 									</tr>
 								</table>
 							@endforeach
-
-							<div class="row userRow">
-								<div class="col-md-3">
-									Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user1</a><br/>
-									Issued by: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user2</a>
-								</div>
-								<div class="col-md-5">
-									Reason: <span style="color: #AE0000;">Reported user shares inappropriate content.</span>
-								</div>
-								<div class="col-md-4">
-									<table>
-										<tr>
-											<td width="100%">
-												<button class=" btn" id="subButt" onclick="warnKorDisplay(0)"><b>Warn</b></button>
-											</td>
-											<td style="padding-left: 5px">
-												<span class="glyphicon glyphicon-trash trashIcon" onclick="deleteReportDisplay(0)"></span>
-											</td>
-										</tr>
-									</table>
-								</div>
-							</div>
-
-							<table class="userCrta" width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td>
-									</td>
-								</tr>
-							</table>
-
-							<div class="row userRow">
-								<div class="col-md-3">
-									Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user3</a><br/>
-									Issued by: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user1</a>
-								</div>
-								<div class="col-md-5">
-									Reason: <span style="color: #AE0000;">This user is bothering me, this user sends me mean messages.</span>
-								</div>
-								<div class="col-md-4">
-									<table>
-										<tr>
-											<td width="100%">
-												<button class=" btn" id="subButt" onclick="warnKorDisplay(1)"><b>Warn</b></button>
-											</td>
-											<td style="padding-left: 5px">
-												<span class="glyphicon glyphicon-trash trashIcon" onclick="deleteReportDisplay(1)"></span>
-											</td>
-										</tr>
-									</table>
-								</div>
-							</div>
-
-							<table class="userCrta" width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td>
-									</td>
-								</tr>
-							</table>
-
-							<div class="row userRow">
-								<div class="col-md-3">
-									Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user3</a><br/>
-									Issued by: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user2</a>
-								</div>
-								<div class="col-md-5">
-									Reason: <span style="color: #AE0000;">Reported user is spammer.</span>
-								</div>
-								<div class="col-md-4">
-									<table>
-										<tr>
-											<td width="100%">
-												<button class=" btn" id="subButt" onclick="warnKorDisplay(2)"><b>Warn</b></button>
-											</td>
-											<td style="padding-left: 5px">
-												<span class="glyphicon glyphicon-trash trashIcon" onclick="deleteReportDisplay(2)"></span>
-											</td>
-										</tr>
-									</table>
-								</div>
-							</div>
-
-							<table class="userCrta" width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td>
-									</td>
-								</tr>
-							</table>
-
-							<div class="row userRow">
-								<div class="col-md-3">
-									Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user4</a><br/>
-									Issued by: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user3</a>
-								</div>
-								<div class="col-md-5">
-									Reason: <span style="color: #AE0000;">Reported user is spammer.</span>
-								</div>
-								<div class="col-md-4">
-									<table>
-										<tr>
-											<td width="100%">
-												<button class=" btn" id="subButt" onclick="warnKorDisplay(3)"><b>Warn</b></button>
-											</td>
-											<td style="padding-left: 5px">
-												<span class="glyphicon glyphicon-trash trashIcon" onclick="deleteReportDisplay(3)"></span>
-											</td>
-										</tr>
-									</table>
-								</div>
-							</div>
-
-							<table class="userCrta" width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td>
-									</td>
-								</tr>
-							</table>
-
-							<div class="row userRow">
-								<div class="col-md-3">
-									Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user4</a><br/>
-									Issued by: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user2</a>
-								</div>
-								<div class="col-md-5">
-									Reason: <span style="color: #AE0000;">Reported user shares inappropriate content.</span>
-								</div>
-								<div class="col-md-4">
-									<table>
-										<tr>
-											<td width="100%">
-												<button class=" btn" id="subButt" onclick="warnKorDisplay(4)"><b>Warn</b></button>
-											</td>
-											<td style="padding-left: 5px">
-												<span class="glyphicon glyphicon-trash trashIcon" onclick="deleteReportDisplay(4)"></span>
-											</td>
-										</tr>
-									</table>
-								</div>
-							</div>
-
-							<table class="userCrta" width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td>
-									</td>
-								</tr>
-							</table>
-
-							<div class="row userRow">
-								<div class="col-md-3">
-									Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user4</a><br/>
-									Issued by: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user1</a>
-								</div>
-								<div class="col-md-5">
-									Reason: <span style="color: #AE0000;">Reported user shares inappropriate content.</span>
-								</div>
-								<div class="col-md-4">
-									<table>
-										<tr>
-											<td width="100%">
-												<button class=" btn" id="subButt" onclick="warnKorDisplay(5)"><b>Warn</b></button>
-											</td>
-											<td style="padding-left: 5px">
-												<span class="glyphicon glyphicon-trash trashIcon" onclick="deleteReportDisplay(5)"></span>
-											</td>
-										</tr>
-									</table>
-								</div>
-							</div>
-
-							<table class="userCrta" width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td>
-									</td>
-								</tr>
-							</table>
 
 							<div style="padding-top: 10px; padding-bottom: 25px; color: white; text-align: center">
 								You have no more reports.
