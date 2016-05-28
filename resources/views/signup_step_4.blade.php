@@ -56,15 +56,15 @@ Sign Up- Step 4!
 
 										<select  class="form-control" name="relationStatus" class="textForm" id="relationship" style="font-size:16px; padding-left: 8px;">
 										 	<option value="Status" disabled selected style="color: #8E8E8E">Your relationship status</option>
-										 	<option value="single" class="others">Single</option>
-										 	<option value="inRel" class="others">In a relationship</option>
-										 	<option value="engaged" class="others">Engaged</option>
-										 	<option value="married" class="others">Married</option>
-										 	<option value="compl" class="others">It's complicated</option>
-										 	<option value="open" class="others">In an open relationship</option>
-										 	<option value="divorced" class="others">Divorced</option>
-										 	<option value="widowed" class="others">Widowed</option>
-										 	<option value="separated" class="others">Separated</option>
+										 	<option value="Single" class="others">Single</option>
+										 	<option value="In a relationship" class="others">In a relationship</option>
+										 	<option value="Engaged" class="others">Engaged</option>
+										 	<option value="Married" class="others">Married</option>
+										 	<option value="It's complicated" class="others">It's complicated</option>
+										 	<option value="In an open relationship" class="others">In an open relationship</option>
+										 	<option value="Divorced" class="others">Divorced</option>
+										 	<option value="Widowed" class="others">Widowed</option>
+										 	<option value="Separated" class="others">Separated</option>
 										</select>
 
                                         <div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaRel" align="left">
@@ -78,14 +78,14 @@ Sign Up- Step 4!
 									<div class="col-md-6" style="padding-top:20px;" id="eduKolona">
 										<select class="form-control" name="educationStatus" class="textForm" id="education" style="font-size:16px; padding-left: 8px;">
 										 	<option value="edStatus" disabled selected style="color: #8E8E8E">Your education</option>
-										 	<option value="school" class="others">High School</option>
-										 	<option value="college" class="others">College</option>
-										 	<option value="university" class="others">University</option>
-										 	<option value="assdegree" class="others">Associate degree</option>
-										 	<option value="graddegree" class="others">Graduate degree</option>
-										 	<option value="phd" class="others">PHD/Post doctorate</option>
-										 	<option value="bachdegree" class="others">Bachelors degree</option>
-										 	<option value="masterdegree" class="others">Masters degree</option>
+										 	<option value="High school" class="others">High School</option>
+										 	<option value="College" class="others">College</option>
+										 	<option value="University" class="others">University</option>
+										 	<option value="Associate degree" class="others">Associate degree</option>
+										 	<option value="Graduate degree" class="others">Graduate degree</option>
+										 	<option value="PHD/Post doctorate" class="others">PHD/Post doctorate</option>
+										 	<option value="Bachelors degree" class="others">Bachelors degree</option>
+										 	<option value="Masters degree" class="others">Masters degree</option>
 										 </select>
 
                                         <div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaEdu" align="left">
