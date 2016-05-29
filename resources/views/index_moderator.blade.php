@@ -37,7 +37,7 @@ Home Moderator
 						</tr>
 					</table>
 					Choose a reason for warning this user:
-					<form name="reportUser" method="post" action = '/warn_user'>
+					<form name="reportUser" method="post" action = '/mod/warn_user'>
 
 
 						<input type="hidden"  id= "user_idBox" name ="user_idBox" value = "">

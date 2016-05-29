@@ -61,6 +61,12 @@ Route::group(['middleware'=>'customMiddleware'], function(){
 
         ]);
 
+        Route::get('/admin', [
+              'as' => 'admin',
+              'uses' => 'AdminController@ucitajReportove'
+
+          ]);
+
 
       /*
       **********************************************
@@ -218,9 +224,8 @@ Route::post('/signup_step_4', function() {
 /***********************ADMIN RUTE***************************/
     Route::group(['middleware'=>'adminMiddleware'], function(){
 
-          Route::get('/index_admin', function() {
-            return view('index_admin');
-          });
+          Route::get('/index_admin', 'AdminController@ucitajReportove');
+          Route::post('/admin/warn_user', 'AdminController@warnUser');
 
           Route::post('/index_admin', function() {
             return view('index_admin');
@@ -251,7 +256,7 @@ Route::post('/signup_step_4', function() {
 
   Route::group(['middleware'=>'modMiddleware'], function(){
 
-          Route::post('/warn_user', 'ModController@warnUser');
+
 
 
 
@@ -271,6 +276,8 @@ Route::post('/signup_step_4', function() {
                   Route::get('/users_moderator', function() {
                     return view('users_moderator');
                         });
+
+                        Route::post('/mod/warn_user', 'ModController@warnUser');
 
                 });
 
