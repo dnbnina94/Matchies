@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\User as User;
 use App\Registered_user as Registered_user;
 use App\Photo as Photo;
+use App\Report as Report;
 use App\Interaction as Interaction;
 use App\Match_request as Match_request;
 use Illuminate\Support\Facades\Input;
@@ -45,6 +46,64 @@ class ProfileController extends Controller
         }
 
         return redirect()->action('ProfileController@prikaziTudjProfil', ['id' => $currentUser->id]);
+      }
+
+      public function reportUser(Request $request) {
+        //backend provereeee
+        $report = new Report;
+        $description = $request->input('OtherReason');
+        $type = $request->input('reportType');
+        $reportedUser = $request->input('reportedUser');
+
+        $report->description = $description;
+        $report->type = $type;
+        $report->id_source_user = $reportedUser;
+
+        $report->save();
+
+        $user = Auth::user();
+        $reg = Registered_user::find($user->id);
+
+        $targetUser = User::find($reportedUser);
+        $targetRegUser = Registered_user::find($reportedUser);
+
+        $dt = Carbon::now();
+        $years = $dt->diffInDays($targetRegUser->birth_date);
+        $years = floor($years/365);
+
+        $interakcija1 = Interaction::where('id_user1', '=', $user->id)->where('id_user2', '=', $reportedUser)->first();
+        $interakcija2 = Interaction::where('id_user1', '=', $reportedUser)->where('id_user2', '=', $user->id)->first();
+
+        $interakcija = null;
+
+        if (!is_null($interakcija1)) $interakcija = $interakcija1;
+        else $interakcija = $interakcija2;
+
+        $procenat = 0;
+
+        if (!is_null($interakcija)) {
+          $procenat = $interakcija->messages/20;
+          $procenat *= 100;
+          $procenat = floor($procenat);
+        }
+
+        if ($procenat > 100) $procenat = 100;
+
+        $match_request = Match_request::where('id_source_user', '=', $user->id)->where('id_destination_user', '=', $reportedUser)->first();
+
+        $info = array(
+          'user' => $user,
+          'reg' => $reg,
+          'years' => $years,
+          'targetUser' => $targetUser,
+          'targetRegUser' => $targetRegUser,
+          'interakcija' => $interakcija,
+          'match_request'=> $match_request,
+          'procenat' => $procenat
+
+        );
+
+          return view('profile', $info);
       }
 
       public function dislikedUser(Request $request){
@@ -85,12 +144,6 @@ class ProfileController extends Controller
 
       }
 
-
-
-
-
-
-
     //
       public function ucitajSvojProfil()
       {
@@ -112,7 +165,7 @@ class ProfileController extends Controller
 
         );
 
-          return view('profile_6', $info);
+          return view('profile', $info);
       }
 
       public function obrisiSvojProfil(Request $request) {

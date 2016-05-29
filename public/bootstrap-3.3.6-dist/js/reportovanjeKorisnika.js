@@ -1,5 +1,14 @@
 function proveriReport() {
 	var tekst = document.getElementById("otherreason").value;
+	if (document.getElementById("report1").checked) {
+		document.getElementById('reportType').value = 1;
+	}
+	if (document.getElementById("report2").checked) {
+		document.getElementById('reportType').value = 2;
+	}
+	if (document.getElementById("report3").checked) {
+		document.getElementById('reportType').value = 3;
+	}
 	if (document.getElementById("report3").checked && (tekst == "" || tekst == null)) {
 		document.getElementById("greskaReport").style.display = "table";
 		document.getElementById("greskaReport").innerHTML = "Please write down a reason for reporting this user.";

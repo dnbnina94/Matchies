@@ -28,13 +28,12 @@ function deleteKorRemove() {
 	document.getElementById('deleteBoxContainer').style.display = "none";
 }
 
-function moderatorKorDisplay(index) {
+function moderatorKorDisplay(username, email) {
+	var usernameIspis = '' + username;
+	var emailIspis = '' + email;
 	document.getElementById('moderatorBoxContainer').style.display = "table";
-	var moderatori = document.getElementsByClassName('moderatori');
-	document.getElementById('usernameMod').innerHTML = moderatori[index].innerHTML;
-	document.getElementById('fnameMod').innerHTML = moderatori[index].innerHTML + "fname";
-	document.getElementById('lnameMod').innerHTML = moderatori[index].innerHTML + "lname";
-	document.getElementById('emailMod').innerHTML = moderatori[index].innerHTML + "@matchies.com";
+	document.getElementById('usernameMod').innerHTML = usernameIspis;
+	document.getElementById('emailMod').innerHTML = emailIspis;
 }
 
 function moderatorKorRemove() {

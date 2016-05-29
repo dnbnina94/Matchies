@@ -71,7 +71,10 @@ href = "/profile/{{$user->id}}"
 						</tr>
 					</table>
 					Is this user bothering you? Tell us what they did:
-					<form name="reportUser" method="post" action="/profile_1">
+					<form name="reportUser" method="post" action="/reportUser">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="reportedUser" value="{{$targetUser->id}}">
+            <input type="hidden" id="reportType" name="reportType" value="">
 					<div style="padding-bottom:10px"></div>
 					<div style="padding-bottom: 8px; border-bottom: 1px solid #B9BAB8">
 						<input id="report1" type="radio" name="report" value="report1" checked="checked">

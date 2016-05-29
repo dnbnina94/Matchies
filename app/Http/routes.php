@@ -140,6 +140,7 @@ Route::group(['middleware'=>'customMiddleware'], function(){
       Route::post('/save_details', 'ProfileController@sacuvajDetalje');
       Route::post('/delete_account', 'ProfileController@obrisiSvojProfil');
       Route::post('/save_picture', 'ProfileController@sacuvajSliku');
+      Route::post('/reportUser', 'ProfileController@reportUser');
 
       Route::get('/profile/{id}', 'ProfileController@prikaziTudjProfil');
 
@@ -231,10 +232,13 @@ Route::post('/signup_step_4', function() {
 
           Route::get('/index_admin', 'AdminController@ucitajReportove');
           Route::post('/admin/warn_user', 'AdminController@warnUser');
+          Route::post('/admin/warn_user_from_profile', 'AdminController@warnUserFromProfile');
 
           Route::post('/index_admin', function() {
             return view('index_admin');
           });
+
+          Route::get('/admin/users', 'AdminController@listUsers');
 
           Route::get('/admin/profile/{id}', 'ProfileController@prikaziTudjProfilAdmin');
 
@@ -242,13 +246,7 @@ Route::post('/signup_step_4', function() {
             return view('users_admin');
           });
 
-          Route::get('/moderators_admin', function() {
-            return view('moderators_admin');
-          });
-
-          Route::post('/moderators_admin', function() {
-            return view('moderators_admin');
-          });
+          Route::get('/moderators_admin', 'AdminController@listMods');
 
           Route::get('/moderator_signup', function() {
             return view('moderator_signup');

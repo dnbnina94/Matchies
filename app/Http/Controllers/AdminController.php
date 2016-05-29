@@ -30,6 +30,39 @@ class AdminController extends Controller
 
   }
 
+  public function listUsers() {
+    $regUsers = Registered_user::orderBy('number_of_warnings', 'desc')->get();
+
+    $info = array(
+      'regUsers' => $regUsers
+    );
+
+    return view('users_admin', $info);
+  }
+
+  public function warnUserFromProfile(Request $request) {
+    $id = $request->input('user_id');
+    $reg = Registered_user::where('id', '=', $id)->first();
+    $reg->number_of_warnings++;
+    $reg->save();
+    $reports = Report::where('status', '=', 0)->get();
+
+    $info = array(
+      'reports' => $reports
+    );
+
+    return view('index_admin', $info);
+  }
+
+    public function listMods() {
+      $users = User::where('type', '=', 2)->get();
+
+      $info = array(
+        'users' => $users
+      );
+
+      return view('moderators_admin', $info);
+    }
 
   public function warnUser(Request $request) {
     $id = $request->input('user_idBox');

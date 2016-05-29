@@ -63,25 +63,12 @@
 							</td>
 						</tr>
 					</table>
-					Choose a reason for warning this user:
-					<form name="reportUser" method="post" action="/profile_5">
-					<div style="padding-bottom:10px"></div>
-					<div style="padding-bottom: 8px; border-bottom: 1px solid white">
-						<input id="report1" type="radio" name="report" value="report1" checked="checked">
-						<label for="report1"><span><span></span></span>Feels like spam</label>
-					</div>
-					<div style="padding-bottom: 8px; padding-top:10px; border-bottom: 1px solid white">
-						<input id="report2" type="radio" name="report" value="report2">
-						<label for="report2"><span><span></span></span>This user is sharing inappropriate information</label>
-					</div>
-					<div style="padding-bottom: 10px; padding-top:10px;">
-						<input id="report3" type="radio" name="report" value="report3">
-						<label for="report3"><span><span></span></span>Other</label><br/>
-						<div style="padding-bottom: 6px"></div>
-						<textarea class="form-control"  placeholder="Write down a reason for warning this user" name="OtherReason" id="otherreason" style="font-size:16px; padding-left: 12px; resize: none"></textarea>
-						<div id="greskaReport" style="color: #AE0000; padding-top: 5px"></div>
-					</div>
-					<button class=" btn" id="subButt1" type="submit" style="background: #ae0000" onclick="return proveriReport()"><b>Warn this user</b></button>
+					<form name="reportUser" method="post" action="/admin/warn_user_from_profile">
+            <div style="padding-bottom:10px"></div>
+  					Are you sure you want to warn this user?<br><br>
+            <input type="hidden" id="user_id" name="user_id" value="">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+  					<button class=" btn" id="subButt1" type="submit" style="background: #ae0000" onclick="return proveriReport()"><b>Warn this user</b></button>
 					</form>
 				</div>
 				<div class="col-md-4">
@@ -160,6 +147,7 @@
 										</div>
 										<div class="row" style="margin-left: 0px; margin-right: 0px; margin-top: 10px;">
 											<div class="col-md-4 nopadding" id="reportButtonDiv">
+                        <form><input type = "hidden" id="userId2" value="{{$targetUser->id}}"></form>
 												<button class="btn" id="subButt" style="background: #ae0000" onclick="reportKor1()"><b>Warn this user</b></button>
 											</div>
 											<div class="col-md-4" id="messageButtonDiv">

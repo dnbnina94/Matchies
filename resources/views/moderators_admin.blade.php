@@ -5,13 +5,13 @@ Home Moderator
 @stop
 
 @section('csslinks')
-	<link href="bootstrap-3.3.6-dist/css/homepage.css" rel="stylesheet">
+	<link href="/bootstrap-3.3.6-dist/css/homepage.css" rel="stylesheet">
 @stop
 
 @section('javascriptlinks')
-  <script src="bootstrap-3.3.6-dist/js/openSettings.js"></script>
-  <script src="bootstrap-3.3.6-dist/js/upozoravanjeKorisnika.js"></script>
-  <script src="bootstrap-3.3.6-dist/js/uklanjanje.js"></script>
+  <script src="/bootstrap-3.3.6-dist/js/openSettings.js"></script>
+  <script src="/bootstrap-3.3.6-dist/js/upozoravanjeKorisnika.js"></script>
+  <script src="/bootstrap-3.3.6-dist/js/uklanjanje.js"></script>
 @stop
 
 @section('sewingBut')
@@ -39,8 +39,6 @@ Home Moderator
 					<div class="row">
 						<div class="col-md-12" align="left" style="color: black; padding-top: 10px">
 							Username: <span id="usernameMod" style="color: white; font-weight: bold"></span><br/>
-							First name: <span id="fnameMod" style="color: white; font-weight: bold"></span><br/>
-							Last name: <span id="lnameMod" style="color: white; font-weight: bold"></span><br/>
 							Email: <span id="emailMod" style="color: white; font-weight: bold"></span><br/>
 						</div>
 					</div>
@@ -109,9 +107,15 @@ Home Moderator
 						<div class="jumbotronProfile" style="color: white; font-size: 16px; padding-bottom: 0px">
 							<span style="font-weight: bold"> Users: </span>
 							<div style="padding-top: 10px"></div>
+
+							@foreach ($users as $user)
 							<div class="row moderatorRow">
 								<div class="col-md-6">
-									Username: <span class="moderatori" style="font-weight: bold; color: #AE0000; cursor: pointer" onclick="moderatorKorDisplay(0)">mod1</span>
+
+									Username: <span class="moderatori" style="font-weight: bold; color: #AE0000; cursor: pointer">{{$user->username}}</span>
+									<!--da se ubaci da link radi ovo umesto dugmeta, ako moze-->
+									<button type="button" value="Show details" onclick="moderatorKorDisplay({{$user->username}},{{$user->email}});">
+										<!--ili da button uopste proradi :(-->
 								</div>
 								<div class="col-md-6 desno">
 									<span class="glyphicon glyphicon-trash" style="color: #AE0000; cursor: pointer" onclick="deleteReportDisplay(0)"></span>
@@ -124,102 +128,7 @@ Home Moderator
 									</td>
 								</tr>
 							</table>
-
-							<div class="row moderatorRow">
-								<div class="col-md-6">
-									Username: <span class="moderatori" style="font-weight: bold; color: #AE0000; cursor: pointer" onclick="moderatorKorDisplay(1)">mod2</span>
-								</div>
-								<div class="col-md-6 desno">
-									<span class="glyphicon glyphicon-trash" style="color: #AE0000; cursor: pointer" onclick="deleteReportDisplay(1)"></span>
-								</div>
-							</div>
-
-							<table class="moderatorCrta" width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td>
-									</td>
-								</tr>
-							</table>
-
-							<div class="row moderatorRow">
-								<div class="col-md-6">
-									Username: <span class="moderatori" style="font-weight: bold; color: #AE0000; cursor: pointer" onclick="moderatorKorDisplay(2)">mod3</span>
-								</div>
-								<div class="col-md-6 desno">
-									<span class="glyphicon glyphicon-trash" style="color: #AE0000; cursor: pointer" onclick="deleteReportDisplay(2)"></span>
-								</div>
-							</div>
-
-							<table class="moderatorCrta" width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td>
-									</td>
-								</tr>
-							</table>
-
-							<div class="row moderatorRow">
-								<div class="col-md-6">
-									Username: <span class="moderatori" style="font-weight: bold; color: #AE0000; cursor: pointer" onclick="moderatorKorDisplay(3)">mod4</span>
-								</div>
-								<div class="col-md-6 desno">
-									<span class="glyphicon glyphicon-trash" style="color: #AE0000; cursor: pointer" onclick="deleteReportDisplay(3)"></span>
-								</div>
-							</div>
-
-							<table class="moderatorCrta" width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td>
-									</td>
-								</tr>
-							</table>
-
-							<div class="row moderatorRow">
-								<div class="col-md-6">
-									Username: <span class="moderatori" style="font-weight: bold; color: #AE0000; cursor: pointer" onclick="moderatorKorDisplay(4)">mod5</span>
-								</div>
-								<div class="col-md-6 desno">
-									<span class="glyphicon glyphicon-trash" style="color: #AE0000; cursor: pointer" onclick="deleteReportDisplay(4)"></span>
-								</div>
-							</div>
-
-							<table class="moderatorCrta" width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td>
-									</td>
-								</tr>
-							</table>
-
-							<div class="row moderatorRow">
-								<div class="col-md-6">
-									Username: <span class="moderatori" style="font-weight: bold; color: #AE0000; cursor: pointer" onclick="moderatorKorDisplay(5)">mod6</span>
-								</div>
-								<div class="col-md-6 desno">
-									<span class="glyphicon glyphicon-trash" style="color: #AE0000; cursor: pointer" onclick="deleteReportDisplay(5)"></span>
-								</div>
-							</div>
-
-							<table class="moderatorCrta" width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td>
-									</td>
-								</tr>
-							</table>
-
-							<div class="row moderatorRow">
-								<div class="col-md-6">
-									Username: <span class="moderatori" style="font-weight: bold; color: #AE0000; cursor: pointer" onclick="moderatorKorDisplay(6)">mod7</span>
-								</div>
-								<div class="col-md-6 desno">
-									<span class="glyphicon glyphicon-trash" style="color: #AE0000; cursor: pointer" onclick="deleteReportDisplay(6)"></span>
-								</div>
-							</div>
-
-							<table class="moderatorCrta" width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td>
-									</td>
-								</tr>
-							</table>
+							@endforeach
 
 							<div style="padding-top: 10px; padding-bottom: 25px; color: white; text-align: center">
 								There are no more moderators to be shown.

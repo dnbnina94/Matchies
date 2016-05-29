@@ -26,6 +26,7 @@ class SearchingController extends Controller
           $gender = $request->input('gender');
           $ageMin= $request->input('ageMin');
           $ageMax= $request->input('ageMax');
+          if ($ageMax == 80) $ageMax = 110;
 
           //////////////////////////////////
           $regUsers = Registered_user::all();
