@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage as Storage;
 use Illuminate\Support\Facades\Hash as Hash;
 use Auth;
+use App\Interaction as Interaction;
+use App\Match_request as Match_request;
 
 class SearchingController extends Controller
 {
@@ -59,11 +61,50 @@ class SearchingController extends Controller
 
                     if($nextUser->id != $reg->id){
 
-                      if( $years <= $ageMax and $years >= $ageMin){
+                      $interakcija1 = Interaction::where('id_user1', '=', $reg->id)->where('id_user2', '=',$nextUser->id )->first();
+                      $interakcija2 = Interaction::where('id_user1', '=', $nextUser->id)->where('id_user2', '=', $reg->id)->first();
 
-                        if($reg->sex== 'f'){
+                      $interakcija = null;
 
-                          if($nextUser->interested_in == 'ff' or $nextUser->interested_in == 'fm' ){
+                      if (!is_null($interakcija1)) $interakcija = $interakcija1;
+                      else $interakcija = $interakcija2;
+
+                      $match_request =null;
+                      $match_request = Match_request::where('id_source_user', '=', $reg->id)->where('id_destination_user', '=', $nextUser->id)->first();
+                      if( is_null($interakcija) and is_null($match_request)){
+
+                        if( $years <= $ageMax and $years >= $ageMin){
+
+                          if($reg->sex== 'f'){
+
+                            if($nextUser->interested_in == 'ff' or $nextUser->interested_in == 'fm' ){
+
+                                          if($reg->interested_in == 'fm'){
+                                            $returnUser=$nextUser;
+                                                break;
+                                          }
+
+                                          if($reg->interested_in == 'mm'){
+                                              if($nextUser->sex == 'm'){
+                                                $returnUser=$nextUser;
+                                                break;
+                                              }
+                                          }
+
+                                          if($reg->interested_in == 'ff'){
+                                            if($nextUser->sex == 'f'){
+                                              $returnUser=$nextUser;
+                                              break;
+                                            }
+                                          }
+
+
+                                  }
+
+                          }
+                          /////
+                          if($reg->sex== 'm'){
+                            if($nextUser->interested_in == 'mm' or $nextUser->interested_in == 'fm' ){
 
                                         if($reg->interested_in == 'fm'){
                                           $returnUser=$nextUser;
@@ -84,36 +125,12 @@ class SearchingController extends Controller
                                           }
                                         }
 
-
+                                  }
                                 }
+                            }
+                      }
 
-                        }
-                        /////
-                        if($reg->sex== 'm'){
-                          if($nextUser->interested_in == 'mm' or $nextUser->interested_in == 'fm' ){
 
-                                      if($reg->interested_in == 'fm'){
-                                        $returnUser=$nextUser;
-                                            break;
-                                      }
-
-                                      if($reg->interested_in == 'mm'){
-                                          if($nextUser->sex == 'm'){
-                                            $returnUser=$nextUser;
-                                            break;
-                                          }
-                                      }
-
-                                      if($reg->interested_in == 'ff'){
-                                        if($nextUser->sex == 'f'){
-                                          $returnUser=$nextUser;
-                                          break;
-                                        }
-                                      }
-
-                                }
-                              }
-                          }
                     }
             }
 
@@ -145,6 +162,9 @@ class SearchingController extends Controller
           $reg = Registered_user::find($user->id);
 
           $iteration = $request->input('iteration');
+          $currentUserString = $request->input('currentUser');
+          $currentUserId= (int) $currentUserString;
+          $currentUser = Registered_user::find($currentUserId);
           /*
 
           PROVERA SUPROTNOG MATCH-A, AKO POSTOJI OTVARA SE INTERAKCIJA
@@ -152,15 +172,36 @@ class SearchingController extends Controller
           AKO NE OVO SE BELEZI KAO MATCH
 
           */
+          $match_to_me =null;
+          $match_to_me = Match_request::where('id_source_user', '=', $currentUser->id )->where('id_destination_user', '=', $reg->id)->first();
+          if( !is_null($match_to_me)){
+              $match_to_me->delete();
+              $newInteraction =  new Interaction;
+              $newInteraction->id_user1 = $reg->id;
+              $newInteraction->id_user2 = $currentUser->id;
+              $newInteraction->save();
+
+          }else{
+
+            $match = new Match_request;
+            $match->id_source_user = $reg->id;
+            $match->id_destination_user = $currentUser->id;
+
+            $match->save();
+          }
+
+
+
 
           //////////////////////////////////
             $currentIteration = -1;
             $regUsers = Registered_user::all();
             $number = $regUsers->count();
             $returnUser= null;
+            $years=null;
             foreach ($regUsers as $nextUser) {
               $currentIteration ++ ;
-              $returnUser=$nextUser;
+
               if($currentIteration > $iteration){
                 $iteration ++ ;
 
@@ -168,63 +209,79 @@ class SearchingController extends Controller
                 $years = $dt->diffInDays($nextUser->birth_date);
                 $years = floor($years/365);
 
-                      if($nextUser->id != $reg->id){
+                if($nextUser->id != $reg->id){
 
-                        if( $years <= $ageMax and $years >= $ageMin){
+                  $interakcija1 = Interaction::where('id_user1', '=', $reg->id)->where('id_user2', '=',$nextUser->id )->first();
+                  $interakcija2 = Interaction::where('id_user1', '=', $nextUser->id)->where('id_user2', '=', $reg->id)->first();
 
-                          if($reg->sex== 'f'){
+                  $interakcija = null;
 
-                            if($nextUser->interested_in == 'ff' or $nextUser->interested_in == 'fm' ){
+                  if (!is_null($interakcija1)) $interakcija = $interakcija1;
+                  else $interakcija = $interakcija2;
 
-                                          if($reg->interested_in == 'fm'){
-                                                $returnUser=$nextUser;
-                                                break;
-                                          }
+                  $match_request =null;
+                  $match_request = Match_request::where('id_source_user', '=', $reg->id)->where('id_destination_user', '=', $nextUser->id)->first();
+                  if( is_null($interakcija) and is_null($match_request)){
 
-                                          if($reg->interested_in == 'mm'){
-                                              if($nextUser->sex == 'm'){
-                                                $returnUser=$nextUser;
-                                                break;
-                                              }
-                                          }
+                    if( $years <= $reg->max_age and $years >= $reg->minimal_age){
 
-                                          if($reg->interested_in == 'ff'){
-                                            if($nextUser->sex == 'f'){
-                                              $returnUser=$nextUser;
-                                              break;
-                                            }
-                                          }
+                      if($reg->sex== 'f'){
 
+                        if($nextUser->interested_in == 'ff' or $nextUser->interested_in == 'fm' ){
 
-                                  }
-
-                          }
-                          /////
-                          if($reg->sex== 'm'){
-                            if($nextUser->interested_in == 'mm' or $nextUser->interested_in == 'fm' ){
-
-                                        if($reg->interested_in == 'fm'){
-                                            $returnUser=$nextUser;
+                                      if($reg->interested_in == 'fm'){
+                                        $returnUser=$nextUser;
                                             break;
-                                        }
+                                      }
 
-                                        if($reg->interested_in == 'mm'){
-                                            if($nextUser->sex == 'm'){
-                                              break;
-                                            }
-                                        }
-
-                                        if($reg->interested_in == 'ff'){
-                                          if($nextUser->sex == 'f'){
+                                      if($reg->interested_in == 'mm'){
+                                          if($nextUser->sex == 'm'){
                                             $returnUser=$nextUser;
                                             break;
                                           }
-                                        }
+                                      }
 
-                                  }
-                                }
-                            }
+                                      if($reg->interested_in == 'ff'){
+                                        if($nextUser->sex == 'f'){
+                                          $returnUser=$nextUser;
+                                          break;
+                                        }
+                                      }
+
+
+                              }
+
                       }
+                      /////
+                      if($reg->sex== 'm'){
+                        if($nextUser->interested_in == 'mm' or $nextUser->interested_in == 'fm' ){
+
+                                    if($reg->interested_in == 'fm'){
+                                      $returnUser=$nextUser;
+                                          break;
+                                    }
+
+                                    if($reg->interested_in == 'mm'){
+                                        if($nextUser->sex == 'm'){
+                                          $returnUser=$nextUser;
+                                          break;
+                                        }
+                                    }
+
+                                    if($reg->interested_in == 'ff'){
+                                      if($nextUser->sex == 'f'){
+                                        $returnUser=$nextUser;
+                                        break;
+                                      }
+                                    }
+
+                              }
+                            }
+                        }
+                  }
+
+
+                }
 
                 }
 
@@ -262,9 +319,10 @@ class SearchingController extends Controller
           $regUsers = Registered_user::all();
           $number = $regUsers->count();
           $returnUser= null;
+          $years=null;
         foreach ($regUsers as $nextUser) {
             $currentIteration ++ ;
-            $returnUser=$nextUser;
+
             if($currentIteration > $iteration){
               $iteration ++ ;
 
@@ -272,61 +330,79 @@ class SearchingController extends Controller
               $years = $dt->diffInDays($nextUser->birth_date);
               $years = floor($years/365);
 
-                      if($nextUser->id != $reg->id){
+              if($nextUser->id != $reg->id){
 
-                        if( $years <= $ageMax and $years >= $ageMin){
+                $interakcija1 = Interaction::where('id_user1', '=', $reg->id)->where('id_user2', '=',$nextUser->id )->first();
+                $interakcija2 = Interaction::where('id_user1', '=', $nextUser->id)->where('id_user2', '=', $reg->id)->first();
 
-                          if($reg->sex== 'f'){
+                $interakcija = null;
 
-                            if($nextUser->interested_in == 'ff' or $nextUser->interested_in == 'fm' ){
+                if (!is_null($interakcija1)) $interakcija = $interakcija1;
+                else $interakcija = $interakcija2;
 
-                                          if($reg->interested_in == 'fm'){
-                                            $returnUser=$nextUser;
-                                            break;
-                                          }
+                $match_request =null;
+                $match_request = Match_request::where('id_source_user', '=', $reg->id)->where('id_destination_user', '=', $nextUser->id)->first();
+                if( is_null($interakcija) and is_null($match_request)){
 
-                                          if($reg->interested_in == 'mm'){
-                                              if($nextUser->sex == 'm'){
-                                                $returnUser=$nextUser;
-                                                break;
-                                              }
-                                          }
+                  if( $years <= $reg->max_age and $years >= $reg->minimal_age){
 
-                                          if($reg->interested_in == 'ff'){
-                                            if($nextUser->sex == 'f'){
-                                              $returnUser=$nextUser;
-                                              break;
-                                            }
-                                          }
+                    if($reg->sex== 'f'){
 
+                      if($nextUser->interested_in == 'ff' or $nextUser->interested_in == 'fm' ){
 
-                                  }
+                                    if($reg->interested_in == 'fm'){
+                                      $returnUser=$nextUser;
+                                          break;
+                                    }
 
-                          }
-                          /////
-                          if($reg->sex== 'm'){
-                            if($nextUser->interested_in == 'mm' or $nextUser->interested_in == 'fm' ){
-
-                                        if($reg->interested_in == 'fm'){
-                                              break;
+                                    if($reg->interested_in == 'mm'){
+                                        if($nextUser->sex == 'm'){
+                                          $returnUser=$nextUser;
+                                          break;
                                         }
+                                    }
 
-                                        if($reg->interested_in == 'mm'){
-                                            if($nextUser->sex == 'm'){
-                                              break;
-                                            }
-                                        }
+                                    if($reg->interested_in == 'ff'){
+                                      if($nextUser->sex == 'f'){
+                                        $returnUser=$nextUser;
+                                        break;
+                                      }
+                                    }
 
-                                        if($reg->interested_in == 'ff'){
-                                          if($nextUser->sex == 'f'){
-                                            break;
-                                          }
-                                        }
 
-                                  }
-                                }
                             }
+
+                    }
+                    /////
+                    if($reg->sex== 'm'){
+                      if($nextUser->interested_in == 'mm' or $nextUser->interested_in == 'fm' ){
+
+                                  if($reg->interested_in == 'fm'){
+                                    $returnUser=$nextUser;
+                                        break;
+                                  }
+
+                                  if($reg->interested_in == 'mm'){
+                                      if($nextUser->sex == 'm'){
+                                        $returnUser=$nextUser;
+                                        break;
+                                      }
+                                  }
+
+                                  if($reg->interested_in == 'ff'){
+                                    if($nextUser->sex == 'f'){
+                                      $returnUser=$nextUser;
+                                      break;
+                                    }
+                                  }
+
+                            }
+                          }
                       }
+                }
+
+
+              }
 
                 }
 
