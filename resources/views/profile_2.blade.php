@@ -260,7 +260,14 @@ Searching
 									<div class="jumbotronProfile" style="margin-top: 20px">
 										<table width="100%">
 											<tr>
-												<td><span class="glyphicon glyphicon-remove LikeRemove"></span></td>
+												<td>
+													<form name="neSvidjaMiSe" method="post" action="/searching">
+														<input type="hidden" name="_token" value="{{ csrf_token() }}">
+														<button type="submit" style="background: none; border: none">
+															<span class="glyphicon glyphicon-remove LikeRemove"></span>
+														</button>
+													</form>
+												</td>
 												<td width="100%" align="left" style="color: #AE0000; padding-left: 10px"><span>You are currently matched with this user. If you want to block this user, just click the button on the left.</span></td>
 											</tr>
 										</table>
