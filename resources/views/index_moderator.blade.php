@@ -135,7 +135,7 @@ Home Moderator
 							<form >
 								<div class="row userRow">
 									<div class="col-md-3">
-										Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">{{App\User::where('id', '=', $report->id_source_user)->first()->username}}</a><br/>
+										Reported user: <a href="/profile/{{$report->id_source_user}}" style="font-weight: bold; color: #AE0000">{{App\User::where('id', '=', $report->id_source_user)->first()->username}}</a><br/>
 									</div>
 									<input type="hidden" name ="user_id" value = "{{$report->id_source_user}}">
 									<input type="hidden" name ="report_id" value = "{{$report->id}}">
