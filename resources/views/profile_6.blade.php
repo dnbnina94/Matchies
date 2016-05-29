@@ -32,13 +32,10 @@ Searching
 		var imgArray = new Array();
 
 		imgArray[0] = new Image();
-		imgArray[1] = new Image();
-		imgArray[2] = new Image();
 
-		imgArray[0].src = "images/fuckingThomas/kek.jpg";
-		imgArray[1].src = "images/fuckingThomas/funny.jpg";
-		imgArray[2].src = "images/fuckingThomas/meh.jpg";
-		
+
+		imgArray[0].src = "app/public/uploads/{{Auth::user()->id}}/{{App\Registered_user::where('id', '=', Auth::user()->id )->first()->photo_link}} ";
+	
 
 		var slikaIterator = 0;
 
