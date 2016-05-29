@@ -56,13 +56,13 @@ return [
 
         'tmp' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/tmp'),
+            'root' => public_path('app/public/tmp'),
             'visibility' => 'public',
         ],
 
         'uploads' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/uploads'),
+            'root' => public_path('app/public/uploads'),
             'visibility' => 'public',
         ],
 

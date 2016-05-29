@@ -110,7 +110,7 @@ class SignUpController extends Controller
                     $filename= str_random(40);
                     $filename .= '.jpg';
                     //Storage::disk('tmp')->put($name, $file);
-                   $file->move('../storage/app/public/tmp', $filename);
+                   $file->move('../public/app/public/tmp', $filename);
                     $file=$filename;
 
                     $info = array(

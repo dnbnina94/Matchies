@@ -114,7 +114,12 @@
                             <tr>
                               <td align="left" valign="middle" style="padding-left: 10px; padding-right: 10px; width: 30%; background: rgba(170,170,170,0.2)">
                               </td>
-                              <td width="40%" id="slicice1" style="text-align: center">
+                              <td width="40%" id="slicice1" style="text-align: center; background: url('app/public/uploads/{{Auth::user()->id}}/{{App\Registered_user::where('id', '=', Auth::user()->id )->first()->photo_link}}');
+                              -webkit-background-size: cover;
+                              -moz-background-size: cover;
+                              -o-background-size: cover;
+                              background-size: cover;
+                              ">
                               </td>
                               <td align="right" valign="middle" style="padding-right: 10px; padding-left: 10px; width: 30%; background: rgba(170,170,170,0.2)">
                               </td>

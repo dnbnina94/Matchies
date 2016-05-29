@@ -151,7 +151,7 @@ class ProfileController extends Controller
         $file = $request->file('file');
 
         if($file->isValid()) {
-          $file->move('../storage/app/public/uploads/' . $reg->id, $reg->photo_link);
+          $file->move('../public/app/public/uploads/' . $reg->id, $reg->photo_link);
         }
 
         $dt = Carbon::now();
