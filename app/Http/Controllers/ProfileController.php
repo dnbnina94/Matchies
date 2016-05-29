@@ -292,6 +292,33 @@ class ProfileController extends Controller
 
           return view('profile', $info);
       }
+
+      public function prikaziTudjProfilAdmin($id) {
+        $user = Auth::user();
+        $reg = Registered_user::find($user->id);
+
+        $targetUser = User::find($id);
+
+        if (is_null($targetUser) || $targetUser->type != 3) {
+          return view('error_page');
+        }
+
+        $targetRegUser = Registered_user::find($id);
+
+        $dt = Carbon::now();
+        $years = $dt->diffInDays($targetRegUser->birth_date);
+        $years = floor($years/365);
+
+        $info = array(
+          'user' => $user,
+          'reg' => $reg,
+          'years' => $years,
+          'targetUser' => $targetUser,
+          'targetRegUser' => $targetRegUser
+        );
+
+          return view('profile_admin', $info);
+      }
 }
 
 ?>
