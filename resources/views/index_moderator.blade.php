@@ -64,7 +64,7 @@ Home Moderator
 					<!--
 					<button class=" btn" id="subButt1" type="submit" style="background: #ae0000"  onclick="return proveriWarn()"><b>Warn this user</b></button>
 					-->
-					<button class=" btn" id="subButt1" type="submit" style="background: #ae0000" ><b>Warn this user</b></button>
+					<button class="btn" id="subButt1" type="submit" style="background: #ae0000" ><b>Warn this user</b></button>
 					</form>
 				</div>
 				<div class="col-md-4">
@@ -86,16 +86,18 @@ Home Moderator
 							<td>
 							</td>
 							<td align="right" style="font-size: 16px; color: white">
-								<span class="glyphicon glyphicon-remove" onclick="deleteKorRemove()" style="cursor: pointer"></span>
+								<!--<span class="glyphicon glyphicon-remove" onclick="deleteKorRemove()" style="cursor: pointer"></span>-->
 							</td>
 						</tr>
 					</table>
 					<div class="row">
 						<div class="col-md-12" align="center">
-							<form name="deleteUser" action="/index_admin" method="post">
+							<form name="deleteReport" action="/mod/deleteReport" method="post">
 								Are you sure you want to delete this report?<br/>
 								<div style="padding-bottom:10px"></div>
-								<button class=" btn" id="subButt1" type="submit" style="background: #383838" onclick="return deleteReportRemove()"><b>Delete this report</b></button>
+								<input type="hidden" id="report_id_to_delete" name="report_id_to_delete" value="">
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+								<button class="btn" id="subButt1" type="submit" style="background: #383838"><b>Delete this report</b></button>
 							</form>
 						</div>
 					</div>
@@ -132,10 +134,10 @@ Home Moderator
 							<div style="padding-top: 10px"></div>
 
 							@foreach ($reports as $report)
-							<form >
+							<form>
 								<div class="row userRow">
 									<div class="col-md-3">
-										Reported user: <a href="/profile/{{$report->id_source_user}}" style="font-weight: bold; color: #AE0000">{{App\User::where('id', '=', $report->id_source_user)->first()->username}}</a><br/>
+										Reported user: <a href="/mod/profile/{{$report->id_source_user}}" style="font-weight: bold; color: #AE0000">{{App\User::where('id', '=', $report->id_source_user)->first()->username}}</a><br/>
 									</div>
 									<input type="hidden" name ="user_id" value = "{{$report->id_source_user}}">
 									<input type="hidden" name ="report_id" value = "{{$report->id}}">
@@ -152,14 +154,17 @@ Home Moderator
 												<td width="100%">
 													<button type='button' class="btn" id="subButt" onclick="warnKorDisplay(0,{{$report->id_source_user}},{{$report->id}})"><b>Warn</b></button>
 												</td>
+											</form>
 												<td style="padding-left: 5px">
-													<span class="glyphicon glyphicon-trash trashIcon" onclick="deleteReportDisplay(0)"></span>
+													<form>
+													<button type="button" onclick="deleteReportDisplay({{$report->id}})" value="Obrisi report">
+													<!--<span class="glyphicon glyphicon-trash trashIcon" onclick="deleteReportDisplay(0)"></span>-->
+												</form>
 												</td>
 											</tr>
 										</table>
 									</div>
 								</div>
-							</form>
 
 								<table class="userCrta" width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
 									<tr>

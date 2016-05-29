@@ -45,6 +45,43 @@ class ModController extends Controller
 
         return view('index_moderator', $info);
       }
+
+      public function warnUserFromProfile(Request $request) {
+        $id = $request->input('user_id');
+        $reg = Registered_user::where('id', '=', $id)->first();
+        $reg->number_of_warnings++;
+        $reg->save();
+        $reports = Report::where('status', '=', 0)->get();
+
+        $info = array(
+          'reports' => $reports
+        );
+
+        return view('index_moderator', $info);
+      }
+
+      public function listUsers() {
+        $regUsers = Registered_user::orderBy('number_of_warnings', 'desc')->get();
+
+        $info = array(
+          'regUsers' => $regUsers
+        );
+
+        return view('users_moderator', $info);
+      }
+
+      public function deleteReport(Request $request) {
+        $reportId = $request->input('report_id_to_delete');
+        $report = Report::where('id', '=', $reportId)->first();
+        $report->delete();
+        $reports = Report::where('status', '=', 0)->get();
+
+        $info = array(
+          'reports' => $reports
+        );
+
+        return view('index_moderator', $info);
+      }
 }
 
 ?>

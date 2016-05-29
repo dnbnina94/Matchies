@@ -39,8 +39,8 @@
 		    document.getElementById('progressBarTekst').innerHTML = "{{$procenat}}% Complete";
     @endif
     @if ((!is_null($interakcija) && $procenat == 100) || $targetUser == $user)
-      $('#slicice').css("background-image", "url(../app/public/uploads/{{$targetUser->id}}/{{$targetRegUser->photo_link}})");
-      $('#slicice1').css("background-image", "url(../app/public/uploads/{{$targetUser->id}}/{{$targetRegUser->photo_link}})");
+      $('#slicice').css("background-image", "url(/app/public/uploads/{{$targetUser->id}}/{{$targetRegUser->photo_link}})");
+      $('#slicice1').css("background-image", "url(/app/public/uploads/{{$targetUser->id}}/{{$targetRegUser->photo_link}})");
     @endif
   }
 </script>

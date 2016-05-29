@@ -11,6 +11,7 @@ function proveriReport() {
 
 function reportKor1() {
 	document.getElementById("reportBoxContainer").style.display = "table";
+	document.getElementById("user_id").value = document.getElementById("userId2").value;
 }
 
 function reportKor1remove() {
@@ -74,8 +75,9 @@ function warnKorRemove() {
 	document.getElementById('reportBoxContainer').style.display = "none";
 }
 
-function deleteReportDisplay(index) {
-	classElementIndex = index;
+function deleteReportDisplay(reportId) {
+	var idR = ''+reportId;
+	document.getElementById('report_id_to_delete').value = idR;
 	document.getElementById('deleteBoxContainer').style.display = "table";
 }
 

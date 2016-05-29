@@ -11,7 +11,7 @@ class Registered_user extends Model
   public $timestamps = false;
     //
     public function user(){
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'id_user_reguser');
     }
 /*
     public function getProfileImage(){

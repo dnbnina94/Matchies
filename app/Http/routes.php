@@ -235,7 +235,7 @@ Route::post('/signup_step_4', function() {
             return view('index_admin');
           });
 
-          Route::get('/profile/{id}', 'ProfileController@prikaziTudjProfilAdmin');
+          Route::get('/admin/profile/{id}', 'ProfileController@prikaziTudjProfilAdmin');
 
           Route::get('/users_admin', function() {
             return view('users_admin');
@@ -282,7 +282,12 @@ Route::post('/signup_step_4', function() {
                     return view('users_moderator');
                         });
 
+                        Route::get('/mod/profile/{id}', 'ProfileController@prikaziTudjProfilMod');
+
                         Route::post('/mod/warn_user', 'ModController@warnUser');
+                        Route::post('/mod/warn_user_from_profile', 'ModController@warnUserFromProfile');
+                        Route::get('/mod/users', 'ModController@listUsers');
+                        Route::post('/mod/deleteReport', 'ModController@deleteReport');
 
                 });
 

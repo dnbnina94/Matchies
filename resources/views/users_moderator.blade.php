@@ -5,11 +5,11 @@ Home Moderator
 @stop
 
 @section('csslinks')
-	<link href="bootstrap-3.3.6-dist/css/homepage.css" rel="stylesheet">
+	<link href="/bootstrap-3.3.6-dist/css/homepage.css" rel="stylesheet">
 @stop
 
 @section('javascriptlinks')
-  <script src="bootstrap-3.3.6-dist/js/openSettings.js"></script>
+  <script src="/bootstrap-3.3.6-dist/js/openSettings.js"></script>
 @stop
 
 @section('sewingBut')
@@ -38,12 +38,15 @@ Home Moderator
 						<div class="jumbotronProfile" style="color: white; font-size: 16px; padding-bottom: 0px">
 							<span style="font-weight: bold"> Users: </span>
 							<div style="padding-top: 10px"></div>
+
+							@foreach ($regUsers as $regUser)
+
 							<div class="row">
 								<div class="col-md-6">
-									Username: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user1</a>
+									Username: <a href="/mod/profile/{{$regUser->id}}" style="font-weight: bold; color: #AE0000">{{App\User::where('id', '=', $regUser->id)->first()->username}}</a>
 								</div>
 								<div class="col-md-6 desno">
-									Number of strikes: <span style="color: #AE0000; font-weight: bold">3</span>
+									Number of strikes: <span style="color: #AE0000; font-weight: bold">{{$regUser->number_of_warnings}}</span>
 								</div>
 							</div>
 
@@ -54,101 +57,7 @@ Home Moderator
 								</tr>
 							</table>
 
-							<div class="row">
-								<div class="col-md-6">
-									Username: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user2</a>
-								</div>
-								<div class="col-md-6 desno">
-									Number of strikes: <span style="color: #AE0000; font-weight: bold">2</span>
-								</div>
-							</div>
-
-							<table width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td>
-									</td>
-								</tr>
-							</table>
-
-							<div class="row">
-								<div class="col-md-6">
-									Username: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user3</a>
-								</div>
-								<div class="col-md-6 desno">
-									Number of strikes: <span style="color: #AE0000; font-weight: bold">1</span>
-								</div>
-							</div>
-
-							<table width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td>
-									</td>
-								</tr>
-							</table>
-
-							<div class="row">
-								<div class="col-md-6">
-									Username: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user4</a>
-								</div>
-								<div class="col-md-6 desno">
-									Number of strikes: <span style="color: #AE0000; font-weight: bold">1</span>
-								</div>
-							</div>
-
-							<table width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td>
-									</td>
-								</tr>
-							</table>
-
-							<div class="row">
-								<div class="col-md-6">
-									Username: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user5</a>
-								</div>
-								<div class="col-md-6 desno">
-									Number of strikes: <span style="color: #AE0000; font-weight: bold">1</span>
-								</div>
-							</div>
-
-							<table width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td>
-									</td>
-								</tr>
-							</table>
-
-							<div class="row">
-								<div class="col-md-6">
-									Username: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user6</a>
-								</div>
-								<div class="col-md-6 desno">
-									Number of strikes: <span style="color: #AE0000; font-weight: bold">1</span>
-								</div>
-							</div>
-
-							<table width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td>
-									</td>
-								</tr>
-							</table>
-
-							<div class="row">
-								<div class="col-md-6">
-									Username: <a href="/profile_4" style="font-weight: bold; color: #AE0000">user7</a>
-								</div>
-								<div class="col-md-6 desno">
-									Number of strikes: <span style="color: #AE0000; font-weight: bold">1</span>
-								</div>
-							</div>
-
-							<table width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
-								<tr>
-									<td>
-									</td>
-								</tr>
-							</table>
+							@endforeach
 
 							<div style="padding-top: 10px; padding-bottom: 25px; color: white; text-align: center">
 								There are no more users to be shown.

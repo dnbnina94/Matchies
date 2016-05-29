@@ -93,7 +93,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
       		<li align="center"><a href="/index_moderator"><span style="color: white; font-size: 18px">Reports</span></a></li>
-      		<li align="center"><a href="/users_moderator"><span style="color: white; font-size: 18px">Users</span></a></li>
+      		<li align="center"><a href="/mod/users"><span style="color: white; font-size: 18px">Users</span></a></li>
             <li align="center"><a><span class="glyphicon glyphicon-cog " id="settings" style=" color:white; height: 22px; font-size: 16px; cursor: pointer" onclick="showSettings()"></span></a></li>
       </ul>
     </div>
