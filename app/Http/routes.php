@@ -54,11 +54,18 @@ Route::group(['middleware'=>'customMiddleware'], function(){
 
       ]);
 
+
       Route::get('/moderator', [
             'as' => 'moderator',
             'uses' => 'ModController@ucitajReportove'
 
         ]);
+
+        Route::get('/admin', [
+              'as' => 'admin',
+              'uses' => 'AdminController@ucitajReportove'
+
+          ]);
 
 
       /*
@@ -130,6 +137,11 @@ Route::group(['middleware'=>'customMiddleware'], function(){
       Route::post('/save_details', 'ProfileController@sacuvajDetalje');
       Route::post('/delete_account', 'ProfileController@obrisiSvojProfil');
       Route::post('/save_picture', 'ProfileController@sacuvajSliku');
+
+      Route::get('/profile/{id}', 'ProfileController@prikaziTudjProfil');
+
+    //  Route::post('/warn_user', 'ModController@warnUser');
+
       Route::get('/edit_picture', function() {
         return view('edit_picture');
       });
@@ -161,7 +173,7 @@ Route::group(['middleware'=>'customMiddleware'], function(){
 
     });
 
-
+/*****************************KRAJ RUTA OBICNOG KORISNIKA*********************************************/
 
 
 
@@ -211,53 +223,86 @@ Route::post('/signup_step_4', function() {
 });
 */
 
+/***********************ADMIN RUTE***************************/
+    Route::group(['middleware'=>'adminMiddleware'], function(){
+
+          Route::get('/index_admin', 'AdminController@ucitajReportove');
+          Route::post('/admin/warn_user', 'AdminController@warnUser');
+
+          Route::post('/index_admin', function() {
+            return view('index_admin');
+          });
+
+
+          Route::get('/users_admin', function() {
+            return view('users_admin');
+          });
+
+          Route::get('/moderators_admin', function() {
+            return view('moderators_admin');
+          });
+
+          Route::post('/moderators_admin', function() {
+            return view('moderators_admin');
+          });
+
+          Route::get('/moderator_signup', function() {
+            return view('moderator_signup');
+          });
+    });
+
+/***************************************************************************************/
+
+
+/***************************ADMIN I MOD RUTE****************************************************/
+
+  Route::group(['middleware'=>'modMiddleware'], function(){
+
+
+
+
+
+  });
+
+
+/**********************************************************************************************/
+
+
+
+/*****************************************MODERATORSKE RUTE************************************/
+                  Route::group(['middleware'=>'modMiddleware'], function(){
+
+
+                  Route::get('/index_moderator', 'ModController@ucitajReportove');
+
+                  Route::get('/users_moderator', function() {
+                    return view('users_moderator');
+                        });
+
+                        Route::post('/mod/warn_user', 'ModController@warnUser');
+
+                });
+
+
+
+ /******************************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
 });
 
-  /***********************ADMIN RUTE***************************/
-      Route::group(['middleware'=>'adminMiddleware'], function(){
-
-            Route::get('/index_admin', function() {
-              return view('index_admin');
-            });
-
-            Route::post('/index_admin', function() {
-              return view('index_admin');
-            });
-
-
-            Route::get('/users_admin', function() {
-            	return view('users_admin');
-            });
-
-            Route::get('/moderators_admin', function() {
-            	return view('moderators_admin');
-            });
-
-            Route::post('/moderators_admin', function() {
-            	return view('moderators_admin');
-            });
-
-            Route::get('/moderator_signup', function() {
-            	return view('moderator_signup');
-            });
-      });
-
-      /***********************MODERATORSKE RUTE***************************/
-                    Route::group(['middleware'=>'modMiddleware'], function(){
-
-
-                    Route::get('/index_moderator', function() {
-                      return view('index_moderator');
-                    });
-
-                    Route::get('/users_moderator', function() {
-                      return view('users_moderator');
-                    });
-                  });
+  /**************************KRAJ IMPLEMENTIRANIH FUNKCIONALNOSTI*************************/
 
 
 
-                  /********************************************************/
 Route::get('/profile_4', function() {
 	return view('profile_4');
 });

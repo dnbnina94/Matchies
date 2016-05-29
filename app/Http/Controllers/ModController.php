@@ -18,8 +18,7 @@ use Auth;
 class ModController extends Controller
 {
       public function ucitajReportove() {
-        $reports = Report::all();
-        
+        $reports = Report::where('status', '=', 0)->get();
 
         $info = array(
           'reports' => $reports
@@ -27,6 +26,24 @@ class ModController extends Controller
 
         return view('index_moderator', $info);
 
+      }
+
+      public function warnUser(Request $request) {
+        $id = $request->input('user_idBox');
+        $reportId = $request->input('report_idBox');
+        $reg = Registered_user::where('id', '=', $id)->first();
+        $reg->number_of_warnings++;
+        $report = Report::where('id', '=', $reportId)->first();
+        $report->status = 1;
+        $reg->save();
+        $report->save();
+        $reports = Report::where('status', '=', 0)->get();
+
+        $info = array(
+          'reports' => $reports
+        );
+
+        return view('index_moderator', $info);
       }
 }
 

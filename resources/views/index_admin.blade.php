@@ -37,7 +37,12 @@ Home Moderator
 						</tr>
 					</table>
 					Choose a reason for warning this user:
-					<form name="reportUser" method="post" action="/index_admin">
+					<form name="reportUser" method="post" action = '/admin/warn_user'>
+
+						<input type="hidden"  id= "user_idBox" name ="user_idBox" value = "">
+						<input type="hidden" id= "report_idBox"  name ="report_idBox" value = "">
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
 					<div style="padding-bottom:10px"></div>
 					<div style="padding-bottom: 8px; border-bottom: 1px solid white">
 						<input id="report1" type="radio" name="report" value="report1" checked="checked">
@@ -54,7 +59,10 @@ Home Moderator
 						<textarea class="form-control"  placeholder="Write down a reason for warning this user" name="OtherReason" id="otherreason" style="font-size:16px; padding-left: 12px; resize: none"></textarea>
 						<div id="greskaReport" style="color: #AE0000; padding-top: 5px"></div>
 					</div>
+					<!--
 					<button class=" btn" id="subButt1" type="submit" style="background: #ae0000" onclick="return proveriWarn()"><b>Warn this user</b></button>
+				-->
+						<button class=" btn" id="subButt1" type="submit" style="background: #ae0000" ><b>Warn this user</b></button>
 					</form>
 				</div>
 				<div class="col-md-4">
@@ -120,6 +128,46 @@ Home Moderator
 						<div class="jumbotronProfile" style="color: white; font-size: 16px; padding-bottom: 0px">
 							<span style="font-weight: bold"> Reports: </span>
 							<div style="padding-top: 10px"></div>
+
+							@foreach ($reports as $report)
+							<form >
+								<div class="row userRow">
+									<div class="col-md-3">
+										Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">{{App\User::where('id', '=', $report->id_source_user)->first()->username}}</a><br/>
+									</div>
+									<input type="hidden" name ="user_id" value = "{{$report->id_source_user}}">
+									<input type="hidden" name ="report_id" value = "{{$report->id}}">
+
+											<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+
+									<div class="col-md-5">
+										Reason: <span style="color: #AE0000;">{{$report->description}}</span>
+									</div>
+									<div class="col-md-4">
+										<table>
+											<tr>
+												<td width="100%">
+													<button type='button' class="btn" id="subButt" onclick="warnKorDisplay(0,{{$report->id_source_user}},{{$report->id}})"><b>Warn</b></button>
+												</td>
+												<td style="padding-left: 5px">
+													<span class="glyphicon glyphicon-trash trashIcon" onclick="deleteReportDisplay(0)"></span>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+							</form>
+
+								<table class="userCrta" width="100%" style="margin-top: 10px; margin-bottom: 10px; border-bottom: 1px solid #B9BAB8">
+									<tr>
+										<td>
+										</td>
+									</tr>
+								</table>
+							@endforeach
+
+	<!--
 							<div class="row userRow">
 								<div class="col-md-3">
 									Reported user: <a href="/profile_5" style="font-weight: bold; color: #AE0000">user1</a><br/>
@@ -293,7 +341,7 @@ Home Moderator
 									</td>
 								</tr>
 							</table>
-
+-->
 							<div style="padding-top: 10px; padding-bottom: 25px; color: white; text-align: center">
 								You have no more reports.
 							</div>

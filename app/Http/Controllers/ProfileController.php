@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\User as User;
 use App\Registered_user as Registered_user;
 use App\Photo as Photo;
+use App\Interaction as Interaction;
+use App\Match_request as Match_request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage as Storage;
 use Illuminate\Support\Facades\Hash as Hash;
@@ -151,7 +153,7 @@ class ProfileController extends Controller
         $file = $request->file('file');
 
         if($file->isValid()) {
-          $file->move('../storage/app/public/uploads/' . $reg->id, $reg->photo_link);
+          $file->move('../public/app/public/uploads/' . $reg->id, $reg->photo_link);
         }
 
         $dt = Carbon::now();
@@ -226,6 +228,62 @@ class ProfileController extends Controller
         );
 
         return view('profile_6', $info);
+      }
+
+      public function prikaziTudjProfil($id) {
+        $user = Auth::user();
+        $reg = Registered_user::find($user->id);
+
+        $targetUser = User::find($id);
+        $targetRegUser = Registered_user::find($id);
+
+        $dt = Carbon::now();
+        $years = $dt->diffInDays($targetRegUser->birth_date);
+        $years = floor($years/365);
+
+      //  $photo = Photo::where('id_user', $user->id )->first();
+      //  $number = $photo->count();
+      //  $path = Storage::disk('uploads')->get(''.$user->id.'/'.$photo->id.'/'.$photo->link.'');
+
+    //    $path= str_replace('\\', '/', $path);
+
+        $interakcija1 = Interaction::where('id_user1', '=', $reg->id)->where('id_user2', '=', $id)->first();
+        $interakcija2 = Interaction::where('id_user1', '=', $id)->where('id_user2', '=', $reg->id)->first();
+
+        $interakcija = null;
+
+        if (!is_null($interakcija1)) $interakcija = $interakcija1;
+        else $interakcija = $interakcija2;
+
+        $procenat = 0;
+
+        if (!is_null($interakcija)) {
+          $procenat = $interakcija->messages/20;
+          $procenat *= 100;
+          $procenat = floor($procenat);
+        }
+
+        $match_request = Match_request::where('id_source_user', '=', $user->id)->where('id_destination_user', '=', $id)->first();
+
+        /*$interakcija = Interaction::where(function($query) {
+          $query->where('id_user1', '=', $user->id)->where('id_user2', '=', $id);
+        })->orWhere(function($query) {
+          $query->where('id_user1', '=', $id)->where('id_user2', '=', $user->id);
+        })->first();*/
+
+        $info = array(
+          'user' => $user,
+          'reg' => $reg,
+          'years' => $years,
+          'targetUser' => $targetUser,
+          'targetRegUser' => $targetRegUser,
+          'interakcija' => $interakcija,
+          'match_request'=> $match_request,
+          'procenat' => $procenat
+
+        );
+
+          return view('profile', $info);
       }
 }
 

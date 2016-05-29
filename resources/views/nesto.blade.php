@@ -3,8 +3,9 @@
 <head></head>
 <body>
 
-  {{$number}}
-  {{$returnUser->id}}
+  {{$gender}}
+  {{$ageMin}}
+  {{$ageMax}}
 
 
 </body>

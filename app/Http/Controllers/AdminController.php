@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Http\Requests;
 use App\User as User;
+use App\Report as Report;
 use App\Registered_user as Registered_user;
 use App\Photo as Photo;
 use Illuminate\Support\Facades\Input;
@@ -14,12 +15,38 @@ use Illuminate\Support\Facades\Hash as Hash;
 use Auth;
 
 
+
 class AdminController extends Controller
 {
 
-  public function getIndex(){
+  public function ucitajReportove() {
+    $reports = Report::where('status', '=', 0)->get();
 
-    return view('random');
+    $info = array(
+      'reports' => $reports
+    );
+
+    return view('index_admin', $info);
+
+  }
+
+
+  public function warnUser(Request $request) {
+    $id = $request->input('user_idBox');
+    $reportId = $request->input('report_idBox');
+    $reg = Registered_user::where('id', '=', $id)->first();
+    $reg->number_of_warnings++;
+    $report = Report::where('id', '=', $reportId)->first();
+    $report->status = 1;
+    $reg->save();
+    $report->save();
+    $reports = Report::where('status', '=', 0)->get();
+
+    $info = array(
+      'reports' => $reports
+    );
+
+    return view('index_admin', $info);
   }
 
 

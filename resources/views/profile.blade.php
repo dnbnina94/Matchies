@@ -19,37 +19,30 @@ Searching
 @stop
 
 @section('javascriptFunctions')
-	<script>
-		$(window).on('resize', function () {
-			var pikseli = $("#slicice").width();
-			$("#slicice").css("height", pikseli);
-			var pikseli2 = $("#slicice1").width();
-			$("#sliciceTablet").css("height", pikseli2);
-		});
-	</script>
+<script>
+  $(window).on('resize', function () {
+    var pikseli = $("#slicice").width();
+    $("#slicice").css("height", pikseli);
+    var pikseli2 = $("#slicice1").width();
+    $("#sliciceTablet").css("height", pikseli2);
+  });
+</script>
 
-	<script>
-		function lol() {
-			var pikseli = $("#slicice").width();
-			$("#slicice").css("height", pikseli);
-			var pikseli2 = $("#slicice1").width();
-			$("#sliciceTablet").css("height", pikseli2);
-
-			/*
-			var pikseli = document.getElementById('slicice').clientWidth;
-			document.getElementById('slicice').style.height = pikseli;
-
-			var pikseli2 = document.getElementById('slicice1').clientWidth;
-			document.getElementById('sliciceTablet').style.height = pikseli2;*/
-
-			document.getElementById('progressComplete').style.width = "70%";
-			document.getElementById('progressBarTekst').innerHTML = "70% Complete";
-		}
-	</script>
-
+<script>
+  function lol() {
+    var pikseli = $("#slicice").width();
+    $("#slicice").css("height", pikseli);
+    var pikseli2 = $("#slicice1").width();
+    $("#sliciceTablet").css("height", pikseli2);
+    @if (!is_null($interakcija))
+		    document.getElementById('progressComplete').style.width = "{{$procenat}}%";
+		    document.getElementById('progressBarTekst').innerHTML = "{{$procenat}}% Complete";
+    @endif
+  }
+</script>
 @stop
 
-@section('onloadfunction') onload="lol()" @stop
+@section('onloadfunction') onload="lol();" @stop
 
 @section('specialMessage')
 <div id="reportBoxContainer">
@@ -70,13 +63,13 @@ Searching
 						</tr>
 					</table>
 					Is this user bothering you? Tell us what they did:
-					<form name="reportUser" method="post" action="/profile_2">
+					<form name="reportUser" method="post" action="/profile_1">
 					<div style="padding-bottom:10px"></div>
-					<div style="padding-bottom: 8px; border-bottom: 1px solid white">
+					<div style="padding-bottom: 8px; border-bottom: 1px solid #B9BAB8">
 						<input id="report1" type="radio" name="report" value="report1" checked="checked">
 						<label for="report1"><span><span></span></span>Feels like spam</label>
 					</div>
-					<div style="padding-bottom: 8px; padding-top:10px; border-bottom: 1px solid white">
+					<div style="padding-bottom: 8px; padding-top:10px; border-bottom: 1px solid #B9BAB8">
 						<input id="report2" type="radio" name="report" value="report2">
 						<label for="report2"><span><span></span></span>This user is sharing inappropriate information</label>
 					</div>
@@ -98,6 +91,7 @@ Searching
 </div>
 @stop
 
+
 @section('settingsBoxContainer')
 @parent
 @stop
@@ -107,7 +101,9 @@ Searching
 @parent
 @stop
 
+
 @section('content')
+
 <div class="container" id="containerDiv">
 	<div class="row" id="content" style="padding-top: 3%;">
 
@@ -120,15 +116,22 @@ Searching
 								<div class="col-md-12">
 									<div class="jumbotronProfile">
 										<div class="row" style="font-weight: bold; color: white; font-size: 16px">
-											<div class="col-md-6" align="left" id="levoIme">Thomas Appleby, 23, <i class="fa fa-mars"></i></div>
-											<div class="col-md-6" align="right" id="desnoUsername">@ThomasA</div>
+											<div class="col-md-6" align="left" id="levoIme">{{$targetRegUser->name}} {{$targetRegUser->surname}}, {{$years}},
+                        @if ($targetRegUser->sex == 'm')
+                        <i class="fa fa-mars"></i></div>
+                        @endif
+                        @if ($targetRegUser->sex == 'f')
+                        <i class="fa fa-venus"></i></div>
+                        @endif
+											<div class="col-md-6" align="right" id="desnoUsername">@
+                        {{$targetUser->username}}
+                      </div>
 										</div>
 										<div class="row" style="margin-left: 0px; margin-right: 0px; margin-top: 10px">
 											<div class="col-md-4 nopadding" id="reportButtonDiv">
-												<button class="btn" id="subButt" type="submit" style="background: #383838" onclick="reportKor1()"><b>Report this user</b></button>
+												<button class=" btn" id="subButt" type="submit" style="background: #383838" onclick="reportKor1()"><b>Report this user</b></button>
 											</div>
-											<div class="col-md-4" id="messageButtonDiv">
-												<button class="btn" id="subButt" type="submit" style="background: #AE0000"><b>Send message</b></button>
+											<div class="col-md-4 nopadding" id="messageButtonDiv">
 											</div>
 										</div>
 									</div>
@@ -143,39 +146,36 @@ Searching
 											<div class="col-md-12 nopadding" align="center">
 												<table width="100%" id="slicice">
 													<tr>
-														<td align="left" valign="middle" style="padding-left: 10px; padding-right: 10px; background: rgba(174,174,174,0.2)">
-															<span class="glyphicon glyphicon-chevron-left" style="font-size: 20px; cursor: pointer" id="strelica1"></span>
-														</td>
-														<td width="100%" align="center"><span class="glyphicon glyphicon-lock" id="lock"></span></td>
-														<td align="right" valign="middle" style="padding-right: 10px; padding-left: 10px; background: rgba(174,174,174,0.2)">
-															<span class="glyphicon glyphicon-chevron-right" style="font-size: 20px; cursor: pointer" id="strelica2"></span>
-														</td>
+                            @if (is_null($interakcija) || (!is_null($interakcija) && $interakcija->messages < 20))
+														      <td width="100%" align="center"><span class="glyphicon glyphicon-lock" id="lock"></span></td>
+                            @endif
 													</tr>
 												</table>
 
 												<table width="100%" id="sliciceTablet">
 													<tr>
-														<td align="left" valign="middle" style="padding-left: 10px; padding-right: 10px; width: 30%; background: rgba(170,170,170,0.2)">
-															<span class="glyphicon glyphicon-chevron-left" style="font-size: 20px; cursor: pointer" id="strelica1"></span>
-														</td>
-														<td width="40%" id="slicice1" align="center"><span class="glyphicon glyphicon-lock" id="lock"></span></td>
-														<td align="right" valign="middle" style="padding-right: 10px; padding-left: 10px; width: 30%; background: rgba(170,170,170,0.2)">
-															<span class="glyphicon glyphicon-chevron-right" style="font-size: 20px; cursor: pointer" id="strelica2"></span>
-														</td>
+                            @if (is_null($interakcija) || (!is_null($interakcija) && $interakcija->messages < 20))
+														      <td width="40%" id="slicice1" align="center"><span class="glyphicon glyphicon-lock" id="lock"></span></td>
+                            @endif
 													</tr>
 												</table>
 												<div style="height: 10px"></div>
-												<table width="100%">
-													<tr>
-														<td id="progressBar" align="center" style="color: white;">
-															<span id="progressBarTekst"></span>
-															<div class="progress" style="margin-bottom: 0px; margin-top: 10px; background: #AED581; height: 10px">
-  																<div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="background: #298A08" id="progressComplete">
-  																</div>
-															</div>
-														</td>
-													</tr>
-												</table>
+                        @if (is_null($interakcija))
+                              <span style="line-height: 16px"> You don't have access to this user's photos. You are not matched with this user.</span>
+                        @endif
+                        @if (!is_null($interakcija) && $interakcija->messages < 20)
+                        <table width="100%">
+                          <tr>
+                            <td id="progressBar" align="center" style="color: white;">
+                              <span id="progressBarTekst"></span>
+                              <div class="progress" style="margin-bottom: 0px; margin-top: 10px; background: #AED581; height: 10px">
+                                  <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="background: #298A08" id="progressComplete">
+                                  </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                        @endif
 											</div>
 										</div>
 									</div>
@@ -186,7 +186,7 @@ Searching
 												<span style="color: #AE0000; font-weight: bold"> Relationship status:</span>
 											</div>
 											<div class="col-md-6 nopadding" align="left">
-												<span id="relStatusField"> In a relationship</span>
+												<span id="relStatusField"> {{$targetRegUser->relationship_status}}</span>
 											</div>
 										</div>
 										<div class="row" style="margin: 0 !important; color: white">
@@ -194,7 +194,7 @@ Searching
 												<span style="color: #AE0000; font-weight: bold"> Education:</span>
 											</div>
 											<div class="col-md-6 nopadding" align="left">
-												<span id="eduStatusField"> High School </span>
+												<span id="eduStatusField"> {{$targetRegUser->education}} </span>
 											</div>
 										</div>
 										<div class="row" style="margin: 0 !important; color: white">
@@ -202,7 +202,7 @@ Searching
 												<span style="color: #AE0000; font-weight: bold"> Field of work:</span>
 											</div>
 											<div class="col-md-6 nopadding" align="left">
-												<span id="fieldOfWork"> Student </span>
+												<span id="fieldOfWork"> {{$targetRegUser->work}} </span>
 											</div>
 										</div>
 									</div>
@@ -213,44 +213,44 @@ Searching
 									<div class="jumbotronProfile">
 										<div class="row">
 											<div class="col-md-12" align="center" style="font-weight: bold; color: white">
-											<span id="detailsSpan"> I'm an exchange student from UK and I came to Belgrade this year. I have a girlfriend, and I'm here to make friends. </span>
+											<span id="detailsSpan"> {{$targetRegUser->bio}} </span>
 
 											<div class="row UserInfoRows" style="padding-top: 20px">
 												<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Likes: </div>
-												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserLikesCol">Parties, electronic music, music festivals.</div>
+												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserLikesCol">{{$targetRegUser->likes}}</div>
 											</div>
 											<div class="row UserInfoRows">
 												<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Dislikes: </div>
-												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserDislikesCol">I don't like shy people.</div>
+												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserDislikesCol">{{$targetRegUser->dislikes}}</div>
 											</div>
 											<div class="row UserInfoRows">
 												<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Hobbies: </div>
-												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserHobbiesCol">Sleeping and eating.</div>
+												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserHobbiesCol">{{$targetRegUser->hobbies}}</div>
 											</div>
 											<div class="row UserInfoRows">
 												<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Perfect first date: </div>
-												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFirstDateCol">/</div>
+												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFirstDateCol">{{$targetRegUser->firstDate}}</div>
 											</div>
 
 											<div class="row UserInfoRows" style="padding-top: 20px">
 												<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Favorite quote: </div>
-												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFavQuoteCol">"Don't worry, be happy"</div>
+												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFavQuoteCol">{{$targetRegUser->quote}}</div>
 											</div>
 											<div class="row UserInfoRows">
 												<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Favorite song: </div>
-												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFirstDateCol">Chris Brown - Beautiful People</div>
+												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFirstDateCol">{{$targetRegUser->song}}</div>
 											</div>
 											<div class="row UserInfoRows">
 												<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Longest relationship: </div>
-												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserLongestRelCol">2 months</div>
+												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserLongestRelCol">{{$targetRegUser->longest_relationship}}</div>
 											</div>
 											<div class="row UserInfoRows" style="padding-top: 20px">
 												<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Best quality: </div>
-												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserBestQualCol">I'm kind and I'm very adventurous.</div>
+												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserBestQualCol">{{$targetRegUser->best_quality}}</div>
 											</div>
 											<div class="row UserInfoRows">
 												<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Worst quality: </div>
-												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserWorstQualCol">I'm lazy.</div>
+												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserWorstQualCol">{{$targetRegUser->worst_quality}}</div>
 											</div>
 											</div>
 										</div>
@@ -259,15 +259,11 @@ Searching
 									<div class="jumbotronProfile" style="margin-top: 20px">
 										<table width="100%">
 											<tr>
-												<td>
-													<form name="neSvidjaMiSe" method="post" action="/searching">
-														<input type="hidden" name="_token" value="{{ csrf_token() }}">
-														<button type="submit" style="background: none; border: none">
-															<span class="glyphicon glyphicon-remove LikeRemove"></span>
-														</button>
-													</form>
-												</td>
-												<td width="100%" align="left" style="color: #AE0000; padding-left: 10px"><span>You are currently matched with this user. If you want to block this user, just click the button on the left.</span></td>
+												<td><span class="glyphicon glyphicon-remove LikeRemove"></span></td>
+                        @if (is_null($interakcija) && is_null($match_request))
+                        <td width="100%" align="center" style="color: #AE0000"><span id="areYou">Are you interested in this user?</span></td>
+                        <td><span class="glyphicon glyphicon-ok LikeOk"></span></td>
+                        @endif
 											</tr>
 										</table>
 									</div>
@@ -276,9 +272,10 @@ Searching
 							</div>
 					</div>
 	</div>
-
 </div><!-- /.container -->
+
 @stop
+
 @section('footer')
 <div style="height: 30px;" id="divche"></div>
 @parent
