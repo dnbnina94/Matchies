@@ -18,6 +18,79 @@ use Auth;
 
 class ProfileController extends Controller
 {
+
+      public function likedUser(Request $request){
+        $user = Auth::user();
+        $reg = Registered_user::find($user->id);
+        $currentUserString = $request->input('currentUser');
+        $currentUserId= (int) $currentUserString;
+        $currentUser = Registered_user::find($currentUserId);
+
+        $match_to_me =null;
+        $match_to_me = Match_request::where('id_source_user', '=', $currentUser->id )->where('id_destination_user', '=', $reg->id)->first();
+        if( !is_null($match_to_me)){
+            $match_to_me->delete();
+            $newInteraction =  new Interaction;
+            $newInteraction->id_user1 = $reg->id;
+            $newInteraction->id_user2 = $currentUser->id;
+            $newInteraction->save();
+
+        }else{
+
+          $match = new Match_request;
+          $match->id_source_user = $reg->id;
+          $match->id_destination_user = $currentUser->id;
+
+          $match->save();
+        }
+
+        return redirect()->action('ProfileController@prikaziTudjProfil', ['id' => $currentUser->id]);
+      }
+
+      public function dislikedUser(Request $request){
+        $user = Auth::user();
+        $reg = Registered_user::find($user->id);
+        $currentUserString = $request->input('currentUser');
+        $currentUserId= (int) $currentUserString;
+        $currentUser = Registered_user::find($currentUserId);
+
+
+        $match_from_me =null;
+        $match_from_me = Match_request::where('id_source_user', '=', $reg->id )->where('id_destination_user', '=', $currentUser->id)->first();
+        if( !is_null($match_from_me)){
+            $match_from_me->delete();
+        }else{
+          $interakcija1 = Interaction::where('id_user1', '=', $reg->id)->where('id_user2', '=', $currentUser->id)->first();
+          $interakcija2 = Interaction::where('id_user1', '=', $currentUser->id)->where('id_user2', '=', $reg->id)->first();
+
+          $interakcija = null;
+
+          if (!is_null($interakcija1)) $interakcija = $interakcija1;
+          else $interakcija = $interakcija2;
+
+          if(!is_null($interakcija)){
+            $interakcija->delete();
+            $match = new Match_request;
+            $match->id_source_user = $currentUser->id;
+            $match->id_destination_user = $reg->id;
+
+            $match->save();
+
+          }
+
+
+        }
+
+          return redirect()->action('ProfileController@prikaziTudjProfil', ['id' => $currentUser->id]);
+
+      }
+
+
+
+
+
+
+
     //
       public function ucitajSvojProfil()
       {

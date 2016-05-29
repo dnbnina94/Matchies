@@ -276,14 +276,30 @@ href = "/profile/{{$user->id}}"
 										<table width="100%">
 											<tr>
                         @if ($user!=$targetUser && is_null($match_request))
-												<td><span class="glyphicon glyphicon-remove LikeRemove"></span></td>
+												<td>
+                          <form name="neSvidjaMiSe" method="post" action="{{url('/profile/disliked_user')}}">
+      											<input type="hidden" name="_token" value="{{ csrf_token() }}">
+      											<input type="hidden" name="currentUser" value="{{ $targetRegUser->id }}">
+      											<button type="submit" style="background: none; border: none">
+      												<span class="glyphicon glyphicon-remove LikeRemove" onclick="promeniRemove()"></span>
+      											</button>
+      										</form>
+                        </td>
                         @endif
                         @if (!is_null($interakcija) && $user!=$targetUser)
                         	<td width="100%" align="left" style="color: #AE0000; padding-left: 10px"><span>You are currently matched with this user. If you want to unmatch with this user, just click the button on the left.</span></td>
                         @endif
                         @if (is_null($interakcija) && is_null($match_request) && $user!=$targetUser)
                         <td width="100%" align="center" style="color: #AE0000"><span id="areYou">Are you interested in this user?</span></td>
-                        <td><span class="glyphicon glyphicon-ok LikeOk"></span></td>
+                        <td>
+                        <form name="svidjaMiSe" method="post" action="{{url('/profile/liked_user')}}">
+    											<input type="hidden" name="_token" value="{{ csrf_token() }}">
+    												<input type="hidden" name="currentUser" value="{{ $targetRegUser->id }}">
+    											<button type="submit" style="background: none; border: none">
+    												<span class="glyphicon glyphicon-ok LikeOk" onclick="promeniOk()"></span>
+    											</button>
+    										</form>
+                      </td>
                         @endif
                         @if (!is_null($match_request))
                         <td width="100%" align="center" style="color: #AE0000"><span id="requestSent">Match request sent!</span></td>

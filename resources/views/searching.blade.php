@@ -70,7 +70,7 @@ Searching
 					<div class="col-md-12">
 						<div class="jumbotronProfile">
 							<div class="row" style="font-weight: bold; color: white; font-size: 16px">
-								<div class="col-md-6" align="left" id="levoIme"><a href="/profile_1" class="linkToProfile">{{ $returnUser->name }} {{ $returnUser->surname }},
+								<div class="col-md-6" align="left" id="levoIme"><a href="/profile/{{$returnUser->id}}" class="linkToProfile">{{ $returnUser->name }} {{ $returnUser->surname }},
 									{{
 										$years
 									}}
@@ -79,7 +79,7 @@ Searching
 									@else
 										<i class="fa fa-venus"></i></a></div>
 									@endif
-								<div class="col-md-6" align="right" id="desnoUsername"><a href="/profile_1" class="linkToProfile">@ {{$user->username}}</a></div>
+								<div class="col-md-6" align="right" id="desnoUsername"><a href="/profile/{{$returnUser->id}}" class="linkToProfile">@ {{App\User::where('id', '=', $returnUser->id)->first()->username}}</a></div>
 							</div>
 						</div>
 
