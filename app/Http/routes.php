@@ -235,6 +235,7 @@ Route::post('/signup_step_4', function() {
             return view('index_admin');
           });
 
+          Route::get('/profile/{id}', 'ProfileController@prikaziTudjProfilAdmin');
 
           Route::get('/users_admin', function() {
             return view('users_admin');
