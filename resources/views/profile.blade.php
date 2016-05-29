@@ -275,7 +275,7 @@ href = "/profile/{{$user->id}}"
 									<div class="jumbotronProfile" style="margin-top: 20px">
 										<table width="100%">
 											<tr>
-                        @if ($user!=$targetUser)
+                        @if ($user!=$targetUser && is_null($match_request))
 												<td><span class="glyphicon glyphicon-remove LikeRemove"></span></td>
                         @endif
                         @if (!is_null($interakcija) && $user!=$targetUser)
@@ -284,6 +284,9 @@ href = "/profile/{{$user->id}}"
                         @if (is_null($interakcija) && is_null($match_request) && $user!=$targetUser)
                         <td width="100%" align="center" style="color: #AE0000"><span id="areYou">Are you interested in this user?</span></td>
                         <td><span class="glyphicon glyphicon-ok LikeOk"></span></td>
+                        @endif
+                        @if (!is_null($match_request))
+                        <td width="100%" align="center" style="color: #AE0000"><span id="requestSent">Match request sent!</span></td>
                         @endif
                         @if ($user == $targetUser)
                         <td align="center" style="color: #AE0000">
