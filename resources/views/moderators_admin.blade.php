@@ -105,17 +105,17 @@ Home Moderator
 				<div class="row">
 					<div class="col-md-12" align="left">
 						<div class="jumbotronProfile" style="color: white; font-size: 16px; padding-bottom: 0px">
-							<span style="font-weight: bold"> Users: </span>
+							<span style="font-weight: bold"> Moderators: </span>
 							<div style="padding-top: 10px"></div>
 
 							@foreach ($users as $user)
 							<div class="row moderatorRow">
 								<div class="col-md-6">
 
-									Username: <span class="moderatori" style="font-weight: bold; color: #AE0000; cursor: pointer">{{$user->username}}</span>
-									<!--da se ubaci da link radi ovo umesto dugmeta, ako moze-->
-									<button type="button" value="Show details" onclick="moderatorKorDisplay({{$user->username}},{{$user->email}});">
-										<!--ili da button uopste proradi :(-->
+									Username:
+									<?php
+										echo('<span class="moderatori" style="font-weight: bold; color: #AE0000; cursor: pointer" onclick="moderatorKorDisplay(\'' . $user->username . '\' , \'' . $user->email . '\')">' . $user->username . '</span>');
+									?>
 								</div>
 								<div class="col-md-6 desno">
 									<span class="glyphicon glyphicon-trash" style="color: #AE0000; cursor: pointer" onclick="deleteReportDisplay(0)"></span>
