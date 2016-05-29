@@ -78,9 +78,7 @@ Route::group(['middleware'=>'customMiddleware'], function(){
       Route::post('/search/disliked_user','SearchingController@dislikedUser');
       Route::post('/search/liked_user','SearchingController@likedUser');
 
-      Route::get('/messages', function() {
-        return view('messages');
-      });
+      Route::get('/messages', 'MessagesController@messages');
 
       Route::get('/notifications', function() {
         return view('notifications');
