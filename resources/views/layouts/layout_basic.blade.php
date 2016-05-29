@@ -42,35 +42,33 @@
 @yield('specialMessage')
 
 @section('settingsBoxContainer')
-<div id="settingsBoxContainer">
-	<div id="settingsBoxRowContainer">
-		<div id="settingsBoxCellContainer">
-			<div class="row">
-				<div class="col-md-5"></div>
-				<div class="settingsBox col-md-2" style="margin-left: 25px; margin-right: 25px">
-					<table width="100%" style="color: white; margin-bottom: 10px">
-						<tr>
+  <div id="settingsBoxContainer">
+  	<div id="settingsBoxRowContainer">
+  		<div id="settingsBoxCellContainer">
+  			<div class="row">
+  				<div class="col-md-5"></div>
+  				<div class="settingsBox col-md-2" style="margin-left: 25px; margin-right: 25px">
+  					<table width="100%" style="color: white; margin-bottom: 10px">
+  						<tr>
 
-							<td style="font-weight: bold; font-size: 16px;" align="left">
+  							<td style="font-weight: bold; font-size: 16px;" align="left">
 
-								Settings:
-							</td>
-							<td align="right" style="font-size: 16px; color: white">
-								<span class="glyphicon glyphicon-remove" onclick="hideSettings()" style="cursor: pointer"></span>
-							</td>
-						</tr>
-					</table>
-					<div style="padding-bottom: 10px; padding-top: 10px; border-bottom: 1px solid #B9BAB8"><a href="{{ url('/profile_x') }}" style="color: #AE0000">View your profile</a></div>
-					<div style="padding-bottom: 10px; padding-top: 10px; border-bottom: 1px solid #B9BAB8"><a href="/edit_profile" style="color: #AE0000">Edit your profile</a></div>
-					<div style="padding-bottom: 5px; padding-top: 10px;"><a href="/auth/logout" style="color: #AE0000">Log out</a></div>
-				</div>
-				<div class="col-md-5"></div>
-			</div>
-		</div>
-	</div>
-</div>
-
-
+  								Settings:
+  							</td>
+  							<td align="right" style="font-size: 16px; color: white">
+  								<span class="glyphicon glyphicon-remove" onclick="hideSettings()" style="cursor: pointer"></span>
+  							</td>
+  						</tr>
+  					</table>
+  					<div style="padding-bottom: 10px; padding-top: 10px; border-bottom: 1px solid #B9BAB8"><a @yield('profileLink') style="color: #AE0000">View your profile</a></div>
+  					<div style="padding-bottom: 10px; padding-top: 10px; border-bottom: 1px solid #B9BAB8"><a href="/edit_profile" style="color: #AE0000">Edit your profile</a></div>
+  					<div style="padding-bottom: 5px; padding-top: 10px;"><a href="/auth/logout" style="color: #AE0000">Log out</a></div>
+  				</div>
+  				<div class="col-md-5"></div>
+  			</div>
+  		</div>
+  	</div>
+  </div>
 @show
 
 

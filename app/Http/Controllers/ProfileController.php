@@ -235,6 +235,11 @@ class ProfileController extends Controller
         $reg = Registered_user::find($user->id);
 
         $targetUser = User::find($id);
+
+        if (is_null($targetUser) || $targetUser->type != 3) {
+          return view('error_page');
+        }
+
         $targetRegUser = Registered_user::find($id);
 
         $dt = Carbon::now();
@@ -247,8 +252,8 @@ class ProfileController extends Controller
 
     //    $path= str_replace('\\', '/', $path);
 
-        $interakcija1 = Interaction::where('id_user1', '=', $reg->id)->where('id_user2', '=', $id)->first();
-        $interakcija2 = Interaction::where('id_user1', '=', $id)->where('id_user2', '=', $reg->id)->first();
+        $interakcija1 = Interaction::where('id_user1', '=', $user->id)->where('id_user2', '=', $id)->first();
+        $interakcija2 = Interaction::where('id_user1', '=', $id)->where('id_user2', '=', $user->id)->first();
 
         $interakcija = null;
 
@@ -262,6 +267,8 @@ class ProfileController extends Controller
           $procenat *= 100;
           $procenat = floor($procenat);
         }
+
+        if ($procenat > 100) $procenat = 100;
 
         $match_request = Match_request::where('id_source_user', '=', $user->id)->where('id_destination_user', '=', $id)->first();
 

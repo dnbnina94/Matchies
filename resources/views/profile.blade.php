@@ -1,7 +1,7 @@
 @extends('layouts.layout_basic')
 
 @section('title')
-Searching
+  {{$targetUser->username}}
 @stop
 
 @section('csslinks')
@@ -38,11 +38,19 @@ Searching
 		    document.getElementById('progressComplete').style.width = "{{$procenat}}%";
 		    document.getElementById('progressBarTekst').innerHTML = "{{$procenat}}% Complete";
     @endif
+    @if ((!is_null($interakcija) && $procenat == 100) || $targetUser == $user)
+      $('#slicice').css("background-image", "url(../app/public/uploads/{{$targetUser->id}}/{{$targetRegUser->photo_link}})");
+      $('#slicice1').css("background-image", "url(../app/public/uploads/{{$targetUser->id}}/{{$targetRegUser->photo_link}})");
+    @endif
   }
 </script>
 @stop
 
 @section('onloadfunction') onload="lol();" @stop
+
+@section('profileLink')
+href = "/profile/{{$user->id}}"
+@stop
 
 @section('specialMessage')
 <div id="reportBoxContainer">
@@ -91,22 +99,18 @@ Searching
 </div>
 @stop
 
-
 @section('settingsBoxContainer')
 @parent
 @stop
-
 
 @section('navbar')
 @parent
 @stop
 
-
 @section('content')
 
 <div class="container" id="containerDiv">
 	<div class="row" id="content" style="padding-top: 3%;">
-
 
 					<div class="col-md-10 col-md-offset-1" align="center">
 
@@ -128,11 +132,23 @@ Searching
                       </div>
 										</div>
 										<div class="row" style="margin-left: 0px; margin-right: 0px; margin-top: 10px">
-											<div class="col-md-4 nopadding" id="reportButtonDiv">
+                      @if ($targetUser == $user)
+                      <div class="col-md-4 nopadding" id="reportButtonDiv">
+                        <form action="/edit_profile" name="odlazakNaMenjanjeProfila" method="get">
+                          <button class="btn" id="subButt" style="background: #ae0000"><b>Edit your profile</b></button>
+                        </form>
+                      </div>
+                      @endif
+                      @if ($user != $targetUser)
+                      <div class="col-md-4 nopadding" id="reportButtonDiv">
 												<button class=" btn" id="subButt" type="submit" style="background: #383838" onclick="reportKor1()"><b>Report this user</b></button>
 											</div>
-											<div class="col-md-4 nopadding" id="messageButtonDiv">
-											</div>
+                      @endif
+                        @if (!is_null($interakcija))
+                        <div class="col-md-4" id="messageButtonDiv">
+                        <button class="btn" id="subButt" type="submit" style="background: #AE0000"><b>Send message</b></button>
+                        </div>
+                        @endif
 										</div>
 									</div>
 								</div>
@@ -146,7 +162,7 @@ Searching
 											<div class="col-md-12 nopadding" align="center">
 												<table width="100%" id="slicice">
 													<tr>
-                            @if (is_null($interakcija) || (!is_null($interakcija) && $interakcija->messages < 20))
+                            @if ((is_null($interakcija) && $user != $targetUser) || (!is_null($interakcija) && $interakcija->messages < 20))
 														      <td width="100%" align="center"><span class="glyphicon glyphicon-lock" id="lock"></span></td>
                             @endif
 													</tr>
@@ -160,10 +176,10 @@ Searching
 													</tr>
 												</table>
 												<div style="height: 10px"></div>
-                        @if (is_null($interakcija))
+                        @if (is_null($interakcija) && $targetUser != $user)
                               <span style="line-height: 16px"> You don't have access to this user's photos. You are not matched with this user.</span>
                         @endif
-                        @if (!is_null($interakcija) && $interakcija->messages < 20)
+                        @if (!is_null($interakcija))
                         <table width="100%">
                           <tr>
                             <td id="progressBar" align="center" style="color: white;">
@@ -259,10 +275,20 @@ Searching
 									<div class="jumbotronProfile" style="margin-top: 20px">
 										<table width="100%">
 											<tr>
+                        @if ($user!=$targetUser)
 												<td><span class="glyphicon glyphicon-remove LikeRemove"></span></td>
-                        @if (is_null($interakcija) && is_null($match_request))
+                        @endif
+                        @if (!is_null($interakcija) && $user!=$targetUser)
+                        	<td width="100%" align="left" style="color: #AE0000; padding-left: 10px"><span>You are currently matched with this user. If you want to unmatch with this user, just click the button on the left.</span></td>
+                        @endif
+                        @if (is_null($interakcija) && is_null($match_request) && $user!=$targetUser)
                         <td width="100%" align="center" style="color: #AE0000"><span id="areYou">Are you interested in this user?</span></td>
                         <td><span class="glyphicon glyphicon-ok LikeOk"></span></td>
+                        @endif
+                        @if ($user == $targetUser)
+                        <td align="center" style="color: #AE0000">
+                          These are some details about yourself. Other users can see them by clicking on your profile. You can change these details at any time.
+                        </td>
                         @endif
 											</tr>
 										</table>
