@@ -25,11 +25,10 @@ class SearchingController extends Controller
           $ageMin= $request->input('ageMin');
           $ageMax= $request->input('ageMax');
 
-
           //////////////////////////////////
             $regUsers = Registered_user::all();
             $number = $regUsers->count();
-            $iteration = 0;
+            $iteration = -1;
 
 /////////////////////
                       if($gender=='Men and Women'){
@@ -49,7 +48,7 @@ class SearchingController extends Controller
         //    $nextUser= $regUsers ->first();
         $returnUser= $regUsers ->first();
       foreach ($regUsers as $nextUser) {
-
+            $iteration ++ ;
             $returnUser=$nextUser;
 
             if($nextUser->id != $reg->id){
@@ -58,17 +57,17 @@ class SearchingController extends Controller
 
                 if($nextUser->interested_in == 'ff' or $nextUser->interested_in == 'fm' ){
 
-                              if($regUsers->interested_in == 'fm'){
+                              if($reg->interested_in == 'fm'){
                                     break;
                               }
 
-                              if($regUsers->interested_in == 'mm'){
+                              if($reg->interested_in == 'mm'){
                                   if($nextUser->sex == 'm'){
                                     break;
                                   }
                               }
 
-                              if($regUsers->interested_in == 'ff'){
+                              if($reg->interested_in == 'ff'){
                                 if($nextUser->sex == 'f'){
                                   break;
                                 }
@@ -82,17 +81,17 @@ class SearchingController extends Controller
               if($reg->sex== 'm'){
                 if($nextUser->interested_in == 'mm' or $nextUser->interested_in == 'fm' ){
 
-                            if($regUsers->interested_in == 'fm'){
+                            if($reg->interested_in == 'fm'){
                                   break;
                             }
 
-                            if($regUsers->interested_in == 'mm'){
+                            if($reg->interested_in == 'mm'){
                                 if($nextUser->sex == 'm'){
                                   break;
                                 }
                             }
 
-                            if($regUsers->interested_in == 'ff'){
+                            if($reg->interested_in == 'ff'){
                               if($nextUser->sex == 'f'){
                                 break;
                               }

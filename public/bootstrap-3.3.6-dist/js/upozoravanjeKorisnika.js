@@ -42,9 +42,14 @@ function moderatorKorRemove() {
 
 var classElementIndex = null;
 
-function warnKorDisplay(index) {
+function warnKorDisplay(index, idKor, idRep) {
+	var idK= ''+idKor;
+	var idR = ''+idRep;
+	document.getElementById("user_idBox").value = idK;
+	document.getElementById("report_idBox").value = idR;
 	document.getElementById('reportBoxContainer').style.display = "table";
-	classElementIndex = index;
+	classElementIndex = idRep;
+
 }
 
 function proveriWarn() {
@@ -93,5 +98,3 @@ function deleteModeratorRemove() {
 
 	return false;
 }
-
-

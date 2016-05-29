@@ -37,11 +37,11 @@ Home Moderator
 						</tr>
 					</table>
 					Choose a reason for warning this user:
-					<form name="reportUser" method="post" action="/index_admin">
+					<form name="reportUser" method="post" action = '/warn_user'>
 
 
-						<input type="hidden" name ="user_id" value = "{{$report->id_source_user}}">
-						<input type="hidden" name ="report_id" value = "{{$report->id}}">
+						<input type="hidden"  id= "user_idBox" name ="user_idBox" value = "">
+						<input type="hidden" id= "report_idBox"  name ="report_idBox" value = "">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 
@@ -61,7 +61,10 @@ Home Moderator
 						<textarea class="form-control"  placeholder="Write down a reason for warning this user" name="OtherReason" id="otherreason" style="font-size:16px; padding-left: 12px; resize: none"></textarea>
 						<div id="greskaReport" style="color: #AE0000; padding-top: 5px"></div>
 					</div>
-					<button class=" btn" id="subButt1" type="submit" style="background: #ae0000" onclick="return proveriWarn()"><b>Warn this user</b></button>
+					<!--
+					<button class=" btn" id="subButt1" type="submit" style="background: #ae0000"  onclick="return proveriWarn()"><b>Warn this user</b></button>
+					-->
+					<button class=" btn" id="subButt1" type="submit" style="background: #ae0000" ><b>Warn this user</b></button>
 					</form>
 				</div>
 				<div class="col-md-4">
@@ -129,14 +132,17 @@ Home Moderator
 							<div style="padding-top: 10px"></div>
 
 							@foreach ($reports as $report)
-							<form method="post" action = '/warn_user'>
+							<form >
 								<div class="row userRow">
 									<div class="col-md-3">
 										Reported user: <a href="/profile_4" style="font-weight: bold; color: #AE0000">{{App\User::where('id', '=', $report->id_source_user)->first()->username}}</a><br/>
 									</div>
 									<input type="hidden" name ="user_id" value = "{{$report->id_source_user}}">
 									<input type="hidden" name ="report_id" value = "{{$report->id}}">
-									<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+											<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+
 									<div class="col-md-5">
 										Reason: <span style="color: #AE0000;">{{$report->description}}</span>
 									</div>
@@ -144,7 +150,7 @@ Home Moderator
 										<table>
 											<tr>
 												<td width="100%">
-													<button class="btn" id="subButt" type = "submit" onclick="warnKorDisplay(0)"><b>Warn</b></button>
+													<button type='button' class="btn" id="subButt" onclick="warnKorDisplay(0,{{$report->id_source_user}},{{$report->id}})"><b>Warn</b></button>
 												</td>
 												<td style="padding-left: 5px">
 													<span class="glyphicon glyphicon-trash trashIcon" onclick="deleteReportDisplay(0)"></span>

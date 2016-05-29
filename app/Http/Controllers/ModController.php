@@ -29,8 +29,8 @@ class ModController extends Controller
       }
 
       public function warnUser(Request $request) {
-        $id = $request->input('user_id');
-        $reportId = $request->input('report_id');
+        $id = $request->input('user_idBox');
+        $reportId = $request->input('report_idBox');
         $reg = Registered_user::where('id', '=', $id)->first();
         $reg->number_of_warnings++;
         $report = Report::where('id', '=', $reportId)->first();
