@@ -78,6 +78,9 @@ Route::group(['middleware'=>'customMiddleware'], function(){
       Route::post('/search/disliked_user','SearchingController@dislikedUser');
       Route::post('/search/liked_user','SearchingController@likedUser');
 
+      Route::post('/profile/disliked_user','ProfileController@dislikedUser');
+      Route::post('/profile/liked_user','ProfileController@likedUser');
+
       Route::get('/messages', 'MessagesController@messages');
 
       Route::get('/notifications', function() {
@@ -233,7 +236,7 @@ Route::post('/signup_step_4', function() {
             return view('index_admin');
           });
 
-          Route::get('/profile/{id}', 'ProfileController@prikaziTudjProfilAdmin');
+          Route::get('/admin/profile/{id}', 'ProfileController@prikaziTudjProfilAdmin');
 
           Route::get('/users_admin', function() {
             return view('users_admin');
