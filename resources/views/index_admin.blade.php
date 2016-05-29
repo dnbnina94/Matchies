@@ -36,29 +36,14 @@ Home Moderator
 							</td>
 						</tr>
 					</table>
-					Choose a reason for warning this user:
+					<p>	Are you sure you want to warn this user? </p>
 					<form name="reportUser" method="post" action = '/admin/warn_user'>
 
 						<input type="hidden"  id= "user_idBox" name ="user_idBox" value = "">
 						<input type="hidden" id= "report_idBox"  name ="report_idBox" value = "">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-					<div style="padding-bottom:10px"></div>
-					<div style="padding-bottom: 8px; border-bottom: 1px solid white">
-						<input id="report1" type="radio" name="report" value="report1" checked="checked">
-						<label for="report1"><span><span></span></span>Feels like spam</label>
-					</div>
-					<div style="padding-bottom: 8px; padding-top:10px; border-bottom: 1px solid white">
-						<input id="report2" type="radio" name="report" value="report2">
-						<label for="report2"><span><span></span></span>This user is sharing inappropriate information</label>
-					</div>
-					<div style="padding-bottom: 10px; padding-top:10px;">
-						<input id="report3" type="radio" name="report" value="report3">
-						<label for="report3"><span><span></span></span>Other</label><br/>
-						<div style="padding-bottom: 6px"></div>
-						<textarea class="form-control"  placeholder="Write down a reason for warning this user" name="OtherReason" id="otherreason" style="font-size:16px; padding-left: 12px; resize: none"></textarea>
-						<div id="greskaReport" style="color: #AE0000; padding-top: 5px"></div>
-					</div>
+
 					<!--
 					<button class=" btn" id="subButt1" type="submit" style="background: #ae0000" onclick="return proveriWarn()"><b>Warn this user</b></button>
 				-->
