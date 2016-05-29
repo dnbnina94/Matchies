@@ -153,8 +153,10 @@ Searching
 							<table width="100%">
 								<tr>
 									<td>
-										<form name="svidjaMiSe" method="post" action="/searching">
+										<form name="neSvidjaMiSe" method="post" action="{{url('/search/disliked_user')}}">
 											<input type="hidden" name="_token" value="{{ csrf_token() }}">
+											<input type="hidden" name="iteration" value="{{ $iteration }}">
+											<input type="hidden" name="currentUser" value="{{ $returnUser->id }}">
 											<button type="submit" style="background: none; border: none">
 												<span class="glyphicon glyphicon-remove LikeRemove" onclick="promeniRemove()"></span>
 											</button>
@@ -162,8 +164,10 @@ Searching
 									</td>
 									<td width="100%" align="center" style="color: #AE0000"><span id="areYou">Are you interested in this user?</span></td>
 									<td>
-										<form name="neSvidjaMiSe" method="post" action="/searching">
+										<form name="svidjaMiSe" method="post" action="{{url('/search/liked_user')}}">
 											<input type="hidden" name="_token" value="{{ csrf_token() }}">
+											<input type="hidden" name="iteration" value="{{ $iteration }}">
+												<input type="hidden" name="currentUser" value="{{ $returnUser->id }}">
 											<button type="submit" style="background: none; border: none">
 												<span class="glyphicon glyphicon-ok LikeOk" onclick="promeniOk()"></span>
 											</button>
