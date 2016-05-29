@@ -118,7 +118,7 @@ class SearchingController extends Controller
             }
 
 
-            $info= array(
+            $info = array(
               'iteration' => $iteration,
               'returnUser' => $returnUser,
               'years' => $years,
@@ -157,16 +157,16 @@ class SearchingController extends Controller
             $currentIteration = -1;
             $regUsers = Registered_user::all();
             $number = $regUsers->count();
-        $returnUser= null;
-      foreach ($regUsers as $nextUser) {
-            $currentIteration ++ ;
-            $returnUser=$nextUser;
-            if($currentIteration > $iteration){
-              $iteration ++ ;
+            $returnUser= null;
+            foreach ($regUsers as $nextUser) {
+              $currentIteration ++ ;
+              $returnUser=$nextUser;
+              if($currentIteration > $iteration){
+                $iteration ++ ;
 
-              $dt = Carbon::now();
-              $years = $dt->diffInDays($nextUser->birth_date);
-              $years = floor($years/365);
+                $dt = Carbon::now();
+                $years = $dt->diffInDays($nextUser->birth_date);
+                $years = floor($years/365);
 
                       if($nextUser->id != $reg->id){
 

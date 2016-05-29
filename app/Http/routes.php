@@ -138,6 +138,8 @@ Route::group(['middleware'=>'customMiddleware'], function(){
       Route::post('/delete_account', 'ProfileController@obrisiSvojProfil');
       Route::post('/save_picture', 'ProfileController@sacuvajSliku');
 
+      Route::get('/profile/{id}', 'ProfileController@prikaziTudjProfil');
+
     //  Route::post('/warn_user', 'ModController@warnUser');
 
       Route::get('/edit_picture', function() {
