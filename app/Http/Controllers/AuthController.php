@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
+use App\Registered_user as Registered_user;
 
 class AuthController extends Controller
 {

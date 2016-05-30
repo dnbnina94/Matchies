@@ -148,7 +148,7 @@ class SearchingController extends Controller
 /********VEROVATNO BI BILO DOBRO DA ISPISUJE I NEKU PORUKU DA TREBA DA SE PROSIRI KRITERIJUM*******/
 
             if($returnUser == null){
-              return view ('home');
+              return redirect()->route('home');
             }
 
           return view ('searching', $info);
@@ -300,7 +300,7 @@ class SearchingController extends Controller
 
 /********VEROVATNO BI BILO DOBRO DA ISPISUJE I NEKU PORUKU DA TREBA DA SE PROSIRI KRITERIJUM*******/
             if($returnUser == null){
-              return view ('home');
+              return redirect()->route('home');
             }
 
 
@@ -421,7 +421,7 @@ class SearchingController extends Controller
 
 /********VEROVATNO BI BILO DOBRO DA ISPISUJE I NEKU PORUKU DA TREBA DA SE PROSIRI KRITERIJUM*******/
             if($returnUser == null){
-              return view ('home');
+              return redirect()->route('home');
             }
 
 

@@ -17,12 +17,22 @@ Home
 	<script src="/bootstrap-3.3.6-dist/js/openSettings.js"></script>
 @stop
 
+@section('javascriptFunctions')
+<script>
+	function onloadFunkcija() {
+		var poljs = '<?php echo $pol; ?>';
+		var godinejs = '<?php echo $birthday; ?>';
+		promeni(poljs,godinejs);
+	}
+</script>
+@stop
+
 @section('sewingBut')
 @parent
 @stop
 
 @section('onloadfunction')
-onload="ucitaj()"
+onload="ucitaj(); onloadFunkcija()"
 @stop
 
 @section('settingsBoxContainer')

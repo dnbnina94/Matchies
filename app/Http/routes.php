@@ -46,12 +46,10 @@ Route::get('/forgot_password', function() {
 
 
 Route::group(['middleware'=>'customMiddleware'], function(){
-    Route::get('/home', [
+      Route::get('/home', [
           'as' => 'home',
-          'uses' => function(){
-            return view('home');
-          }
-
+          'uses' => 'HomeController@ucitaj'
+          
       ]);
 
 
