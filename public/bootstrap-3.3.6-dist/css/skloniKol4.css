@@ -1,0 +1,23 @@
+@media screen and (max-width: 990px) {
+	#kol1 {
+		display: none;
+	}
+
+	#kol2 {
+		display: none;
+	}
+
+	#kol3 {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 990px) {
+	#relKolona {
+		padding-right: 15px;
+	}
+
+	#eduKolona {
+		padding-left: 15px;
+	}
+}

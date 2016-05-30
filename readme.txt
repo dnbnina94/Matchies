@@ -1,0 +1,2 @@
+Ovaj projekat se radi u okviru predmeta Principi softverskog inzenjerstva na Elektrotehnickom fakultetu u Beogradu. 
+Tvorci Matchies-a su Nina Grujic, Branislava Ivkovic, Milena Filipovic i Petar Djukic.

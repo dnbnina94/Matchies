@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<head>
+
+
+</head>
+
+
+<body>
+
+<h1>Admin</h1>
+
+</body>

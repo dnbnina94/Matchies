@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+
 class User extends Authenticatable
 {
     /**
@@ -12,8 +13,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
-    ];
+
+        'username', 'email', 'password',];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -23,4 +24,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function registered_user(){
+        return $this->hasOne('App\Registered_user');
+    }
+
 }
