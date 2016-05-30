@@ -13,7 +13,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-
         'username', 'email', 'password',];
 
     /**
@@ -26,8 +25,8 @@ class User extends Authenticatable
     ];
 
 
+
     public function registered_user(){
         return $this->hasOne('App\Registered_user');
     }
-
 }
