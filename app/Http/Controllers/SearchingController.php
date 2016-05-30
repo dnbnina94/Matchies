@@ -76,9 +76,9 @@ class SearchingController extends Controller
 
                         if( $years <= $ageMax and $years >= $ageMin){
 
-                          if($reg->sex== 'f'){
 
-                            if($nextUser->interested_in == 'ff' or $nextUser->interested_in == 'fm' ){
+
+
 
                                           if($reg->interested_in == 'fm'){
                                             $returnUser=$nextUser;
@@ -100,11 +100,11 @@ class SearchingController extends Controller
                                           }
 
 
-                                  }
 
-                          }
+
+
                           /////
-                          if($reg->sex== 'm'){
+                        /*  if($reg->sex== 'm'){
                             if($nextUser->interested_in == 'mm' or $nextUser->interested_in == 'fm' ){
 
                                         if($reg->interested_in == 'fm'){
@@ -125,9 +125,8 @@ class SearchingController extends Controller
                                             break;
                                           }
                                         }
-
                                   }
-                                }
+                                }*/
                             }
                       }
 
@@ -226,10 +225,6 @@ class SearchingController extends Controller
 
                     if( $years <= $reg->max_age and $years >= $reg->minimal_age){
 
-                      if($reg->sex== 'f'){
-
-                        if($nextUser->interested_in == 'ff' or $nextUser->interested_in == 'fm' ){
-
                                       if($reg->interested_in == 'fm'){
                                         $returnUser=$nextUser;
                                             break;
@@ -250,11 +245,11 @@ class SearchingController extends Controller
                                       }
 
 
-                              }
 
-                      }
+
+
                       /////
-                      if($reg->sex== 'm'){
+                    /*  if($reg->sex== 'm'){
                         if($nextUser->interested_in == 'mm' or $nextUser->interested_in == 'fm' ){
 
                                     if($reg->interested_in == 'fm'){
@@ -277,7 +272,7 @@ class SearchingController extends Controller
                                     }
 
                               }
-                            }
+                            }*/
                         }
                   }
 
@@ -347,9 +342,9 @@ class SearchingController extends Controller
 
                   if( $years <= $reg->max_age and $years >= $reg->minimal_age){
 
-                    if($reg->sex== 'f'){
 
-                      if($nextUser->interested_in == 'ff' or $nextUser->interested_in == 'fm' ){
+
+
 
                                     if($reg->interested_in == 'fm'){
                                       $returnUser=$nextUser;
@@ -370,12 +365,8 @@ class SearchingController extends Controller
                                       }
                                     }
 
-
-                            }
-
-                    }
                     /////
-                    if($reg->sex== 'm'){
+                  /*  if($reg->sex== 'm'){
                       if($nextUser->interested_in == 'mm' or $nextUser->interested_in == 'fm' ){
 
                                   if($reg->interested_in == 'fm'){
@@ -398,7 +389,7 @@ class SearchingController extends Controller
                                   }
 
                             }
-                          }
+                          }*/
                       }
                 }
 
