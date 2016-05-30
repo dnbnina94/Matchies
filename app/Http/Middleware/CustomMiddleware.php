@@ -17,10 +17,22 @@ class CustomMiddleware
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (!Auth::guest() ) {
+        if (!Auth::guest() && Auth::user()->type == 3 ) {
             return $next($request);
 
         }
+
+        if (!Auth::guest() && Auth::user()->type == 2 ) {
+           return redirect()->route('moderator');
+
+        }
+
+        if (!Auth::guest() && Auth::user()->type == 1 ) {
+           return redirect()->route('admin');
+
+        }
+
+
         return redirect('/');
 
     }

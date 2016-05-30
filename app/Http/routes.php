@@ -49,21 +49,23 @@ Route::group(['middleware'=>'customMiddleware'], function(){
       Route::get('/home', [
           'as' => 'home',
           'uses' => 'HomeController@ucitaj'
-          
+
       ]);
 
-
+/*
       Route::get('/moderator', [
             'as' => 'moderator',
             'uses' => 'ModController@ucitajReportove'
 
         ]);
-
+*/
+/*
         Route::get('/admin', [
               'as' => 'admin',
               'uses' => 'AdminController@ucitajReportove'
 
           ]);
+          */
 
 
       /*
@@ -194,22 +196,33 @@ Route::post('/password_sent', function() {
 
 
 
-Route::get('/signup_step_1',[
-      'as' => 'signupStep1',
-      'uses' => function(){
-        return view('signup_step_1');
-      }
+/***********RUTE ZA GUEST SAMO!!!!!!  ***********/
 
-  ]);
+Route::group(['middleware'=>'guestMiddleware'], function(){
+
+  Route::get('/signup_step_1',[
+        'as' => 'signupStep1',
+        'uses' => function(){
+          return view('signup_step_1');
+        }
+
+    ]);
+
+
+    Route::post('/signup/step2','SignUpController@postStep2');
+    Route::post('/signup/step3','SignUpController@postStep3');
+    Route::post('/signup/step4','SignUpController@postStep4');
+    Route::post('/signup/final','SignUpController@postFinal');
 
 
 
-Route::post('/signup/step2','SignUpController@postStep2');
-Route::post('/signup/step3','SignUpController@postStep3');
-Route::post('/signup/step4','SignUpController@postStep4');
-Route::post('/signup/final','SignUpController@postFinal');
+});
 
-Route::get('/index_moderator', 'ModController@ucitajReportove');
+
+/******************************************/
+
+
+      //Route::get('/index_moderator', 'ModController@ucitajReportove');
 /*
 
 Route::post('/signup_step_2', function() {
@@ -227,6 +240,12 @@ Route::post('/signup_step_4', function() {
 
 /***********************ADMIN RUTE***************************/
     Route::group(['middleware'=>'adminMiddleware'], function(){
+
+      Route::get('/admin', [
+            'as' => 'admin',
+            'uses' => 'AdminController@ucitajReportove'
+
+        ]);
 
           Route::get('/index_admin', 'AdminController@ucitajReportove');
           Route::post('/admin/warn_user', 'AdminController@warnUser');
@@ -272,6 +291,13 @@ Route::post('/signup_step_4', function() {
 
 /*****************************************MODERATORSKE RUTE************************************/
                   Route::group(['middleware'=>'modMiddleware'], function(){
+
+
+                    Route::get('/moderator', [
+                          'as' => 'moderator',
+                          'uses' => 'ModController@ucitajReportove'
+
+                      ]);
 
 
                   Route::get('/index_moderator', 'ModController@ucitajReportove');

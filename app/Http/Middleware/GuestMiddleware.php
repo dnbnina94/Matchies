@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class ModeratorMiddleware
+class GuestMiddleware
 {
      /**
      * Handle an incoming request.
@@ -17,13 +17,19 @@ class ModeratorMiddleware
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (!Auth::guest() && Auth::user()->type == 2 ) {
-            return $next($request);
+        if (Auth::guest() ) {
+             return $next($request);
 
         }
 
+
         if (!Auth::guest() && Auth::user()->type == 1 ) {
-           return redirect()->route('admin');
+             return redirect()->route('admin');
+
+        }
+
+        if (!Auth::guest() && Auth::user()->type == 2 ) {
+           return redirect()->route('moderator');
 
         }
 
@@ -31,7 +37,6 @@ class ModeratorMiddleware
            return redirect()->route('home');
 
         }
-
 
         return redirect('/');
 

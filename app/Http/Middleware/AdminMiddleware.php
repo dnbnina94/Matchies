@@ -21,6 +21,17 @@ class AdminMiddleware
             return $next($request);
 
         }
+
+        if (!Auth::guest() && Auth::user()->type == 2 ) {
+           return redirect()->route('moderator');
+
+        }
+
+        if (!Auth::guest() && Auth::user()->type == 3 ) {
+           return redirect()->route('home');
+
+        }
+
         return redirect('/');
 
     }
