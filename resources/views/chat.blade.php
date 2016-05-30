@@ -51,10 +51,24 @@ Chat!
       }
     }
   </script>
+
+  <script>
+    $(window).on('resize', function () {
+      var pikseli = $("#sirina").width();
+      $(".message").css("max-width", pikseli-20);
+    });
+  </script>
+
+  <script>
+    function ucitajLepo() {
+      var pikseli = $("#sirina").width();
+      $(".message").css("max-width", pikseli-20);
+    }
+  </script>
 @stop
 
 @section('onloadfunction')
-  onload="skrolaj()"
+  onload="skrolaj(); ucitajLepo()"
 @stop
 
 @section('content')
@@ -95,13 +109,12 @@ Chat!
 							</table>
 						</div>
 						<div id="messageBoxContainer">
-              <p style="color: #AD423C; font-size: 16px; font-weight:bold;"> Conversation started!!! </p>
-							<table class="messageBox" id="tabelica1">
+							<table class="messageBox" id="tabelica1" style="word-wrap: break-word; table-layout: fixed;">
         @foreach ($messages as $message)
               @if(Auth::user()->id != $message->id_source_user)
               <tr>
-                <td class="colleft">
-                  <div style="display: table">
+                <td class="colleft" id="sirina">
+                  <div style="display: table; table-layout: fixed; word-break: break-word">
                     <div style="display: table-row">
                       <div style="display: table-cell" class="msgBox1">
                         <span class="message">{{$message->text}}</span> <br/><br/>
@@ -113,8 +126,8 @@ Chat!
               </tr>
               @else
               <tr>
-                <td align="right" style="padding-top: 15px; padding-left: 10px">
-                  <div style="display: table">
+                <td id="sirina" align="right" style="padding-top: 15px; padding-left: 10px;">
+                  <div style="display: table; table-layout: fixed; word-break: break-word">
                     <div style="display: table-row">
                       <div style="display: table-cell" class="msgBox2" >
                         <span class="message">{{$message->text}}</span> <br/><br/>
@@ -135,7 +148,7 @@ Chat!
 								<div class="col-md-10" id="sendmsgcol1">
 									<form name="saljiPoruku" method="post" action="/chat/{{$interaction->id}}">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-									<input type="text" maxlength="80" class="form-control has-error" name="Message" id="message" placeholder="Type a message" autofocus style="font-size: 16px;">
+									<input type="text" class="form-control has-error" name="Message" id="message" placeholder="Type a message" autofocus style="font-size: 16px;">
 								</div>
 								<div class="col-md-2" id="sendmsgcol2">
                   <!--
