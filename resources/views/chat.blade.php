@@ -117,7 +117,7 @@ Chat!
                   <div style="display: table; table-layout: fixed; word-break: break-word">
                     <div style="display: table-row">
                       <div style="display: table-cell" class="msgBox1">
-                        <span class="message">{{$message->text}}</span> <br/><br/>
+                        <span class="message">{{$message->text}}</span> <br/>
                         <span class="messagetime">{{$message->time}}</span>
                       </div>
                     </div>
@@ -130,7 +130,7 @@ Chat!
                   <div style="display: table; table-layout: fixed; word-break: break-word">
                     <div style="display: table-row">
                       <div style="display: table-cell" class="msgBox2" >
-                        <span class="message">{{$message->text}}</span> <br/><br/>
+                        <span class="message">{{$message->text}}</span> <br/>
                         <span class="messagetime">{{$message->time}}</span>
                       </div>
                     </div>

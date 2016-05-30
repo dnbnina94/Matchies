@@ -94,7 +94,7 @@ Chat!
 										<div style="display: table">
 											<div style="display: table-row">
 												<div style="display: table-cell" class="msgBox1">
-													<span class="message">Hey, how are you? :)</span> <br/><br/>
+													<span class="message">Hey, how are you? :)</span> <br/>
 													<span class="messagetime">21.03.2016 11:34</span>
 												</div>
 											</div>
@@ -106,7 +106,7 @@ Chat!
 										<div style="display: table">
 											<div style="display: table-row">
 												<div style="display: table-cell" class="msgBox2">
-													<span class="message">Hey I'm fine thx, and how are you? :D</span> <br/><br/>
+													<span class="message">Hey I'm fine thx, and how are you? :D</span> <br/>
 													<span class="messagetime">21.03.2016 12:00</span>
 												</div>
 											</div>
