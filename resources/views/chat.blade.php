@@ -116,7 +116,7 @@ Chat!
                 <td align="right" style="padding-top: 15px; padding-left: 10px">
                   <div style="display: table">
                     <div style="display: table-row">
-                      <div style="display: table-cell" class="msgBox2">
+                      <div style="display: table-cell" class="msgBox2" >
                         <span class="message">{{$message->text}}</span> <br/><br/>
                         <span class="messagetime">{{$message->time}}</span>
                       </div>
@@ -144,6 +144,14 @@ Chat!
 									<button class="btn" id="subButt" type="submit" name="submitButton"><div align="center" valign="middle" style="font-weight: bold; font-size: 16px; height: 22px">Send</div></button>
 								</form>
 								</div>
+              </div>
+                <div class="row" style="padding-top:10px;">
+
+                <div class="col-md-12">
+                  <a href="/chat/{{$interaction->id}}">
+                    <button class="btn" id="subButt" style="background: #383838;" type="button"><div align="center" valign="middle" style=" font-weight: bold; font-size: 16px; height: 22px">Refresh this conversation!</div></button>
+                  </a>
+                </div>
 							</div>
 						</div>
 					</div>
