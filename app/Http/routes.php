@@ -95,9 +95,9 @@ Route::group(['middleware'=>'customMiddleware'], function(){
         return view('searching');
       });
 
-      Route::get('/chat', function() {
-        return view('chat');
-      });
+      Route::get('/chat/{id}', 'MessagesController@readChat');
+      Route::post('/chat/{id}', 'MessagesController@sendMessage');
+
 
       /*Route::get('/edit_profile', function () {
         return view('edit_profile');

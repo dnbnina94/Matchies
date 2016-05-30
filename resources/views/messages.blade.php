@@ -75,7 +75,7 @@ Notifications
 										<img src="/images/envclosed.png" width="40px" />
 									</td>
 									<td valign="top" style="padding: 10px">
-										<a href="/chat" style="color: white; font-weight: bold; font-size: 16px">
+										<a href="/chat/{{$interaction->id}}" style="color: white; font-weight: bold; font-size: 16px">
                       @if ($interaction->id_user1 == Auth::user()->id)
                       {{App\User::where('id', '=', $interaction->id_user2)->first()->username}}
                       @else
@@ -110,49 +110,6 @@ Notifications
 								</tr>
 							</table>
         @endforeach
-        @foreach ($interactions2 as $interaction)
-        <table width="100%" height="70px" style="border-bottom: 1px solid #B9BAB8; border-top: 1px solid #B9BAB8">
-          <tr>
-            <td valign="middle" width="5%" style="padding-right: 10px; padding-left: 10px">
-              <img src="/images/envclosed.png" width="40px" />
-            </td>
-            <td valign="top" style="padding: 10px">
-              <a href="/chat" style="color: white; font-weight: bold; font-size: 16px">
-                @if ($interaction->id_user1 == Auth::user()->id)
-                {{App\User::where('id', '=', $interaction->id_user2)->first()->username}}
-                @else
-                {{App\User::where('id', '=', $interaction->id_user1)->first()->username}}
-                @endif
-
-              </a>
-              <i class="fa fa-reply" style="font-size: 14px; color: #333333"></i> <br/>
-              <div style="margin-bottom: 0px;"><!-- <span style="color: #F1F1F1; font-size: 12px;">21.03.2016. 13:43</span> --></div>
-              <table width="100%" style="margin-top: 0px;">
-                <tr>
-                  <td width="100%">
-                    <div class="progress" style="margin-bottom: 0px; margin-top: 0px; background: #AED581; height: 8px">
-                        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="background: #298A08; width:
-                        {{floor(($interaction->messages/20)*100)}}%" id="progressComplete">
-                        </div>
-                    </div>
-                  </td>
-                  @if (($interaction->messages < 20))
-                      <td style="padding-left: 10px">
-                        <i class="fa fa-lock" style="font-size: 20px; color: #333333"></i>
-                      </td>
-                  @else
-                  <td style="padding-left: 10px">
-                      <i class="fa fa-unlock-alt" style="font-size: 20px; color: #333333"></i>
-                  </td>
-                  @endif
-
-                </tr>
-              </table>
-            </td>
-          </tr>
-        </table>
-  @endforeach
-
 
 							<div style="padding-top: 20px; padding-bottom: 25px; color: white; text-align: center">
 								You have no more messages.

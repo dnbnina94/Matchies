@@ -149,7 +149,9 @@ href = "/profile/{{$user->id}}"
                       @endif
                         @if (!is_null($interakcija))
                         <div class="col-md-4" id="messageButtonDiv">
-                        <button class="btn" id="subButt" type="submit" style="background: #AE0000"><b>Send message</b></button>
+                          <a  href="/chat/{{$interakcija->id}}">
+                        <button class="btn" id="subButt" type="button" style="background: #AE0000"><b>Send message</b></button>
+                      </a>
                         </div>
                         @endif
 										</div>

@@ -70,155 +70,78 @@ Chat!
 				<div class="row">
 					<div class="col-md-12">
 						<div class="jumbotronProfile" style="color: white; font-size: 16px;">
-							<a href="#" style="color: white; font-weight: bold">UserBlaBla</a> <br/>
+							<a href="/profile/{{$userTo->id}}" style="color: white; font-weight: bold">{{App\User::where('id', '=', $userTo->id)->first()->username}}</a> <br/>
 							<div style="padding-top: 8px"></div>
-							<span style="font-size: 14px">This progress bar shows how much you'll need to unlock UserBlaBla's photos. Once it reaches 100% you will be able to see UserBlaBla's photos.</span>
+							<span style="font-size: 14px">This progress bar shows how much you'll need to unlock {{App\User::where('id', '=', $userTo->id)->first()->username}}'s photos. Once it reaches 100% you will be able to see UserBlaBla's photos.</span>
 							<table width="100%" style="margin-top: 0px !important;">
 								<tr>
 									<td width="100%">
 										<div class="progress" style="margin-bottom: 0px; margin-top: 0px; background: #AED581; height: 8px">
-  											<div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="background: #298A08; width: 50%" id="progressComplete">
+
+  											<div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="background: #298A08; width: {{floor(($interaction->messages/20)*100)}}%" id="progressComplete">
   											</div>
 										</div>
 									</td>
-									<td style="padding-left: 10px">
-										<i class="fa fa-lock" style="font-size: 34px; color: #333333"></i>
-									</td>
+                  @if (($interaction->messages < 20))
+                      <td style="padding-left: 10px">
+                        <i class="fa fa-lock" style="font-size: 20px; color: #333333"></i>
+                      </td>
+                  @else
+                  <td style="padding-left: 10px">
+                      <i class="fa fa-unlock-alt" style="font-size: 20px; color: #333333"></i>
+                  </td>
+                  @endif
 								</tr>
 							</table>
 						</div>
 						<div id="messageBoxContainer">
+              <p style="color: #AD423C; font-size: 16px; font-weight:bold;"> Conversation started!!! </p>
 							<table class="messageBox" id="tabelica1">
-								<tr>
-									<td class="colleft">
-										<div style="display: table">
-											<div style="display: table-row">
-												<div style="display: table-cell" class="msgBox1">
-													<span class="message">Hey, how are you? :)</span> <br/><br/>
-													<span class="messagetime">21.03.2016 11:34</span>
-												</div>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td align="right" style="padding-top: 15px; padding-left: 10px">
-										<div style="display: table">
-											<div style="display: table-row">
-												<div style="display: table-cell" class="msgBox2">
-													<span class="message">Hey I'm fine thx, and how are you? :D</span> <br/><br/>
-													<span class="messagetime">21.03.2016 12:00</span>
-												</div>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td class="colleft">
-										<div style="display: table">
-											<div style="display: table-row">
-												<div style="display: table-cell" class="msgBox1">
-													<span class="message">I'm great tank you :) I really like your personality, I can't wait to see your photos :D</span> <br/><br/>
-													<span class="messagetime">21.03.2016 11:54</span>
-												</div>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td class="colleft">
-										<div style="display: table">
-											<div style="display: table-row">
-												<div style="display: table-cell" class="msgBox1">
-													<span class="message">Sooo.. what kind of music are you into?</span> <br/><br/>
-													<span class="messagetime">21.03.2016 11:55</span>
-												</div>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td align="right" style="padding-top: 15px; padding-left: 10px">
-										<div style="display: table">
-											<div style="display: table-row">
-												<div style="display: table-cell" class="msgBox2">
-													<span class="message">Umm.. I really like indie folk, and country music, but I used to listen to Linkin Park before A LOT! xD</span> <br/><br/>
-													<span class="messagetime">21.03.2016 12:00</span>
-												</div>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td align="right" style="padding-top: 15px; padding-left: 10px">
-										<div style="display: table">
-											<div style="display: table-row">
-												<div style="display: table-cell" class="msgBox2">
-													<span class="message">What kind of music do you like?</span> <br/><br/>
-													<span class="messagetime">21.03.2016 12:01</span>
-												</div>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td class="colleft">
-										<div style="display: table">
-											<div style="display: table-row">
-												<div style="display: table-cell" class="msgBox1">
-													<span class="message">I also like indie folk music :)</span> <br/><br/>
-													<span class="messagetime">21.03.2016 12:30</span>
-												</div>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td class="colleft">
-										<div style="display: table">
-											<div style="display: table-row">
-												<div style="display: table-cell" class="msgBox1">
-													<span class="message">Linkin Park?! You used to be emo, or smth? xD</span> <br/><br/>
-													<span class="messagetime">21.03.2016 12:32</span>
-												</div>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td align="right" style="padding-top: 15px; padding-left: 10px">
-										<div style="display: table">
-											<div style="display: table-row">
-												<div style="display: table-cell" class="msgBox2">
-													<span class="message">Yeah, I guess xD</span> <br/><br/>
-													<span class="messagetime">21.03.2016 12:40</span>
-												</div>
-											</div>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td class="colleft">
-										<div style="display: table">
-											<div style="display: table-row">
-												<div style="display: table-cell" class="msgBox1">
-													<span class="message">LOL, you're funny XDDDD</span> <br/><br/>
-													<span class="messagetime">21.03.2016 12:42</span>
-												</div>
-											</div>
-										</div>
-									</td>
-								</tr>
+        @foreach ($messages as $message)
+              @if(Auth::user()->id != $message->id_source_user)
+              <tr>
+                <td class="colleft">
+                  <div style="display: table">
+                    <div style="display: table-row">
+                      <div style="display: table-cell" class="msgBox1">
+                        <span class="message">{{$message->text}}</span> <br/><br/>
+                        <span class="messagetime">{{$message->time}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              @else
+              <tr>
+                <td align="right" style="padding-top: 15px; padding-left: 10px">
+                  <div style="display: table">
+                    <div style="display: table-row">
+                      <div style="display: table-cell" class="msgBox2">
+                        <span class="message">{{$message->text}}</span> <br/><br/>
+                        <span class="messagetime">{{$message->time}}</span>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              @endif
+
+
+	      @endforeach
 							</table>
 						</div>
 						<div class="jumbotronProfile" style="color: white; font-size: 16px;">
 							<div class="row">
 								<div class="col-md-10" id="sendmsgcol1">
-									<form name="saljiPoruku" method="post" action="#">
-									<input type="text" class="form-control has-error" name="Message" id="message" placeholder="Type a message" autofocus style="font-size: 16px;">
+									<form name="saljiPoruku" method="post" action="/chat/{{$interaction->id}}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+									<input type="text" maxlength="80" class="form-control has-error" name="Message" id="message" placeholder="Type a message" autofocus style="font-size: 16px;">
 								</div>
 								<div class="col-md-2" id="sendmsgcol2">
-									<button class="btn" id="subButt" type="submit" name="submitButton" onclick="return dodajPoruku()"><div align="center" valign="middle" style="font-weight: bold; font-size: 16px; height: 22px">Send</div></button>
+                  <!--
+                  <button class="btn" id="subButt" type="submit" name="submitButton" onclick="return dodajPoruku()"><div align="center" valign="middle" style="font-weight: bold; font-size: 16px; height: 22px">Send</div></button>
+                -->
+									<button class="btn" id="subButt" type="submit" name="submitButton"><div align="center" valign="middle" style="font-weight: bold; font-size: 16px; height: 22px">Send</div></button>
 								</form>
 								</div>
 							</div>
