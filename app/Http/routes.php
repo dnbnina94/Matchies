@@ -269,6 +269,8 @@ Route::post('/signup_step_4', function() {
           Route::get('/moderator_signup', function() {
             return view('moderator_signup');
           });
+
+          Route::post('/admin/deleteReport', 'AdminController@deleteReport');
     });
 
 /***************************************************************************************/

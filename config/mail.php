@@ -55,7 +55,6 @@ return [
     |
     */
 
-
     'from' => ['address' => 'Matchies@nesto.com', 'name' => 'Matchies'],
 
     /*

@@ -54,7 +54,6 @@ return [
             'visibility' => 'public',
         ],
 
-
         'tmp' => [
             'driver' => 'local',
             'root' => public_path('app/public/tmp'),

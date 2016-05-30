@@ -99,6 +99,18 @@ class AdminController extends Controller
     return view('moderators_admin', $info);
   }
 
+public function deleteReport(Request $request) {
+        $reportId = $request->input('report_id_to_delete');
+        $report = Report::where('id', '=', $reportId)->first();
+        $report->delete();
+        $reports = Report::where('status', '=', 0)->get();
+
+        $info = array(
+          'reports' => $reports
+        );
+
+        return redirect()->route('admin');
+      }
 
 }
 

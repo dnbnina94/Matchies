@@ -75,10 +75,12 @@ Home Moderator
 					</table>
 					<div class="row">
 						<div class="col-md-12" align="center">
-							<form name="deleteUser" action="/index_admin" method="post">
+							<form name="deleteUser" action="/admin/deleteReport" method="post">
 								Are you sure you want to delete this report?<br/>
 								<div style="padding-bottom:10px"></div>
-								<button class=" btn" id="subButt1" type="submit" style="background: #383838" onclick="return deleteReportRemove()"><b>Delete this report</b></button>
+								<input type="hidden" id="report_id_to_delete" name="report_id_to_delete" value="">
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+								<button class="btn" id="subButt1" type="submit" style="background: #383838" ><b>Delete this report</b></button>
 							</form>
 						</div>
 					</div>
@@ -136,7 +138,7 @@ Home Moderator
 													<button type='button' class="btn" id="subButt" onclick="warnKorDisplay(0,{{$report->id_source_user}},{{$report->id}})"><b>Warn</b></button>
 												</td>
 												<td style="padding-left: 5px">
-													<span class="glyphicon glyphicon-trash trashIcon" onclick="deleteReportDisplay(0)"></span>
+													<span class="glyphicon glyphicon-trash trashIcon" onclick="deleteReportDisplay({{$report->id}})"></span>
 												</td>
 											</tr>
 										</table>

@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
-
 use Illuminate\Contracts\Auth\Guard;
 
 
@@ -42,6 +41,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
+
 
         $this->middleware('guest', ['except' => ['logout', 'getLogout']]);
 

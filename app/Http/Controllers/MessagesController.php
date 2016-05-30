@@ -86,8 +86,7 @@ class MessagesController extends Controller
             'messages' => $messages,
 
           );
-
-          return view('chat', $info);
+          return redirect()->action('MessagesController@readChat', ['id' => $id]);
 
         }
         $newMessage= new Message;
@@ -110,7 +109,8 @@ class MessagesController extends Controller
 
 
 
-      return view('chat', $info);
+
+      return redirect()->action('MessagesController@readChat', ['id' => $id]);
     }
 }
 

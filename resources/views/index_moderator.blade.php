@@ -71,7 +71,7 @@ Home Moderator
 							<td>
 							</td>
 							<td align="right" style="font-size: 16px; color: white">
-								<!--<span class="glyphicon glyphicon-remove" onclick="deleteKorRemove()" style="cursor: pointer"></span>-->
+								<span class="glyphicon glyphicon-remove" onclick="deleteKorRemove()" style="cursor: pointer"></span>
 							</td>
 						</tr>
 					</table>
@@ -142,8 +142,7 @@ Home Moderator
 											</form>
 												<td style="padding-left: 5px">
 													<form>
-													<button type="button" onclick="deleteReportDisplay({{$report->id}})" value="Obrisi report">
-													<!--<span class="glyphicon glyphicon-trash trashIcon" onclick="deleteReportDisplay(0)"></span>-->
+													<span class="glyphicon glyphicon-trash trashIcon" onclick="deleteReportDisplay({{$report->id}})"></span>
 												</form>
 												</td>
 											</tr>
