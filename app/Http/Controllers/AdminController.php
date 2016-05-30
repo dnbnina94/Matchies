@@ -82,6 +82,23 @@ class AdminController extends Controller
     return view('index_admin', $info);
   }
 
+  public function deleteMod(Request $request) {
+    $id = $request->input('moderatorID');
+    $user = User::where('id', '=', $id)->first();
+    if ($user == null)
+      return view('/error_user_not_found_admin');
+    else
+      $user->delete();
+
+    $users = User::where('type', '=', 2)->get();
+
+    $info = array(
+      'users' => $users
+    );
+
+    return view('moderators_admin', $info);
+  }
+
 
 }
 

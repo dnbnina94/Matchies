@@ -232,6 +232,7 @@ Route::post('/signup_step_4', function() {
 
           Route::get('/index_admin', 'AdminController@ucitajReportove');
           Route::post('/admin/warn_user', 'AdminController@warnUser');
+          Route::post('/admin/deleteMod', 'AdminController@deleteMod');
           Route::post('/admin/warn_user_from_profile', 'AdminController@warnUserFromProfile');
 
           Route::post('/index_admin', function() {

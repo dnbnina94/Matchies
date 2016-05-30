@@ -25,22 +25,28 @@ Home Moderator
 			<div class="row">
 				<div class="col-md-4">
 				</div>
-				<div class="moderatorBox col-md-4" style="margin-left: 25px; margin-right: 25px">
-					<table width="100%">
-						<tr>
-							<td style="font-weight: bold">
-								Details about moderator:
-							</td>
-							<td align="right" style="font-size: 16px; color: white">
-								<span class="glyphicon glyphicon-remove" onclick="moderatorKorRemove()" style="cursor: pointer"></span>
-							</td>
-						</tr>
-					</table>
+				<div class="col-md-4" style="margin-left: 25px; margin-right: 25px">
 					<div class="row">
-						<div class="col-md-12" align="left" style="color: black; padding-top: 10px">
-							Username: <span id="usernameMod" style="color: white; font-weight: bold"></span><br/>
-							Email: <span id="emailMod" style="color: white; font-weight: bold"></span><br/>
+						<div class="col-md-2"></div>
+						<div class="moderatorBox col-md-8">
+							<table width="100%">
+								<tr>
+									<td style="font-weight: bold">
+										Details about moderator:
+									</td>
+									<td align="right" style="font-size: 16px; color: white">
+										<span class="glyphicon glyphicon-remove" onclick="moderatorKorRemove()" style="cursor: pointer"></span>
+									</td>
+								</tr>
+							</table>
+							<div class="row">
+								<div class="col-md-12" align="left" style="color: black; padding-top: 10px">
+									Username: <span id="usernameMod" style="color: white; font-weight: bold"></span><br/>
+									Email: <span id="emailMod" style="color: white; font-weight: bold"></span><br/>
+								</div>
+							</div>
 						</div>
+						<div class="col-md-2"></div>
 					</div>
 				</div>
 				<div class="col-md-4">
@@ -68,10 +74,12 @@ Home Moderator
 					</table>
 					<div class="row">
 						<div class="col-md-12" align="center">
-							<form name="deleteUser" action="/moderators_admin" method="post">
+							<form name="deleteUser" action="/admin/deleteMod" method="post">
+								<input type="hidden" name="_token" value="{{ csrf_token() }}">
+								<input type="hidden" name="moderatorID" id="moderatorID" value="" />
 								Are you sure you want to delete this moderator?<br/>
 								<div style="padding-bottom:10px"></div>
-								<button class=" btn" id="subButt1" type="submit" style="background: #383838" onclick="return deleteModeratorRemove()"><b>Delete this moderator</b></button>
+								<button class=" btn" id="subButt1" type="submit" style="background: #383838"><b>Delete this moderator</b></button>
 							</form>
 						</div>
 					</div>
@@ -109,6 +117,7 @@ Home Moderator
 							<div style="padding-top: 10px"></div>
 
 							@foreach ($users as $user)
+							<form>
 							<div class="row moderatorRow">
 								<div class="col-md-6">
 
@@ -118,7 +127,7 @@ Home Moderator
 									?>
 								</div>
 								<div class="col-md-6 desno">
-									<span class="glyphicon glyphicon-trash" style="color: #AE0000; cursor: pointer" onclick="deleteReportDisplay(0)"></span>
+									<span class="glyphicon glyphicon-trash" style="color: #AE0000; cursor: pointer" onclick="deleteModeratorDisplay({{$user->id}})"></span>
 								</div>
 							</div>
 
@@ -128,6 +137,7 @@ Home Moderator
 									</td>
 								</tr>
 							</table>
+							</form>
 							@endforeach
 
 							<div style="padding-top: 10px; padding-bottom: 25px; color: white; text-align: center">

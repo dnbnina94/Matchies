@@ -90,6 +90,11 @@ function deleteReportRemove() {
 	return false;
 }
 
+function deleteModeratorDisplay(idMod) {
+	document.getElementById('moderatorID').value = idMod;
+	document.getElementById('deleteBoxContainer').style.display = "table";
+}
+
 function deleteModeratorRemove() {
 	if (classElementIndex != null) {
 		document.getElementsByClassName('moderatorRow')[classElementIndex].style.display = "none";
