@@ -86,7 +86,7 @@ Chat!
 						<div class="jumbotronProfile" style="color: white; font-size: 16px;">
 							<a href="/profile/{{$userTo->id}}" style="color: white; font-weight: bold">{{App\User::where('id', '=', $userTo->id)->first()->username}}</a> <br/>
 							<div style="padding-top: 8px"></div>
-							<span style="font-size: 14px">This progress bar shows how much you'll need to unlock {{App\User::where('id', '=', $userTo->id)->first()->username}}'s photos. Once it reaches 100% you will be able to see UserBlaBla's photos.</span>
+							<span style="font-size: 14px">This progress bar shows how much you'll need to unlock {{App\User::where('id', '=', $userTo->id)->first()->username}}'s photos. Once it reaches 100% you will be able to see {{App\User::where('id', '=', $userTo->id)->first()->username}}'s photos.</span>
 							<table width="100%" style="margin-top: 0px !important;">
 								<tr>
 									<td width="100%">
