@@ -25,7 +25,7 @@ class NotificationsController extends Controller
     {
       $user = Auth::user();
       $notifications = Notification::where('id_destination_user', '=', $user->id)->get();
-
+      Notification::where('id_destination_user', '=', $user->id)->delete();
       $info= array(
         'notifications' => $notifications,
 
