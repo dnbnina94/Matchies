@@ -64,6 +64,26 @@ class AdminController extends Controller
       return view('moderators_admin', $info);
     }
 
+    public function addModerator(Request $request)
+    {
+      $modUsername = $request->input('username');
+      $modPassword = $request->input('password');
+      $modEmail = $request->input('email');
+
+      if(strcmp($modPassword, $request->input('passrepeat'))!=0 || 
+        strcmp($modEmail, $request->input('emailAgain')) != 0)
+        return redirect()->action('AdminController@listMods');
+
+      $user = new User;
+      $user->username = $modUsername;
+      $user->password = Hash::make($modPassword);
+      $user->email = $modEmail;
+      $user->type = 2;
+      $user->save();
+
+      return redirect()->action('AdminController@listMods');
+    }
+
   public function warnUser(Request $request) {
     $id = $request->input('user_idBox');
     $reportId = $request->input('report_idBox');

@@ -44,6 +44,7 @@ Home Moderator
 							<span style="font-weight: bold"> Register a new moderator:</span>
 							<div style="padding-top: 10px"></div>
 							<form name="newModerator" method="post" action="/moderators_admin">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 								 <div class="form-group" id="greskaUsername" align="left" style="margin-bottom: 0px !important">
   								    <input type="text" class="form-control has-error" name="username" id="username" placeholder="Moderator's username" autofocus style="font-size: 16px">
                                     <span id="usernameicon" class="" aria-hidden="true"></span>
@@ -73,13 +74,13 @@ Home Moderator
                                  </div>
 
                                  <div class="form-group" id="greske4" align="left"style="margin-bottom: 10px !important">
-  									<input type="text" class="form-control has-error" name="emailAgain" id="emailAgain" placeholder="Re-enter your email" style="font-size: 16px;">
+  									<input type="text" class="form-control has-error" name="emailAgain" id="emailAgain" placeholder="Re-enter moderator's email" style="font-size: 16px;">
                                     <span id="emailagainicon" class="" aria-hidden="true"></span>
                                     <span id="inputError2Status" class="sr-only">(error)</span>
                                     <label class= "form-control-label" for="emailAgain" id="ealabel"  style="color:#AE0000; font-weight:normal;"></label>
                                  </div>
 
-                                 <button class="btn" id="subButt" name="submitButton" type="submit" onclick="return validacijaModerator();">Register a moderator</button>
+                                 <button class="btn" id="subButt" name="submitButton" type="submit" onclick="validacijaModerator();">Register a moderator</button>
 							</form>
 						</div>
 					</div>

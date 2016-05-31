@@ -271,6 +271,8 @@ Route::post('/signup_step_4', function() {
           });
 
           Route::post('/admin/deleteReport', 'AdminController@deleteReport');
+
+          Route::post('/moderators_admin', 'AdminController@addModerator');
     });
 
 /***************************************************************************************/
