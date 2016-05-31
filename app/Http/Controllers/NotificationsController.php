@@ -11,30 +11,25 @@ use App\Photo as Photo;
 use App\Interaction as Interaction;
 use App\Match_request as Match_request;
 use App\Message as Message;
+use App\Notification as Notification;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage as Storage;
 use Illuminate\Support\Facades\Hash as Hash;
 use Auth;
 
 
-class MessagesController extends Controller
+class NotificationsController extends Controller
 {
     //
-    public function messages()
+    public function notifications()
     {
-
       $user = Auth::user();
-      $notifications = Notification::where('id_destination_user', '=', $user->id);
-      
-
-
+      $notifications = Notification::where('id_destination_user', '=', $user->id)->get();
 
       $info= array(
-        'interactions1' => $interactions1,
+        'notifications' => $notifications,
 
       );
-
-
 
       return view('notifications', $info);
     }

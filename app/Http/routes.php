@@ -83,9 +83,9 @@ Route::group(['middleware'=>'customMiddleware'], function(){
 
       Route::get('/messages', 'MessagesController@messages');
 
-      Route::get('/notifications', function() {
+      /*Route::get('/notifications', function() {
         return view('notifications');
-      });
+      });*/
 
       Route::get('/searching', function() {
         return view('error_page');
@@ -131,6 +131,7 @@ Route::group(['middleware'=>'customMiddleware'], function(){
         return view('edit_details');
       });
 
+      Route::get('/notifications', 'NotificationsController@notifications');
       Route::get('/profile_x', 'ProfileController@ucitajSvojProfil');
       Route::get('/edit_profile', 'ProfileController@izmeniProfilOsnovno');
       Route::get('/edit_location', 'ProfileController@izmeniLokaciju');
