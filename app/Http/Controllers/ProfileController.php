@@ -10,6 +10,7 @@ use App\Registered_user as Registered_user;
 use App\Photo as Photo;
 use App\Report as Report;
 use App\Interaction as Interaction;
+use App\Notification as Notification;
 use App\Match_request as Match_request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage as Storage;
@@ -35,6 +36,12 @@ class ProfileController extends Controller
             $newInteraction->id_user1 = $reg->id;
             $newInteraction->id_user2 = $currentUser->id;
             $newInteraction->save();
+
+            $notification = new Notification;
+            $notification->id_destination_user = $currentUser->id;
+            $notification->type = 1;
+            $notification->id_source_user = $user->id;
+            $notification->save();
 
         }else{
 
