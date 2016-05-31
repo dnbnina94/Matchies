@@ -9,6 +9,7 @@ use App\User as User;
 use App\Report as Report;
 use App\Registered_user as Registered_user;
 use App\Photo as Photo;
+use App\Notification as Notification;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage as Storage;
 use Illuminate\Support\Facades\Hash as Hash;
@@ -39,6 +40,11 @@ class ModController extends Controller
         $report->save();
         $reports = Report::where('status', '=', 0)->get();
 
+        $notification = new Notification;
+        $notification->id_destination_user = $id;
+        $notification->type = 3;
+        $notification->save();
+
         $info = array(
           'reports' => $reports
         );
@@ -52,6 +58,11 @@ class ModController extends Controller
         $reg->number_of_warnings++;
         $reg->save();
         $reports = Report::where('status', '=', 0)->get();
+
+        $notification = new Notification;
+        $notification->id_destination_user = $id;
+        $notification->type = 3;
+        $notification->save();
 
         $info = array(
           'reports' => $reports

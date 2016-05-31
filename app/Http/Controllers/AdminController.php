@@ -9,6 +9,7 @@ use App\User as User;
 use App\Report as Report;
 use App\Registered_user as Registered_user;
 use App\Photo as Photo;
+use App\Notification as Notification;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage as Storage;
 use Illuminate\Support\Facades\Hash as Hash;
@@ -47,6 +48,11 @@ class AdminController extends Controller
     $reg->save();
     $reports = Report::where('status', '=', 0)->get();
 
+    $notification = new Notification;
+    $notification->id_destination_user = $id;
+    $notification->type = 3;
+    $notification->save();
+
     $info = array(
       'reports' => $reports
     );
@@ -54,35 +60,35 @@ class AdminController extends Controller
     return view('index_admin', $info);
   }
 
-    public function listMods() {
-      $users = User::where('type', '=', 2)->get();
+  public function listMods() {
+    $users = User::where('type', '=', 2)->get();
 
-      $info = array(
-        'users' => $users
-      );
+    $info = array(
+      'users' => $users
+    );
 
-      return view('moderators_admin', $info);
-    }
+    return view('moderators_admin', $info);
+  }
 
-    public function addModerator(Request $request)
-    {
-      $modUsername = $request->input('username');
-      $modPassword = $request->input('password');
-      $modEmail = $request->input('email');
+  public function addModerator(Request $request)
+  {
+    $modUsername = $request->input('username');
+    $modPassword = $request->input('password');
+    $modEmail = $request->input('email');
 
-      if(strcmp($modPassword, $request->input('passrepeat'))!=0 || 
-        strcmp($modEmail, $request->input('emailAgain')) != 0)
-        return redirect()->action('AdminController@listMods');
-
-      $user = new User;
-      $user->username = $modUsername;
-      $user->password = Hash::make($modPassword);
-      $user->email = $modEmail;
-      $user->type = 2;
-      $user->save();
-
+    if(strcmp($modPassword, $request->input('passrepeat'))!=0 || 
+      strcmp($modEmail, $request->input('emailAgain')) != 0)
       return redirect()->action('AdminController@listMods');
-    }
+
+    $user = new User;
+    $user->username = $modUsername;
+    $user->password = Hash::make($modPassword);
+    $user->email = $modEmail;
+    $user->type = 2;
+    $user->save();
+
+    return redirect()->action('AdminController@listMods');
+  }
 
   public function warnUser(Request $request) {
     $id = $request->input('user_idBox');
@@ -94,6 +100,11 @@ class AdminController extends Controller
     $reg->save();
     $report->save();
     $reports = Report::where('status', '=', 0)->get();
+
+    $notification = new Notification;
+    $notification->id_destination_user = $id;
+    $notification->type = 3;
+    $notification->save();
 
     $info = array(
       'reports' => $reports
