@@ -10,6 +10,7 @@ use App\Registered_user as Registered_user;
 use App\Photo as Photo;
 use App\Interaction as Interaction;
 use App\Match_request as Match_request;
+use App\Notification as Notification;
 use App\Message as Message;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage as Storage;
@@ -90,12 +91,27 @@ class MessagesController extends Controller
 
         }
         $newMessage= new Message;
-        $newMessage->id_interaction= $interaction->id;
-        $newMessage->id_source_user= $user->id;
-        $newMessage->text= $text;
+        $newMessage->id_interaction = $interaction->id;
+        $newMessage->id_source_user = $user->id;
+        $newMessage->text = $text;
         $newMessage->save();
-        $interaction->messages =   $interaction->messages +1;
-          $interaction->save();
+        $interaction->messages = $interaction->messages +1;
+        $interaction->save();
+
+        if($interaction->messages == 20)
+        {
+          $notification = new Notification;
+          $notification->id_destination_user = $userTo->id;
+          $notification->type = 2;
+          $notification->id_source_user = $user->id;
+          $notification->save();
+
+          $notification1 = new Notification;
+          $notification1->id_destination_user = $user->id;
+          $notification1->type = 2;
+          $notification1->id_source_user = $userTo->id;
+          $notification1->save();
+        }
 
         $messages = Message::where('id_interaction', '=', $id)->get();
 
