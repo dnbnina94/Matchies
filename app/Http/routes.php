@@ -45,6 +45,7 @@ Route::get('/forgot_password', function() {
 });
 
 
+
 Route::group(['middleware'=>'customMiddleware'], function(){
       Route::get('/home', [
           'as' => 'home',
@@ -97,6 +98,15 @@ Route::group(['middleware'=>'customMiddleware'], function(){
 
       Route::get('/chat/{id}', 'MessagesController@readChat');
       Route::post('/chat/{id}', 'MessagesController@sendMessage');
+
+
+      Route::get('/ucitajPoruke/{chatId}',[
+          'as' => 'ucitajPoruke',
+          'uses' => 'MessagesController@ucitajPoruke'
+
+      ]);
+
+  //    Route::get('/chat/ucitajPoruke/{chatId}','MessagesController@ucitajPoruke');
 
 
       /*Route::get('/edit_profile', function () {

@@ -42,6 +42,7 @@ class MessagesController extends Controller
 
 
     public function readChat( $id)
+
     {
       $interaction = Interaction::find($id);
       $user = Auth::user();
@@ -61,10 +62,47 @@ class MessagesController extends Controller
         'messages' => $messages,
 
       );
+       return view('chat', $info);
+      /*
 
 
+      $number = floor(($interaction->messages/20)*100);
+      return response()->json(['interaction' => $interaction,
+      'userTo' => $userTo,
+      'messages' => $messages,
+        'number'=> $number]);
+        */
 
-      return view('chat', $info);
+  //    return view('chat', $info);
+    }
+
+
+    public function ucitajPoruke($chatId)
+    {
+      $interaction = Interaction::find($chatId);
+      $user = Auth::user();
+      if($user->id == $interaction->id_user1){
+        $userTo= Registered_user::find($interaction->id_user2);
+      }
+        else{
+          $userTo= Registered_user::find($interaction->id_user1);
+        }
+
+        $messages = Message::where('id_interaction', '=', $chatId)->get();
+
+
+      $info= array(
+        'interaction' => $interaction,
+        'userTo' => $userTo,
+        'messages' => $messages,
+
+      );
+      $number = floor(($interaction->messages/20)*100);
+      return response()->json(['interaction' => $interaction,
+      'userTo' => $userTo,
+      'messages' => $messages,
+    'number'=> $number]);
+
     }
 
 
