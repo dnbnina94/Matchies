@@ -1,7 +1,7 @@
 function pullData()
 {
     retrieveChatMessages();
-  
+
     setTimeout(pullData,1500);
 }
 
@@ -40,6 +40,8 @@ function retrieveChatMessages()
                   $('#tabelica1').append(data1);
                 }
             }
+            var objDiv = document.getElementById("messageBoxContainer");
+            objDiv.scrollTop = objDiv.scrollHeight;
 
   });
 }
@@ -86,6 +88,8 @@ function sendMessage(){
                   $('#tabelica1').append(data1);
                 }
             }
+            var objDiv = document.getElementById("messageBoxContainer");
+            objDiv.scrollTop = objDiv.scrollHeight;
 
   });
 
