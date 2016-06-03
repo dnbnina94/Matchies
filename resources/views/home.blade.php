@@ -32,7 +32,7 @@ Home
 @stop
 
 @section('onloadfunction')
-onload="ucitaj(); onloadFunkcija()"
+onload="pullNotifications(); ucitaj(); onloadFunkcija(); "
 @stop
 
 @section('settingsBoxContainer')

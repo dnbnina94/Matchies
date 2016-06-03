@@ -28,7 +28,7 @@
 @stop
 
 @section('onloadfunction')
-  onload="bla()"
+  onload="bla(); pullNotifications();"
 @stop
 
 @section('specialMessage')

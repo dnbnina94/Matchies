@@ -49,7 +49,7 @@ Searching
 
 @stop
 
-@section('onloadfunction') onload="lol()" @stop
+@section('onloadfunction') onload="lol(); pullNotifications();" @stop
 
 @section('specialMessage')
 <div id="reportBoxContainer">

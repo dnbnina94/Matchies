@@ -26,6 +26,10 @@
   </script>
 @stop
 
+@section('onloadfunction')
+  onload="pullNotifications();"
+@stop
+
 @section('content')
   <div class="container" id="containerDiv">
   	<div class="row" id="content" style="padding-top: 3%;">

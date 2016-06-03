@@ -106,6 +106,12 @@ Route::group(['middleware'=>'customMiddleware'], function(){
 
       ]);
 
+      Route::get('/retrieveNotifications',[
+          'as' => 'retrieveNotifications',
+          'uses' => 'DynamicNotificationsController@retrieveNotifications'
+
+      ]);
+
   //    Route::get('/chat/ucitajPoruke/{chatId}','MessagesController@ucitajPoruke');
 
 

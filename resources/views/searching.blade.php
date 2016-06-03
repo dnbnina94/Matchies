@@ -38,7 +38,7 @@ Searching
 	</script>
 @stop
 
-@section('onloadfunction') onload="ucitaj();" @stop
+@section('onloadfunction') onload="  pullNotifications(); ucitaj();" @stop
 
 @section('settingsBoxContainer')
 @parent

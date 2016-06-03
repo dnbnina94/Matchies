@@ -33,7 +33,9 @@ Notifications
 	</script>
 @stop
 
-
+@section('onloadfunction')
+onload="pullNotifications(); ucitaj(); onloadFunkcija(); "
+@stop
 
 @section('settingsBoxContainer')
 @parent

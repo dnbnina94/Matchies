@@ -28,7 +28,7 @@
 @stop
 
 @section('onloadfunction')
-  onload="ucitajDrzaveIGradove()"
+  onload="ucitajDrzaveIGradove(); pullNotifications();"
 @stop
 
 @section('content')

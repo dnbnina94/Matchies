@@ -22,7 +22,7 @@ Home
 @stop
 
 @section('onloadfunction')
-onload="ucitaj()"
+onload="ucitaj(); pullNotifications();"
 @stop
 
 @section('settingsBoxContainer')

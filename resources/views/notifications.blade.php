@@ -34,7 +34,9 @@ Notifications
 	</script>
 @stop
 
-
+@section('onloadfunction')
+onload="pullNotifications();"
+@stop
 
 @section('settingsBoxContainer')
 @parent

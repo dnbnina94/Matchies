@@ -43,7 +43,7 @@ Searching
 		var slikaIterator = 0;
 
 		function lol() {
-		
+
 				var pikseli = $("#slicice").width();
 				$("#slicice").css("height", pikseli);
 				var pikseli2 = $("#slicice1").width();
@@ -84,7 +84,7 @@ Searching
 
 @stop
 
-@section('onloadfunction') onload="lol() "@stop
+@section('onloadfunction') onload="lol(); "@stop
 
 @section('specialMessage')
 <div id="reportBoxContainer">

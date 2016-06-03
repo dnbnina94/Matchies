@@ -76,7 +76,7 @@ Chat!
 @stop
 
 @section('onloadfunction')
-  onload=" ucitajLepo(); pullData(); skrolaj();"
+  onload=" ucitajLepo(); pullData(); skrolaj(); pullNotifications();"
 @stop
 
 @section('content')

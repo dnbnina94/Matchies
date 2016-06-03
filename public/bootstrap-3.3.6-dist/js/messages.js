@@ -12,7 +12,7 @@ function retrieveChatMessages()
     url: '/ucitajPoruke/'+chatId,
     data: {chatId: chatId, _token : token}
   }).done( function (msges){
-    console.log(msges['number']);
+
      $('#progressComplete').css('width', (msges['number']) + "%");
      var data= '';
     if(msges['number'] < 100){
@@ -59,7 +59,7 @@ function sendMessage(){
     url: '/chat/'+chatId,
     data: {message: $('#message').val(), _token : token}
   }).done( function (msges){
-    console.log(msges['number']);
+    
      $('#progressComplete').css('width', (msges['number']) + "%");
      var data= '';
     if(msges['number'] < 100){

@@ -45,7 +45,7 @@
 @stop
 
 @section('onloadfunction')
-  onload="lol()"
+  onload="lol(); pullNotifications();"
 @stop
 
 @section('content')
