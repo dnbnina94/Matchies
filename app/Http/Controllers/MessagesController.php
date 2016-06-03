@@ -117,7 +117,7 @@ class MessagesController extends Controller
           $userTo= Registered_user::find($interaction->id_user1);
         }
         $messages = Message::where('id_interaction', '=', $id)->get();
-        $text = $request->input('Message');
+        $text = $request->input('message');
         if ($text == ''){
           $info= array(
             'interaction' => $interaction,
@@ -153,7 +153,7 @@ class MessagesController extends Controller
 
         $messages = Message::where('id_interaction', '=', $id)->get();
 
-
+/*
       $info= array(
         'interaction' => $interaction,
         'userTo' => $userTo,
@@ -161,10 +161,19 @@ class MessagesController extends Controller
 
       );
 
+    return redirect()->action('MessagesController@readChat', ['id' => $id]);
+    */
+    $info= array(
+      'interaction' => $interaction,
+      'userTo' => $userTo,
+      'messages' => $messages,
 
-
-
-      return redirect()->action('MessagesController@readChat', ['id' => $id]);
+    );
+    $number = floor(($interaction->messages/20)*100);
+    return response()->json(['interaction' => $interaction,
+    'userTo' => $userTo,
+    'messages' => $messages,
+    'number'=> $number]);
     }
 }
 

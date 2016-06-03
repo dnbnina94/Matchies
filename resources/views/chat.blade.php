@@ -11,7 +11,7 @@ Chat!
 
 @section('javascriptlinks')
   <script>
-    var url ='';
+
       var chatId ={{$interaction->id}};
       var token = '{{Session::token()}}';
   </script>
@@ -22,8 +22,10 @@ Chat!
 @section('javascriptFunctions')
   <script>
     function skrolaj() {
+      /*
       var objDiv = document.getElementById("messageBoxContainer");
       objDiv.scrollTop = objDiv.scrollHeight;
+*/
     }
   </script>
 
@@ -123,7 +125,7 @@ Chat!
 						<div class="jumbotronProfile" style="color: white; font-size: 16px;">
 							<div class="row">
 								<div class="col-md-10" id="sendmsgcol1">
-                  <form name="saljiPoruku" method="post" action="/chat/{{$interaction->id}}">
+                  <form name="saljiPoruku" >
                       <input type="hidden" name="_token" value="{{ csrf_token() }}">
   									<input type="text" class="form-control has-error" name="Message" id="message" placeholder="Type a message" autofocus style="font-size: 16px;">
   								</div>
@@ -133,20 +135,24 @@ Chat!
                     <button class="btn" id="subButt" type="submit" name="submitButton" onclick="return dodajPoruku()"><div align="center" valign="middle" style="font-weight: bold; font-size: 16px; height: 22px">Send</div></button>
                   -->
 
-  									<button class="btn" id="subButt" type="submit" name="submitButton"><div align="center" valign="middle" style="font-weight: bold; font-size: 16px; height: 22px">Send</div></button>
+  									<button class="btn" id="subButt" type="button" name="submitButton"><div align="center" onclick= "sendMessage();" valign="middle" style="font-weight: bold; font-size: 16px; height: 22px">Send</div></button>
   								</form>
 								</div>
               </div>
+                <!--
                 <div class="row" style="padding-top:10px;">
                 <div class="col-md-12">
+                  -->
                   <!--
               OVO VISE NIJE NEOPHODNO!!!!
                 -->
+                  <!--
                 <a href="/chat/{{$interaction->id}}">
                    <button class="btn" id="subButt" style="background: #383838;" type="button"><div align="center" valign="middle" style=" font-weight: bold; font-size: 16px; height: 22px">Refresh this conversation!</div></button>
-                 </a>				  
+                 </a>
                 </div>
 							</div>
+                -->
 						</div>
 					</div>
 				</div>
