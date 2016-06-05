@@ -1,3 +1,4 @@
+<!-- autori: Milena Filipovic 73/13 i Branislava Ivkovic 125/13 -->
 @extends('layouts.layout_basic')
 
 @section('title')

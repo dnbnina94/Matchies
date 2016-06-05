@@ -1,5 +1,7 @@
 <?php
 
+//autori: Branislava Ivkovic 125/13 i Petar Djukic 634/13
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -76,7 +78,7 @@ class AdminController extends Controller
     $modPassword = $request->input('password');
     $modEmail = $request->input('email');
 
-    if(strcmp($modPassword, $request->input('passrepeat'))!=0 || 
+    if(strcmp($modPassword, $request->input('passrepeat'))!=0 ||
       strcmp($modEmail, $request->input('emailAgain')) != 0)
       return redirect()->action('AdminController@listMods');
 
@@ -113,6 +115,7 @@ class AdminController extends Controller
     return view('index_admin', $info);
   }
 
+  //ovu funkciju je radila Nina Grujic 177/13
   public function deleteMod(Request $request) {
     $id = $request->input('moderatorID');
     $user = User::where('id', '=', $id)->first();

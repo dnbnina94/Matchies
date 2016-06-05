@@ -1,3 +1,5 @@
+//autor: Nina Grujic 177/13
+
 var slFem;
 var slM;
 var slG;

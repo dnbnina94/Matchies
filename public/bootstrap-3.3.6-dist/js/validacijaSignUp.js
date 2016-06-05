@@ -1,3 +1,5 @@
+//autor: Branislava Ivkovic 125/13
+
 function validacija() {
     var proslo = true;
 

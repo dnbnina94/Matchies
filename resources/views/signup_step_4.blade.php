@@ -1,3 +1,4 @@
+<!-- autori: Nina Grujic 177/13 i Branislava Ivkovic 125/13 -->
 @extends('layouts.layout_basic')
 
 @section('title')

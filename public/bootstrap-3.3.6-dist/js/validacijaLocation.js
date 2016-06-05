@@ -1,3 +1,5 @@
+//autor: Branislava Ivkovic 125/13
+
 function validacija2() {
     var proslo = true;
 
@@ -69,6 +71,10 @@ function bla() {
                     {
                         "name": "Uzice",
                         "id": "Uzice"
+                    },
+                    {
+                        "name": "Лопатањ",
+                        "id": "Лопатањ"
                     },
                     {
                         "name": "Kruševac",

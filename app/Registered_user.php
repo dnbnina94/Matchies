@@ -1,5 +1,7 @@
 <?php
 
+//autori: Branislava Ivkovic 125/13 i Milena Filipovic 73/13
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;

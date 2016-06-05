@@ -1,3 +1,5 @@
+//autori: Nina Grujic 177/13 i Branislava Ivkovic 125/13
+
 function proveriReport() {
 	var tekst = document.getElementById("otherreason").value;
 	if (document.getElementById("report1").checked) {

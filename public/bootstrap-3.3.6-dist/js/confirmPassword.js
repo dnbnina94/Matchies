@@ -1,8 +1,10 @@
+//autor: Nina Grujic 177/13
+
 function confirmPass() {
 	var proslo = true;
 
 	var password = document.forms["deleteAccount"]["currentPass"].value;
-	
+
 	if (password == null || password == "") {
 		proslo = false;
 		document.getElementById("greskaCurrPass").className = "form-group has-error has-feedback";

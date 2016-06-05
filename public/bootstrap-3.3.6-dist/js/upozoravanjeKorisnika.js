@@ -1,3 +1,5 @@
+//autori: Nina Grujic 177/13 i Petar Djukic 634/13
+
 function proveriReport() {
 	var tekst = document.getElementById("otherreason").value;
 	if (document.getElementById("report3").checked && (tekst == "" || tekst == null)) {

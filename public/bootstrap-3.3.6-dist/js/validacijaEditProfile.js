@@ -1,3 +1,5 @@
+//autor: Nina Grujic 177/13
+
 function validacija() {
     var proslo = true;
 
@@ -1976,6 +1978,10 @@ function ucitajDrzaveIGradove() {
                     {
                         "name": "Uzice",
                         "id": "Uzice"
+                    },
+                    {
+                        "name": "Лопатањ",
+                        "id": "Лопатањ"
                     },
                     {
                         "name": "Kruševac",

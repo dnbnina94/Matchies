@@ -1,3 +1,5 @@
+//autor: Milena Filipovic 73/13
+
 function pullData()
 {
     retrieveChatMessages();
@@ -59,7 +61,7 @@ function sendMessage(){
     url: '/chat/'+chatId,
     data: {message: $('#message').val(), _token : token}
   }).done( function (msges){
-    
+
      $('#progressComplete').css('width', (msges['number']) + "%");
      var data= '';
     if(msges['number'] < 100){

@@ -1,3 +1,5 @@
+//autor: Nina Grujic 177/13
+
 $(window).on('resize', function () {
     var pikseli = $("#slicice").width();
     $("#slicice").css("height", pikseli);

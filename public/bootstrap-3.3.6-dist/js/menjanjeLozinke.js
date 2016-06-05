@@ -1,3 +1,5 @@
+//autor: Nina Grujic 177/13
+
 function reportKor1() {
 	document.getElementById("reportBoxContainer").style.display = "table";
 }

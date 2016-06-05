@@ -1,3 +1,4 @@
+<!-- autori: Petar Djukic 634/13 i Branislava Ivkovic 125/13 -->
 @extends('layouts.layout_admin')
 
 @section('title')

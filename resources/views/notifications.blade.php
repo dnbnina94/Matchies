@@ -1,3 +1,4 @@
+<!-- autor: Petar Djukic 634/13 -->
 @extends('layouts.layout_basic')
 
 @section('title')

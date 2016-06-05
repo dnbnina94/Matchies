@@ -1,5 +1,7 @@
 <?php
 
+//autori: Petar Djukic 634/13, Nina Grujic 177/13, Milena Filipovic 73/13 i Branislava Ivkovic 125/13 (svi clanovi tima su podjednako menjali ovaj fajl)
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes

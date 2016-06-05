@@ -1,5 +1,7 @@
 <?php
 
+//autori: Branislava Ivkovic 125/13 i Petar Djukic 634/13
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;

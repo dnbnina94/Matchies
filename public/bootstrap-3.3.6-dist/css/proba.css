@@ -1,10 +1,12 @@
+/*autor: Nina Grujic 177/13*/
+
 @font-face {
     font-family: 'myFirstFont';
     src: url('../../proximanova-light-webfont.woff') format('woff');
 }
 
 .floatingPadding {
-    
+
 	padding-bottom: -2%;
 	padding-top: -2%;
 	padding-left: -2%;
@@ -29,7 +31,7 @@
 	background: rgb(63,62,60);
 	background: rgba(63,62,60, 0.6);
 	padding: 20px 30px 30px 30px;
-	
+
 }
 
 .jumbotron p{
@@ -37,14 +39,14 @@
 	font-size: 15px;
 	color:white;
   line-height: 18px;
-	
+
 }
 
 .jumbotron a{
 
 	font-size: 15px;
 	color:white;
-	
+
 }
 
 .container .jumbotron,
@@ -61,7 +63,7 @@
 
 
 .full {
-  background: url('../../images/hands2.jpg') no-repeat center center fixed; 
+  background: url('../../images/hands2.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -92,20 +94,20 @@ body {
   padding-top: 5px;
   padding-left: 20px;
   padding-right: 20px;
-  
+
 }
 
 .footer a{
 
 	font-size: 12px;
 	color:white;
-	
+
 }
 /*-------header-------------------*/
  .navbar-custom-dark{
 	background: rgb(63,62,60);
 	background: rgba(63,62,60, 0.6);
-	
+
 }
 /*---------------------------*/
 
@@ -123,8 +125,8 @@ body {
 }
 
 /*-------------------------*/
-	  
-/*	  
+
+/*
 .btn-custom {
   background-color: hsl(0, 100%, 23%) !important;
   background-repeat: repeat-x;
