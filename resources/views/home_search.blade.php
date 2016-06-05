@@ -1,4 +1,4 @@
-<!-- autor: Milena Filipovic 73/13 -->
+<!--  OVO SE NE KORISTI VISE -->
 
 @extends('layouts.layout_basic')
 

@@ -1,4 +1,4 @@
-<!-- autor: Branislava Ivkovic 125/13 -->
+<!-- autor: Branislava Ivkovic 125/13 i Milena Filipovic 73/13 -->
 
 @extends('layouts.layout_basic')
 

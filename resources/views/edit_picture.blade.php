@@ -1,4 +1,4 @@
-<!-- autor: Petar Djukic 634/13 -->
+<!-- autor: Nina Grujic 177/13 -->
 @extends('layouts/layout_basic')
 
 @section('title')
