@@ -1,4 +1,4 @@
-//autor: Nina Grujic 177/13
+//autori: Branislava Ivkovic 125/13 i Milena Filipovic 73/13
 
 function validacija() {
     var proslo = true;

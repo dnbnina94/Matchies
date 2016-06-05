@@ -1,4 +1,4 @@
-//autor: Branislava Ivkovic 125/13
+//autori: Nina Grujic 177/13 i Petar Djukic 634/13
 
 function validacija() {
     var proslo = true;
