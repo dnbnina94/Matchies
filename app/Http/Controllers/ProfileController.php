@@ -277,7 +277,7 @@ class ProfileController extends Controller
           'years' => $years
         );
 
-        return view('profile_6', $info);
+          return view('profile', $info);
       }
 
       public function sacuvajSliku(Request $request)
@@ -300,7 +300,7 @@ class ProfileController extends Controller
           'years' => $years
         );
 
-        return view('profile_6', $info);
+      return view('profile', $info);
       }
 
       public function izmeniDetalje()
@@ -362,7 +362,7 @@ class ProfileController extends Controller
           'years' => $years
         );
 
-        return view('profile_6', $info);
+        return view('profile', $info);
       }
 
       public function prikaziTudjProfil($id) {
