@@ -357,13 +357,13 @@
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">568</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">84</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">104</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">126</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">350</XPD:ATTR>
 <XPD:REF name="Model">qzm4e5rzNkaj28MUYWR16QAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="u4tExmzsOkCFwGclh0Ru7gAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="Y3a8g7GXME6i8fwG2czZRQAA">
 <XPD:ATTR name="FontStyle" type="integer">4</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">MessagesController</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">MessagesController.php</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="08J8FkjJT02gR1fMAiCiVAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -380,7 +380,7 @@
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">126,156;613,156</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">126,156;624,156</XPD:ATTR>
 <XPD:REF name="Model">1dmGTn/A2UuMUCQVFJD7zwAA</XPD:REF>
 <XPD:REF name="Head">/ro6tQ5R/k+Jbn4oPISlyQAA</XPD:REF>
 <XPD:REF name="Tail">DjuYwmrc2EKGcpJN8GMDgQAA</XPD:REF>
@@ -406,7 +406,7 @@
 <XPD:REF name="HostEdge">W+FglKGjR0iRYirDNT4yMQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Activation" type="UMLActivationView" guid="z2ktQUNUDUOFG4FE0qvMUQAA">
-<XPD:ATTR name="Left" type="integer">613</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">624</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">156</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">14</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">76</XPD:ATTR>
@@ -416,7 +416,7 @@
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">626,184;839,184</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">637,184;839,184</XPD:ATTR>
 <XPD:REF name="Model">O6OlyUQnmEuU43t2apWzKQAA</XPD:REF>
 <XPD:REF name="Head">iPCHY4sVfU67wDftjV45hAAA</XPD:REF>
 <XPD:REF name="Tail">/ro6tQ5R/k+Jbn4oPISlyQAA</XPD:REF>
@@ -452,7 +452,7 @@
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">839,200;626,200</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">839,200;637,200</XPD:ATTR>
 <XPD:REF name="Model">U0P3QhAHo0+zOQSqBVGAsQAA</XPD:REF>
 <XPD:REF name="Head">/ro6tQ5R/k+Jbn4oPISlyQAA</XPD:REF>
 <XPD:REF name="Tail">iPCHY4sVfU67wDftjV45hAAA</XPD:REF>
@@ -479,7 +479,7 @@
 </XPD:OBJ>
 <XPD:OBJ name="Activation" type="UMLActivationView" guid="XqSdklcm9EKoguOkXMNZgAAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">613</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">624</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">200</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">14</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">29</XPD:ATTR>
@@ -489,7 +489,7 @@
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">613,220;360,220</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">624,220;360,220</XPD:ATTR>
 <XPD:REF name="Model">vc598no7wUm9/V5Y5kTUmgAA</XPD:REF>
 <XPD:REF name="Head">LFfRU+shX0iiV0vTXS93HwAA</XPD:REF>
 <XPD:REF name="Tail">/ro6tQ5R/k+Jbn4oPISlyQAA</XPD:REF>
@@ -666,7 +666,7 @@
 <XPD:REF name="ReceivingStimuli[0]">O6OlyUQnmEuU43t2apWzKQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="ParticipatingInstances[3]" type="UMLObject" guid="qzm4e5rzNkaj28MUYWR16QAA">
-<XPD:ATTR name="Name" type="string">MessagesController</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">MessagesController.php</XPD:ATTR>
 <XPD:REF name="CollaborationInstanceSet">LSJJQfioo0ey2rjD/rJgngAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">2</XPD:ATTR>
 <XPD:REF name="Views[0]">falaWcpJNkOog8mbfvx34QAA</XPD:REF>

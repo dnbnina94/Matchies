@@ -429,7 +429,7 @@
 <XPD:REF name="Context">L6pMOcV5fE+5f4pWQKSN2AAA</XPD:REF>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceDiagram" guid="0ptJ12WnqkiHNAxlgtsYugAA">
-<XPD:ATTR name="Name" type="string">Admin</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Moderator</XPD:ATTR>
 <XPD:REF name="DiagramOwner">6yPgI9RwnUuk+r96/MkhfgAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLSequenceDiagramView" guid="ORxIWG5EJUCXi/7dIJO0ygAA">
 <XPD:REF name="Diagram">0ptJ12WnqkiHNAxlgtsYugAA</XPD:REF>
@@ -852,7 +852,7 @@
 <XPD:REF name="Context">xwB+yXfyO0iZDKvObSHptgAA</XPD:REF>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceDiagram" guid="1z7gGUHP3kOb26/7P9DcFwAA">
-<XPD:ATTR name="Name" type="string">Moderator</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Admin</XPD:ATTR>
 <XPD:REF name="DiagramOwner">sWbBvWgs5UO+E8Yot8JYRAAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLSequenceDiagramView" guid="fQLOFG2KwkOYt1RR9ZAfGgAA">
 <XPD:REF name="Diagram">1z7gGUHP3kOb26/7P9DcFwAA</XPD:REF>
