@@ -52,7 +52,7 @@ onload="bla()"
   							<form class="form" action="{{ url('/signup/step2') }}" name="signup1" onsubmit="return validacija()" method="post">
                   	<input type="hidden" name="_token" value="{{ csrf_token() }}">
   									<span style="font-weight: bold; font-size: 20px; color: #555555;"> You are just a few clicks away from meeting awesome people... </span>
-  									<br/>
+  									<br/>    
   									<br/>
   									<div class="row" style="padding-top: 0px">
   									<div class="col-md-6" id="imeKolona" >
@@ -61,7 +61,8 @@ onload="bla()"
   										  <span id="fnameicon" class="" aria-hidden="true"></span>
   										  <span id="inputError2Status" class="sr-only">(error)</span>
   										<label class= "form-control-label" for="fname" id="flabel" align="left"style="color:#AE0000; font-weight:normal;"></label>
-  										</div>
+                       @if ($errors->has('fname'))<label class= "form-control-label" for="fname" id="flabel" align="left"style="color:#AE0000; font-weight:normal;"> <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('fname') }}</label> @endif
+                      </div>
   									</div>
   									<div class="col-md-6" id="prezimeKolona">
   										<div class="form-group" id="greske2" align="left" style="margin-bottom: 0px">
@@ -70,7 +71,12 @@ onload="bla()"
   										 <span id="lnameicon" class="" aria-hidden="true"></span>
   										  <span id="inputError2Status" class="sr-only">(error)</span>
   										<label class= "form-control-label" for="lname" id="llabel"  style="color:#AE0000; font-weight:normal;"></label>
-  										</div>
+                      @if ($errors->has('lname'))
+                      <label class= "form-control-label" for="lname" id="llabel"  style="color:#AE0000; font-weight:normal;">
+                        <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('lname') }}
+                      </label>
+                      @endif
+                      </div>
   									</div>
   									</div>
   									<div class="row">
@@ -80,6 +86,12 @@ onload="bla()"
                                               <span id="emailicon" class="" aria-hidden="true"></span>
   										  <span id="inputError2Status" class="sr-only">(error)</span>
   										<label class= "form-control-label" for="email" id="elabel"  style="color:#AE0000; font-weight:normal;"></label>
+                      @if ($errors->has('email'))
+                      <label class= "form-control-label" for="email" id="elabel"  style="color:#AE0000; font-weight:normal;">
+                        <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('email') }}
+                      </label>
+                      @endif
+
                                           </div>
                                           </div>
   									<div class="col-md-6" id="emailAgainKolona">
@@ -88,6 +100,12 @@ onload="bla()"
                                               <span id="emailagainicon" class="" aria-hidden="true"></span>
                                               <span id="inputError2Status" class="sr-only">(error)</span>
                                               <label class= "form-control-label" for="emailAgain" id="ealabel"  style="color:#AE0000; font-weight:normal;"></label>
+                                              @if ($errors->has('emailAgain'))
+                                              <label class= "form-control-label" for="emailAgain" id="ealabel"  style="color:#AE0000; font-weight:normal;">
+                                                <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('emailAgain') }}
+                                              </label>
+                                              @endif
+
                                           </div>
                                           </div>
 
@@ -131,8 +149,28 @@ onload="bla()"
                                           <div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greske5" align="left">
 
                                               <span class="text-left" id="datelabel"></span>
-
                                           </div>
+                                      @if ($errors->has('month') or $errors->has('day') or $errors->has('year'))
+                                        <div class = "row" style = "color: #AE0000; padding-left:20px;" id="greske5" align="left">
+                                              @if ($errors->has('month'))
+                                              <span class="text-left">
+                                             <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('month') }}
+                                           </span> <br />
+                                              @endif
+
+                                              @if ($errors->has('day'))
+                                              <span class="text-left" >
+                                                <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('day') }}
+                                              </span> <br />
+                                              @endif
+                                              @if ($errors->has('year'))
+                                              <span class="text-left" >
+                                                <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('year') }}
+                                              </span> <br />
+                                              @endif
+                                      </div>
+                                    @endif
+
   									</div>
 
   									<div class="col-md-6" valign="middle" style="color: #555555; padding-left:10px;">
@@ -156,6 +194,15 @@ onload="bla()"
                                               <span class="text-left"  id="genderlabel"></span>
 
                                           </div>
+                                          @if ($errors->has('gender'))
+                                          <div class = "row"  id="greske6" align="left" style="color: #AE0000;  font-weight:normal; padding-left:20px;" >
+
+                                              <span class="text-left"  id="genderlabel">
+                                                <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('gender') }}
+                                              </span>
+
+                                          </div>
+                                          @endif
   									</div>
   									</div>
   									<div class="row" style="padding-left: 15px; padding-right: 15px; padding-top: 7px">

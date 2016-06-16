@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage as Storage;
 use Illuminate\Support\Facades\Hash as Hash;
 use Auth;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Controller;
+
 
 
 class SignUpController extends Controller
@@ -29,6 +32,25 @@ class SignUpController extends Controller
       $day = $request->input('day');
       $month = $request->input('month');
       $year = $request->input('year');
+
+
+
+      $validator = Validator::make($request->all(), [
+        'fname'             => 'required|alpha|max:30',
+        'lname'             => 'required|alpha|max:30',                        // just a normal required validation
+        'email'            => 'required|email|unique:users,email',     // required and must be unique
+        'emailAgain' => 'required|same:email',         // required and has to match the email field
+        'gender'             => 'required | in:male,female',
+        'day'             => 'required',
+        'month'             => 'required',
+        'year'             => 'required',
+          ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('signupStep1')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
 
         if($email == $email2){
 
@@ -77,6 +99,26 @@ class SignUpController extends Controller
           'country' => $country,
           'city' => $city
         );
+
+        $validator = Validator::make($request->all(), [
+          'fname'             => 'required|alpha|max:30',
+          'lname'             => 'required|alpha|max:30',                        // just a normal required validation
+          'email'            => 'required|email|unique:users,email',     // required and must be unique
+          'emailAgain' => 'required|same:email',         // required and has to match the email field
+          'gender'             => 'required | in:male,female',
+          'day'             => 'required',
+          'month'             => 'required',
+          'year'             => 'required',
+            ]);
+
+          if ($validator->fails()) {
+              return redirect()->route('signupStep1')
+                          ->withErrors($validator)
+                          ->withInput($info);
+          }
+
+
+
         return view('signup_step_3', $info);
 
       }
