@@ -35,24 +35,28 @@ Forgot password
 						<div class="jumbotron">
 								<form class="form-signin" action="/password/email" method="post">
                   {!! csrf_field() !!}
-                  @if (count($errors) > 0)
-                      <ul>
-                          @foreach ($errors->all() as $error)
-                              <li>{{ $error }}</li>
-                          @endforeach
-                      </ul>
-                  @endif
+
 
 									<span style="color: white; font-size: 20px; font-weight: bold;"> Get your password </span>
 									<div style="height: 10px;"></div>
 									<p align="center" style="color: #F1F1F1; font-size: 18px;">
 											Enter the email you used for registration on this website, and we will send you your password.
 									</p>
+									@if (count($errors) > 0)
+
+													@foreach ($errors->all() as $error)
+															<span style="color: #C0C0C0; font-size: 18px; font-weight:bold;">{{ $error }}</span>
+															<br />
+													@endforeach
+
+
+									@endif
 
                   <div>
 									           <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Enter your email" required autofocus>
                   </div>
 									<div class="span fill2"></div>
+
                   <div>
 									           <button class="btn"  id="subButt" type="submit">Continue</button>
                   </div>
