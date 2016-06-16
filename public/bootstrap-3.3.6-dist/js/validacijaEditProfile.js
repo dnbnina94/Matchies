@@ -202,7 +202,7 @@ function validacija() {
 		document.getElementById("emailagainicon").className = "";
     }
 
-    if (mesecPrazan || danPrazan || godinaPrazna || danNekorektan || ispod18) {
+   /* if (mesecPrazan || danPrazan || godinaPrazna || danNekorektan || ispod18) {
         proslo = false;
         document.getElementById("greske5").style.display = "inherit";
 
@@ -249,7 +249,7 @@ function validacija() {
         document.getElementById("day").style.border = "";
         document.getElementById("month").style.border = "";
         document.getElementById("year").style.border = "";
-    }
+    }*/
 
     if (pol) {
         proslo = false;
