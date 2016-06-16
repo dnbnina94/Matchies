@@ -47,8 +47,15 @@ function retrieveChatMessages()
                   $('#tabelica1').append(data1);
                 }
             }
+
+            var pikseli = $("#sirina").width();
+            $(".message").css("max-width", pikseli-20);
+
+
             var objDiv = document.getElementById("messageBoxContainer");
             objDiv.scrollTop = objDiv.scrollHeight;
+
+
 
   });
 }
@@ -115,6 +122,10 @@ function sendMessage(){
                   $('#tabelica1').append(data1);
                 }
             }
+
+            var pikseli = $("#sirina").width();
+            $(".message").css("max-width", pikseli-20);
+
             var objDiv = document.getElementById("messageBoxContainer");
             objDiv.scrollTop = objDiv.scrollHeight;
 
