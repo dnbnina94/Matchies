@@ -130,6 +130,12 @@
   										Make sure to enter the correct information.
   									</div>
   								</div>
+                  @if (count($errors) > 0)
+                          @foreach ($errors->all() as $error)
+                              <span style="color: #C0C0C0; font-size: 16px; font-weight:bold;"><span class="glyphicon glyphicon-remove"></span> {{ $error }}</span>
+                              <br />
+                          @endforeach
+                  @endif
 
   								<div class="col-md-8 desnaKolonaEditProfile">
   									<div class="jumbotronProfile" style="padding-left: 20px; padding-right: 20px; font-size: 16px">
