@@ -17,6 +17,7 @@ function retrieveChatMessages()
 
      $('#progressComplete').css('width', (msges['number']) + "%");
      var data= '';
+       console.log('poyref');
     if(msges['number'] < 100){
       data= "<i class='fa fa-lock' style='font-size: 20px; color: #333333'></i>";
     }else{
@@ -49,10 +50,16 @@ function retrieveChatMessages()
 }
 
 
-
+$(document).ready(function() {
 
 // ovo je kod za send message
 
+$("#subButt").click(function(event){
+    event.preventDefault();
+    sendMessage();
+});
+
+});
 
 function sendMessage(){
     console.log('poy');
