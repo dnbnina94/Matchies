@@ -39,7 +39,7 @@ function retrieveChatMessages()
                   $('#tabelica1').append(data1);
 
                 }else{
-                  data1="<tr><td id='sirina' align='right' style='padding-top: 15px; padding-left: 10px;'><div style='display: table; table-layout: fixed; word-break: break-word'><div style='display: table-row'><div style='display: table-cell' class='msgBox2' ><span class='message'>"+text+"</span> <br/><span class='messagetime'>"+time+"</span></div></div></div></td></tr>";
+                  data1="<tr><td id='sirina' align='right' style='padding-top: 15px; padding-left: 10px;'><div style='display: table; table-layout: fixed; word-break: break-word'><div style='display: table-row'><div style='display: table-cell' class='msgBox2' ><span class='message'>"+escapeHtml(text)+"</span> <br/><span class='messagetime'>"+time+"</span></div></div></div></td></tr>";
                   $('#tabelica1').append(data1);
                 }
             }
@@ -93,7 +93,7 @@ function sendMessage(){
                   $('#tabelica1').append(data1);
 
                 }else{
-                  data1="<tr><td id='sirina' align='right' style='padding-top: 15px; padding-left: 10px;'><div style='display: table; table-layout: fixed; word-break: break-word'><div style='display: table-row'><div style='display: table-cell' class='msgBox2' ><span class='message'>"+text+"</span> <br/><span class='messagetime'>"+time+"</span></div></div></div></td></tr>";
+                  data1="<tr><td id='sirina' align='right' style='padding-top: 15px; padding-left: 10px;'><div style='display: table; table-layout: fixed; word-break: break-word'><div style='display: table-row'><div style='display: table-cell' class='msgBox2' ><span class='message'>"+escapeHtml(text)+"</span> <br/><span class='messagetime'>"+time+"</span></div></div></div></td></tr>";
                   $('#tabelica1').append(data1);
                 }
             }
@@ -104,4 +104,18 @@ function sendMessage(){
 
 
 
+}
+
+
+
+function escapeHtml(text) {
+  var map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+
+  return text.replace(/[&<>"']/g, function(m) { return map[m]; });
 }
