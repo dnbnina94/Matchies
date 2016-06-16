@@ -36,6 +36,12 @@ Login
 									<input type="hidden" name="_token" value="{{ csrf_token() }}">
 									<span style="color: white; font-size: 22px; font-weight: bold;"> Welcome! </span>
 									<div class="span fill"></div>
+									@if (count($errors) > 0)
+													@foreach ($errors->all() as $error)
+															<span style="color: #C0C0C0; font-size: 16px; font-weight:bold;"><span class="glyphicon glyphicon-remove"></span> {{ $error }}</span>
+															<br />
+													@endforeach
+									@endif
 									<input type="text" id="usr" name="username" class="form-control" placeholder="Enter your username" required autofocus>
 									<div class="span fill2"></div>
 									<input type="password" id="inputPassword" name="password" class="form-control" placeholder="Enter your password"  required>

@@ -36,7 +36,7 @@ class AuthController extends Controller
           }
 
           else {
-            return redirect()->route('index');
+            return redirect()->route('index')->withErrors(['Login failed. The credentials provided are incorrect. Please try again.']);;
           }
     }
 

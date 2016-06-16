@@ -45,7 +45,7 @@ Forgot password
 									@if (count($errors) > 0)
 
 													@foreach ($errors->all() as $error)
-															<span style="color: #C0C0C0; font-size: 18px; font-weight:bold;">{{ $error }}</span>
+															<span style="color: #C0C0C0; font-size: 16px; font-weight:bold;"><span class="glyphicon glyphicon-remove"></span> {{ $error }}</span>
 															<br />
 													@endforeach
 
