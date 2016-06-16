@@ -13,7 +13,7 @@ function proveriReport() {
 
 function reportKor1() {
 	document.getElementById("reportBoxContainer").style.display = "table";
-	document.getElementById("user_id").value = document.getElementById("userId2").value;
+	document.getElementById("user_id_change_password").value = document.getElementById("userId2").value;
 }
 
 function reportKor1remove() {

@@ -51,8 +51,9 @@
   						</tr>
   					</table>
 
-  					<form name="promenaLozinke" action="/edit_profile" method="post">
+  					<form name="promenaLozinke" action="/savePassword" method="post">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
+              <input type="hidden" id="user_id_change_password" name="user_id_change_password" value="">
   						<span style="color: #474747">Current password:</span><br/>
   						<div class="form-group" id="greskaCurrPass" align="left" style="margin-bottom: 0px">
   				            <input type="password" class="form-control has-error" name="currentPass" id="currentPass" placeholder="Enter your current password" autofocus style="font-size: 16px">
@@ -219,11 +220,11 @@
                                           	</div>
   										</div>
 
-  										<!--<div class="row" id="changePassKolona">
+  										<div class="row" id="changePassKolona">
   											<div class="col-md-6" align="left">
   												<span style="font-weight: bold; color: #AE0000; cursor: pointer" onclick="reportKor1()">Change password</span>
   											</div>
-  										</div>-->
+  										</div>
 
   										<div class="row" style="padding-top: 20px; padding-bottom: 7px">
   											<div class="col-md-9"></div>
