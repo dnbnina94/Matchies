@@ -183,10 +183,10 @@ class ProfileController extends Controller
         if (Auth::attempt(['password' => $password])) {
                $user = Auth::user();
                $user->delete();
-               return redirect()->route('index');
+               return redirect()->route('index')->withErrors(['You have successfully deleted your account.']);
             }
             else {
-              return view('delete_account');
+              return view('delete_account')->withErrors(['Please enter the corrcet password.']);
             }
 
 

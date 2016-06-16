@@ -13,7 +13,7 @@
 @section('javascriptlinks')
 	<script src="/bootstrap-3.3.6-dist/js/reportovanjeKorisnika.js"></script>
 	<script src="/bootstrap-3.3.6-dist/js/openSettings.js"></script>
-	<script src="/bootstrap-3.3.6-dist/js/confirmPassword.js"></script>
+	<!-- <script src="/bootstrap-3.3.6-dist/js/confirmPassword.js"></script> -->
 @stop
 
 @section('javascriptFunctions')
@@ -93,7 +93,15 @@
   				           									<input type="password" class="form-control has-error" name="currentPass" id="currentPass" placeholder="Enter your password" autofocus style="font-size: 16px">
                              									<span id="currentPassicon" class="" aria-hidden="true"></span>
                              									<span id="inputError2Status" class="sr-only">(error)</span>
-                             									<label class= "form-control-label" for="currentPass" id="currentPasslabel"  style="color:#AE0000; font-weight:normal;"></label>
+                                              @if (count($errors) > 0)
+                                                @foreach ($errors->all() as $error)
+                             									    <label class= "form-control-label" for="currentPass" id="currentPasslabel"  style="color:#AE0000; font-weight:normal;">{{ $error }}</label>
+                                                  <script>
+                                                    document.getElementById("greskaCurrPass").className = "form-group has-error has-feedback";
+                                                    document.getElementById("currentPassicon").className = "glyphicon glyphicon-remove form-control-feedback";
+                                                  </script>
+                                                @endforeach
+                                              @endif
                           								</div>
   													</div>
   													<div class="col-md-2"></div>
