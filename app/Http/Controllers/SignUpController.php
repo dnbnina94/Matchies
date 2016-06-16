@@ -268,7 +268,7 @@ class SignUpController extends Controller
                         'Hobbies'                     => 'required|min:30|max:160',
                         'Likes'                       => 'required|min:30|max:160',
                         'Dislikes'                    => 'required|min:30|max:160',
-                        'interested'                  => 'required|',
+                        'interested'                  => 'required',
 
                           ]);
 

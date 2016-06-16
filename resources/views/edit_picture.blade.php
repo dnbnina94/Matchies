@@ -135,6 +135,14 @@
                             <span class="text-left" id="picturelabel1"></span>
 
                           </div>
+                          @if ($errors->has('file'))
+                              <div class="row" style="color: #AE0000; padding-left:20px;" id="greskaSlika1" align="left">
+                              <span class="text-left" id="picturelabel1">
+                                <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('file') }}
+                              </span>
+                          </div>
+                          @endif
+
                         </div>
                       </div>
 
