@@ -48,7 +48,6 @@ Sign Up- Step 4!
 					<div class="col-md-6 col-md-offset-3" align="center" style="padding-left:10px; padding-right: 10px;">
 
 						<div class="jumbotron">
-
 							<form class="form" action="{{ url('/signup/final') }}" name="signup4" onsubmit="return validacija4();" method="post">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
 									<span style="font-weight: bold; font-size: 20px; color: #555555;"> And a little more about yourself:  </span>
@@ -72,8 +71,15 @@ Sign Up- Step 4!
 
                                             <span class="text-left" id="relLabel"></span>
 
-
                                         </div>
+
+                                        @if ($errors->has('relationStatus'))
+                                            <div class="row" style="color: #AE0000; padding-left:20px;" id="greskaRel" align="left">
+                                            <span class="text-left" id="relLabel">
+                                              <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('relationStatus') }}
+                                            </span>
+                                        </div>
+                                        @endif
 
 									</div>
 									<div class="col-md-6" style="padding-top:20px;" id="eduKolona">
@@ -94,6 +100,13 @@ Sign Up- Step 4!
                                             <span class="text-left" id="eduLabel"></span>
 
                                         </div>
+                                        @if ($errors->has('educationStatus'))
+                                            <div class="row" style="color: #AE0000; padding-left:20px;" id="greskaEdu" align="left">
+                                            <span class="text-left" id="eduLabel">
+                                              <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('educationStatus') }}
+                                            </span>
+                                        </div>
+                                        @endif
 
 									</div>
 									</div>
@@ -104,11 +117,20 @@ Sign Up- Step 4!
 										</div>
 
                                         <div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaBio" align="left">
-										<div class="col-md-12">
+										                        <div class="col-md-12">
                                             <span class="text-left" id="bioLabel"></span>
-										</div>
-
+										                          </div>
                                         </div>
+
+                                        @if ($errors->has('shortBio'))
+                                            <div class="row" style="color: #AE0000; padding-left:20px;" id="greskaBio" align="left">
+                                              <div class="col-md-12">
+                                                <span class="text-left" id="bioLabel">
+                                                  <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('shortBio') }}
+                                                </span>
+                                              </div>
+                                        </div>
+                                        @endif
 									</div>
 									<br/>
 									<div class="row">
@@ -117,10 +139,19 @@ Sign Up- Step 4!
 										</div>
 
                                         <div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaHob" align="left">
-											<div class="col-md-12">
-                                            <span class="text-left" id="hobLabel"></span>
-											</div>
+											                                 <div class="col-md-12">
+                                                         <span class="text-left" id="hobLabel"></span>
+											                                 </div>
                                         </div>
+                                        @if ($errors->has('Hobbies'))
+                                            <div class="row" style="color: #AE0000; padding-left:20px;" id="greskaHob" align="left">
+                                              <div class="col-md-12">
+                                                <span class="text-left" id="hobLabel">
+                                                  <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('Hobbies') }}
+                                                </span>
+                                              </div>
+                                            </div>
+                                        @endif
 									</div>
 									<br/>
 									<div class="row" >
@@ -129,10 +160,19 @@ Sign Up- Step 4!
 										</div>
 
                                         <div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaLik" align="left">
-											<div class="col-md-12">
-                                            <span class="text-left" id="likLabel"></span>
-											</div>
+											                               <div class="col-md-12">
+                                                       <span class="text-left" id="likLabel"></span>
+											                               </div>
                                         </div>
+                                        @if ($errors->has('Likes'))
+                                            <div class="row" style="color: #AE0000; padding-left:20px;" id="greskaLik" align="left">
+                                              <div class="col-md-12">
+                                                <span class="text-left" id="likLabel">
+                                                  <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('Likes') }}
+                                                </span>
+                                              </div>
+                                            </div>
+                                        @endif
 									</div>
 									<br/>
 									<div class="row" >
@@ -141,10 +181,19 @@ Sign Up- Step 4!
 										</div>
 
                                         <div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaDis" align="left">
-											<div class="col-md-12">
-                                            <span class="text-left" id="disLabel"></span>
-											</div>
+											                               <div class="col-md-12">
+                                                       <span class="text-left" id="disLabel"></span>
+											                               </div>
                                         </div>
+                                        @if ($errors->has('Dislikes'))
+                                            <div class="row" style="color: #AE0000; padding-left:20px;" id="greskaDis" align="left">
+                                              <div class="col-md-12">
+                                                <span class="text-left" id="disLabel">
+                                                  <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('Dislikes') }}
+                                                </span>
+                                              </div>
+                                            </div>
+                                        @endif
 									</div>
 									<br/>
 
@@ -159,11 +208,19 @@ Sign Up- Step 4!
   										 <label for="women"><span><span></span></span>Women</label>
 										 </div>
 									</div>
-                                    <div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaInt" align="left">
+                                        <div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaInt" align="left">
 
                                             <span class="text-left" id="intLabel"></span>
 
                                         </div>
+                                        @if ($errors->has('interested'))
+                                            <div class = "row" style = "color: #AE0000;padding-left:20px;" id="greskaInt" align="left">
+                                                <span class="text-left" id="intLabel">
+                                                  <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('interested') }}
+                                                </span>
+                                            </div>
+                                        @endif
+
 									<br/>
 									<button class="btn" id="subButt" type="submit" name="submitButton" onclick="validacija4();"><div align="center" valign="middle">Sign up</div></button>
 									 <br/>
