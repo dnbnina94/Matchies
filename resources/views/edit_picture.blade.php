@@ -100,7 +100,11 @@
 
   										<div class="row">
                         <div class="col-md-12">
-                          <table width="100%" id="slicice" style="margin-top: 10px">
+                          <table width="100%" id="slicice" style="margin-top: 10px; background: url('app/public/uploads/{{Auth::user()->id}}/{{App\Registered_user::where('id', '=', Auth::user()->id )->first()->photo_link}}');
+                              -webkit-background-size: cover;
+                              -moz-background-size: cover;
+                              -o-background-size: cover;
+                              background-size: cover;">
                             <tr>
                               <td align="left" valign="middle" style="padding-left: 10px; padding-right: 10px;">
                               </td>

@@ -137,7 +137,7 @@ Chat!
                     <button class="btn" id="subButt" type="submit" name="submitButton" onclick="return dodajPoruku()"><div align="center" valign="middle" style="font-weight: bold; font-size: 16px; height: 22px">Send</div></button>
                   -->
 
-  									<button class="btn" id="subButt" type="button" name="submitButton"><div align="center" onclick= "sendMessage();" valign="middle" style="font-weight: bold; font-size: 16px; height: 22px">Send</div></button>
+  									<button class="btn" id="subButt" type="button" name="submitButton"><div align="center" valign="middle" style="font-weight: bold; font-size: 16px; height: 22px">Send</div></button>
   								</form>
 								</div>
               </div>

@@ -97,8 +97,10 @@
 					</table>
 					<div class="row">
 						<div class="col-md-12" align="center">
-							<form name="deleteUser" action="/index_admin" method="post">
+							<form name="deleteUser" action="/admin/deleteUser" method="post">
 								Are you sure you want to delete this user?<br/>
+                <input type="hidden" id="user_id_delete" name="user_id_delete" value="">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 								<div style="padding-bottom:10px"></div>
 								<button class=" btn" id="subButt1" type="submit" style="background: #383838"><b>Delete this user</b></button>
 							</form>

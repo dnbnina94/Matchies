@@ -242,6 +242,43 @@ class SignUpController extends Controller
                   $interestedWomen=  '';
               }
 
+
+//BACKEND !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                          $infoOld= array(
+                            'name'=> $name,
+                            'surname'=> $surname,
+                            'email'=> $email,
+                            'gender' => $gender,
+                            'day'=> $day,
+                            'month' => $month,
+                            'year' => $year,
+                            'country' => $country,
+                            'city' => $city,
+                            'file'=> $file,
+                            'username' => $username,
+                            'password' => $password
+                          );
+
+
+                      $validator = Validator::make($request->all(), [
+                        'relationStatus'              => 'required|in:Single,In a relationship,Engaged,Married,It\'s complicated,In an open relationship,Divorced,Widowed,Separated',
+                        'educationStatus'             => 'required|in:High school,College,University,Associate degree,Graduate degree,PHD/Post doctorate,Bachelors degree,Masters degree',
+
+                        'shortBio'                    => 'required|min:30|max:160',
+                        'Hobbies'                     => 'required|min:30|max:160',
+                        'Likes'                       => 'required|min:30|max:160',
+                        'Dislikes'                    => 'required|min:30|max:160',
+                        'interested'                  => 'required|',
+
+                          ]);
+
+                        if ($validator->fails()) {
+                            return view('signup_step_4', $infoOld)
+                                        ->withErrors($validator);
+
+                        }
+//BACKEND KRAJ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
               $user = new User;
               $user->username = $username;
               $user->email = $email;

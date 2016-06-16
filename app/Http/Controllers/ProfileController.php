@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage as Storage;
 use Illuminate\Support\Facades\Hash as Hash;
 use Auth;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Controller;
 
 
 class ProfileController extends Controller
@@ -183,10 +185,10 @@ class ProfileController extends Controller
         if (Auth::attempt(['password' => $password])) {
                $user = Auth::user();
                $user->delete();
-               return redirect()->route('index');
+               return redirect()->route('index')->withErrors(['You have successfully deleted your account.']);
             }
             else {
-              return view('delete_account');
+              return view('delete_account')->withErrors(['Please enter the corrcet password.']);
             }
 
 
@@ -219,6 +221,31 @@ class ProfileController extends Controller
 
         $user = Auth::user();
         $reg = Registered_user::find($user->id);
+
+        //BACKEND !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                  $infoOld= array(
+                                    'user' => $user,
+                                    'reg' => $reg,
+                                  );
+
+
+                              $validator = Validator::make($request->all(), [
+                                'fname'             => 'required|alpha|max:30',
+                                'lname'             => 'required|alpha|max:30',                        // just a normal required validation
+                                'email'            => 'required|email',     // required and must be unique
+                                'emailAgain' => 'required|same:email',
+                                'gender'             => 'required | in:male,female',
+
+                                  ]);
+
+                                if ($validator->fails()) {
+                                    return view('edit_profile', $infoOld)
+                                                ->withErrors($validator);
+
+                                }
+        //BACKEND KRAJ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
 
 
 //sve provere ovde
