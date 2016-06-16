@@ -24,6 +24,7 @@ function reportKor1remove() {
 
 function deleteKorDisplay() {
 	document.getElementById('deleteBoxContainer').style.display = "table";
+	document.getElementById("user_id_delete").value = document.getElementById("userId2").value;
 }
 
 function deleteKorRemove() {

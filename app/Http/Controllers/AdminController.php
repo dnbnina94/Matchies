@@ -33,6 +33,23 @@ class AdminController extends Controller
 
   }
 
+  public function deleteUser(Request $request) {
+    $id = $request->input('user_id_delete');
+    $user = User::where('id', '=', $id)->first();
+
+    if ($user == null) return view('/error_user_not_found_admin');
+
+    $user->delete();
+
+    $regUsers = Registered_user::orderBy('number_of_warnings', 'desc')->get();
+
+    $info = array(
+      'regUsers' => $regUsers
+    );
+
+    return view('users_admin', $info);
+  }
+
   public function listUsers() {
     $regUsers = Registered_user::orderBy('number_of_warnings', 'desc')->get();
 
