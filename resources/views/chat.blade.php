@@ -23,12 +23,7 @@ Chat!
 
 @section('javascriptFunctions')
   <script>
-    function skrolaj() {
 
-      var objDiv = document.getElementById("messageBoxContainer");
-      objDiv.scrollTop = objDiv.scrollHeight;
-
-    }
   </script>
 
   <script>
@@ -63,7 +58,7 @@ Chat!
   </script>
 
   <script>
-  
+
   </script>
 
   <script>
@@ -72,7 +67,7 @@ Chat!
 @stop
 
 @section('onloadfunction')
-  onload=" ucitajLepo(); pullData(); skrolaj(); pullNotifications();"
+  onload=" ucitajLepo(); pullData();  pullNotifications();"
 @stop
 
 @section('content')

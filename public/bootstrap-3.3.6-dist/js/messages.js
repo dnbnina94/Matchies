@@ -1,12 +1,24 @@
 //autor: Milena Filipovic 73/13
 
+function skrolaj() {
 
+  var objDiv = document.getElementById("messageBoxContainer");
+  objDiv.scrollTop = objDiv.scrollHeight;
 
+}
 
+var prvoUcitavanje=1;
 
 function pullData()
 {
     retrieveChatMessages();
+    if(prvoUcitavanje>0){
+
+      var objDiv = document.getElementById("messageBoxContainer");
+      objDiv.scrollTop = objDiv.scrollHeight;
+
+      prvoUcitavanje=0;
+    }
 
     setTimeout(pullData,1500);
 }
@@ -52,8 +64,6 @@ function retrieveChatMessages()
             $(".message").css("max-width", pikseli-20);
 
 
-            var objDiv = document.getElementById("messageBoxContainer");
-            objDiv.scrollTop = objDiv.scrollHeight;
 
 
 
