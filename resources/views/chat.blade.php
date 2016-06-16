@@ -63,17 +63,11 @@ Chat!
   </script>
 
   <script>
-    $(window).on('resize', function () {
-      var pikseli = $("#sirina").width();
-      $(".message").css("max-width", pikseli-20);
-    });
+  
   </script>
 
   <script>
-    function ucitajLepo() {
-      var pikseli = $("#sirina").width();
-      $(".message").css("max-width", pikseli-20);
-    }
+
   </script>
 @stop
 

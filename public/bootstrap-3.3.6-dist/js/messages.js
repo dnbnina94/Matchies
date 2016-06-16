@@ -1,5 +1,9 @@
 //autor: Milena Filipovic 73/13
 
+
+
+
+
 function pullData()
 {
     retrieveChatMessages();
@@ -35,11 +39,11 @@ function retrieveChatMessages()
                 time = messages[i]["time"];
                 idFrom = messages[i]["id_source_user"];
                 if(msges['userTo']["id"] == idFrom){
-                  data1 = "<tr><td class='colleft' id='sirina'><div style='display: table; table-layout: fixed; word-break: break-word'><div style='display: table-row'><div style='display: table-cell' class='msgBox1'><span class='message'>"+text+"</span> <br/><span class='messagetime'>"+time+"</span></div></div></div></td></tr>";
+                  data1 = "<tr><td class='colleft' id='sirina'><div style='display: table; table-layout: fixed; word-break: break-word;'><div style='display: table-row'><div style='display: table-cell' class='msgBox1'><span class='message'>"+escapeHtml(text)+"</span> <br/><span class='messagetime'>"+time+"</span></div></div></div></td></tr>";
                   $('#tabelica1').append(data1);
 
                 }else{
-                  data1="<tr><td id='sirina' align='right' style='padding-top: 15px; padding-left: 10px;'><div style='display: table; table-layout: fixed; word-break: break-word'><div style='display: table-row'><div style='display: table-cell' class='msgBox2' ><span class='message'>"+escapeHtml(text)+"</span> <br/><span class='messagetime'>"+time+"</span></div></div></div></td></tr>";
+                  data1="<tr><td id='sirina' align='right' style='padding-top: 15px; padding-left: 10px;'><div style='display: table; table-layout: fixed; word-break: break-word;'><div style='display: table-row'><div style='display: table-cell' class='msgBox2' ><span class='message'>"+escapeHtml(text)+"</span> <br/><span class='messagetime'>"+time+"</span></div></div></div></td></tr>";
                   $('#tabelica1').append(data1);
                 }
             }
@@ -50,8 +54,8 @@ function retrieveChatMessages()
 }
 
 
-$(document).ready(function() {
 
+$(document).ready(function() {
 // ovo je kod za send message
 
 $("#subButt").click(function(event){
@@ -59,7 +63,21 @@ $("#subButt").click(function(event){
     sendMessage();
 });
 
+
+
+
 });
+
+$(window).on('resize', function () {
+  var pikseli = $("#sirina").width();
+  $(".message").css("max-width", pikseli-20);
+});
+
+function ucitajLepo() {
+  var pikseli = $("#sirina").width();
+  $(".message").css("max-width", pikseli-20);
+}
+
 
 function sendMessage(){
     console.log('poy');
@@ -89,11 +107,11 @@ function sendMessage(){
                 time = messages[i]["time"];
                 idFrom = messages[i]["id_source_user"];
                 if(msges['userTo']["id"] == idFrom){
-                  data1 = "<tr><td class='colleft' id='sirina'><div style='display: table; table-layout: fixed; word-break: break-word'><div style='display: table-row'><div style='display: table-cell' class='msgBox1'><span class='message'>"+text+"</span> <br/><span class='messagetime'>"+time+"</span></div></div></div></td></tr>";
+                  data1 = "<tr><td class='colleft' id='sirina'><div style='display: table; table-layout: fixed; word-break: break-word;'><div style='display: table-row'><div style='display: table-cell' class='msgBox1'><span class='message'>"+escapeHtml(text)+"</span> <br/><span class='messagetime'>"+time+"</span></div></div></div></td></tr>";
                   $('#tabelica1').append(data1);
 
                 }else{
-                  data1="<tr><td id='sirina' align='right' style='padding-top: 15px; padding-left: 10px;'><div style='display: table; table-layout: fixed; word-break: break-word'><div style='display: table-row'><div style='display: table-cell' class='msgBox2' ><span class='message'>"+escapeHtml(text)+"</span> <br/><span class='messagetime'>"+time+"</span></div></div></div></td></tr>";
+                  data1="<tr><td id='sirina' align='right' style='padding-top: 15px; padding-left: 10px;'><div style='display: table; table-layout: fixed; word-break: break-word;'><div style='display: table-row'><div style='display: table-cell' class='msgBox2' ><span class='message'>"+escapeHtml(text)+"</span> <br/><span class='messagetime'>"+time+"</span></div></div></div></td></tr>";
                   $('#tabelica1').append(data1);
                 }
             }

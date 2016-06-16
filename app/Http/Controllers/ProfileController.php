@@ -209,12 +209,23 @@ class ProfileController extends Controller
         if (Auth::attempt(['password' => $currentPassword])) {
           $user->password = Hash::make($password);
           $user->save();
+
+          $info = array(
+            'user' => $user,
+            'reg' => $reg,
+          );
+            return view('edit_profile', $infoOld);
+        }else{
+          $badPass= array(
+            'currPass' => 'Incorrect password.',
+          );
+          return view('edit_profile', $infoOld)
+                      ->withErrors($badPass);
         }
 
-        return view('edit_profile', $infoOld);
-
-
       }
+
+      
 
       public function obrisiSvojProfil(Request $request) {
         $password = $request->input('currentPass');
