@@ -63,7 +63,14 @@ onload="bla()"
 
                                               <span class="text-left" id="countrylabel"></span>
 
-                                          </div>
+                      </div>
+                      @if ($errors->has('country'))
+                      	<div class = "row" style = "color: #AE0000; padding-left:20px;" id="greskaDrzava" align="left">
+                          <span class="text-left" id="countrylabel">
+                            <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('country') }}
+                          </span>
+                      </div>
+                      @endif
 
   									</div>
 
@@ -78,6 +85,15 @@ onload="bla()"
                                               <span class="text-left" id="citylabel"></span>
 
                                           </div>
+                                        </div>
+                                        @if ($errors->has('city'))
+                                        	<div class = "row" style = "color: #AE0000; padding-left:20px;" id="greskaGrad" align="left">
+                                            <span class="text-left" id="citylabel">
+                                              <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('city') }}
+                                            </span>
+                                        </div>
+                                        @endif
+
 
                                           <br/>
   										<button class="btn" id="subButt" name="submitButton" onclick="validacija2()"><div align="center" valign="middle">Next step</div></button>

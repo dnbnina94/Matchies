@@ -101,20 +101,15 @@ class SignUpController extends Controller
         );
 
         $validator = Validator::make($request->all(), [
-          'fname'             => 'required|alpha|max:30',
-          'lname'             => 'required|alpha|max:30',                        // just a normal required validation
-          'email'            => 'required|email|unique:users,email',     // required and must be unique
-          'emailAgain' => 'required|same:email',         // required and has to match the email field
-          'gender'             => 'required | in:male,female',
-          'day'             => 'required',
-          'month'             => 'required',
-          'year'             => 'required',
+          'country'             => 'required|in:Serbia,Germany',
+          'city'             => 'required|in:Beograd,Novi Sad,Subotica,Kraljevo,Uzice,Лопатањ,Kruševac,Berlin,Ulm,Munich,Stuttgart',                        // just a normal required validation
+
             ]);
 
           if ($validator->fails()) {
-              return redirect()->route('signupStep1')
-                          ->withErrors($validator)
-                          ->withInput($info);
+              return view('signup_step_2', $info)
+                          ->withErrors($validator);
+
           }
 
 
