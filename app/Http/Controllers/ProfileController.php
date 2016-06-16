@@ -179,6 +179,43 @@ class ProfileController extends Controller
           return view('profile', $info);
       }
 
+      public function savePassword(Request $request) {
+
+        $currentPassword = $request->input('currentPass');
+        $password = $request->input('password');
+        $passRepeat = $request->input('passrepeat');
+
+        $user = Auth::user();
+        $reg = Registered_user::find($user->id);
+
+        $infoOld = array(
+          'user' => $user,
+          'reg' => $reg,
+        );
+
+        $validator = Validator::make($request->all(), [
+          'currentPass'             => 'required',
+          'password'             => 'required|min:8',
+          'passrepeat' => 'required|same:password'
+
+            ]);
+
+          if ($validator->fails()) {
+              return view('edit_profile', $infoOld)
+                          ->withErrors($validator);
+
+          }
+
+        if (Auth::attempt(['password' => $currentPassword])) {
+          $user->password = Hash::make($password);
+          $user->save();
+        }
+
+        return view('edit_profile', $infoOld);
+
+
+      }
+
       public function obrisiSvojProfil(Request $request) {
         $password = $request->input('currentPass');
 
@@ -188,7 +225,7 @@ class ProfileController extends Controller
                return redirect()->route('index')->withErrors(['You have successfully deleted your account.']);
             }
             else {
-              return view('delete_account')->withErrors(['Please enter the corrcet password.']);
+              return view('delete_account')->withErrors(['Please enter the correct password.']);
             }
 
 
