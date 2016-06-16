@@ -225,7 +225,7 @@ class ProfileController extends Controller
 
       }
 
-      
+
 
       public function obrisiSvojProfil(Request $request) {
         $password = $request->input('currentPass');
@@ -315,6 +315,8 @@ class ProfileController extends Controller
         return view('edit_profile', $info);
       }
 
+
+
       public function izmeniLokaciju()
       {
         $user = Auth::user();
@@ -328,6 +330,8 @@ class ProfileController extends Controller
           return view('edit_location', $info);
       }
 
+
+
       public function sacuvajLokaciju(Request $request)
       {
         $cntry = $request->input('country');
@@ -336,10 +340,32 @@ class ProfileController extends Controller
         $user = Auth::user();
         $reg = Registered_user::find($user->id);
 
+
+//BACKEND
+        $validator = Validator::make($request->all(), [
+          'country'             => 'required|in:Serbia,Germany',
+          'city'             => 'required|in:Beograd,Novi Sad,Subotica,Kraljevo,Uzice,Лопатањ,Kruševac,Berlin,Ulm,Munich,Stuttgart',                        // just a normal required validation
+
+            ]);
+
+          if ($validator->fails()) {
+            $dt1 = Carbon::now();
+            $yearsOld = $dt1->diffInDays($reg->birth_date);
+            $yearsOld = floor($yearsOld/365);
+            $infoOld= array (
+              'user' => $user,
+              'reg' => $reg,
+              'years' => $yearsOld
+            );
+
+
+              return view('edit_location', $infoOld)
+                          ->withErrors($validator);
+          }
+//!!!!!!!!!
         $reg->country = $cntry;
         $reg->city = $cty;
 
-        //ovde provere
 
         $reg->save();
 

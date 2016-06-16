@@ -88,11 +88,16 @@
   												<select name="country" class="form-control" id="country" style="font-size:16px; padding-left: 8px;">
   													<option value="selectCountry" disabled selected>Your country</option>
   												</select>
-  												<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaDrzava" align="left">
-
+  												            <div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaDrzava" align="left">
                                               		<span class="text-left" id="countrylabel"></span>
-
-                                          		</div>
+                                    	</div>
+                                      @if ($errors->has('country'))
+                                        <div class = "row" style = "color: #AE0000; padding-left:20px;" id="greskaDrzava" align="left">
+                                          <span class="text-left" id="countrylabel">
+                                            <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('country') }}
+                                          </span>
+                                      </div>
+                                      @endif
   											</div>
   										</div>
   										<div class="row" style="padding-top: 10px">
@@ -102,10 +107,16 @@
   													<option value="selectCity" disabled selected>Your city</option>
   												</select>
                                           		<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaGrad" align="left">
-
                                               		<span class="text-left" id="citylabel"></span>
-
                                           		</div>
+                                              @if ($errors->has('city'))
+                                                <div class = "row" style = "color: #AE0000; padding-left:20px;" id="greskaGrad" align="left">
+                                                  <span class="text-left" id="citylabel">
+                                                    <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('city') }}
+                                                  </span>
+                                              </div>
+                                              @endif
+
   											</div>
   										</div>
 

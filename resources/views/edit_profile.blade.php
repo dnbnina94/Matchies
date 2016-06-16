@@ -131,12 +131,7 @@
   										Make sure to enter the correct information.
   									</div>
   								</div>
-                  @if (count($errors) > 0)
-                          @foreach ($errors->all() as $error)
-                              <span style="color: #C0C0C0; font-size: 16px; font-weight:bold;"><span class="glyphicon glyphicon-remove"></span> {{ $error }}</span>
-                              <br />
-                          @endforeach
-                  @endif
+
 
   								<div class="col-md-8 desnaKolonaEditProfile">
   									<div class="jumbotronProfile" style="padding-left: 20px; padding-right: 20px; font-size: 16px">
@@ -152,7 +147,12 @@
   										  			<span id="fnameicon" class="" aria-hidden="true"></span>
   										  			<span id="inputError2Status" class="sr-only">(error)</span>
   													  <label class= "form-control-label" for="fname" id="flabel" align="left"style="color:#AE0000; font-weight:normal;"></label>
-  												</div>
+                              @if ($errors->has('fname'))
+                              <label class= "form-control-label" for="fname" id="flabel" align="left"style="color:#AE0000; font-weight:normal;">
+                                 <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('fname') }}
+                               </label>
+                               @endif
+                        	</div>
   											</div>
 
   											<div class="col-md-6 desnaKolonaBasicInfo" align="left">
@@ -164,7 +164,12 @@
   										 		<span id="lnameicon" class="" aria-hidden="true"></span>
   										  		<span id="inputError2Status" class="sr-only">(error)</span>
   												<label class= "form-control-label" for="lname" id="llabel"  style="color:#AE0000; font-weight:normal;"></label>
-  												</div>
+                          @if ($errors->has('lname'))
+                          <label class= "form-control-label" for="lname" id="llabel"  style="color:#AE0000; font-weight:normal;">
+                            <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('lname') }}
+                          </label>
+                          @endif
+                          </div>
   											</div>
   										</div>
 
@@ -177,8 +182,14 @@
                             class="form-control has-error" name="email" id="email" placeholder="Enter your email"  style="font-size: 16px;">
                                               		<span id="emailicon" class="" aria-hidden="true"></span>
   										  			<span id="inputError2Status" class="sr-only">(error)</span>
-  													<label class= "form-control-label" for="email" id="elabel"  style="color:#AE0000; font-weight:normal;"></label>
-                                          		</div>
+
+                            <label class= "form-control-label" for="email" id="elabel"  style="color:#AE0000; font-weight:normal;"></label>
+                            @if ($errors->has('email'))
+                            <label class= "form-control-label" for="email" id="elabel"  style="color:#AE0000; font-weight:normal;">
+                              <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('email') }}
+                            </label>
+                            @endif
+                          </div>
   											</div>
 
   											<div class="col-md-6 desnaKolonaBasicInfo" align="left">
@@ -190,7 +201,14 @@
                                               		<span id="emailagainicon" class="" aria-hidden="true"></span>
                                               		<span id="inputError2Status" class="sr-only">(error)</span>
                                               		<label class= "form-control-label" for="emailAgain" id="ealabel"  style="color:#AE0000; font-weight:normal;"></label>
-                                          		</div>
+
+                                                  @if ($errors->has('emailAgain'))
+                                                  <label class= "form-control-label" for="emailAgain" id="ealabel"  style="color:#AE0000; font-weight:normal;">
+                                                    <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('emailAgain') }}
+                                                  </label>
+                                                  @endif
+
+                                              </div>
   											</div>
   										</div>
 
@@ -216,8 +234,18 @@
   												</div>
   												<div class = "row"  id="greske6" align="left" style="color: #AE0000;  font-weight:normal; padding-left:20px;" >
   													<span class="text-left"  id="genderlabel"></span>
-                                          		</div>
-                                          	</div>
+                          </div>
+
+                            @if ($errors->has('gender'))
+                            <div class = "row"  id="greske6" align="left" style="color: #AE0000;  font-weight:normal; padding-left:20px;" >
+
+                                <span class="text-left"  id="genderlabel">
+                                  <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('gender') }}
+                                </span>
+
+                            </div>
+                            @endif
+                    	</div>
   										</div>
 
   										<div class="row" id="changePassKolona">
