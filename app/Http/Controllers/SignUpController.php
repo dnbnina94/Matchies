@@ -136,7 +136,35 @@ class SignUpController extends Controller
         $passrepeat = $request->input('passrepeat');
 
 
+//BACKEND !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            $infoOld= array(
+              'name'=> $name,
+              'surname'=> $surname,
+              'email'=> $email,
+              'gender' => $gender,
+              'day'=> $day,
+              'month' => $month,
+              'year' => $year,
+              'country' => $country,
+              'city' => $city
+            );
 
+
+        $validator = Validator::make($request->all(), [
+          'username'             => 'required|min:3|max:16|unique:users,username',
+          'password'             => 'required|min:8',
+          'passrepeat' => 'required|same:password',
+          'file'                 => 'required|image',
+
+            ]);
+
+          if ($validator->fails()) {
+              return view('signup_step_3', $infoOld)
+                          ->withErrors($validator);
+
+          }
+
+//BACKEND KRAJ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         if($password == $passrepeat){
 

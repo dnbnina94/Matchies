@@ -75,6 +75,13 @@ Sign Up- Step 3!
                                               <span class="text-left" id="picturelabel"></span>
 
                                           </div>
+                                          @if ($errors->has('file'))
+                                              <div class="row" style="color: #AE0000; padding-left:20px;" id="greskaSlika" align="left">
+                                              <span class="text-left" id="picturelabel">
+                                                <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('file') }}
+                                              </span>
+                                          </div>
+                                          @endif
 
   									</div>
 
@@ -88,6 +95,11 @@ Sign Up- Step 3!
                                               <span id="usernameicon" class="" aria-hidden="true"></span>
                                               <span id="inputError2Status" class="sr-only">(error)</span>
                                               <label class= "form-control-label" for="username" id="userlabel"  style="color:#AE0000; font-weight:normal;"></label>
+                                              @if ($errors->has('username'))
+                                                    <label class= "form-control-label" for="username" id="userlabel"  style="color:#AE0000; font-weight:normal;">
+                                                    <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('username') }}
+                                                  </label>
+                                              @endif
                                           </div>
 
   									</div>
@@ -98,6 +110,11 @@ Sign Up- Step 3!
                                               <span id="passwordicon" class="" aria-hidden="true"></span>
                                               <span id="inputError2Status" class="sr-only">(error)</span>
                                               <label class= "form-control-label" for="password" id="passlabel"  style="color:#AE0000; font-weight:normal;"></label>
+                                              @if ($errors->has('password'))
+                                                    <label class= "form-control-label" for="password" id="passlabel"  style="color:#AE0000; font-weight:normal;">
+                                                    <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('password') }}
+                                                  </label>
+                                              @endif
                                           </div>
 
   									</div>
@@ -108,6 +125,11 @@ Sign Up- Step 3!
                                               <span id="repeaticon" class="" aria-hidden="true"></span>
                                               <span id="inputError2Status" class="sr-only">(error)</span>
                                               <label class= "form-control-label" for="passrepeat" id="repeatlabel"  style="color:#AE0000; font-weight:normal;"></label>
+                                              @if ($errors->has('passrepeat'))
+                                                    <label class= "form-control-label" for="passrepeat" id="repeatlabel"  style="color:#AE0000; font-weight:normal;">
+                                                    <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('passrepeat') }}
+                                                  </label>
+                                              @endif
                                           </div>
 
                                           <button class="btn" id="subButt" type="submit" name="submitButton" onclick="validacija3();"><div align="center" valign="middle">Next step</div></button>
