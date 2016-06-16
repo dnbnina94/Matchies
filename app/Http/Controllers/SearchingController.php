@@ -420,9 +420,9 @@ class SearchingController extends Controller
             );
 
 /********VEROVATNO BI BILO DOBRO DA ISPISUJE I NEKU PORUKU DA TREBA DA SE PROSIRI KRITERIJUM*******/
-            if($returnUser == null){
-              return redirect()->route('home');
-            }
+          if($returnUser == null){
+            return view('noMoreUsers');
+          }
 
 
           return view ('searching', $info);
