@@ -253,7 +253,9 @@ class ProfileController extends Controller
 
           return view('edit_profile', $info);
       }
-
+//
+//backend provere i ispis gresaka Milena Filipovic 73/13
+//
       public function sacuvajProfilOsnovno(Request $request)
       {
 
@@ -388,6 +390,32 @@ class ProfileController extends Controller
         $reg = Registered_user::find($user->id);
         $file = $request->file('file');
 
+
+
+
+        //BACKEND
+          $validator = Validator::make($request->all(), [
+            'file'                 => 'required|image',
+
+              ]);
+
+
+            if ($validator->fails()) {
+                    $dt1 = Carbon::now();
+                    $yearsOld = $dt1->diffInDays($reg->birth_date);
+                    $yearsOld = floor($yearsOld/365);
+                    $infoOld= array (
+                      'user' => $user,
+                      'reg' => $reg,
+                      'years' => $yearsOld
+                    );
+
+
+                      return view('edit_picture', $infoOld)
+                                  ->withErrors($validator);
+                  }
+        //!!!!!!!!!
+
         if($file->isValid()) {
           $file->move('../public/app/public/uploads/' . $reg->id, $reg->photo_link);
         }
@@ -433,10 +461,45 @@ class ProfileController extends Controller
         $worst = $request->input('WorstQuality');
         $work = $request->input('fieldOfWork');
 
-        //ovde sve provere
 
         $user = Auth::user();
         $reg = Registered_user::find($user->id);
+
+        //BACKEND
+          $validator = Validator::make($request->all(), [
+            'relationStatus'              => 'required|in:Single,In a relationship,Engaged,Married,It\'s complicated,In an open relationship,Divorced,Widowed,Separated',
+            'educationStatus'             => 'required|in:High School,College,University,Associate degree,Graduate degree,PHD/Post doctorate,Bachelors degree,Masters degree',
+
+            'shortBio'                    => 'required|min:30|max:160',
+            'Hobbies'                     => 'required|min:30|max:160',
+            'Likes'                       => 'required|min:30|max:160',
+            'Dislikes'                    => 'required|min:30|max:160',
+            'PerfFirstDate'                  => 'required|max:160',
+            'FavQuote'                  => 'required|max:160',
+            'FavSong'                  => 'required|max:160',
+            'LongestRel'                  => 'required|max:160',
+            'BestQuality'                  => 'required|max:160',
+            'WorstQuality'                  => 'required|max:160',
+            'fieldOfWork'                  => 'required|in:workStatus,Administration,Architecture,Artist,Computers,Construction,Design,Education,Engineering,Entrepreneur,Fashion,Financial,Government,Hospitality,Law,Management,Marketing,Medicine,Nonprofit,Performing Arts,Restaurant,Retail,Retired,Student,Teacher',
+
+              ]);
+
+
+            if ($validator->fails()) {
+                    $dt1 = Carbon::now();
+                    $yearsOld = $dt1->diffInDays($reg->birth_date);
+                    $yearsOld = floor($yearsOld/365);
+                    $infoOld= array (
+                      'user' => $user,
+                      'reg' => $reg,
+                      'years' => $yearsOld
+                    );
+
+
+                      return view('edit_details', $infoOld)
+                                  ->withErrors($validator);
+                  }
+        //!!!!!!!!!
 
         $reg->relationship_status = $relStatus;
         $reg->education = $eduStatus;

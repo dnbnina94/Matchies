@@ -75,6 +75,12 @@
   										Make sure to enter the correct information.
   									</div>
   								</div>
+                  @if (count($errors) > 0)
+													@foreach ($errors->all() as $error)
+															<span style="color: #C0C0C0; font-size: 16px; font-weight:bold;"><span class="glyphicon glyphicon-remove"></span> {{ $error }}</span>
+															<br />
+													@endforeach
+									@endif
 
   								<div class="col-md-8 desnaKolonaEditProfile">
   									<div class="jumbotronProfile" style="padding-left: 20px; padding-right: 20px; font-size: 16px; overflow: scroll; overflow-x: hidden; height: 500px">
@@ -132,11 +138,17 @@
                             class="others">Separated</option>
   												</select>
 
-                                          		<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaRel" align="left">
+                            	<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaRel" align="left">
+                                    		<span class="text-left" id="relLabel"></span>
+                          		</div>
+                              @if ($errors->has('relationStatus'))
+                                  <div class="row" style="color: #AE0000; padding-left:20px;" id="greskaRel" align="left">
+                                  <span class="text-left" id="relLabel">
+                                    <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('relationStatus') }}
+                                  </span>
+                              </div>
+                              @endif
 
-                                              		<span class="text-left" id="relLabel"></span>
-
-                                          		</div>
 
   											</div>
 
@@ -186,11 +198,16 @@
                             class="others">Masters degree</option>
   										 		</select>
 
-                                          		<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaEdu" align="left">
-
-                                              		<span class="text-left" id="eduLabel"></span>
-
-                                          		</div>
+                          		<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaEdu" align="left">
+                                    		<span class="text-left" id="eduLabel"></span>
+                          		</div>
+                              @if ($errors->has('educationStatus'))
+                                  <div class="row" style="color: #AE0000; padding-left:20px;" id="greskaEdu" align="left">
+                                  <span class="text-left" id="eduLabel">
+                                    <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('educationStatus') }}
+                                  </span>
+                              </div>
+                              @endif
   											</div>
   										</div>
 
@@ -201,37 +218,66 @@
   											</div>
 
                                           	<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaBio" align="left">
-  												<div class="col-md-12">
-                                              		<span class="text-left" id="bioLabel"></span>
-  												</div>
-
+  												                                <div class="col-md-12">
+                                              		            <span class="text-left" id="bioLabel"></span>
+  												                                  </div>
                                           	</div>
-                                          </div>
+                                            @if ($errors->has('shortBio'))
+                                                <div class="row" style="color: #AE0000; padding-left:20px;" id="greskaBio" align="left">
+                                                  <div class="col-md-12">
+                                                    <span class="text-left" id="bioLabel">
+                                                      <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('shortBio') }}
+                                                    </span>
+                                                  </div>
+                                            </div>
+                                            @endif
 
-                                          <div class="row" style="padding-top: 10px">
+                        </div>
+
+                        <div class="row" style="padding-top: 10px">
   											<div class="col-md-12" align="left">
   												<span>Your hobbies:</span><br/>
   												<textarea class="form-control"   placeholder="Your hobbies" name="Hobbies" id="hobbies" style="font-size:16px; padding-left: 12px; resize: none">{{$reg->hobbies}}</textarea>
   											</div>
 
                                           	<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaHob" align="left">
-  												<div class="col-md-12">
-                                              		<span class="text-left" id="hobLabel"></span>
-  												</div>
+  												                                <div class="col-md-12">
+                                              		            <span class="text-left" id="hobLabel"></span>
+  												                                  </div>
                                           	</div>
-                                          </div>
+                                            @if ($errors->has('Hobbies'))
+                                                <div class="row" style="color: #AE0000; padding-left:20px;" id="greskaHob" align="left">
+                                                  <div class="col-md-12">
+                                                    <span class="text-left" id="hobLabel">
+                                                      <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('Hobbies') }}
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                            @endif
 
-                                          <div class="row" style="padding-top: 10px">
+
+                        </div>
+
+                        <div class="row" style="padding-top: 10px">
   											<div class="col-md-12" align="left">
   												<span>Your likes:</span><br/>
   												<textarea class="form-control" placeholder="Your likes" name="Likes" id="likes" style="font-size:16px; padding-left: 12px; resize: none">{{$reg->likes}}</textarea>
   											</div>
 
                                           	<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaLik" align="left">
-  												<div class="col-md-12">
-                                              		<span class="text-left" id="likLabel"></span>
-  												</div>
+  												                                <div class="col-md-12">
+                                              		            <span class="text-left" id="likLabel"></span>
+  												                                  </div>
                                           	</div>
+                                            @if ($errors->has('Likes'))
+                                                <div class="row" style="color: #AE0000; padding-left:20px;" id="greskaLik" align="left">
+                                                  <div class="col-md-12">
+                                                    <span class="text-left" id="likLabel">
+                                                      <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('Likes') }}
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                            @endif
   										</div>
 
   										<div class="row" style="padding-top: 10px">
@@ -241,10 +287,19 @@
   											</div>
 
                                           	<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaDis" align="left">
-  												<div class="col-md-12">
-                                              		<span class="text-left" id="disLabel"></span>
-  												</div>
+  												                                <div class="col-md-12">
+                                              		            <span class="text-left" id="disLabel"></span>
+  												                                  </div>
                                           	</div>
+                                            @if ($errors->has('Dislikes'))
+                                                <div class="row" style="color: #AE0000; padding-left:20px;" id="greskaDis" align="left">
+                                                  <div class="col-md-12">
+                                                    <span class="text-left" id="disLabel">
+                                                      <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('Dislikes') }}
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                            @endif
   										</div>
 
   										<div class="row" style="padding-top: 10px">
@@ -254,10 +309,19 @@
   											</div>
 
                                           	<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaDate" align="left">
-  												<div class="col-md-12">
-                                              		<span class="text-left" id="dateLabel"></span>
-  												</div>
+  												                                <div class="col-md-12">
+                                              		            <span class="text-left" id="dateLabel"></span>
+  												                                  </div>
                                           	</div>
+                                            @if ($errors->has('PerfFirstDate'))
+                                                <div class="row" style="color: #AE0000; padding-left:20px;" id="greskaDate" align="left">
+                                                  <div class="col-md-12">
+                                                    <span class="text-left" id="dateLabel">
+                                                      <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('PerfFirstDate') }}
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                            @endif
   										</div>
 
   										<div class="row" style="padding-top: 10px">
@@ -267,10 +331,19 @@
   											</div>
 
                                           	<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaQuote" align="left">
-  												<div class="col-md-12">
-                                              		<span class="text-left" id="quoteLabel"></span>
-  												</div>
+  												                                <div class="col-md-12">
+                                              		            <span class="text-left" id="quoteLabel"></span>
+  												                                  </div>
                                           	</div>
+                                            @if ($errors->has('FavQuote'))
+                                                <div class="row" style="color: #AE0000; padding-left:20px;" id="greskaQuote" align="left">
+                                                  <div class="col-md-12">
+                                                    <span class="text-left" id="quoteLabel">
+                                                      <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('FavQuote') }}
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                            @endif
   										</div>
 
   										<div class="row" style="padding-top: 10px">
@@ -280,10 +353,19 @@
   											</div>
 
                                           	<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaSong" align="left">
-  												<div class="col-md-12">
-                                              		<span class="text-left" id="songLabel"></span>
-  												</div>
+  												                                <div class="col-md-12">
+                                              		            <span class="text-left" id="songLabel"></span>
+  												                                  </div>
                                           	</div>
+                                            @if ($errors->has('FavSong'))
+                                                <div class="row" style="color: #AE0000; padding-left:20px;" id="greskaSong" align="left">
+                                                  <div class="col-md-12">
+                                                    <span class="text-left" id="songLabel">
+                                                      <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('FavSong') }}
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                            @endif
   										</div>
 
   										<div class="row" style="padding-top: 10px">
@@ -293,10 +375,19 @@
   											</div>
 
                                           	<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaLongestRel" align="left">
-  												<div class="col-md-12">
-                                              		<span class="text-left" id="longestRelLabel"></span>
-  												</div>
+  												                                <div class="col-md-12">
+                                              		            <span class="text-left" id="longestRelLabel"></span>
+  												                                  </div>
                                           	</div>
+                                            @if ($errors->has('LongestRel'))
+                                                <div class="row" style="color: #AE0000; padding-left:20px;" id="greskaLongestRel" align="left">
+                                                  <div class="col-md-12">
+                                                    <span class="text-left" id="longestRelLabel">
+                                                      <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('LongestRel') }}
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                            @endif
   										</div>
 
   										<div class="row" style="padding-top: 10px">
@@ -306,10 +397,19 @@
   											</div>
 
                                           	<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaBestQuality" align="left">
-  												<div class="col-md-12">
-                                              		<span class="text-left" id="bestQualLabel"></span>
-  												</div>
+  												                                <div class="col-md-12">
+                                              		            <span class="text-left" id="bestQualLabel"></span>
+  												                                  </div>
                                           	</div>
+                                            @if ($errors->has('BestQuality'))
+                                                <div class="row" style="color: #AE0000; padding-left:20px;" id="greskaBestQuality" align="left">
+                                                  <div class="col-md-12">
+                                                    <span class="text-left" id="bestQualLabel">
+                                                      <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('BestQuality') }}
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                            @endif
   										</div>
 
   										<div class="row" style="padding-top: 10px">
@@ -319,10 +419,19 @@
   											</div>
 
                                           	<div class = "row" style = "color: #AE0000; display: none; padding-left:20px;" id="greskaWorstQuality" align="left">
-  												<div class="col-md-12">
-                                              		<span class="text-left" id="worstQualLabel"></span>
-  												</div>
+  												                                <div class="col-md-12">
+                                              		            <span class="text-left" id="worstQualLabel"></span>
+  												                                  </div>
                                           	</div>
+                                            @if ($errors->has('WorstQuality'))
+                                                <div class="row" style="color: #AE0000; padding-left:20px;" id="greskaWorstQuality" align="left">
+                                                  <div class="col-md-12">
+                                                    <span class="text-left" id="worstQualLabel">
+                                                      <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('WorstQuality') }}
+                                                    </span>
+                                                  </div>
+                                                </div>
+                                            @endif
   										</div>
 
   										<div class="row" style="padding-top: 10px">
@@ -462,6 +571,15 @@
                                               		<span class="text-left" id="workLabel"></span>
 
                                           		</div>
+                                              @if ($errors->has('fieldOfWork'))
+                                                  <div class="row" style="color: #AE0000; padding-left:20px;" id="greskaWork" align="left">
+
+                                                      <span class="text-left" id="workLabel">
+                                                        <span class="glyphicon glyphicon-remove"></span> {{ $errors->first('fieldOfWork') }}
+                                                      </span>
+
+                                                  </div>
+                                              @endif
   											</div>
   										</div>
 
