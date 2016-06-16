@@ -219,11 +219,11 @@
                                           	</div>
   										</div>
 
-  										<div class="row" id="changePassKolona">
+  										<!--<div class="row" id="changePassKolona">
   											<div class="col-md-6" align="left">
   												<span style="font-weight: bold; color: #AE0000; cursor: pointer" onclick="reportKor1()">Change password</span>
   											</div>
-  										</div>
+  										</div>-->
 
   										<div class="row" style="padding-top: 20px; padding-bottom: 7px">
   											<div class="col-md-9"></div>
