@@ -35,7 +35,7 @@ function retrieveChatMessages()
                 time = messages[i]["time"];
                 idFrom = messages[i]["id_source_user"];
                 if(msges['userTo']["id"] == idFrom){
-                  data1 = "<tr><td class='colleft' id='sirina'><div style='display: table; table-layout: fixed; word-break: break-word'><div style='display: table-row'><div style='display: table-cell' class='msgBox1'><span class='message'>"+text+"</span> <br/><span class='messagetime'>"+time+"</span></div></div></div></td></tr>";
+                  data1 = "<tr><td class='colleft' id='sirina'><div style='display: table; table-layout: fixed; word-break: break-word'><div style='display: table-row'><div style='display: table-cell' class='msgBox1'><span class='message'>"+escapeHtml(text)+"</span> <br/><span class='messagetime'>"+time+"</span></div></div></div></td></tr>";
                   $('#tabelica1').append(data1);
 
                 }else{
@@ -89,7 +89,7 @@ function sendMessage(){
                 time = messages[i]["time"];
                 idFrom = messages[i]["id_source_user"];
                 if(msges['userTo']["id"] == idFrom){
-                  data1 = "<tr><td class='colleft' id='sirina'><div style='display: table; table-layout: fixed; word-break: break-word'><div style='display: table-row'><div style='display: table-cell' class='msgBox1'><span class='message'>"+text+"</span> <br/><span class='messagetime'>"+time+"</span></div></div></div></td></tr>";
+                  data1 = "<tr><td class='colleft' id='sirina'><div style='display: table; table-layout: fixed; word-break: break-word'><div style='display: table-row'><div style='display: table-cell' class='msgBox1'><span class='message'>"+escapeHtml(text)+"</span> <br/><span class='messagetime'>"+time+"</span></div></div></div></td></tr>";
                   $('#tabelica1').append(data1);
 
                 }else{

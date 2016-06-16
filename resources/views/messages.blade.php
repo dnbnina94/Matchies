@@ -12,7 +12,7 @@ Notifications
 
 @section('javascriptlinks')
 	<script src="/bootstrap-3.3.6-dist/js/promenaProfila.js"></script>
-  <script src="/bootstrap-3.3.6-dist/js/openSettings.js"></script>
+  	<script src="/bootstrap-3.3.6-dist/js/openSettings.js"></script>
 @stop
 
 
