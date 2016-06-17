@@ -32,7 +32,7 @@ class MilenaTestLogin extends TestCase
         ]);
 
         $this->assertRedirectedTo('/home');
-      $this->assertEquals(2,Auth::user()->type);
+        $this->assertEquals(3,Auth::user()->type);
 
 
       }
@@ -58,7 +58,7 @@ class MilenaTestLogin extends TestCase
       '_token' => csrf_token()
     ]);
     $this->assertRedirectedTo('/admin');
-  $this->assertEquals(1,Auth::user()->type);
+    $this->assertEquals(1,Auth::user()->type);
   }
 
 
