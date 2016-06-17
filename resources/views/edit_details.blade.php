@@ -153,7 +153,7 @@
   											</div>
 
   											<div class="col-md-6 desnaKolonaBasicInfo" align="left">
-  												<span>You education:</span><br/>
+  												<span>Your education:</span><br/>
   												<select class="form-control" name="educationStatus" class="textForm" id="education" style="font-size:16px; padding-left: 8px;">
   										 			<option value="edStatus" disabled style="color: #8E8E8E">Your education</option>
   										 			<option value="High School"
