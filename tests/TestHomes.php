@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\User as User;
 use App\Registered_user as Registered_user;
 
-class MilenaTestHomes extends TestCase
+class TestHomes extends TestCase
 {
 
     public function testHomeAdmin()

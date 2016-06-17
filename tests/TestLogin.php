@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class MilenaTestLogin extends TestCase
+class TestLogin extends TestCase
 {
 
         public function testLoginPostRedirectIndex(){
