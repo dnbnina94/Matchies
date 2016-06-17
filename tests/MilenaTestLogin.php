@@ -1,5 +1,7 @@
 <?php
 
+//autor: Milena Filipovic 73/13
+
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -30,7 +32,7 @@ class MilenaTestLogin extends TestCase
         ]);
 
         $this->assertRedirectedTo('/home');
-        $this->assertEquals(Auth::user()->type, 3);
+      $this->assertEquals(2,Auth::user()->type);
 
 
       }
@@ -44,7 +46,7 @@ class MilenaTestLogin extends TestCase
       ]);
 
       $this->assertRedirectedTo('/moderator');
-      $this->assertEquals(Auth::user()->type, 2);
+      $this->assertEquals(2,Auth::user()->type);
     }
 
 
@@ -56,7 +58,7 @@ class MilenaTestLogin extends TestCase
       '_token' => csrf_token()
     ]);
     $this->assertRedirectedTo('/admin');
-    $this->assertEquals(Auth::user()->type, 1);
+  $this->assertEquals(1,Auth::user()->type);
   }
 
 

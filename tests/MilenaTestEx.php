@@ -1,16 +1,12 @@
 <?php
-
+//autor: Milena Filipovic 73/13
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class MilenaTestEx extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
+    
     public function testRedirectFromHome()
     {
       //  $this->assertTrue(true);
