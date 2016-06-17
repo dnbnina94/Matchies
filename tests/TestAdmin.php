@@ -8,8 +8,8 @@ use App\Registered_user as Registered_user;
 
 class TestAdmin extends TestCase
 {
-
-
+//ima vec
+/*
   public function testIndexAdmin()
   {
     $user = User::where('type','=',1)->first();
@@ -19,6 +19,7 @@ class TestAdmin extends TestCase
     $this->assertResponseOk();
 
   }
+  */
 
   public function testUsersAdmin()
   {
