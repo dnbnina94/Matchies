@@ -189,5 +189,29 @@ function editDetailsScript() {
 		document.getElementById("intLabel").innerHTML = "";
 	} */
 
+	if (firstDate == "" || firstDate == null) {
+		document.forms["editDetails"]["PerfFirstDate"].value = "/";
+	}
+
+	if (favQuote == "" || favQuote == null) {
+		document.forms["editDetails"]["FavQuote"].value = "/";
+	}
+
+	if (favSong == "" || favSong == null) {
+		document.forms["editDetails"]["FavSong"].value = "/";
+	}
+
+	if (longestRel == "" || longestRel == null) {
+		document.forms["editDetails"]["LongestRel"].value = "/";
+	}
+
+	if (bestQuality == "" || bestQuality == null) {
+		document.forms["editDetails"]["BestQuality"].value = "/";
+	}
+
+	if (worstQuality == "" || worstQuality == null) {
+		document.forms["editDetails"]["WorstQuality"].value = "/";
+	}
+
     return proslo;
 }

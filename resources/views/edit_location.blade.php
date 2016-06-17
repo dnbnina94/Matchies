@@ -29,7 +29,7 @@
 @stop
 
 @section('onloadfunction')
-  onload="ucitajDrzaveIGradove(); pullNotifications();"
+  onload="ucitajDrzaveIGradove('{{$reg->country}}','{{$reg->city}}'); pullNotifications();"
 @stop
 
 @section('content')

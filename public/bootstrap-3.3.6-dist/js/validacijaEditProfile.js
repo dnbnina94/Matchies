@@ -1952,7 +1952,7 @@ function validacija2() {
     return proslo;
 }
 
-function ucitajDrzaveIGradove() {
+function ucitajDrzaveIGradove(selDrzava,selGrad) {
     var myJson = {
         "country": [
             {
@@ -2015,7 +2015,20 @@ function ucitajDrzaveIGradove() {
     }
 
     $.each(myJson.country, function (index, value) {
-        $("#country").append('<option value="'+value.id+'">'+value.name+'</option>');
+        if (selDrzava == value.name) {
+            $("#country").append('<option value="'+value.id+'" selected>'+value.name+'</option>');
+
+
+            $('#city').html('<option value="selectCity" disabled>Your city</option>');
+            $.each(myJson.country[index].cities, function (index1, value1) {
+                if (selGrad == value1.name)
+                    $("#city").append('<option value="'+value1.id+'" selected>'+value1.name+'</option>');
+                else
+                    $("#city").append('<option value="'+value1.id+'">'+value1.name+'</option>');
+            });
+        }
+        else
+            $("#country").append('<option value="'+value.id+'">'+value.name+'</option>');
     });
 
     $('#country').on('change', function(){
