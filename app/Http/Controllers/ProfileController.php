@@ -187,6 +187,7 @@ class ProfileController extends Controller
 
         $user = Auth::user();
         $reg = Registered_user::find($user->id);
+        $username = $user->username;
 
         $infoOld = array(
           'user' => $user,
@@ -206,7 +207,7 @@ class ProfileController extends Controller
 
           }
 
-        if (Auth::attempt(['password' => $currentPassword])) {
+        if (Auth::attempt(['username' => $username, 'password' => $currentPassword])) {
           $user->password = Hash::make($password);
           $user->save();
 
@@ -229,9 +230,10 @@ class ProfileController extends Controller
 
       public function obrisiSvojProfil(Request $request) {
         $password = $request->input('currentPass');
+        $user = Auth::user();
+        $username = $user->username;
 
-        if (Auth::attempt(['password' => $password])) {
-               $user = Auth::user();
+        if (Auth::attempt(['username' => $username, 'password' => $password])) {
                $user->delete();
                return redirect()->route('index')->withErrors(['You have successfully deleted your account.']);
             }
