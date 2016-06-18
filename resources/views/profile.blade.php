@@ -251,7 +251,7 @@ href = "/profile/{{$user->id}}"
 											</div>
 											<div class="row UserInfoRows">
 												<div class="col-md-5 UserInfoRowsCol1" style="font-weight: bold; color: #AE0000">Perfect first date: </div>
-												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFirstDateCol">{{$targetRegUser->firstDate}}</div>
+												<div class="col-md-7 UserInfoRowsCol2" style="color: white; font-weight: normal;" id="UserFirstDateCol">{{$targetRegUser->first_date}}</div>
 											</div>
 
 											<div class="row UserInfoRows" style="padding-top: 20px">
