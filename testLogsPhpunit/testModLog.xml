@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="TestMod" file="C:\laragon\www\Matchies\tests\TestMod.php" tests="2" assertions="3" failures="0" errors="0" time="0.318018">
+    <testcase name="testUsersMod" class="TestMod" file="C:\laragon\www\Matchies\tests\TestMod.php" line="23" assertions="1" time="0.268015"/>
+    <testcase name="testHomeRedirectMod" class="TestMod" file="C:\laragon\www\Matchies\tests\TestMod.php" line="33" assertions="2" time="0.050003"/>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="TestAdmin" file="C:\laragon\www\Matchies\tests\TestAdmin.php" tests="4" assertions="7" failures="0" errors="0" time="0.554032">
+    <testcase name="testUsersAdmin" class="TestAdmin" file="C:\laragon\www\Matchies\tests\TestAdmin.php" line="24" assertions="1" time="0.253014"/>
+    <testcase name="testModsAdmin" class="TestAdmin" file="C:\laragon\www\Matchies\tests\TestAdmin.php" line="32" assertions="1" time="0.055003"/>
+    <testcase name="testHomeRedirectAdmin" class="TestAdmin" file="C:\laragon\www\Matchies\tests\TestAdmin.php" line="41" assertions="2" time="0.045003"/>
+    <testcase name="testMakeModAdmin" class="TestAdmin" file="C:\laragon\www\Matchies\tests\TestAdmin.php" line="51" assertions="3" time="0.201012"/>
+  </testsuite>
+</testsuites>
