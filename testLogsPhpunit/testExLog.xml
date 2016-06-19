@@ -1,1 +1,13 @@
-<html><body><h2 id="TestEx">Ex</h2><ul><li>Redirect from home</li><li>Redirect from messages</li><li>Redirect from chat</li><li>Redirect from notifications</li><li>Redirect from edit</li><li>Redirect from searching</li><li>Redirect from mod home</li><li>Redirect from admin home</li></ul></body></html>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="TestEx" file="C:\laragon\www\Matchies\tests\TestEx.php" tests="8" assertions="17" failures="0" errors="0" time="0.556031">
+    <testcase name="testRedirectFromHome" class="TestEx" file="C:\laragon\www\Matchies\tests\TestEx.php" line="10" assertions="3" time="0.257014"/>
+    <testcase name="testRedirectFromMessages" class="TestEx" file="C:\laragon\www\Matchies\tests\TestEx.php" line="21" assertions="2" time="0.042003"/>
+    <testcase name="testRedirectFromChat" class="TestEx" file="C:\laragon\www\Matchies\tests\TestEx.php" line="28" assertions="2" time="0.041002"/>
+    <testcase name="testRedirectFromNotifications" class="TestEx" file="C:\laragon\www\Matchies\tests\TestEx.php" line="35" assertions="2" time="0.043003"/>
+    <testcase name="testRedirectFromEdit" class="TestEx" file="C:\laragon\www\Matchies\tests\TestEx.php" line="42" assertions="2" time="0.043002"/>
+    <testcase name="testRedirectFromSearching" class="TestEx" file="C:\laragon\www\Matchies\tests\TestEx.php" line="49" assertions="2" time="0.041002"/>
+    <testcase name="testRedirectFromModHome" class="TestEx" file="C:\laragon\www\Matchies\tests\TestEx.php" line="56" assertions="2" time="0.044002"/>
+    <testcase name="testRedirectFromAdminHome" class="TestEx" file="C:\laragon\www\Matchies\tests\TestEx.php" line="63" assertions="2" time="0.045003"/>
+  </testsuite>
+</testsuites>

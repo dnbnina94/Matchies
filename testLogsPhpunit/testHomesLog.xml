@@ -1,1 +1,8 @@
-<html><body><h2 id="TestHomes">Homes</h2><ul><li>Home admin</li><li>Home moderator</li><li>Home reg</li></ul></body></html>
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="TestHomes" file="C:\laragon\www\Matchies\tests\TestHomes.php" tests="3" assertions="3" failures="0" errors="0" time="0.365021">
+    <testcase name="testHomeAdmin" class="TestHomes" file="C:\laragon\www\Matchies\tests\TestHomes.php" line="12" assertions="1" time="0.313018"/>
+    <testcase name="testHomeModerator" class="TestHomes" file="C:\laragon\www\Matchies\tests\TestHomes.php" line="20" assertions="1" time="0.026001"/>
+    <testcase name="testHomeReg" class="TestHomes" file="C:\laragon\www\Matchies\tests\TestHomes.php" line="28" assertions="1" time="0.026002"/>
+  </testsuite>
+</testsuites>
